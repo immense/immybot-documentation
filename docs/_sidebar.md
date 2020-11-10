@@ -1,0 +1,3 @@
+- Scripts
+  - [Overview](scripts.md)
+  - [Executing Scripts on the Server](immy-commands.md)
