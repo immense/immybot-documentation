@@ -1,2 +1,2 @@
-# immybot-documentation
+# ImmyBot Documentation
 ImmyBot Documentation
