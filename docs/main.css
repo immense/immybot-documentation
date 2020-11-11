@@ -17,3 +17,12 @@
 #docsify-darklight-theme {
     right: 100px;
 }
+
+h1, h2 {
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--borderColor)
+}
+
+.app-name {
+    border: none;
+}
