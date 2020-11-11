@@ -1,3 +1,3 @@
-- Scripts
-  - [Overview](scripts.md)
+- Getting Started
+  - [Scripts](scripts.md)
   - [Executing Scripts on the Server](immy-commands.md)
