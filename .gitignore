@@ -1,0 +1,10 @@
+*.log
+.DS_Store
+.idea
+__diff_output__
+lib/
+node_modules
+themes/
+
+# exceptions
+!.gitkeep

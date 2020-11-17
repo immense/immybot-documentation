@@ -66,11 +66,51 @@ Coming soon
 
 ### Send-ImmyEmail
 
+Sends an Immybot styled email.  If no `To` is provided, then the email will be sent using the same logic for sending the detection emails during a maintenance session.
+
+#### Usage
+
+```powershell
+Send-ImmyEmail [-Subject] <string> [-Body] <string> [[-To] <List[string]>] [[-Bcc] <List[string]>]
+```
+
+#### Examples
+
 Coming Soon
 
 ### Refresh-ComputerSystemInfo
 
-Coming Soon
+#### Usage
+
+This command will run an inventory command to refresh the following computer information:
+
+- ComputerName
+- SerialNumber
+- ChassisTypes
+- DomainRole
+- Domain
+- OsName
+- OsInstallDate
+- LastBootTime
+- Model
+- Manufacturer
+
+```powershell
+Refresh-ComputerSystemInfo [[-Computer] <PSComputer>]
+```
+
+#### Examples
+
+```powershell
+<# If you do not supply the Computer parameter, then it will default to using the computer for the current session #>
+Refresh-ComputerSystemInfo
+```
+
+```powershell
+<# This will refresh the computer system info for all servers. #>
+Get-ImmyComputer -TargetGroupFilter Servers | Refresh-ComputerSystemInfo
+```
+
 
 ### Get-RmmComputer
 
