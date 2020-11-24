@@ -55,7 +55,7 @@ Retrieves an instance of an RMM Provider for the specified type.
 #### Usage
 
 ```powershell
-Get-RmmProvider [-ProviderType] <["CWAutomate", "CWControl", "ImmyAgent"]>
+Get-RmmProvider [-ProviderType] <["CW Automate", "CW Control"]>
 ```
 
 #### Examples
