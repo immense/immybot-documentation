@@ -64,6 +64,36 @@ Coming soon
 
 ## Metascript Commands
 
+### Invoke-ImmyCommand
+
+A powerful command that allows you to execute scripts remotely on devices.
+
+#### Usage
+
+```powershell
+Invoke-ImmyCommand [-ScriptBlock] <Object> [-Computer <PSComputer>] [-Context <string>] [-ArgumentList <array>] [-Timeout <int>] [<CommonParameters>]
+```
+
+`-Context` accepts either "System" or "User"
+
+`-Timeout` accepts an integer denoted in seconds.
+
+#### Examples
+
+```powershell
+<# Execute a metascript against the primary computer #>
+Invoke-ImmyCommand {
+  <# add powershell to run on the comptuer #>
+  write-output "hello"
+}
+```
+
+```powershell
+<# Retrieve a list of computers and run a command on all of them #>
+Get-ImmyComputer -TargetGroupFilter All | Invoke-ImmyCommand {
+  Write-Output "Hello"
+}
+```
 ### Send-ImmyEmail
 
 Sends an Immybot styled email.  If no `To` is provided, then the email will be sent using the same logic for sending the detection emails during a maintenance session.
@@ -76,7 +106,10 @@ Send-ImmyEmail [-Subject] <string> [-Body] <string> [[-To] <List[string]>] [[-Bc
 
 #### Examples
 
-Coming Soon
+```powershell
+<# Sends an email using the same logic used in sending detection emails out during maintenance. #>
+Send-ImmyEmail -Subject "Test" -Body "Some Body"
+```
 
 ### Refresh-ComputerSystemInfo
 

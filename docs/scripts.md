@@ -66,6 +66,17 @@ At this time, the variables are string replacements.
 
 Avoid setting these variables yourself or having variables with similar names.
 
+### $AzureTenantId
+
+`[string] The Azure Principal Id of the computer's tenant.
+
+- Software Detection
+- Software Auto Update
+- Software Version Action
+- Maintenance Task Setter
+- Metascript Deployment Target
+- Filterscript Deployment Target
+
 ### $ComputerName
 
 `[string]` Name of the computer the session is running against
