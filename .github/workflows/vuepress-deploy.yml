@@ -7,11 +7,14 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: immense/immybot-documentation@main
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: vuepress-deploy
+      uses: jenkey2011/vuepress-deploy@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BUILD_DIR: docs/.vuepress/dist # The folder, the action should deploy.
-        BUILD_SCRIPT: yarn && yarn build
         TARGET_REPO: immense/immybot-documentation
         TARGET_BRANCH: gh_pages
+        BUILD_SCRIPT: yarn && yarn build
+        BUILD_DIR: docs/.vuepress/dist/
