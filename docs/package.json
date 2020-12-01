@@ -1,0 +1,22 @@
+{
+  "name": "vuepress-demo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "authors": {
+    "name": "",
+    "email": ""
+  },
+  "repository": "/vuepress-demo",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.7.1"
+  },
+  "dependencies": {
+    "vuepress-plugin-sitemap": "^2.3.1"
+  }
+}

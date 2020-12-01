@@ -1,2 +1,0 @@
-# ImmyBot Documentation
-ImmyBot Documentation
