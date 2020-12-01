@@ -13,7 +13,7 @@ jobs:
     - name: vuepress-deploy
       uses: jenkey2011/vuepress-deploy@master
       env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         TARGET_REPO: immense/immybot-documentation
         TARGET_BRANCH: gh_pages
         BUILD_SCRIPT: yarn && yarn build
