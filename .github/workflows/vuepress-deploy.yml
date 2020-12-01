@@ -10,3 +10,5 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BUILD_DIR: docs/.vuepress/dist # The folder, the action should deploy.
         BUILD_SCRIPT: yarn && yarn build
+        TARGET_REPO: immense/immybot-documentation
+        TARGET_BRANCH: gh_pages
