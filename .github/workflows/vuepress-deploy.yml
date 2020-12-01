@@ -17,4 +17,4 @@ jobs:
         TARGET_REPO: immense/immybot-documentation
         TARGET_BRANCH: gh_pages
         BUILD_SCRIPT: yarn && yarn build
-        BUILD_DIR: docs/.vuepress/dist/
+        BUILD_DIR: src/.vuepress/dist/
