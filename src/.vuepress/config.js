@@ -51,6 +51,7 @@ module.exports = {
             '',
             'scripts',
             'immy-commands',
+            'csp-preconsent-instructions'
           ]
         }
       ],
