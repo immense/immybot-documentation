@@ -82,6 +82,9 @@ This is a VERY powerful, and critically underrated feature in ImmyBot.
 ![](../.vuepress/images/2021-02-23-09-18-04.png)
 
 #### Ordering Maintenance Actions
+Because the actions on a session are dynamically generated, it isn't feasible to simply include a sort order number. 
+
+The reality is the order doesn't matter, as long as _certain_ things are done before _certain other things_, like installing Office before installing Outlook Add-ins
 ![](../.vuepress/images/2021-02-23-09-15-27.png)
 
 
