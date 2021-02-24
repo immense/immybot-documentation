@@ -15,9 +15,9 @@ DO NOT BE AFRAID TO SAVE YOUR DEPLOYMENTS, UNLIKE GROUP POLICY THEY DO NOT APPLY
 
 If you DO want your Deployments to be applied automatically, you need to create a Schedule.
 
-![](img/2021-02-23-08-22-00.png)
+![](../.vuepress/images/2021-02-23-08-22-00.png)
 
-![](img/2021-02-23-09-46-59.png)
+![](../.vuepress/images/2021-02-23-09-46-59.png)
 
 
 ### Target
@@ -45,11 +45,11 @@ That's a Maintenance Session.
 
 You can view Maintenance Sessions for all computers under Computers-Sessions
 
-![](img/2021-02-23-08-47-36.png)
+![](../.vuepress/images/2021-02-23-08-47-36.png)
 
 Or, you can view Maintenance Sessions for a specific Computer under the Sessions tab for that Computer
 
-![](img/2021-02-23-08-46-09.png)
+![](../.vuepress/images/2021-02-23-08-46-09.png)
 
 ## Maintenance Session Stages
 
@@ -60,7 +60,7 @@ This is a read-only process, and during this time (usually during the day) you c
 
 ### Execution Stage
 
-![](img/2021-02-23-09-44-51.png)
+![](../.vuepress/images/2021-02-23-09-44-51.png)
 
 ## Maintenance Action
 
@@ -68,33 +68,33 @@ A *Maintenance Session* has one or more *Maintenance Actions*. A Maintenance Act
 
 The image below depicts a typical Maintenance Session with many Maintenance Actions
 
-![](img/2021-02-23-06-14-05.png)
+![](../.vuepress/images/2021-02-23-06-14-05.png)
 
 ## Software
 
-![](img/2021-02-23-08-13-18.png)
+![](../.vuepress/images/2021-02-23-08-13-18.png)
 
 ### Pre-Requisities 
 #### Install required dependencies
 
-![](img/2021-02-23-09-18-04.png)
+![](../.vuepress/images/2021-02-23-09-18-04.png)
 
 #### Ordering Maintenance Actions
-![](img/2021-02-23-09-15-27.png)
+![](../.vuepress/images/2021-02-23-09-15-27.png)
 
 
 ### Detection Method
 A Detection Method is required in order to know
 
 ## Software Version
-![](img/2021-02-23-08-08-39.png)
+![](../.vuepress/images/2021-02-23-08-08-39.png)
 
 ## Maintenance Task
-![](img/2021-02-23-08-05-57.png)
+![](../.vuepress/images/2021-02-23-08-05-57.png)
 
 or
 
-![](img/2021-02-23-08-06-49.png)
+![](../.vuepress/images/2021-02-23-08-06-49.png)
 
 ### Maintenance Task Modes
 
@@ -127,13 +127,13 @@ Used to run maintenance periodically on machines. Can optionally be limited to a
 
 To ImmyBot an RMM is a system that provides a list of computers, and a mechanism to run PowerShell scripts on them.
 
-![](img/2021-02-23-06-18-23.png)
+![](../.vuepress/images/2021-02-23-06-18-23.png)
 
 To avoid having to deploy the ImmyAgent to existing machines, ImmyBot optionally integrates with RMMs like ConnectWise Automate and ConnectWise Control and uses their agents instead. These systems are not as performant as the ImmyAgent, but can suppliment ImmyBot functionality.  
 
 For example, if you add an RMM Link for ConnectWise Control, you can open a remote session to the computer directly within ImmyBot:
 
-![](img/2021-02-23-06-34-22.png)
+![](../.vuepress/images/2021-02-23-06-34-22.png)
 
 If you add an RMM Link for ConnectWise Automate, Scheduled Maintenance Sessions will apply all Approved Windows Updates using the ConnectWise Automate API based on your Approval Policies in Automate Patch Manager.
 
@@ -144,13 +144,13 @@ You can even add multiple RMMs of the same type, which is often useful in merger
 Because the same computer often exists in multiple RMMs (Like how CW Automate typically installs CW Control Automatically), ImmyBot prevents duplicates by identifying the computer by a unique id. We DO NOT use MAC Address! This unique id persists even if you wipe and reload the machine. 
 
 When a new machine is detected, it first goes to New Computers->Actively Identifying
-![](img/2021-02-23-06-44-25.png)
+![](../.vuepress/images/2021-02-23-06-44-25.png)
 
 If it is a machine ImmyBot has seen before, it will be associated to the existing Computer, and you will find a new entry under the Computer's Agents tab. Under the hood we call these entries "RmmComputers". 
 
 Computers can have one or more RmmComputers
 
-![](img/2021-02-23-06-45-47.png)
+![](../.vuepress/images/2021-02-23-06-45-47.png)
 
 ### Identification Failures
 
@@ -159,7 +159,7 @@ Often when an RMM Agent gets re-installed, it will get a new id in the RMM (Comp
 
 #### Failed
 
-![](img/2021-02-23-06-51-47.png)
+![](../.vuepress/images/2021-02-23-06-51-47.png)
 
 The most common causes of identification failure are an overloaded or unresponsive RMM, or the machine has broken WMI, preventing us from retrieving the uniqueid of the machine. You may retry identification on one or all of the failed computers once these conditions are resolved.
 
