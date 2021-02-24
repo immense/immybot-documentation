@@ -1,11 +1,11 @@
 # Introduction
 
-## Deployment (aka "TargetAssignment")
+## Deployment (aka "[Target](#target)Assignment")
 
 **Important**
 If you are just getting into ImmyBot, making Deployments is where you should start.
 
-A deployment is a rule that assigns Software or [Maintenance Tasks](#maintenance-task) (Collectively known as "Maintenance Items") to a Target.
+A deployment is a rule that assigns Software or [Maintenance Tasks](#maintenance-task) (Collectively known as "Maintenance Items") to a [Target](#target).
 
 Deployments are conceptually similar to Group Policies in that they assign settings to a group of users or computers.
 
@@ -18,14 +18,14 @@ If you DO want your Deployments to be applied automatically, you need to create 
 ![](../.vuepress/images/2021-02-23-09-46-59.png)
 
 
-### Target
-A "Target" is a grouping of computers (or Tenants in the case of "Cloud Tasks")
+### [Target](#target)
+A "[Target](#target)" is a grouping of computers (or Tenants in the case of "Cloud Tasks")
 
-ImmyBot's ability to resolve targets to a group of computers is perhaps the most powerful feature. 
+ImmyBot's ability to resolve [Targets](#target) to a group of computers is perhaps the most powerful feature. 
 
 For example, you can select a Group from AzureAD (which includes on-prem synced groups, and Teams) and ImmyBot will automatically resolve that to the list of computers in use by the people in that group.
 
-If you enable PSA integration, a Target could be all computers covered under a certain type of Agreement, or computers covered any type of Agreement that includes a certain product.
+If you enable PSA integration, a [Target](#target) could be all computers covered under a certain type of Agreement, or computers covered any type of Agreement that includes a certain product.
 
 ## [Maintenance Session](#maintenance-session)
 
@@ -63,7 +63,7 @@ This is a read-only process, and typically done while the user is active. This i
 
 ## [Maintenance Action](#maintenance-action)
 
-A *[Maintenance Session](#maintenance-session)* has one or more *[Maintenance Actions](#maintenance-action)*. A [Maintenance Action](#maintenance-action) could be to install software, apply a Windows Update, or run a Maintenance Task. 
+A *[Maintenance Session](#maintenance-session)* has one or more *[Maintenance Actions](#maintenance-action)*. A [Maintenance Action](#maintenance-action) could be to install software, apply a Windows Update, or run a [Maintenance Task](#maintenance-task). 
 
 The image below depicts a typical [Maintenance Session](#maintenance-session) with many [Maintenance Actions](#maintenance-action)
 
@@ -72,13 +72,19 @@ The image below depicts a typical [Maintenance Session](#maintenance-session) wi
 ## Software
 Software, in the context of ImmyBot refers to Software objects in My Software or Global Software.
 
-At the bare minimum, Software requires a Detection Method. 
-Software can have many Software Versions. 
+At the bare minimum, Software requires a [Detection Method](#detection-method). 
+Software can have many [Software Versions](#software-version). 
 ![](../.vuepress/images/2021-02-23-08-13-18.png)
 
 ### Pre-Requisities 
-This is a VERY powerful, and critically underrated feature in ImmyBot. 
+This is a VERY powerful, and critically underrated feature in ImmyBot. ImmyBot resolves dependencies recursively, with built-in circular reference logic. 
 
+Common uses for Pre-Requisites include
+* Ensuring a piece of software is installed before installing another 
+  * C++ Redistributables before 3CX Client
+  * Office is installed before an Outlook Add-in
+* Ensuring a piece of software is _uninstalled_ before install another 
+  * Removing Adobe Acrobat Reader before installing Adobe Acrobat Professional
 
 #### Install required dependencies
 
@@ -88,7 +94,11 @@ This is a VERY powerful, and critically underrated feature in ImmyBot.
 ![](../.vuepress/images/2021-02-23-09-15-27.png)
 
 ### Detection Method
-A Detection Method is required in order to know
+A Detection Method is required in order to know whether or not a piece of Software is installed on a machine.
+
+For Software, the detection method must returns the version of the software installed on the machine, if any.
+
+For Maintenance Tasks, the Detection Method is the "test" mechanism, which must return true or false to indicate whether or not the machine is in compliance.
 
 ## Software Version
 ![](../.vuepress/images/2021-02-23-08-08-39.png)
