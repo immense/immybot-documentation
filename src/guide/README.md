@@ -5,11 +5,9 @@
 **Important**
 If you are just getting into ImmyBot, making Deployments is where you should start.
 
-A deployments is a rules that assigns Software or Maintenance Tasks (Collectively known as "Maintenance Items") to Targets.
+A deployments is a rules that assigns Software or [Maintenance Tasks](#maintenance-task) (Collectively known as "Maintenance Items") to Targets.
 
 Deployments are conceptually similar to Group Policies in that they assign settings to a group of users or computers.
-
-
 
 DO NOT BE AFRAID TO SAVE YOUR DEPLOYMENTS, UNLIKE GROUP POLICY THEY DO NOT APPLY AUTOMATICALLY.
 
@@ -29,32 +27,32 @@ For example, you can select a Group from AzureAD (which includes on-prem synced 
 
 If you enable PSA integration, ImmyBot a Target could be all computers covered under a certain type of Agreement, or computers covered any type of Agreement that includes a certain product.
 
-## Maintenance Session
+## [Maintenance Session](#maintenance-session)
 
-A Maintenance Session is conceptually similar to running gpupdate /force
+A [Maintenance Session](#maintenance-session) is conceptually similar to running gpupdate /force
 
 In other systems, different types of maintenance happen on their own schedule. Windows Updates may run on Tuesday night, but Third Party updates may run on Wednesday night, and auto-fix tasks may run whenever an alert is fired for a failed monitor, which has its own polling interval. 
 
-By forcing all automation to happen in a single, linear set of actions we call a Maintenance Session, we can deliver predictability not only as to _what_ changes will be made, but also _when_.
+By forcing all automation to happen in a single, linear set of actions we call a [Maintenance Session](#maintenance-session), we can deliver predictability not only as to _what_ changes will be made, but also _when_.
 
 This also provides a cohesive mechanism for setting up a new computer. At best in traditional RMMs you can assign Monitors that detect the absence of required software and run Install scripts when they are missing, but this doesn't scale as pre-requisites and exclusions are required.
 
 Imagine if Group Policy could reliably deploy any type of software, and gpupdate /force worked reliably off-net, and when you ran it, it gave you real-time immediate feedback about exactly what it was doing. Also imagine that it could optionally notify the end user before and after with a branded email telling them exactly what we are changing, that optionally lets them cancel.
 
-That's a Maintenance Session.
+That's a [Maintenance Session](#maintenance-session).
 
-You can view Maintenance Sessions for all computers under Computers-Sessions
+You can view [Maintenance Sessions](#maintenance-session) for all computers under Computers-Sessions
 
 ![](../.vuepress/images/2021-02-23-08-47-36.png)
 
-Or, you can view Maintenance Sessions for a specific Computer under the Sessions tab for that Computer
+Or, you can view [Maintenance Sessions](#maintenance-session) for a specific Computer under the Sessions tab for that Computer
 
 ![](../.vuepress/images/2021-02-23-08-46-09.png)
 
-## Maintenance Session Stages
+## [Maintenance Session](#maintenance-session) Stages
 
 ### Detection Stage
-During the Detection Stage, the Maintenance Session is populated with a list of Maintenance Actions.
+During the Detection Stage, the [Maintenance Session](#maintenance-session) is populated with a list of [Maintenance Actions](#maintenance-action).
 
 This is a read-only process, and during this time (usually during the day) you can optionally have Immy send an email to the user letting them know that maintenance will be run later.
 
@@ -62,16 +60,19 @@ This is a read-only process, and during this time (usually during the day) you c
 
 ![](../.vuepress/images/2021-02-23-09-44-51.png)
 
-## Maintenance Action
+## [Maintenance Action](#maintenance-action)
 
-A *Maintenance Session* has one or more *Maintenance Actions*. A Maintenance Action could be to install software, apply a Windows Update, or run a Maintenance Task. 
+A *[Maintenance Session](#maintenance-session)* has one or more *[Maintenance Actions](#maintenance-action)*. A [Maintenance Action](#maintenance-action) could be to install software, apply a Windows Update, or run a Maintenance Task. 
 
-The image below depicts a typical Maintenance Session with many Maintenance Actions
+The image below depicts a typical [Maintenance Session](#maintenance-session) with many [Maintenance Actions](#maintenance-action)
 
 ![](../.vuepress/images/2021-02-23-06-14-05.png)
 
 ## Software
+Software, in the context of ImmyBot refers to Software objects in My Software or Global Software.
 
+At the bare minimum, Software requires a Detection Method. 
+Software can have many Software Versions. 
 ![](../.vuepress/images/2021-02-23-08-13-18.png)
 
 ### Pre-Requisities 
@@ -79,7 +80,7 @@ The image below depicts a typical Maintenance Session with many Maintenance Acti
 
 ![](../.vuepress/images/2021-02-23-09-18-04.png)
 
-#### Ordering Maintenance Actions
+#### Ordering [Maintenance Actions](#maintenance-action)
 ![](../.vuepress/images/2021-02-23-09-15-27.png)
 
 
@@ -135,7 +136,7 @@ For example, if you add an RMM Link for ConnectWise Control, you can open a remo
 
 ![](../.vuepress/images/2021-02-23-06-34-22.png)
 
-If you add an RMM Link for ConnectWise Automate, Scheduled Maintenance Sessions will apply all Approved Windows Updates using the ConnectWise Automate API based on your Approval Policies in Automate Patch Manager.
+If you add an RMM Link for ConnectWise Automate, Scheduled [Maintenance Sessions](#maintenance-session) will apply all Approved Windows Updates using the ConnectWise Automate API based on your Approval Policies in Automate Patch Manager.
 
 You can even add multiple RMMs of the same type, which is often useful in merger and acquisition scenarios. You may choose to use ImmyBot as your single pane of glass to manage both, or simply let ImmyBot be a neutral third party for facilitating the consolidation of RMM agents to the parent company's RMM.
 
@@ -165,7 +166,7 @@ The most common causes of identification failure are an overloaded or unresponsi
 
 # Onboarding
 
-In ImmyBot, Onboarding is the first Maintenance Session run against a machine. 
+In ImmyBot, Onboarding is the first [Maintenance Session](#maintenance-session) run against a machine. 
 
 ## Tenants
 
