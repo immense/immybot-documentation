@@ -13,6 +13,13 @@ Software Detection scripts are used to determine whether an existing software is
 ### Software Auto Update
 
 These scripts are useful for automatically adding new versions for a software.
+Script should return a `$SoftwareVersion` object.
+```
+$SoftwareVersion = @{}
+$SoftwareVersion.url = $LatestPackage.OriginFile.OriginUri
+$SoftwareVersion.displayVersion = $VersionFromMsi
+return $SoftwareVersion
+```
 
 ### Software Version Action
 
