@@ -1,9 +1,13 @@
 # Introduction
 
-## Deployment (aka "[Target](#target)Assignment")
+## Deployment (aka "Assignment")
 
 **Important**
 If you are just getting into ImmyBot, making Deployments is where you should start.
+
+Note: You won't see the word "Assignment" in the user interface anywhere, but we plan to re-rename Deployment to Assignment it in a future release as the word "Deployment" triggers people to think that saving their work on that screen will result in the software automatically being deployed. We initially called them Assignments, but then it wasn't obvious that you could actually deploy from that screen if you so desired.
+
+
 
 A deployment is a rule that assigns Software or [Maintenance Tasks](#maintenance-task) (Collectively known as "Maintenance Items") to a [Target](#target).
 
@@ -159,6 +163,15 @@ Because the same computer often exists in multiple RMMs (Like how CW Automate ty
 
 When a new machine is detected, it first goes to New Computers->Actively Identifying
 ![](../.vuepress/images/2021-02-23-06-44-25.png)
+
+It uses the following script to collect the UUID from the machine:
+```
+gwmi Win32_ComputerSystemProduct | select -expand UUID
+```
+
+This value is static even if you wipe and reload the machine. We chose this value instead of Mac Address or Hard Drive serial number because of issues other systems have with USB Ethernet cables and hard drive replacement. We did not use serialnumber because we learned that many computers do not have serial numbers.
+
+In practice, this value works almost _too_ well. Machines you just wiped and expect to find in New Computers, are often associated to their pre-wiped computer objects. To find them, you often have to search for the serial number of the computer in the Computer List. In 0.40.1 we will begin using the Windows OfflineInstallationID value to identify when an existing computer has been wiped so we can set its status to "Needs Onboarding" which will cause it to show up under New Computers as expected.
 
 If it is a machine ImmyBot has seen before, it will be associated to the existing Computer, and you will find a new entry under the Computer's Agents tab. Under the hood we call these entries "RmmComputers". 
 
