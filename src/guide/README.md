@@ -146,7 +146,7 @@ Runs the "test" script which should return true or false. It can output whatever
 Runs the "get" script, which can return anything. Useful for collecting data like Bitlocker Keys, Quickbooks Licenses, or any other piece of information you are interested in.
 
 ## Scripts
-From the above diagrams, you can see that scripts are the building blocks for higher level objects in 
+From the above diagrams, you can see that scripts are the building blocks for higher level objects like Software and Maintenance Tasks.
 
 ### Execution Context
 #### System
@@ -157,6 +157,11 @@ Will attempt to run as the logged on user
 
 #### Metascript
 Runs in the ImmyBot backend, and can spawn code on the system by using Invoke-ImmyCommand 
+
+#### Cloud Script
+Runs in the ImmyBot backend, but intended to be run against a Tenant (perhaps for the purpose of getting or setting some setting in Azure or some other system with an API). These are used exclusively in Maintenance Tasks targetting "Tenants".
+
+![](../.vuepress/images/2021-03-01-14-17-29.png)
 
 ## Schedules
 Used to run maintenance periodically on machines. Can optionally be limited to a single Maintenance Item. NOTE You must also have a Deployment for the Maintenance Item!
@@ -212,7 +217,7 @@ The most common causes of identification failure are an overloaded or unresponsi
 
 # Onboarding
 
-In ImmyBot, Onboarding is the first [Maintenance Session](#maintenance-session) run against a machine. 
+In ImmyBot, Onboarding is the first [Maintenance Session](#maintenance-session) run against a machine. You may enable or disable Onboarding for a given Tenant or entirely under Settings->Preferences. When disabled, computers do not get put into New Computers, and go directly into the Computer list. This is useful if you have a customer that sets up their own computers outside of ImmyBot, as it prevents their machines from clogging up the New Computers area.
 
 ## Tenants
 
