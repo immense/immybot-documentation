@@ -5,22 +5,42 @@
 **Important**
 If you are just getting into ImmyBot, making Deployments is where you should start.
 
-Note: You won't see the word "Assignment" in the user interface anywhere, but we plan to re-rename Deployment to Assignment it in a future release as the word "Deployment" triggers people to think that saving their work on that screen will result in the software automatically being deployed. We initially called them Assignments, but then it wasn't obvious that you could actually deploy from that screen if you so desired.
+Note: You won't see the word "Assignment" in the user interface anywhere, but we plan to re-rename "Deployment" back to "Assignment" it in a future release.
 
+A deployment is a rule that assigns [Software](#software) or [Maintenance Tasks](#maintenance-task) (Collectively known as "Maintenance Items") to a [Target](#target).
 
+### Example: Adobe Reader
 
-A deployment is a rule that assigns Software or [Maintenance Tasks](#maintenance-task) (Collectively known as "Maintenance Items") to a [Target](#target).
+This is the first Deployment I make in most instances
+
+![](../.vuepress/images/2021-03-01-08-42-41.png)
 
 Deployments are conceptually similar to Group Policies in that they assign settings to a group of users or computers.
 
 IF YOU ARE JUST GETTING START WITH IMMYBOT, DO NOT BE AFRAID TO SAVE YOUR DEPLOYMENTS. THEY DO NOT APPLY AUTOMATICALLY.
 
-If you DO want your Deployments to be applied automatically, you need to create a Schedule.
+If you DO want your Deployments to be applied automatically, you need to create a [Schedule](#schedules).
 
-![](../.vuepress/images/2021-02-23-08-22-00.png)
+## Deployment Resolution
 
-![](../.vuepress/images/2021-02-23-09-46-59.png)
+Also known as
 
+* Creating Exceptions
+* "Winning" Deployments
+* Dealing with Snowflakes
+
+
+Like Group Policies have a "Winning Policy", ImmyBot must have a "Winning Deployment" for a given Maintenance Item on a computer.
+
+Let's say you have a customer "Contoso" that uses Adobe Acrobat instead of Adobe Reader, and you would like that to be installed instead.
+
+First, create a Deployment that sets the desired state of Adobe Reader to Uninstalled for Contoso
+
+![](../.vuepress/images/2021-03-01-08-44-19.png)
+
+Then, create a Deployment that Installs Adobe Acrobat for their computers
+
+![](../.vuepress/images/2021-03-01-08-51-38.png)
 
 ### [Target](#target)
 A "[Target](#target)" is a grouping of computers (or Tenants in the case of "Cloud Tasks")
