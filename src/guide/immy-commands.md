@@ -181,7 +181,50 @@ Coming Soon
 
 ### Add-SoftwareVersion
 
-Coming Soon
+#### Usage
+
+```powershell
+Add-SoftwareVersion [-SoftwareVersion <SoftwareVersion>]
+  [-SoftwareType {GlobalSoftware | LocalSoftware | WindowsUpdate | Chocolatey | Ninite}]
+  [-DisplayName <string>]
+  [-SemanticVersion <string>]
+  [-TestRequired <bool>]
+  [-Url <string>]
+  [-RelativeCacheSourcePath <string>]
+  [-InstallerFile <string>]
+  [-PackageHash <string>]
+  [-TestFailedError <string>]
+  [-InstallScriptId <int>]
+  [-InstallScriptType {Global | Local}]
+  [-TestScriptId <int>]
+  [-TestScriptType {Global | Local}]
+  [-UpgradeScriptId <int>]
+  [-UpgradeScriptType {Global | Local}]
+  [-UninstallScriptId <int>]
+  [-UninstallScriptType {Global | Local}]
+  [-PostInstallScriptId <int>]
+  [-PostInstallScriptType {Global | Local}]
+  [-PostUninstallScriptId <int>]
+  [-PostUninstallScriptType {Global | Local}]
+  [-LicenseType {None | LicenseFile | Key}]
+  [-UpgradeStrategy {None | UninstallInstall | InstallOver | UpgradeScript}]
+  [-PackageType {None | EntireFolder | InstallerFile}]
+  [-InstallerType {None | File | Url}]
+  [-BlobName <string>]
+  [-Notes <string>]
+  [-ProductCode <string>]
+  [<CommonParameters>]
+```
+
+#### Examples
+
+```powershell
+$download_page = Invoke-WebRequest -Uri 'https://github.com/dbeaver/dbeaver/releases/latest' -UseBasicParsing
+$url = $download_page.links | ? href -match '\.exe$' | select -Expand href -First 1 | % { 'https://github.com' + $_ }
+$versionString = $url -split '/' | select -Last 1 -Skip 1
+$latestVersion = $SoftwareVersions | sort SemanticVersion | select -last 1
+$createdVersion = Add-SoftwareVersion -SoftwareVersion $latestVersion -SemanticVersion  $versionString -Url $url
+```
 
 ### Get-AllLocalScripts
 
