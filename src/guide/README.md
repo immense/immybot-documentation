@@ -1,5 +1,66 @@
 # Introduction
 
+## Starting your ImmyBot Trial 
+
+### Create your trial instance
+
+In the Welcome to ImmyBot! email, click Setup ImmyBot
+
+![](../.vuepress/images/2021-03-15-08-26-56.png)
+
+![](../.vuepress/images/2021-03-15-08-27-10.png)
+
+Do something else for 6 minutes. Or 9 minutes if you are in Australia. It takes longer there for some reason.
+
+You’ll receive this email when your instance is ready:
+
+![](../.vuepress/images/2021-03-15-08-27-20.png)
+
+![](../.vuepress/images/2021-03-15-08-27-29.png)
+
+## Setup your first Computer
+
+### Scenario 1: Adobe Reader
+
+In this example we will tell ImmyBot that all computers you setup should get Adobe Reader.
+
+We do this by making a [Deployment](#deployment-aka-assignment) that assigns Adobe Reader to all Workstations and Portable Devices. (Note, we use the term Portable Devices instead of laptops to be inclusive of Windows tablets. ImmyBot is not an MDM and does not support phones)
+
+![](../.vuepress/images/2021-03-15-08-29-52.png)
+
+![](../.vuepress/images/2021-03-15-08-29-57.png)
+
+![](../.vuepress/images/2021-03-15-08-30-04.png)
+
+### Test with Windows Sandbox
+
+Windows Sandbox is fast loading disposable container in Windows that loses all settings when shutdown or restarted. It is very convenient for testing software deployments.
+
+If you have never used Windows Sandbox before, you will need to enable it with the following PowerShell command run as Admin and then restart your computer.
+
+```powershell
+Enable-WindowsOptionalFeature -FeatureName "Containers-DisposableClientVM" -All -Online -NoRestart
+```
+
+### Download Windows Sandbox file (.wsb)
+
+![](../.vuepress/images/2021-03-15-08-29-07.png)
+
+![](../.vuepress/images/2021-03-15-08-29-35.png)
+
+Wait for ImmyBot Agent to install
+![](../.vuepress/images/2021-03-15-08-29-41.png)
+
+
+[Onboard](#onboarding) the Sandbox
+![](../.vuepress/images/2021-03-15-08-30-29.png)
+
+![](../.vuepress/images/2021-03-15-08-47-28.png)
+
+![](../.vuepress/images/2021-03-15-08-37-50.png)
+
+This will create a Maintenance Session that will discover that Adobe Reader should be installed on the machine, check if it is already installed, install Chocolatey, then use Chocolatey to install Adobe Reader.
+
 ## Deployment (aka "Assignment")
 
 **Important**
