@@ -46,9 +46,10 @@ module.exports = {
     sidebar: {
       '/guide/': [
         {
-          title: 'Guide',
+          title: 'Guides',
           children: [
             '',
+            'connectwise-manage-integration',
             'scripts',
             'immy-commands',
             'csp-preconsent-instructions'
