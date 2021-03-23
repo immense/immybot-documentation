@@ -6,6 +6,8 @@ Follow this guide to setup ConnectWise Manage as a PSA Link.
 
 - *Company -> Company Maintenance -> Inquire Level (All)*
 - *Finance -> Agreements -> Inquire Level (All)*
+- *Procurement -> Product Catalog -> Inquire Level (All)*
+- *Procurement -> Product -> Inquire Level (All)*
 - *System -> API Reports -> Inquire Level (All)*
 
 ![](../.vuepress/images/2021-03-23-14-26-14.png)
