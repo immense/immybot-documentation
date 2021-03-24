@@ -1,4 +1,4 @@
-# ConnectWise Automate Integration
+# ConnectWise Control Integration
 
 ## Install ImmyBot Extension for Control
 
