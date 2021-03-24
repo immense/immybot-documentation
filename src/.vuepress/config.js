@@ -40,20 +40,27 @@ module.exports = {
     nav: [
       {
         text: 'Guide',
-        link: '/guide/',
+        link: '/guide/introduction',
       },
     ],
     sidebar: {
       '/guide/': [
         {
-          title: 'Guides',
+          title: 'Getting Started',
+          collapsable: false,
           children: [
-            '',
+            'introduction',
+            'scripts',
+            'immy-commands',
+          ]
+        },
+        {
+          title: "Integrations",
+          collapsable: false,
+          children: [
             'connectwise-automate-integration-setup',
             'connectwise-control-integration-setup',
             'connectwise-manage-integration-setup',
-            'scripts',
-            'immy-commands',
             'csp-preconsent-instructions'
           ]
         }

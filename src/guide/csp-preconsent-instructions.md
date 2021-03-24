@@ -1,4 +1,4 @@
-# CSP Preconsent Instructions
+# Azure CSP Preconsent Instructions
 
 ## 1. Create an App Registration
 
