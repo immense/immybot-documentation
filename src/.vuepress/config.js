@@ -49,9 +49,9 @@ module.exports = {
           title: 'Guides',
           children: [
             '',
-            'connectwise-automate-integration',
-            'connectwise-control-integration',
-            'connectwise-manage-integration',
+            'connectwise-automate-integration-setup',
+            'connectwise-control-integration-setup',
+            'connectwise-manage-integration-setup',
             'scripts',
             'immy-commands',
             'csp-preconsent-instructions'
