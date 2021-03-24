@@ -1,4 +1,4 @@
-# ConnectWise Manage Integration
+# ConnectWise Manage Integration Setup
 
 Follow this guide to setup ConnectWise Manage as a PSA Link.
 
