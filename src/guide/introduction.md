@@ -75,7 +75,7 @@ If you haven't consented to allow Immy to read your AzureAD, you'll need to know
 
 Second, Make the Person a user
 
-![](../.vuepress/images/LoginImg4.png)
+![](../.vuepress/images/Loginimg4.png)
 
 (Optional) Make that User an Admin.
 
