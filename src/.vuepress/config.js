@@ -49,6 +49,8 @@ module.exports = {
           title: 'Guides',
           children: [
             '',
+            'connectwise-automate-integration',
+            'connectwise-control-integration',
             'connectwise-manage-integration',
             'scripts',
             'immy-commands',
