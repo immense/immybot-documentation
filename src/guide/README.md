@@ -34,9 +34,9 @@ We do this by making a [Deployment](#deployment-aka-assignment) that assigns Ado
 
 ### Test with Windows Sandbox
 
-Windows Sandbox is fast loading disposable container in Windows that loses all settings when shutdown or restarted. It is very convenient for testing software deployments.
+Windows Sandbox is a fast loading disposable container in Windows that loses all settings when shutdown or restarted. It is very convenient for testing software deployments.
 
-If you have never used Windows Sandbox before, you will need to enable it with the following PowerShell command run as Admin and then restart your computer.
+If you haven't used Windows Sandbox before, you can enable it by opening Windows PowerShell as Admin and running the following command:
 
 ```powershell
 Enable-WindowsOptionalFeature -FeatureName "Containers-DisposableClientVM" -All -Online -NoRestart
@@ -59,7 +59,7 @@ Wait for ImmyBot Agent to install
 
 ![](../.vuepress/images/2021-03-15-08-37-50.png)
 
-This will create a Maintenance Session that will discover that Adobe Reader should be installed on the machine, check if it is already installed, install Chocolatey, then use Chocolatey to install Adobe Reader.
+This will create a Maintenance Session that will discover that Adobe Reader *should* be installed on the machine, check if it is already installed, install Chocolatey, then use Chocolatey to install Adobe Reader.
 
 ## Deployment (aka "Assignment")
 
@@ -106,11 +106,15 @@ Then, create a Deployment that Installs Adobe Acrobat for their computers
 ### [Target](#target)
 A "[Target](#target)" is a grouping of computers (or Tenants in the case of "Cloud Tasks")
 
-ImmyBot's ability to resolve [Targets](#target) to a group of computers is perhaps the most powerful feature. 
+ImmyBot's ability to resolve [Targets](#target) to a group of computers is perhaps its most powerful feature. 
 
-For example, you can select a Group from AzureAD (which includes on-prem synced groups, and Teams) and ImmyBot will automatically resolve that to the list of computers in use by the people in that group.
+For example, you can select a Group of users from AzureAD (which includes on-prem synced groups, and Teams) and ImmyBot will automatically resolve that to the list of computers in use by the people in that group.
 
-If you enable PSA integration, a [Target](#target) could be all computers covered under a certain type of Agreement, or computers covered any type of Agreement that includes a certain product.
+If you enable PSA integration, a [Target](#target) could be all computers covered under a certain type of Agreement, or computers covered by an Agreement that includes a certain product.
+
+This is particularly useful for security software, help desk portals, or anything else in your stack that you may only want to be installed for customers that are paying you for it.
+
+Conversely, you could use this feature remove your stack for customers you are offboarding. Simply create an "Offboarding" product in your PSA, and create a deployment for each of the pieces of software you would like removed setting the desired state to Uninstalled for all customers with the "Offboarding" product on their agreement. Note: ImmyBot even honors the date range on additions, making scheduled offboarding easier if say the customer wants your software removed on the last day of the month.
 
 ## [Maintenance Session](#maintenance-session)
 
@@ -118,7 +122,7 @@ A [Maintenance Session](#maintenance-session) is conceptually similar to running
 
 In other systems, different types of maintenance happen on their own schedule. Windows Updates may run on Tuesday night, but Third Party updates may run on Wednesday night, and auto-fix tasks may run whenever an alert is fired for a failed monitor, which has its own polling interval. 
 
-By forcing all automation to happen in a single, linear set of actions we call a [Maintenance Session](#maintenance-session), we can deliver predictability not only as to _what_ changes will be made, but also _when_.
+By forcing all automation to happen in a sequential set of actions we call a [Maintenance Session](#maintenance-session), we can deliver predictability not only as to _what_ changes will be made, but also _when_.
 
 This also provides a cohesive mechanism for setting up a new computer. At best in traditional RMMs you can assign Monitors that detect the absence of required software and run Install scripts when they are missing, but this doesn't scale as pre-requisites and exclusions are required.
 
@@ -157,12 +161,16 @@ The image below depicts a typical [Maintenance Session](#maintenance-session) wi
 ## Software
 Software, in the context of ImmyBot refers to Software objects in My Software or Global Software.
 
+My Software - Initially empty. When you upload your own software to ImmyBot, it goes into My Software
+
+Global Software - Read-Only, managed by the ImmyBot team.
+
 At the bare minimum, Software requires a [Detection Method](#detection-method). 
 Software can have many [Software Versions](#software-version). 
 ![](../.vuepress/images/2021-02-23-08-13-18.png)
 
 ### Pre-Requisities 
-This is a VERY powerful, and critically underrated feature in ImmyBot. ImmyBot resolves dependencies recursively, with built-in circular reference logic. 
+This is a VERY powerful, and critically underrated feature in ImmyBot. ImmyBot resolves dependencies recursively, with built-in circular reference detection. 
 
 Common uses for Pre-Requisites include
 * Ensuring a piece of software is installed before installing another 
@@ -220,12 +228,14 @@ Will attempt to run as the logged on user
 Runs in the ImmyBot backend, and can spawn code on the system by using Invoke-ImmyCommand 
 
 #### Cloud Script
-Runs in the ImmyBot backend, but intended to be run against a Tenant (perhaps for the purpose of getting or setting some setting in Azure or some other system with an API). These are used exclusively in Maintenance Tasks targetting "Tenants".
+Runs in the ImmyBot backend, but intended to be run against a Tenant (perhaps for the purpose of getting or setting some setting in 365/Azure or some other system with an API). These are used exclusively in Maintenance Tasks targetting "Tenants".
 
 ![](../.vuepress/images/2021-03-01-14-17-29.png)
 
 ## Schedules
-Used to run maintenance periodically on machines. Can optionally be limited to a single Maintenance Item. NOTE You must also have a Deployment for the Maintenance Item!
+Used to run maintenance periodically on machines. Can optionally be limited to a single Maintenance Item. 
+
+NOTE You must also have a Deployment for the Maintenance Item to set the desired state. Imagine a scenario where you need to ensure a single piece of software is up-to-date on all computers except for a CNC machine. Create 2 deployments, the first setting the desired state to Installed->Latest for all computers, then a second stating that the desired state is Ignored for the CNC machine. When you create the schedule, the software will be ignored for the CNC machine.
 
 ## RMM Links
 
@@ -257,18 +267,18 @@ gwmi Win32_ComputerSystemProduct | select -expand UUID
 
 This value is static even if you wipe and reload the machine. We chose this value instead of Mac Address or Hard Drive serial number because of issues other systems have with USB Ethernet cables and hard drive replacement. We did not use serialnumber because we learned that many computers do not have serial numbers.
 
-In practice, this value works almost _too_ well. Machines you just wiped and expect to find in New Computers, are often associated to their pre-wiped computer objects. To find them, you often have to search for the serial number of the computer in the Computer List. In 0.40.1 we will begin using the Windows OfflineInstallationID value to identify when an existing computer has been wiped so we can set its status to "Needs Onboarding" which will cause it to show up under New Computers as expected.
+In practice, this value works almost _too_ well. Machines you just wiped and expect to find in New Computers, are often associated to their pre-wiped computer objects. To find them, you often have to search for the serial number of the computer in the Computer List. In 0.40.1 we began using the Windows OfflineInstallationID value to identify when an existing computer has been wiped so we can set its status to "Needs Onboarding" which causes it to show up under New Computers as expected.
 
 If it is a machine ImmyBot has seen before, it will be associated to the existing Computer, and you will find a new entry under the Computer's Agents tab. Under the hood we call these entries "RmmComputers". 
 
-Computers can have one or more RmmComputers
+Computers can have one or more RmmComputers(Agents). You can think of these as logical "pathways" to the computer. We only need one to be online to function.
 
 ![](../.vuepress/images/2021-02-23-06-45-47.png)
 
 ### Identification Failures
 
 #### Needs a Manual Decision
-Often when an RMM Agent gets re-installed, it will get a new id in the RMM (ComputerId in Automate, SessionID in Control). ImmyBot will recognize that it is the same computer, but due to the fact that virtualization technologies and hard drive cloning can lead to the same scenario, we require you to tell us whether we should overwrite the existing RmmComputer, or keep both.
+Often when an RMM Agent gets re-installed, it will get a new id in the RMM (ComputerId in Automate, SessionID in Control). ImmyBot will recognize that it is the same computer, but due to the fact that virtualization technologies and hard drive cloning can lead to the same scenario, we require you to tell us whether we should overwrite the existing RmmComputer, or keep both. 99% of the time you will click "Overwrite Existing". If the machine was in fact cloned, you would click Keep Both, in which case Immy shims the duplicate UUID with its own to prevent collisions.
 
 #### Failed
 
