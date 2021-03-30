@@ -27,11 +27,12 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: '',
+    repo: 'immense/immybot-documentation',
     editLinks: true,
     docsDir: '',
     editLinkText: '',
-    lastUpdated: false,
+    lastUpdated: true,
+    smoothScroll: true,
     algolia: {
       apiKey: 'b9a03fdc7b6a3221b1efd3f75210b6c7',
       indexName: 'immy',
@@ -45,6 +46,14 @@ module.exports = {
     ],
     sidebar: {
       '/guide/': [
+        {
+          title: `What's New`,
+          collapsable: false,
+          sidebarDepth: 0,
+          children: [
+            'releases',
+          ]
+        },
         {
           title: 'Getting Started',
           collapsable: false,
