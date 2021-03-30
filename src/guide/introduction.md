@@ -189,7 +189,13 @@ Global Software - Read-Only, managed by the ImmyBot team.
 
 At the bare minimum, Software requires a [Detection Method](#detection-method).
 Software can have many [Software Versions](#software-version).
-![](../.vuepress/images/2021-02-23-08-13-18.png)
+```mermaid
+graph TD
+    C[Software] --> D[Custom Detection Script]
+    C -->E[Default Uninstall Script]
+    C --> F[Auto-Update Script]
+```
+
 
 ### Pre-Requisities
 This is a VERY powerful, and critically underrated feature in ImmyBot. ImmyBot resolves dependencies recursively, with built-in circular reference detection.
@@ -216,14 +222,31 @@ For Software, the detection method must returns the version of the software inst
 For Maintenance Tasks, the Detection Method is the "test" mechanism, which must return true or false to indicate whether or not the machine is in compliance.
 
 ## Software Version
-![](../.vuepress/images/2021-02-23-08-08-39.png)
+```mermaid
+graph TD
+    C[Software Version] --> Install
+    C --> Uninstall
+    C --> Upgrade
+    C --> Repair
+    C --> Test
+```
 
 ## Maintenance Task
-![](../.vuepress/images/2021-02-23-08-05-57.png)
+```mermaid
+graph TD
+    C[Maintenance Task] 
+    C --> Get
+    C --> Set
+    C --> Test
+```
 
 or
 
-![](../.vuepress/images/2021-02-23-08-06-49.png)
+```mermaid
+graph TD
+    C[Maintenance Task] 
+    C --> S[Combined Script with $method parameter containing 'get','set', or 'test']    
+```
 
 ### Maintenance Task Modes
 
