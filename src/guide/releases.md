@@ -1,4 +1,22 @@
 # Releases
+
+## 0.41.6
+
+Release 2021-03-30
+
+### Configuration Tasks
+---
+
+Added better support for Software Configuration Tasks by allowing a maintenance task to be checked off as a Configuration Task.
+
+Configuration Tasks are used to provide parameters to software install scripts and/or provide additional configuration after the software is installed.  Checking this box allows you to select this Maintenance Task from the Configuration Task section of the 'Edit Software' page. Configuration Tasks are not select-able on the 'Edit Deployment' Page to prevent accidental deployment without the associated software.
+
+![image](https://immybot.blob.core.windows.net/release-media/ec4caad0-653c-47e1-9ed3-4cc465e62e2e)
+
+The Configuration Task selector on the Software Edit Page now only show maintenance tasks that have Configuration Task checked.
+
+![image](https://immybot.blob.core.windows.net/release-media/2a70e1a1-dbbb-4b8c-9e60-8b11dfcbd0dc)
+
 ## 0.41.5
 
 Released 2021-03-26
@@ -23,7 +41,7 @@ Released 2021-03-26
 Released 2021-03-26
 
 ### Bug Fixes
- Fixed an error that was occurring when uploading software 
+ Fixed an error that was occurring when uploading software
 ## 0.41.1
 
 Released 2021-03-25
@@ -159,14 +177,14 @@ Updated the styling of script session logs.  Clicking "Open Debugger" now copies
 ---
 
 The default detection time for new schedules has been changed to 2PM.  The default execution time for new schedules has been changed to 10PM.  Extra details were added to detection and execution time descriptions on new schedule form.
-  
+
 ![image](https://immybot.blob.core.windows.net/release-media/8f1f906f-4e21-4f16-998e-32f4563f600d)
 
 ### Deployment Improvements
 ---
 
 Deployment options more clearly indicate that they will only affect sessions created on the deployment page and will not be saved with the deployment itself.
- 
+
 ![image](https://immybot.blob.core.windows.net/release-media/dae05886-dc34-46fb-871a-582992fc75fa)
 
 ### Bug Fixes
@@ -187,7 +205,7 @@ Deployment options more clearly indicate that they will only affect sessions cre
 
 Released 2021-03-01
 
-### Added PPKG option to disable hibernation 
+### Added PPKG option to disable hibernation
 
 Set to true by default.
 
@@ -216,7 +234,7 @@ write-output "Version:`n`n1.0.0" ## translates to a detected version of 1.0.0
 1. Fixed an issue when re-installing with the uninstall/install method, where the installer failed to downloaded and left the software uninstalled
 1. Replaced the word "undetermined" in Immy emails with a blank
 1. Fixes an issue displaying output logs for cloud scripts on the deployment page
-1. Fixed configuration task search not using case-insensitive searching.  
+1. Fixed configuration task search not using case-insensitive searching.
 1. Configuration Task selector now shows 5 most recently updated items by default
 1. Fixed a bug where the view software buttons on the Software List Page were missing
 1. Fixed an issue with software version test script logic that was triggering a re-install when the test script did not explicitly return `false`.  Test scripts must now explicitly return `false` in order to trigger a re-install.  Returning `null`, `""`, and `0` will not trigger a re-install.
@@ -287,11 +305,11 @@ Invoke-ImmyCommand $ScriptBlock
 #### Improved Software Detection
 ---
 
-We expanded the "Software Table" detection method to have three search modes: Contains, Regex, and Traditional.  
+We expanded the "Software Table" detection method to have three search modes: Contains, Regex, and Traditional.
 
 We added a lookup table that can search the known software on your computers to help create better detection methods.
 
-The **Contains** search mode allows you to target software using a contains search.  
+The **Contains** search mode allows you to target software using a contains search.
 
 ![image](https://immybot.blob.core.windows.net/release-media/2fd1fa6c-7a5a-4e1f-b31b-2a8f25df8c0c)
 
@@ -331,12 +349,12 @@ Updated the license page's software version restriction component for better cla
 
 ![image](https://immybot.blob.core.windows.net/release-media/a924f0d1-c204-48bb-ae05-f43204e0c089)
 
-Added help text to the license selector on the deployment page to indicate how licenses are filtered 
+Added help text to the license selector on the deployment page to indicate how licenses are filtered
 
 ![image](https://immybot.blob.core.windows.net/release-media/f9818cda-26b6-474a-8009-8184213e927f)
 
 #### CleanPC option for PPKG
---- 
+---
 
 Added option to PPKG to remove pre-installed software.
 - Improved the overall speed of the New Computers page
@@ -492,7 +510,7 @@ Invoke-ImmyCommand {
 
 ***
 
-### My Customers (CSP Preconsent) 
+### My Customers (CSP Preconsent)
 
 ![image](https://immybot.blob.core.windows.net/release-media/75d8a4af-0833-41b8-b963-86054f34ea12)
 
@@ -593,7 +611,7 @@ Invoke-ImmyCommand {
 
 ![image](https://immybot.blob.core.windows.net/release-media/ad6a352e-861b-4d93-ab96-26bb949228f5)
 
-### My Customers (CSP Preconsent) 
+### My Customers (CSP Preconsent)
 
 ![image](https://immybot.blob.core.windows.net/release-media/75d8a4af-0833-41b8-b963-86054f34ea12)
 
@@ -664,7 +682,7 @@ Released 2020-12-29
 
 ### New Features
 
-Updated the export default name to be meaningful. 
+Updated the export default name to be meaningful.
 
 ![image](https://immybot.blob.core.windows.net:443/media/15b34d24-cffc-453f-a8f1-bf2db2efc422.png)
 
@@ -700,7 +718,7 @@ This parameter is available as a Uri type in power shell for users to us inside 
 - Fixed an issue where BITS Download would not fallback to basic download if the command timed out.
 - Fixed issue with showing the updated by and update by by person on the Schedules List page.
 - Hid the Download ImmyAgent link when ImmyAgent RMMLink is disabled.
-- When detecting software version after install a newer version than expected will no longer cause a failure for that action. 
+- When detecting software version after install a newer version than expected will no longer cause a failure for that action.
   - This fixes the case in where some software auto update themselves right after installation.
 
 
@@ -811,7 +829,7 @@ Released 2020-12-15
 
 Released 2020-12-14
 
-### Bug Fixes 
+### Bug Fixes
 - Fixed regression in 0.37.8 that broke inventory for most machines
 ## 0.37.8
 
@@ -910,16 +928,16 @@ Released 2020-11-23
 
 ### Hotfixes
 
-- Fixed filter scripts to only return a single computer when run for a maintenance session.  Not doing this was causing memory to balloon up unnecessarily. 
+- Fixed filter scripts to only return a single computer when run for a maintenance session.  Not doing this was causing memory to balloon up unnecessarily.
 ## 0.37.0
 
 Released 2020-11-23
 
 ### Enhancements
 
-Check out our new documentation site! https://docs.immy.bot/ 
+Check out our new documentation site! https://docs.immy.bot/
 
-##### Actionable Software Inventory 
+##### Actionable Software Inventory
 - Updated the *Software* tab to now provide actionable buttons for software and maintenance tasks that are not compliant
 
 ##### Automatic Onboarding
@@ -982,7 +1000,7 @@ Released 2020-11-04
 
 Released 2020-11-02
 
-### Bug Fixes 
+### Bug Fixes
 * Run Maintenance button at the top of the Computer Details Page now suppresses reboots by default
 * Edit PSALink page no longer throws exception when CWManage API returns duplicate companies
 * Updated task type and task category label names on the task form
