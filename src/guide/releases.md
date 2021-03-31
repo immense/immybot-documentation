@@ -1,8 +1,19 @@
 # Releases
 
+## 0.41.7
+
+Released 2021-03-31
+
+### Bug Fixes and Improvements
+---
+
+- Added pending actions to dashboard results
+- Fixed an issue where sessions with no actions requiring execution would still enqueue the execution stage.
+- Improved SSL certificate handling
+
 ## 0.41.6
 
-Release 2021-03-30
+Released 2021-03-30
 
 ### Configuration Tasks
 ---
