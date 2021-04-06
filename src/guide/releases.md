@@ -1,5 +1,20 @@
 # Releases
 
+## 0.41.8
+
+Released 2021-04-06
+
+### Bug Fixes and Improvements
+---
+
+- Added the most recently updated computers by default in the computer dropdown on the deployment form
+- Updated the descriptions for the start date and end date for brandings to indicate that they are **inclusive**.  A branding is applicable if it is greater than or equal to the start date and less than or equal to the end date
+- Added a "DEPLOY" button to items on the Maintenance Tasks list, and added a badge for maintenance tasks that are marked as "Configuration Task" to help identify  them
+- ConnectWise Control: You may now Switch Logon Sessions (including using backstage) and Run Toolbox Items from Remote Sessions started with ImmyBot
+- Removed blank extra column from software deployment references table
+- Fixed a bug where deployments for a specific chocolatey software were failing
+- Fixed a bug where you could not save a deployment that had a required maintenance task parameter file
+
 ## 0.41.7
 
 Released 2021-03-31
