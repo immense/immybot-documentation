@@ -1,5 +1,34 @@
 # Releases
 
+## 0.41.9
+
+Released 2021-04-08
+
+###  Bug Fixes and Improvements
+---
+
+- Now auto preselects MSP tenant when creating a new person and the user is an MSP user
+- Auto navigate back to Person List when creating/updating a person
+- Added a link to Microsoft documentation on how to obtain a user's Object ID
+- Added filtering to Stages column on the maintenance session table
+    ![image](https://immybot.blob.core.windows.net/release-media/6387bac3-666c-4606-a514-15c46797ff1d)
+- String variables passed into a remote runspace now get expanded automatically just like running normal scripts, preventing the need to run ExpandString on variables containing paths like $InstallerFile and $InstallerFolder
+    - ```powershell
+      Invoke-ImmyCommand {
+          # This is no longer necessary
+          $InstallerFile = $ExecutionContext.InvokeCommand.ExpandString($using:InstallerFile)
+          # You can now use $using:InstallerFile directly
+          Start-Process -Wait $using:InstallerFile
+      }
+      ```
+- Fixed issue preventing a user from re-running an action on a failed session
+- Fixed issue where a person could be saved with an external id that was not a valid GUID
+- Fixed an issue where required file parameters were still throwing the "parameter x is marked required..." exception even when present
+- Added the `PrimaryPersonId` and `PrimaryPersonName` fields to the response from the metascript `Get-ImmyComputer -TargetGroupFilter All` method
+- Fixed issue with computers undergoing onboarding where the computer would get set to onboarded before detection ran, which would exclude any target assignments relying on the onboarding flag
+- Fixed an issue that prevented a user from resolving conflicts for new computers
+
+
 ## 0.41.8
 
 Released 2021-04-06
