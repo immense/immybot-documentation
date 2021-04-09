@@ -1,5 +1,22 @@
 # Releases
 
+## 0.41.11
+
+Released 2021-04-09
+
+### Bug Fixes and Improvements
+---
+
+- Improved performance of loading computers on the Deployment Details page
+- A schedule can now specify whether it will "Apply Windows Updates".  **Note** If the schedule is limited to a specific software or maintenance task, then windows updates will not be applied.
+- Made minor improvements to BITS transfers
+- Fixed issue with Chocolatey latest version allowing prereleases
+- Fixed a bug causing maintenance task files to fail downloading
+
+## 0.41.10
+
+- Skipped
+
 ## 0.41.9
 
 Released 2021-04-08
