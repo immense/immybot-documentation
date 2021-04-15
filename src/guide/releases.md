@@ -1,5 +1,24 @@
 # Releases
 
+## 0.41.13
+
+Released 2021-04-13
+
+### Bug Fixes and Improvements
+---
+
+- Fixed issue where non-strings weren't being passed into $using variables with `Invoke-ImmyCommand { }`
+- Fixed a null reference exception that could occur when performing an action for a maintenance task on the computer software table.
+
+## 0.41.12
+
+Released 2021-04-12
+
+### Bug Fixes and Improvements
+---
+
+- Improved the performance of a poor performing SQL query that populates the "Needs Attention" section of the computer details page
+
 ## 0.41.11
 
 Released 2021-04-09
