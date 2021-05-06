@@ -1,5 +1,183 @@
 # Releases
 
+## 0.42.3
+
+Released 2021-05-06
+
+### PPKG Primary User
+---
+
+You can now specify the primary user as part of the provisioning package configuration.
+
+![image](https://immybot.blob.core.windows.net/release-media/623c688e-9d35-43a1-8e36-c378f2b0fa01)
+
+### Maintenance Task Icons
+---
+
+Maintenance Tasks can now have icons!
+
+![image](https://immybot.blob.core.windows.net/release-media/7a4e8ac6-202d-4ab7-8479-c966a28490e0)
+
+### Deployment: Multiple Action Results
+---
+
+The deployment page can now show multiple action results.  This is useful when a software has a configuration task or dependencies.
+
+When there are 2 actions:
+
+![image](https://immybot.blob.core.windows.net/release-media/66e95cd9-7ec8-4c8e-b78e-20dc597194c5)
+
+When there are more than 2 actions:
+
+![image](https://immybot.blob.core.windows.net/release-media/40f243cf-b00d-48b6-ae65-31d227c6959f)
+
+Showing extra actions:
+
+![image](https://immybot.blob.core.windows.net/release-media/72980fac-e8de-4083-a294-0a338e8455d4)
+
+### Improvements
+---
+
+- Added license for Entity Framework Extensions
+- Updated the descriptions for Windows Updates on the Schedule Page.  We now hide the windows updates checkbox when it is not available.
+  - ![image](https://immybot.blob.core.windows.net/release-media/9b4d861b-41ef-4039-8259-20689aa1b053)
+- The error alert at the top of a page now indicates that the requested resource could not be found if the api call resulted in a 404.
+  - ![image](https://immybot.blob.core.windows.net/release-media/1b419a4a-471a-49c0-983f-eea4d27e6eb3)
+
+### Bug Fixes
+---
+
+- Fixed issue with merging tenants where some users were receiving the following error: `Configured execution strategy SqlServerRetryingExecutionStrategy does not support user initiated transactions `
+- Fixed issues with determining winning deployments.  A tenant filter script now has priority over a cross tenant filter script.  Ordering has also been added to the target group filter.  E.g. A deployment targeting primary domain controllers will now take priority over a deployment targeting servers.
+- Fixed issue where multiple actions returned on the edit deployment screen would overwrite each other when previewing or deploying
+- Fixed extra spacing between items on the computer software list
+- Fixed issue where some null dates were showing as Jan 01 0001 - They now show as n/a.
+- Fixed issue with creating, updating, and deleting deployments where the request would hang and eventually timeout
+- Fixed issue with the deployment details page slug having duplicate text
+
+## 0.42.2
+
+### Improvements
+---
+
+- Added ability to merge and delete tenants
+- Reduced agent install MSI from 41MB to 14MB
+- ImmyAgent can now be installed without an internet connection
+  - The Provisioning Package now embeds the MSI instead of downloading it, preventing the need for an internet
+- ImmyAgent Service is now a single exe file
+- ImmyAgent gracefully shuts down quickly preventing connection errors on service restart because the previous process is still running
+- Better online/offline tracking: ImmyAgent now sends messages to the backend to indicate when it connects and disconnects. The prevents issues where a restart may not be noticed on machines that reboot quickly because the IoTHub filters out connection events that happen quickly.
+- When joining the domain from the Onboarding screen, the logs indicate what domain controller is being used to fetch the offline domain join token
+- When scripts are running in the Metascript context, we say execution is happening in the ImmyBot Backend instead of 'Server' as it could be confused with a server managed by ImmyBot
+
+### Bug Fixes
+---
+
+- Fixed Offline Domain join
+  - This also fixed an issue where Invoke-ImmyCommand would not respect the Computer argument
+- Fixed issue where license values werent being provided during Onboarding sessions
+- Fixed issue where PPKG would fail to apply if wireless was specified and the machine doesn't have a wireless adapter
+- Fixed an issue with upgrades failing for global softwares that use choco provider
+- Fixed an issue where cloud scripts were not able to be debugged with the correct script parameters from tenant session details
+- Fixed issue causing deployments to fail when global software is linked to Ninite and Ninite integration is not enabled.
+- Fixed an issue where rekeyed agents never show up in Immy.
+- Fixed an issue with rerunning script from tenant session trying to run against a computer
+- Fixed an issue that could cause the first instance of a schedule to not run if the schedule was created between your timezone's offset and midnight. (I.E Between 6PM CDT and Midnight CDT)
+
+## 0.42.1
+
+### Improvements and Bug Fixes
+---
+
+- Fixed an issue on the deployment form when invalid text would incorrectly show up when a chocolatey or ninite software was selected
+- Fixed an issue that was preventing successful installs of ninite and chocolatey software
+
+## 0.42.0
+
+### Tenant Details Page
+---
+Added a tenant details page similar to the computer details page.  The tenant list page link has been moved out from `Settings -> Tenants` to the top level in the navbar.
+
+1. Maintenance sessions run directly against a tenant can be viewed in the Sessions tab.
+1. Assigned Tenant Maintenance Tasks can be viewed in the Tasks tab.
+1. The Terminal tab is auto scoped to run meta scripts for a particular tenant.
+1. The Mappings tab allows you to link/un-link a tenant from RMM Providers.
+1. The edit tab allows you to change the name of the tenant.
+
+![image](https://immybot.blob.core.windows.net/release-media/33988012-0209-4220-9fa8-dc6a8211f3a2)
+
+### Software Providers
+---
+
+#### What is a Software Provider?
+
+A Software Provider tells ImmyBot how to install/uninstall a software.  Currently, Local, Global, Chocolatey and Ninite are supported as providers.  You can assign the available providers to a software on the software's edit page.  A local/global software will inherently be a Local/Global Provider if there are software versions present.
+
+![image](https://immybot.blob.core.windows.net/release-media/a54835ec-7977-48f4-85c6-b9cce0f53c5f)
+
+The provider that is used during a maintenance session can be specified on the deployment. For example, if the Chocolatey provider is added on a software and is selected on a deployment, then Immy will always attempt to install/uninstall the software through Chocolatey.
+
+![image](https://immybot.blob.core.windows.net/release-media/2ee5c1c5-0011-4f82-bb9b-983b4aafffcb)
+
+If a specific provider is not selected, then the software will be installed/uninstalled using the following logic:
+
+1. If the deployment is set to install the latest version or update if found, then the provider that contains the latest software version will be used.
+   - e.g. If chocolatey has a newer software version then global, then chocolatey will be used.
+1. For any other desired state, the local/global provider will be used (normal behavior).
+
+If the Ninite integration is enabled and Ninite is set as an alternate provider, then Ninite will take priority over Local/Global and Chocolatey.
+
+### Detection Outdated
+---
+
+Added a flag to computers to indicate that a deployment for the computer has been updated and that detection should be re-run to ensure the computer is up to date.
+
+![image](https://immybot.blob.core.windows.net/release-media/1fbec2a1-cf19-402a-8118-4596c3d835dd)
+
+### Computer Software Page Updates
+---
+
+Added more tabs to filter the computer's software list
+
+![image](https://immybot.blob.core.windows.net/release-media/8f25f22c-ab5d-4d7b-8ebd-db40321d6718)
+
+#### Unassignable
+
+The unassignable tab lists all software that exist on the computer but does not exist in ImmyBot as managed Software.
+
+#### Assignable
+
+The assignable tab now has two potential actions: **Quick Assign** and **Assign**.  Quick Assign will immediately create a deployment targeting the primary person (if present) or the computer.  A detection only session will also start immediately to determine the current state of the software.  Assign will open the New Deployment Page and allow you to create a new assignment for the software.  Quick assign is currently only available for software that do not have a configuration task or a license.
+
+![image](https://immybot.blob.core.windows.net/release-media/396d2451-2e36-4793-b63f-99ed514bd536)
+
+#### Assigned
+
+The assigned tab now provides 3 potential actions: **Action to take (Install, Update, Enforce, etc)**, **Re-run detection (refresh icon)**, and **Manage (edit deployment)**"
+
+![image](https://immybot.blob.core.windows.net/release-media/016316a8-470a-42e8-a57a-b2c79ebb512f)
+
+### Improvements and Bug Fixes
+
+- Added ability to bulk delete tenants and associated data from the tenant list page
+- Added a new system preference "Allow Non-Admin Users To Manage Deployments".  This is enabled by default.
+- Removed company column from dashboard table and excel export if the target is a single company
+- Updated the dashboard excel export file name to `<company> Computers - <date>.xslx` when the target is a single company
+- Added result reason to dashboard table and excel export
+- Reworded Action Success to Compliant, Failed, to Non-Compliant, and Missing to Not Found
+- Allowed schedules to target tenant maintenance tasks
+- Allowed the dashboard to target tenant maintenance tasks
+- Uninstalls using the vendor's uninstall string now check to ensure that the uninstall string is using `/X` and not `/I` and appends `/qn` (quiet) if it is missing.
+- Fixed a bug in metascripts where `write-warning "some text"` was not outputing anything to the console
+- Improved performance of running multiple maintenance sessions at the same time
+- Fixed a bug where uninstalling by MSI uninstall string was failing if the semantic version stored in the registry was not a valid semantic version
+- Fixed a bug with the primary person dropdown where it was limiting results to 1 and including people from any tenant.
+- Fixed a bug when running cloud scripts where it would fail because "the computer is not online"
+- Fixed an issue with repairs not triggering the configuration task or software dependencies
+-  Fixed issues with being unable to cancel old maintenance sessions
+- Several other small QOL improvements throughout the codebase
+- Fixed bug where ImmyAgent Service stops immediately when stop is requested from the Windows Services
+
 ## 0.41.13
 
 Released 2021-04-13
