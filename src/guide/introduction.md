@@ -204,6 +204,22 @@ This is a read-only process, and typically done while the user is active. This i
 
 ## [Maintenance Action](#maintenance-action)
 
+```mermaid
+flowchart TD
+ SoftwareInstall --> Detect{Software Installed?}
+ Detect --> |No| Install
+ Detect --> |Yes| HasConfigurationTask{Has Configuration Task?}
+ Install --> PostInstallDetect{Software Installed?}
+ PostInstallDetect --> |Yes|HasConfigurationTask
+ PostInstallDetect --> |No| Fail
+ HasConfigurationTask --> |Yes| MaintenanceTaskTest{Run Test Script}
+ MaintenanceTaskTest --> |return $true| Success
+ MaintenanceTaskTest --> |return $false| RunSetScript(Run Test Script)
+ RunSetScript --> PostMaintenanceTaskTest{Run Test Script}
+ PostMaintenanceTaskTest --> |return $true| Success
+ PostMaintenanceTaskTest --> |return $false| Fail
+```
+
 A *[Maintenance Session](#maintenance-session)* has one or more *[Maintenance Actions](#maintenance-action)*. A [Maintenance Action](#maintenance-action) could be to install software, apply a Windows Update, or run a [Maintenance Task](#maintenance-task).
 
 The image below depicts a typical [Maintenance Session](#maintenance-session) with many [Maintenance Actions](#maintenance-action)
@@ -219,6 +235,7 @@ Global Software - Read-Only, managed by the ImmyBot team.
 
 At the bare minimum, Software requires a [Detection Method](#detection-method).
 Software can have many [Software Versions](#software-version).
+
 ```mermaid
 graph TD
     C[Software] --> D[Custom Detection Script]
