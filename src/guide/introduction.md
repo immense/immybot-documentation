@@ -211,13 +211,13 @@ flowchart TD
  Detect --> |Yes| HasConfigurationTask{Has Configuration Task?}
  Install --> PostInstallDetect{Software Installed?}
  PostInstallDetect --> |Yes|HasConfigurationTask
- PostInstallDetect --> |No| Fail
  HasConfigurationTask --> |Yes| MaintenanceTaskTest{Run Test Script}
  MaintenanceTaskTest --> |return $true| Success
  MaintenanceTaskTest --> |return $false| RunSetScript(Run Test Script)
  RunSetScript --> PostMaintenanceTaskTest{Run Test Script}
  PostMaintenanceTaskTest --> |return $true| Success
  PostMaintenanceTaskTest --> |return $false| Fail
+ PostInstallDetect --> |No| Fail
 ```
 
 A *[Maintenance Session](#maintenance-session)* has one or more *[Maintenance Actions](#maintenance-action)*. A [Maintenance Action](#maintenance-action) could be to install software, apply a Windows Update, or run a [Maintenance Task](#maintenance-task).
