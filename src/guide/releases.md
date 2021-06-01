@@ -1,5 +1,65 @@
 # Releases
 
+## 0.43.0
+
+Release 2021-06-01
+
+### Agent Updating
+---
+
+The Immy Agent now gets updated during full maintenance sessions.  You can also manually trigger an update by going to the computer's details page and under the Agents tab.
+
+![image](https://immybot.blob.core.windows.net/release-media/a6a6cdbb-f45e-4b95-91a9-e4272979527c)
+
+### Assignment Override
+---
+
+As part of a refactor of the computer software tab, we added the ability to override assignments.  This is useful when resolving one off computers that do not need to be part of a larger assignment.
+
+![image](https://immybot.blob.core.windows.net/release-media/0a02d6ac-21f5-425d-8ab7-1b881d7d16f2)
+
+### Getting Started Wizard
+---
+
+A new 'Getting Started' feature is available, which guides the user through first-time ImmyBot setup and installation of the ImmyAgent on a device using PPKG.  You can access this feature by clicking the "show Getting Started Wizard" link under your user email dropdown in the top right.
+
+![image](https://immybot.blob.core.windows.net/release-media/e24d1489-c7fa-46ed-bde9-8a9bde0df04f)
+
+### Recommended Deployments
+---
+
+A recommended deployment is a global deployment that is accessible to all ImmyBot users.  Recommended deployments represent common scenarios that most companies use.  You can approve / dismiss recommended deployments.  Approving a deployment will allow it to be considered as a valid deployment when running maintenance.  Dismissing a deployment will disallow it from being considered during maintenance.
+
+When a new recommended deployment is added, you will receive a notification, "You have new recommended deployments".  Clicking this link will prompt you to approve / disapprove the deployment.
+
+You can manage the approval of all recommended deployments from the main Deployment List page by clicking the "View Recommended Deployments" button at the top.
+
+![image](https://immybot.blob.core.windows.net/release-media/479a8f6b-14b1-45c6-a5d5-97d9fd8a6d04)
+
+### Improvements
+---
+
+- In an effort to make script execution more reliable in the presence of Antivirus, we discontinued the use of Invoke-Expression when running scripts in the System context.
+- Made some primary buttons secondary where they weren't the primary action
+- Refactored the agents tab
+- Set max widths in inputs
+- Changed script selector and task selector buttons to links.
+- Moved configuration task actions to the execution phase of maintenance. Configuration tasks do nothing during detection.
+
+### Bug Fixes
+---
+
+- Fixed issue on the software assignment reference table where the target and desired software state columns were missing text
+- Fixed sorting computer column on the deployment page
+- Fixed issue with dates showing as `0001-01-01`
+- Set maintenance sessions table time filter default to 7 days
+- Moved the maintenance task link directly under software in the nav menu
+- Set "Include Offline" default to false on the Ready For Onboarding tab on the New Computers page
+- Updated the actions needing attention section to only consider actions from the last week
+- Fixed an issue where software only linked to Ninite or Chocolatey were unable to perform upgrades
+- Fixed an issue where we were appending "/qn" to uninstall strings that were not using `MsiExec.exe`
+- Fixed issue where configuration task scripts were getting run when its software action failed
+
 ## 0.42.3
 
 Released 2021-05-06
