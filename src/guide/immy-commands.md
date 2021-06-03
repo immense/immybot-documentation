@@ -76,7 +76,7 @@ Invoke-ImmyCommand [-ScriptBlock] <Object> [-Computer <PSComputer>] [-Context <s
 
 `-Context` accepts either "System" or "User"
 
-`-Timeout` accepts an integer denoted in seconds.
+`-Timeout` accepts an integer denoted in seconds. The default is 120.
 
 #### Examples
 
