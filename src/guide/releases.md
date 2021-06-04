@@ -1,8 +1,53 @@
 # Releases
 
+## 0.43.2
+
+Released 2021-06-04
+
+### New fields on Windows 10 Setup USB Package
+---
+
+1. You can now set the reboot preference when you enable automatic onboarding.
+1. You can now specify additional persons
+1. Send Follow-up Email has been added here and also on the computer onboarding form to send an email when the onboarding session finishes.
+
+![image](https://immybot.blob.core.windows.net/release-media/1daaeb95-cf29-4ae5-8cb1-5200dff431cc)
+
+### General Improvements
+---
+
+- Added a test email button to the branding form so you can preview how the maintenance emails will look
+- Progress session logs no longer show the activity id when id is 0
+- Onboarding sessions now run perform a full inventory of the computer
+- Increased the size of the row details icon in the logs panel to make it easier to see/click
+- Session logs are now now auto expanded when you click the row details icon
+- The primary log result is no longer truncated by default
+- On the script details form, the timeout field now specifies (seconds) as the unit
+- Updated the package type options on the software upload form to be "None, Zip file, Single file installer"
+- Added a description for zip files on the software upload form
+- Updated the action reference table to include the computer's online status
+- Added a refresh button to the dashboard table.  This is useful if you have running sessions and you want to refresh the results of the table
+- Licensing can now be marked as 'Optional' on Software. This is useful for software that installs in trial mode when no license is specified
+- Added a DEPLOY button to the maintenance task form
+- Added maintenance action references to the maintenance task form
+- Added a "Missing Install Script" alert message to software version form when the version does not have an installation script
+- Updated maintenance action messages and session logs to indicate when a software is being installed without an installation script
+
+### Bug Fixes
+---
+
+- Follow-up emails now send correctly in sessions that have an agent update action
+- Disabled syntax highlighting for script output in session logs
+- Fixed an issue with being unable to delete an offline agent
+- Fixed an issue where onboarding computers were not able to apply metascript targets that depended on inventoried software since inventory had not run yet
+- Fixed issue with metascript deployments where we converting the entire result to a boolean instead of checking whether the result ends with a boolean
+- Resolves issue with software failing to install when it was marked as 'Licensed' but no license was specified on the deployment. For these cases, you can now select 'Optional' on the Software to install it without a license
+- Fixed some issues with showing session and action dates
+- Fixed some issues with the agent update stage
+
 ## 0.43.0
 
-Release 2021-06-01
+Released 2021-06-01
 
 ### Agent Updating
 ---
