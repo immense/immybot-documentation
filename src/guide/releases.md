@@ -1,5 +1,23 @@
 # Releases
 
+## 0.43.3
+
+Released 2021-06-07
+
+### Improvements
+---
+
+- Chocolatey installation script no longer uses `iex` which was potentially flagging some AV
+- Moved Chocolatey installation script to global so that it can be quickly updated if necessary
+- Detection only sessions now show actions as either compliant or non-compliant
+- Added missing software and maintenance task icons to the computer's software tab
+
+### Bug Fixes
+---
+- Fixed issues with saving configuration tasks for software
+- Fixed some regressions with populating data on the deployment form and deployment list
+- Fixed issue with software version test scripts not detecting the boolean result at the end of the output
+
 ## 0.43.2
 
 Released 2021-06-04
