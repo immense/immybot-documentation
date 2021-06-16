@@ -1,5 +1,21 @@
 # Releases
 
+## 0.43.6
+
+Released 2021-06-16
+
+### Improvements
+---
+
+- Decreased the load time of maintenance session details
+- If retrieving bulk software during maintenance fails, we now display any errors that occurred
+- Moved the computer reboot logic to a global function script called `Restart-ComputerAndWait`.  A computer that needs a reboot during a maintenance session will now utilize this global function script.  This script can be overridden by a local function script with the same name, `Restart-ComputerAndWait`.
+
+### Bug Fixes
+---
+- Fixed issue on the deployment list where azure groups and automate location deployments were showing under cross tenant instead of single tenant
+- Fixed some common exceptions that were occurring for CW Control online/offline events
+
 ## 0.43.3
 
 Released 2021-06-07
