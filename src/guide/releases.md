@@ -1,5 +1,15 @@
 # Releases
 
+## 0.43.7
+
+Released 2021-06-17
+
+### Bug Fixes
+---
+
+- Fixed issue with ImmyBot Agent online/offline states not syncing properly
+- Fixed issue with `Get-ImmyComputer` not setting many properties on the computer response objects
+
 ## 0.43.6
 
 Released 2021-06-16
