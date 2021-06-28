@@ -1,5 +1,68 @@
 # Releases
 
+## 0.44.0
+
+Release 2021-06-28
+
+### Quick Deploy
+---
+
+Deploying software for a specific computer is now easier.   Located at the top of the Software tab on the computer details page.  Tell your techs to use this form if they need to deploy software to a specific computer.
+
+![image](https://immybot.blob.core.windows.net/release-media/c70b0628-847b-40b6-99db-456f69ce5115)
+
+After selecting a software / maintenance task that you want to deploy, a session will be kicked off to determine if the computer has any applicable deployments.  If a deployment is found, then you'll be presented actions for that deployment.
+
+![image](https://immybot.blob.core.windows.net/release-media/87d9a5a0-0f1d-41ea-94ba-8868fbe674f5)
+
+If a deployment is not found, then you are asked if you would like to create one.
+
+![image](https://immybot.blob.core.windows.net/release-media/e268d0b8-2538-4019-bbe3-492468f162d8)
+
+If the selected item requires configuration task parameter values or a license, then you still need to create the deployment from the traditional deployment page.  We plan on expanding on this to allow supplying a license and parameters directly on this form.
+
+![image](https://immybot.blob.core.windows.net/release-media/f351d75d-738e-4acb-9588-3103842fcda4)
+
+### Computer List Search Improvements
+---
+
+Searching for computers is now much faster after some internal refactoring of how the data was stored.  We removed the need to select a filter so you can now search by any of the available fields specified in the placeholder.
+
+![image](https://immybot.blob.core.windows.net/release-media/ae56632e-651a-4e41-8f4d-0f62d6947f47)
+- Added `Onboarding` as a support Target Type for convience.
+- Made device inventory storage processes more efficient and started caching some often-accessed computer data (like computer names)
+
+### Download ImmyBot Agent Installer Improvements
+---
+
+Updated the interface for downloading an immy agent installer.  You can now assign default behavior to any of the installation methods.  The `Deploy` tab will now automatically update when your computer shows up in ImmyBot.
+
+![image](https://immybot.blob.core.windows.net/release-media/7ab85162-0ce8-49bd-ab16-a76a6c105dab)
+
+![image](https://immybot.blob.core.windows.net/release-media/b16dcf31-9e06-4f09-818f-bfff57c19f0f)
+
+### Inventory Results over Service Bus (Beta)
+---
+
+Inventory scripts sent over any Rmm Provider connection will have their results sent over an Azure ServiceBus connection.  This allows us to stream results in real-time, eliminating message size constraints.  Since this is a new feature, you must manually enable this functionality under preferences.  In a later release, we will extend the service bus script result handling to all scripts ran through Immy
+
+![image](https://immybot.blob.core.windows.net/release-media/39e9a698-cff7-4db5-af1d-d34dd0b74c64)
+
+### Bug Fixes And Other Improvements
+---
+
+- Added some automated testing to the package analyzer for stability
+- Made the package analyzer partially download files for analysis.  This will allow large installers to be analyzed more efficiently
+- Fixed issue where the default install/uninstall scripts were not being selected after uploading and analyzing an installer
+- Fixed an issue where the onboarding reboot preference was not being honored
+- Fixed a bug running maintenance tasks where the maintenance task parameters specified from the deployment were not getting passed down to the running script
+- Fixed an issue that was causing `Invoke-ImmyCommand` run from cloud scripts to not actually execute
+- Added a brand new test suite to the frontend code to help fight against regressions
+- Fixed AppPref SB Bug where SB Subscriptions weren't being torn down and recreated
+- Fixed Powershell 2.0 compatibility issues with ServiceBus usage
+- Fixed issue with the software analyzer where it was not properly returning the install executable path for .zip files
+- Added more computer columns to the maintenance session list that can be toggled from the column chooser
+
 ## 0.43.7
 
 Released 2021-06-17
