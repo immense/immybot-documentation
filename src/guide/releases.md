@@ -25,10 +25,60 @@ Released 2021-07-12
 - Added missing icon to maintenance tasks on the session details page
 - Fixed an issue where workstations were incorrectly resolving to domain controller specific deployments
 
+## 0.44.3
+
+Released 2021-07-06
+
+### Bug Fixes
+- Resolved an issue with creating software versions from the software version upload form
+
+## 0.44.2
+
+Released 2021-07-01
+
+### Bug Fixes
+---
+
+- Fixed a serialization bug introduced in 0.44.1
+
+## 0.44.1
+
+Released 2021-07-01
+
+### Tenant Details Page Improvements
+---
+
+1. Added a cloud / computer type selector to the sessions and actions tabs.
+1. Replaced the tasks tab with an actions tab
+1. Added a schedules tab
+
+The actions tab shows the latest actions performed against a computer or tenant.  This table can be used to help identify issues with software and maintenance tasks.
+
+#### Example 1: Find all computers that have a large number of failing actions
+
+Filter the status column to non-compliant and then group by the computer.
+
+![image](https://immybot.blob.core.windows.net/release-media/253ae11d-3c33-4da6-9b0d-2fe085546034)
+
+#### Example 2: Find software and maintenance tasks that are failing across many computers
+
+![image](https://immybot.blob.core.windows.net/release-media/905d64bf-91b0-4b88-b67a-4f6c0709a44c)
+
+### Dashboard - Load Top 10 Non-Compliant Items
+---
+
+A new button was added to the dashboard, `Load Top 10 Non-Compliant Items`, that will show up when you have selected a tenant scoped target. This can be used as a quick way to identify issues for devices.
+
+![image](https://immybot.blob.core.windows.net/release-media/cbc243f5-e240-4d9d-847f-5a1ebc095d99)
+
+### Bug Fixes And Other Improvements
+---
+- Fixed issue with computer list not being able to filter by serial number
+- Added a configuration task tag to configuration task maintenance actions on the session details page
 
 ## 0.44.0
 
-Release 2021-06-28
+Released 2021-06-28
 
 ### Quick Deploy
 ---
