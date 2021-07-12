@@ -2,7 +2,7 @@
 
 ## 0.44.4
 
-Relese 2021-07-12
+Released 2021-07-12
 
 ### Improvements
 ---
