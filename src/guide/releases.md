@@ -1,5 +1,31 @@
 # Releases
 
+## 0.44.4
+
+Relese 2021-07-12
+
+### Improvements
+---
+
+- Added multi-selection to the computer list and onboarding computer list
+- Added software references to the maintenance task page.
+- Added option to schedules for  `Show Maintenance Actions In Emails` that controls whether the maintenance action table is shown in the maintenance emails
+- Added `TenantId` to the list of available script parameters
+- Immybot now sends smaller payloads over RMMs when running inventory scripts
+- Configuration tasks now have access to the software and desired software version script parameters
+
+### Bug Fixes
+---
+- Fixed some usability issues with selecting persons and tenants on the Download Rmm Installer form
+- Fixed an issue with the Getting Started wizard not showing up by default for new Immy customers
+- Fixed issue with the SMTP page not showing the form
+- Fixed an issue where the selected tenant would disappear after saving a CWA-location-targetted deployment
+- Fixed a null reference error when requesting a chocolatey version that does not exist
+- Fixed issue with displaying the Azure Prinicipal Id on the person details page
+- Added missing icon to maintenance tasks on the session details page
+- Fixed an issue where workstations were incorrectly resolving to domain controller specific deployments
+
+
 ## 0.44.0
 
 Release 2021-06-28
