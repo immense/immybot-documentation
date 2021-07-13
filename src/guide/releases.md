@@ -1,5 +1,22 @@
 # Releases
 
+## 0.44.5
+
+Released 2021-07-12
+
+### Improvements
+---
+
+- Updated computer deployment preview/deploy result for maintenance task audit to say either "Audit returned false" (highlighted red) or "Audit returned true" (highlighted green)
+- Removed computer deployment preview/deploy result field when running a maintenance task monitor since a monitor does not currently show compliance
+
+### Bug Fixes
+---
+
+- Fixed an issue where specific tenant onboarding deployments were not overriding cross tenant onboarding deployments
+- Fixed an error that was occurring when saving software with prerequisites
+- Fixed an issue with the package analyzer where it would unexpectedly fail
+
 ## 0.44.4
 
 Released 2021-07-12
