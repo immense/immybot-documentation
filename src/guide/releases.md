@@ -1,5 +1,60 @@
 # Releases
 
+## 0.44.6
+
+Released 2021-07-19
+
+### Improvements
+---
+
+- Added ability to delete computers from ImmyBot on the main computer list page and on the computer details page
+- Added permissions to only allow an admin to create, update and delete schedules
+- Added a "Triggered By" column to the maintenance session list page to indicate who manually started a session
+- Added text to the maintenance details page indicating who manually started the session
+- Configuration Tasks are now grouped together with their corresponding software action on the maintenance session details page.  This should be more convenient than having all configuration tasks grouped at the end of the page.
+
+![image](https://immybot.blob.core.windows.net/release-media/80c94fb5-d15c-498c-896b-12cba58fdc1b)
+- Session table now shows the execution date for pending scheduled sessions.  Hovering over the text will show the exact date time.
+
+![image](https://immybot.blob.core.windows.net/release-media/c46d8002-6f5b-49bd-860d-a10dbd55b18b)
+
+- Session details page now shows the execution date for pending scheduled sessions
+
+![image](https://immybot.blob.core.windows.net/release-media/55efc4bd-54ee-4aee-ac42-35de6d59c2f8)
+- Updated the text description for enforce, audit, and monitor modes on the deployment details page
+- Changed the text of "Hide Successful Deploys" to "Hide Compliant Deployments" for consistency
+- The getting started wizard will now suggest you enter wireless information and remind the user to connect the Ethernet if they don't configure a wireless profile
+- When creating a tenant or updating an existing tenant's name, an error will now be thrown if the name already exists.
+- MSP non-admin users can no longer see cross-tenant deployments
+- Configuration tasks that have a test script will now run the test script during detection if the software is detected on the machine.
+- Updated the logs for showing why a test script errored and cannot continue.
+
+![image](https://immybot.blob.core.windows.net/release-media/d0a0d514-c80a-4344-aed3-4860e1f81667)
+
+- Updated the maintenance action result reason with the message as well
+
+![image](https://immybot.blob.core.windows.net/release-media/a7fdcad3-4f00-46f3-a263-21b294e18b6b)
+
+- Clicking "Show/Hide no-action results" on the deployment page no longer hides maintenance task audit and monitor.
+
+### Bug Fixes
+---
+
+- Fixed an issue with device-cached inventory scripts not being executed on devices that use PowerShell 2.0
+- Fixed an issue with Immy Agent running on 32-bit systems not being able to execute scripts
+- Fixed an issue with PowerShell errors not being stored when they occur during inventory scripts
+- Fixed an issue with domain joining failing when the domain controller is 2008 R2/PowerShell 2.0
+- Fixed issues with the computer deployment excel export
+- Fixed an issue with restoring scheduled jobs when Redis goes down for maintenance
+- Added missing detection email options to the computer deployment page.  **Show Postpone Button on Detection Email** and **Show Update Now Button on Detection Email**
+- Deployments with the desired state "Update If Found", will no longer add a configuration task if the software is not found on the computer
+- Fixed an issue with some session logs not getting persisted due to invalid characters in PowerShell responses
+- Fixed issue where the edit global script button was showing for non-immense users
+- Fixed issues with the resolution only and detection only tags showing incorrectly on the session details page
+- Fixed an issue with the package analyzer throwing an error when analyzing from a URL.
+- Fixed an issue with devices with UUID 03000200-0400-0500-0006-000700080009 causing computers to always need to go through rmm-computer-resolution in order to be fully identified
+
+
 ## 0.44.5
 
 Released 2021-07-12
