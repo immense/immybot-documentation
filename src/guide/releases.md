@@ -1,5 +1,15 @@
 # Releases
 
+## 0.44.7
+
+Released 2021-07-21
+
+### Bug Fixes
+---
+
+- Fixed a permission issue with managing individual target assignments
+- Fixed an issue where permission messages were always defaulting to "Permission Check Failed", instead of showing a more detailed message.
+
 ## 0.44.6
 
 Released 2021-07-19
