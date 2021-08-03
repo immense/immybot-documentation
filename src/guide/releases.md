@@ -1,5 +1,60 @@
 # Releases
 
+## 0.45.0
+
+Released 2021-08-03
+
+### New Deployment Targets
+---
+
+#### CW Automate Groups
+
+You can now deploy software to CW Automate Groups and to CW Control Sessions sharing the same custom property values*
+
+![image](https://immybot.blob.core.windows.net/release-media/703d5619-28cf-4385-9b6b-4debaf1010ce)
+
+#### CW Control Custom Groups
+
+*Requires CW Control ImmyBot extension to version 0.1.7* -- Awaiting ConnectWise Control Marketplace Approval
+
+![image](https://immybot.blob.core.windows.net/release-media/b89ab8ed-c531-4c42-a9dd-6d3e97d1a6fe)
+
+You can define which custom property number you want to use for the client name and secondary grouping property on the RMM Link details page.
+
+![image](https://immybot.blob.core.windows.net/release-media/f4cc8b5e-8135-40ab-8748-097f4ae86f11)
+
+### Improvements
+---
+
+- `Invoke-ImmyCommand` can now run on multiple computers in parallel, using the `-Parallel` switch
+- MSP Admin users can now set a flag `Allow Access To MSP Resources` on schedules that will allow all scripts run by the schedule to have access to MSP resources.  An example would be allowing the metascript `Get-ImmyAzureAuthHeader` to use the flag `-UseMSPTenant` to retrieve the msp tenant's access token.
+- You can now connect to Azure AD as the MSP Tenant from scripts run on client devices by passing `-UseMSPTenant` to the `Connect-ImmyAzureAD` metascript
+- Added a new tag ![image](https://immybot.blob.core.windows.net/release-media/81842495-9a7e-4273-a4c7-a4c01230941e) for computers to indicate it is a sandbox
+- You can now delete computers from the "New Computers" page.
+- You can now use MSP KeyVault secrets in customer scripts. This is useful if, for example, you'd like to access your IT Glue API keys while running a metascript against a customer computer. Provide `-UseMSPTenant` to `Get-ImmyAzureAuthHeader`
+- `Write-Progress` can now be used inside `Invoke-ImmyCommand` blocks
+- Added a preference to set the default timezone that gets selected on the schedule and deployment pages
+- Agent installer modal now defaults Auto Onboard to false to avoid accidental auto onboarding
+- Reduced the local admin username minimum length from 3 characters to 2 characters.  Allows for two-character naming such as "MC" or "LA"
+- Users now have the ability to specify the 'ClientName' CustomProperty index in the CW Control RMM Link, in the rare case it isn't the default.
+- Switched to using service bus for `Invoke-ImmyCommand` usage in metascripts when service bus is enabled for script results
+- Made some refactoring changes around how computers get identified
+- Refactored the "Needs a Manual Decision" tab to be more useful
+
+### Bug Fixes
+---
+
+- Fixed an issue where scripts that were run from the script editor page were not able to be cancelled
+- Fixed an issue with sessions getting stuck while attempting to update the immy agent provider
+- Fixed issue with deployments targeting a specific version where it would revert to latest when reloading the page
+- Fixed issue with creating maintenance tasks and them not showing up on the deployment page when you click "Deploy"
+- Fixed issue with the person select box not showing the person name and email
+- Fixed issue where task audits were not running during preview
+- Fixed an issue where task audits would always return compliant even if they were non-complaint
+- When uploading an installer or providing one through a URL, the package type must now be selected in order to continue
+- CW Control Extension now inserts events from ImmyBot with correct eventAttributes which will alleviate some script failure issues.
+
+
 ## 0.44.7
 
 Released 2021-07-21
