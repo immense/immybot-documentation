@@ -82,7 +82,7 @@ Invoke-ImmyCommand [-ScriptBlock] <Object> [-Computer <PSComputer>] [-Context <s
 
 `-ConnectTimeout (integer, seconds, to override the amount of time before giving up on trying to start the script on a computer)
 
-`-DisableConnectTimeoutWarnings (switch, to make it not spit out "WARNING: Timed out waiting for script to start on COMPUTER" for every computer that fails to start within the connect timeout).
+`-DisableConnectTimeoutWarnings (switch, to suppress "WARNING: Timed out waiting for script to start on COMPUTER" for every computer that fails to start within the connect timeout).
 
 #### Examples
 
