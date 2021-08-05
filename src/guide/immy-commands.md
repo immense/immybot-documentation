@@ -78,11 +78,11 @@ Invoke-ImmyCommand [-ScriptBlock] <Object> [-Computer <PSComputer>] [-Context <s
 
 `-Timeout` accepts an integer denoted in seconds. The default is 120.
 
-`-Parallel (switch, makes the script block run on all the computers simultaneously instead of in series)
+`-Parallel` (switch, makes the script block run on all the computers simultaneously instead of in series)
 
-`-ConnectTimeout (integer, seconds, to override the amount of time before giving up on trying to start the script on a computer)
+`-ConnectTimeout` (integer, seconds, to override the amount of time before giving up on trying to start the script on a computer)
 
-`-DisableConnectTimeoutWarnings (switch, to suppress "WARNING: Timed out waiting for script to start on COMPUTER" for every computer that fails to start within the connect timeout).
+`-DisableConnectTimeoutWarnings` (switch, to suppress "WARNING: Timed out waiting for script to start on COMPUTER" for every computer that fails to start within the connect timeout).
 
 #### Examples
 
