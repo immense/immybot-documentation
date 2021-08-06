@@ -71,12 +71,18 @@ A powerful command that allows you to execute scripts remotely on devices.
 #### Usage
 
 ```powershell
-Invoke-ImmyCommand [-ScriptBlock] <Object> [-Computer <PSComputer>] [-Context <string>] [-ArgumentList <array>] [-Timeout <int>] [<CommonParameters>]
+Invoke-ImmyCommand [-ScriptBlock] <Object> [-Computer <PSComputer>] [-Context <string>] [-ArgumentList <array>] [-Timeout <int>] [-ConnectTimeout <int>] [-DisableConnectTimeoutWarnings] [-Parallel] [<CommonParameters>]
 ```
 
 `-Context` accepts either "System" or "User"
 
 `-Timeout` accepts an integer denoted in seconds. The default is 120.
+
+`-Parallel` (switch, makes the script block run on all the computers simultaneously instead of in series)
+
+`-ConnectTimeout` (integer, seconds, to override the amount of time before giving up on trying to start the script on a computer)
+
+`-DisableConnectTimeoutWarnings` (switch, to suppress "WARNING: Timed out waiting for script to start on COMPUTER" for every computer that fails to start within the connect timeout).
 
 #### Examples
 
