@@ -1,5 +1,19 @@
 # Releases
 
+## 0.45.2
+
+Released 2021-08-04
+
+### Bug Fixes
+---
+
+- Fixed an issue introduced in 0.45.0 that prevented users from creating deployments for installing Chocolatey and Ninite software
+- Fixed an issue with new computers getting stuck under failed with the specific error message "duplicate key value violates unique constraint "ix_computers_device_id"
+
+## 0.45.1
+
+Skipped
+
 ## 0.45.0
 
 Released 2021-08-03
