@@ -20,9 +20,11 @@
 
 ## 3. Create Client Secret
 
-![](../.vuepress/images/2020-12-07-15-48-05.png)
+![](../.vuepress/images/2021-08-16-13-19-15.png)
 
-![](../.vuepress/images/2021-08-16-13-10-12.png)
+![](../.vuepress/images/2021-08-16-13-20-45.png)
+
+![](../.vuepress/images/2021-08-16-13-23-26.png)
 
 ## 4. Add to Admin Agents Group
 
@@ -36,4 +38,5 @@
 
 ![](../.vuepress/images/2020-12-07-15-48-38.png)
 
-Copy the `Application (client) ID` and `Client Secret` into the form in ImmyBot.
+
+## 5. Copy the `Application (client) ID` and `Client Secret Value` into the form in ImmyBot.
