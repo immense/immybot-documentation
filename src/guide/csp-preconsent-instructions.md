@@ -22,7 +22,7 @@
 
 ![](../.vuepress/images/2020-12-07-15-48-05.png)
 
-![](../.vuepress/images/2020-12-07-15-48-10.png)
+![](../.vuepress/images/2021-08-16-13-10-12.png)
 
 ## 4. Add to Admin Agents Group
 
