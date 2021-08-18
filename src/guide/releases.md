@@ -1,5 +1,13 @@
 # Releases
 
+## 0.45.5
+
+Release 2021-08-18
+
+### Bug Fixes
+---
+
+- Fixed a bug that surfaced in 0.45.4 where computers were not running the onboarding stage during maintenance sessions
 
 ## 0.45.4
 
@@ -14,6 +22,20 @@ Released 2021-08-18
 - Added a session log to warn users when you attempt to run a cloud script (tenants only) against a computer.  This shouldn't be possible, but there is a bug on the deployment form that is allowing you to save an invalid deployment.  This bug will be fixed in an upcoming release
 - Updated the Azure CSP Preconsent instructions on https://docs.immy.bot/guide/csp-preconsent-instructions.html to reflect the latest UI.
 - Fixed an issue with global maintenance task file parameters where we were not downloading the files to the computer
+
+## 0.45.3
+
+Released 2021-08-18
+
+### Bug Fixes and Improvements
+---
+
+- Fixed an issue that could prevent Immy from starting up properly where the database as referencing computer ids for computers that no longer exist
+- Fixed an issue on the Deployment List page where global software / maintenance tasks were getting incorrectly linked to local software / maintenance tasks
+- Fixed a rare exception getting thrown if an instance was started and stopped very quickly
+- Fixed an asset caching bug that would cause new features to be unavailable until the user performed a hard refresh in the browser
+- You will now receive a notification when new frontend updates are available to prompt you to reload the page
+- Fixed a bug where starting sessions for computers that are actively having maintenance scheduled by ImmyBot could cause the schedule to stop scheduling sessions
 
 ## 0.45.2
 
