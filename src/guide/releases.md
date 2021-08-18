@@ -1,5 +1,20 @@
 # Releases
 
+
+## 0.45.4
+
+Released 2021-08-18
+
+### Bug Fixes and Improvements
+---
+
+- Fixed an issue with schedules that were targeting (+ offset) timezones, e.g. (UTC +10:00) where the schedule was not getting scheduled at the correct time
+- Fixed an issue where linking a tenant to an RMM client was incorrectly pushing the synced computers to Needs Onboarding.  Computers synced by linking a tenant are automatically marked as onboarding since it is the initial sync.
+- Fixed an issue with creating deployments where the maintenance item search was not returning maintenance tasks with the Tenant Category
+- Added a session log to warn users when you attempt to run a cloud script (tenants only) against a computer.  This shouldn't be possible, but there is a bug on the deployment form that is allowing you to save an invalid deployment.  This bug will be fixed in an upcoming release
+- Updated the Azure CSP Preconsent instructions on https://docs.immy.bot/guide/csp-preconsent-instructions.html to reflect the latest UI.
+- Fixed an issue with global maintenance task file parameters where we were not downloading the files to the computer
+
 ## 0.45.2
 
 Released 2021-08-04
