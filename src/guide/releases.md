@@ -1,8 +1,18 @@
 # Releases
 
+## 0.45.6
+
+Released 2021-08-20
+
+### Bug Fixes
+---
+
+- Fixed a bug where configuration task file parameters were not getting downloaded to the computer before the software action ran
+- Fixed a bug where running a deployment with a configuration task that did not have any scripts enabled was causing the software scripts to not include the configuration task parameters
+
 ## 0.45.5
 
-Release 2021-08-18
+Released 2021-08-18
 
 ### Bug Fixes
 ---
