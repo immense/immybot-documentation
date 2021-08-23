@@ -12,6 +12,8 @@ Follow this guide to setup ConnectWise Manage as a PSA Link.
 
 ![](../.vuepress/images/2021-03-23-14-26-14.png)
 
+![](../.vuepress/images/manage-sc.png)
+
 ## Create an API Member
 
 Go to *System -> Members* and create a new **API Member**
