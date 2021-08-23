@@ -1,5 +1,16 @@
 # Releases
 
+## 0.45.7
+
+Released 2021-08-23
+
+### Bug Fixes & Improvements
+---
+
+- Fixed an issue where the `Get-RmmInfo`  command was not being found in metascripts during auto onboarding sessions
+- Fixed an issue that was preventing users from deleting tenants.  The error received was "An error occurred while deleting tenants".
+- Fixed an issue where saving a script on the script details page would inconveniently scroll you back to the top of the page
+
 ## 0.45.6
 
 Released 2021-08-20
