@@ -1,5 +1,18 @@
 # Releases
 
+## 0.45.8
+
+Released 2021-08-35
+
+### Bug Fixes & Improvements
+---
+
+- Fixed a bug where reboots were not being suppressed for maintenance triggered in the batch action on the main computer list page
+- Fixed issues with running global or MSP-created meta scripts that use commands such as `Invoke-CWARestMethod` or `Get-RmmInfo`
+- Fixed issues with the sidebar not allowing you to select dropdown items when the scrollbar was showing
+- Fixed a bug on the media uploader that prevents users from dragging and dropping files to upload
+- Added the missing "Reboot Preference" label on the schedule details page
+
 ## 0.45.7
 
 Released 2021-08-23
