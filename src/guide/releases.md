@@ -2,7 +2,7 @@
 
 ## 0.45.8
 
-Released 2021-08-35
+Released 2021-08-25
 
 ### Bug Fixes & Improvements
 ---
