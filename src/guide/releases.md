@@ -1,5 +1,70 @@
 # Releases
 
+## 0.46.0
+
+Released 2021-09-14
+
+### Ephemeral Agent Script Execution
+---
+
+ImmyBot now uses "Ephemeral Agents" for script execution.
+
+This new method will normalize the time it takes to run scripts across all RMM Providers. The initial payload to start the ephemeral agent will be sent through the RMM, but then all subsequent scripts will communicate directly with the ephemeral agent.
+
+An Ephemeral Agent is a lightweight PowerShell script that establishes a direct connection with the ImmyBot backend via Polling or SSE (Server-Sent Events) to receive script payloads to execute. Script output is then sent through an Azure Service Bus for high throughput handling.  The ImmyBot backend manages the lifetime of ephemeral agents and is able to re-use them efficiently.
+
+### Script Path Preference
+---
+
+It is now easier to whitelist ImmyBot in your Antivirus. The Ephemeral Agent will use a script path containing a hash unique to your instance that you can rekey yourself.
+
+![image](https://immybot.blob.core.windows.net/release-media/e29c58d2-d877-430c-b1b3-6035e855038e)
+
+### Default Software Scripts
+---
+
+You can now specify install, uninstall, post-install, post-uninstall, upgrade, and test scripts directly on the software.
+
+This reduces duplication for software where the versions use the same exact scripts while also making software easier to manage.
+
+**Considerations**
+
+1. If the software has a script and the desired version has a script, then the script on the version takes precedence. (e.g. the version's install script will be used instead of the software's install script if both are present)
+1. If the version does not have a script, then we will attempt to use the one on the software if the script is present.
+
+### Custom Download Script
+---
+
+You can now assign a "Download Installer" script to software that will be used instead of the core Immy download installer logic.  This is valuable when downloading 3rd party installers from URLs that require authentication or specific headers.
+
+### Other Improvements
+---
+
+- Combined RMM Links and PSA Links into a single Integrations page under Settings
+- Improved Tarma InstallMate package analyzer detection
+- Added documentation for Ephemeral Agent & ServiceBus Script-Result handler info tiles in System Status page to better explain what they mean, and how to discern specific pieces of information from them
+- Fixed an issue where password parameters with `$` characters were getting stripped
+ServiceBus Script-Result handling & Ephemeral Agent sessions are enabled by default for new Instances
+- Integration type capabilities are now listed on the New Integration page
+- ServiceBus Script-Result handling can now process results at a much higher throughput & more reliably than before.
+- ServiceBus Result latency has been improved to around ~100ms under normal load conditions from ~3s.
+- Implemented caching for tenant preferences to reduce database calls during maintenance sessions
+- Reduced some complexity in how we structure RMM Links and PSA Links (now known as integrations)
+- Reworded script-start-failed log to not include integration link name since the integration is not responsible for starting the scripts
+- Added basic logging of inventory script names and any errors to session logs
+
+### Bug Fixes
+---
+
+- Fixed an issue with pages not loading when there are a large number of tenants
+- Fixed a bug causing configuration tasks to fail if you were deploying software with the desired state of "Any Version"
+- Fixed an issue with CW Control Secondary Grouping property causing exceptions when used in Deployment.
+- Fixed a bug where script parameters were being duplicated due to case-sensitivity
+- Fixed a few potential ImmyAgent Installation issues that may occur on very old systems missing .NET standard assembly 2.x. Additionally Lowered .NET framework dependency down to 4.6.1 from 4.7.2
+- Fixed a bug where full maintenance sessions were attempting to resolve assignments that definitely should not be resolved
+- Fixed an issue the computer table counts showing incorrect numbers
+- Patched a number of ServiceBus Result-Handling bugs that could cause instability & unexpected output when in use.
+
 ## 0.45.8
 
 Released 2021-08-25
