@@ -1,5 +1,14 @@
 # Releases
 
+## 0.46.1
+
+Released 2021-09-14
+
+### Bug Fixes
+---
+
+Fix ImmyAgent bug which would cause Temp PS1 path to not be created.
+
 ## 0.46.0
 
 Released 2021-09-14
