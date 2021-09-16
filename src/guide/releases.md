@@ -1,5 +1,34 @@
 # Releases
 
+## 0.46.3
+
+Released 2021-09-16
+
+### Bug Fixes
+---
+
+- Fixed a bug that prevented Immy instances from receiving new Immy Agent releases
+
+## 0.46.2
+
+Released 2021-09-15
+
+### Improvements
+---
+
+- Changed ImmyAgent to use callbacks internally to response to Ephemeral Agent script start events. This should improve issues where the Ephemeral Agent doesn't start when using the ImmyAgent
+- Added a new switch parameter to `Invoke-ImmyCommand` called `-IncludeLocals`, which will automatically include all variables from the metascript runspace.  When using `-IncludeLocals` you no longer need to specify $using variables.
+
+### Bug Fixes
+---
+
+- Fixed an issue where system scripts timeouts were not being honored
+- Fixed backwards-compatibility of `Get-RmmInfo`and `Get-RmmComputer` metascripts
+- Fixed an issue with automate groups not loading on deployment form
+- Fixed a null reference bug when calculating MD5 hashes
+- Fixed a bug with `Invoke-ImmyCommand` where $using variables were throwing a warning: `WARNING: Parameter '__using_command' already exists with value "some-value"`
+- Fixed a regression where `Get-RmmInstallScript` was renamed to `Get-AgentInstallscript`.  `Get-RmmInstallScript` is now an alias for `Get-AgentInstallScript`
+
 ## 0.46.1
 
 Released 2021-09-14
