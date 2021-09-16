@@ -1,5 +1,22 @@
 # Releases
 
+## 0.46.4
+
+Released 2021-09-16
+
+### Improvements
+---
+
+- Updated sandbox identification to preserve maintenance session data instead of deleting old data since that data could still be useful for debugging
+
+### Bug Fixes
+---
+
+- Fixed a bug in deserializing data that resulted in `The requested operation requires an element of type 'Number', but the target element has type 'String'.`
+- Fixed a potential null reference exception when retrieving bulk software
+- Fixed a bug with session logs not showing the correct end date time
+
+
 ## 0.46.3
 
 Released 2021-09-16
