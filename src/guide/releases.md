@@ -1,5 +1,32 @@
 # Releases
 
+## 0.46.5
+
+Released 2021-09-22
+
+### Improvements
+---
+
+- A session that resolves to 0 maintenance actions now results in a successful session.
+- Added the detected version to the dynamic versions script
+- Renamed the description text for safelisting the ephemeral agent script execution paths on the preferences page
+- Added computer name-change propagation to the frontend when using `Refresh-ComputerSystemInfo` metascript
+
+### Bug Fixes
+---
+
+- Found a bug where updating a computer on the onboarding form would cause problems if the computer has an active maintenance session.  We now prevent saving the onboarding form if the computer has an active maintenance session.
+- Fixed potential issues with scripts not getting ran by prefixing our scripts with, `[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;`
+- Removed "Powered by Immense Networks" from the footer of maintenance emails
+- Fixed a bug where after uploading and analyzing software, the analyzed upgrade code was not executing the search to see if it was found on existing machines
+- Fixed a bug on the computer list page where a computer's online status was considering disabled links.  Since a disabled link can result in stale data, we no longer use them to determine the online status of a computer.
+- Fixed a bug with clicking the "Delete Offline Agent" button on the computer agents tab
+- Fixed a bug where default configuration task parameters were missing when deploying from the computer software tab
+- Fixed a null reference exception that was occurring when attempting to run a script against an offline computer
+- Fixed an issue with saving computers from the onboarding screen where it would fail when the computer had an automate agent
+- Fixed script reference counts for dynamic version scripts, download installer scripts, and all default software scripts
+- Fixed a bug with assigning a local download installer script to a local software
+
 ## 0.46.4
 
 Released 2021-09-16
