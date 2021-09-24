@@ -1,5 +1,32 @@
 # Releases
 
+## 0.46.6
+
+Released 2021-09-24
+
+### Improvements
+---
+
+- Updated the help text at the top of the Branding list page to indicate what the blue and red stars are for
+- Inventory running for a computer now updates the computer details page in real-time after each inventory script
+- Clicking the re-inventory button now runs detection after the inventory scripts
+
+### Bug Fixes
+---
+
+- Added missing preference to select the default branding
+- Fixed a bug with the "Bulk Create Tenants" buttons on the provider details page where it would throw an erorr
+- Fixed a bug with running user context scripts where an error was being swallowed and the scripts would inevitably time out
+- Fixed an issue with updating the "Installer Executable Path / Installer File" field on the software version form where it would revert to the previous value
+- Fixed a bug where software marked as "Download Only" would attempt to run its configuration task.  Software that is set to download only no longer adds an action for its configuration task.
+- Fixed an issue that was causing the azure user sync to stop running.  When it encounters an issue syncing a specific tenant, it will now log some details that will help the immy team determine why it is failing and then continue attempting to sync other tenants.
+- Fixed a bug with running `Get-AgentInstallScript` where it would return the error `Tenant # is not linked to a client for the specified provider`
+- Fixed a bug saving the onboarding form where we were not disabling the onboarding save buttons while the page was still loading.  Attempting to to save before the page was loaded was causing an error to be thrown
+- Fixed a bug where the branding list was showing brandings as "Expired" when they actually weren't
+- Fixed a bug where updating brandings with no selected tenant would cause the branding to get deleted instead
+- Fixed a bug where using the "Re-inventory" button on the computer details page would often time out and show an error
+- Fixed a bug where the edit deployment page always showed the desired version: latest
+
 ## 0.46.5
 
 Released 2021-09-22
