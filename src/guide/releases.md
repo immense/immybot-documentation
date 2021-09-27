@@ -1,5 +1,15 @@
 # Releases
 
+## 0.46.7
+
+Released 2021-09-27
+
+### Bug Fixes
+---
+
+- Added code to help certain scripts honor the system web proxy on a computer
+- Fixed a bug where the ephemeral agent was not honoring the correct polling interval, causing scripts to execute much slower than expected
+
 ## 0.46.6
 
 Released 2021-09-24
