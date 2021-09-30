@@ -1,5 +1,15 @@
 # Releases
 
+## 0.46.8
+
+Released 2021-09-30
+
+### Bug Fixes
+---
+
+- Fixed a bug with maintenance tasks where the default parameter value was being used instead of the overridden value
+- Fixed a bug where deploying tenant maintenance tasks would incorrectly show the computer target options instead of the tenant target options on the deployment form
+
 ## 0.46.7
 
 Released 2021-09-27
