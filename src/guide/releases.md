@@ -1,5 +1,14 @@
 # Releases
 
+## 0.46.9
+
+Released 2021-10-04
+
+### Bug Fixes
+---
+
+- Fixed a bug where configuration tasks were failing with `"Parameter '<parameter name>' is marked required for Maintenance Task...and no value has been set"` when the parameter value was actually set
+
 ## 0.46.8
 
 Released 2021-09-30
