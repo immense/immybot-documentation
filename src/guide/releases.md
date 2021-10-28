@@ -1,5 +1,42 @@
 # Releases
 
+## 0.47.0
+
+Released 2021-10-28
+
+### Maintenance Execution Order
+---
+
+You can now specify the order in which maintenance items are executed by navigating to "/deployments/ordering" or by clicking the "Ordering" link in the side nav bar under "Deployments".
+
+![Maintenance Execution Order](https://immybot.blob.core.windows.net/release-media/itemorderingscreenshot.png)
+
+### Other Improvements
+---
+
+- Made the software, maintenance task, script, and media list pages default to showing "All" for convenience.  Additionally made small changes to these pages to make them more consistent in their appearance.
+- Configuration tasks are now executed immediately after their compliant software.
+- Refactored some code to be platform agnostic in preparation for hosting ImmyBot in Linux instead of Windows
+- Made some internal improvements to how we store core PowerShell code that will make development and script signing easier
+- Allowed dynamic version software to use the "Update If Found" desired state
+- Allowed inventory to use metascripts
+- Parallelized inventory to run up to 4 scripts in parallel for faster execution
+- When creating scripts from a software or maintenance task, the script name will now have a default value. E.g. If creating a new installation script the default name will be " Installation Script" made in this MR for use in release notes
+- Added a maintenance item column to the schedule list page
+- Simplified the "Getting Started Wizard"
+- Removed unnecessary padding in the "Getting Started Wizard"
+- New instances will now automatically approve all recommended target assignments
+
+### Bug Fixes
+---
+
+- Fixed a bug with adding the CW Automate integration where it would throw an error if the list of clients being imported was extremely large
+- Fixed command-line scripts so uninstall logic works as expected
+- Updated the target assignment resolution to exclude assignments that are tied to disabled provider links
+- Fixed a bug where the test script on a software was not getting called if the software was detected
+- Fixed a bug with maintenance item ordering where the preferred initial order of recommended items was not being set
+- Fixed an issue that was causing a memory leak that scaled with the number of ImmyBot agent installers
+
 ## 0.46.9
 
 Released 2021-10-04
