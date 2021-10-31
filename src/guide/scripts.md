@@ -6,7 +6,19 @@ A script will have a specific type.  This type determines which variables and co
 
 ### Software Detection
 
-These scripts  **must return a valid `System.Version`**.
+These scripts  **must return a string that will cast to a valid `System.Version`**. 
+Returning an actual `System.Version` will fail. 
+For example 
+```
+$version = [String]"1.2.3"
+return $version
+```
+will work, but currently 
+```
+$version = [System.Version]"1.2.3"
+return $version
+```
+will fail.
 
 Software Detection scripts are used to determine whether an existing software is present and what version it may be.
 
