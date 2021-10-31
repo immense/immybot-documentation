@@ -6,7 +6,19 @@ A script will have a specific type.  This type determines which variables and co
 
 ### Software Detection
 
-These scripts  **must return a valid `System.Version`**.
+These scripts  **must return a string that will cast to a valid `System.Version`**. 
+Returning an actual `System.Version` will fail. 
+For example 
+```
+$version = [String]"1.2.3"
+return $version
+```
+will work, but currently 
+```
+$version = [System.Version]"1.2.3"
+return $version
+```
+will fail.
 
 Software Detection scripts are used to determine whether an existing software is present and what version it may be.
 
@@ -41,7 +53,7 @@ A value of `$true` indicates that the computer applies to this deployment.  A va
 
 These scripts are used on deployments as a target.
 
-They **must return a `Computer[]` array.
+They **must return a `Computer[]` array**.
 
 The deployment will only apply to computers specified in the returned array.
 
