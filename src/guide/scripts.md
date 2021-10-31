@@ -6,7 +6,8 @@ A script will have a specific type.  This type determines which variables and co
 
 ### Software Detection
 
-These scripts  **must return a valid `System.Version`**.
+These scripts  **must return a string that will cast to a valid `System.Version`**. 
+For example `[String]"1.2.3"` will work, but currently `[System.Version]"1.2.3"` will not.
 
 Software Detection scripts are used to determine whether an existing software is present and what version it may be.
 
