@@ -41,7 +41,7 @@ A value of `$true` indicates that the computer applies to this deployment.  A va
 
 These scripts are used on deployments as a target.
 
-They **must return a `Computer[]` array.
+They **must return a `Computer[]` array**.
 
 The deployment will only apply to computers specified in the returned array.
 
