@@ -10,7 +10,7 @@ Released 2021-11-17
 
 1. The ephemeral agent now executes as an `.exe` instead of a PowerShell script.  
 1. This allows us to use a WebSocket instead of polling, which improves performance and resiliency as we can immediately detect disconnections.
-1. ImmyBot will attempt to connect using all RMMs simultaneously instead of attempting each on in sequence.
+1. Decreased initial connection time by attempting to connect using all RMMs simultaneously instead of in sequence.
 1. Substantially improved logging to help troubleshoot script execution issues
 
 **Note: You may have to exclude your instance's hostname in the firewall from SSL Inspection policies! SSL Inspection may interfere with the WebSocket connection from this new agent!**
