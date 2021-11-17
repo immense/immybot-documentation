@@ -1,5 +1,49 @@
 # Releases
 
+## 0.47.8
+
+Released 2021-11-17
+
+### Features
+
+#### Ephemeral Agent EXE
+
+1. The ephemeral agent now executes as an `.exe` instead of a PowerShell script.  
+1. This allows us to use a WebSocket instead of polling, which improves performance and resiliency as we can immediately detect disconnections.
+1. ImmyBot will attempt to connect using all RMMs simultaneously instead of attempting each on in sequence.
+1. Substantially improved logging to help troubleshoot script execution issues
+
+**Note: You may have to exclude your instance's hostname in the firewall from SSL Inspection policies! SSL Inspection may interfere with the WebSocket connection from this new agent!**
+
+**Note: You may also need to adjust your security software to allow the EXE to execute. We recommend adding an exclusion for the Immense Networks code signing certificate as it will be used to sign all ImmyBot PowerShell scripts and Executables.**
+
+The subject of the certificate is:
+```
+CN=Immense Networks, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
+```
+
+### Improvements
+- Inventory scripts now run in parallel
+- ImmyBot will always overwrite license files to prevent issues with software not activating because the previous license file is still in the ImmyBot download folder.
+- The script terminal on the computer details page is no longer cleared when swapping between tabs.
+- Updated the instance disabled text to specify that only an admin user can re-enable immy
+
+### Bug Fixes
+- The EXE ephemeral agent addresses intermittent ScriptTimeout exceptions that would occur for a variety of reasons
+- Implemented a "Script Execution Circuit Breaker" per computer to prevent RMM overload when retrying ephemeral connections (This can happen when security software blocks execution or firewalls prevent outbound connections)
+- Fixed several issues around script error handling.  Line numbers now display correctly.  Exceptions that occur before running a script are now caught and displayed properly.
+- Fixed an issue where inventory output with a value of `null` was being treated as successful and overwriting good results
+- Fixed a bug with session logs showing null references when a script was cancelled or timed out
+- Fixed a bug with quick deploy where the deployment resolution stage was unnecessarily reaching out to the computer to retrieve its software
+- Fixed a bug during maintenance sessions, `Field at index '1' does not exist...`, where retrieving the list of installed chocolatey software would fail
+- Resolved a potential issue around re-acquiring ephemeral agent sessions under concurrent script execution scenarios
+- Fixed a bug when re-authenticating to ImmyBot where you wouldn't be redirected to the page you were previously on due to the URL not including query parameters
+
+
+
+
+
+
 ## 0.47.0
 
 Released 2021-10-28
