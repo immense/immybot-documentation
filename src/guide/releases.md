@@ -1,5 +1,16 @@
 # Releases
 
+## 0.47.9
+
+Release 2021-11-22
+
+### Bug Fixes
+
+1. Fixed an issue with inventory and script-run cancellation logic causing high memory usage
+1. Fixed an issue with function scripts being used in metascripts causing heavy load on global database
+1. Switched to force Ephemeral Agent EXE to utilize System Proxy settings to alleviate connection refusal for some users
+1. Fixed an issue with PowerShell execution occasionally throwing an error that would crash ImmyBot
+
 ## 0.47.8
 
 Released 2021-11-17
