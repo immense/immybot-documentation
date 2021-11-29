@@ -1,5 +1,23 @@
 # Releases
 
+## 0.48.0
+
+Released 2021-11-29
+
+### IMPORTANT
+---
+
+#### **The changes in this release will require reconsent at first login!**
+
+**ⓘ If your Azure AD is configured to not allow non-Admin users to consent to new apps, you will need to login once as a user with sufficient privileges.**
+
+![image](https://immybot.blob.core.windows.net/release-media/4aebeec7-2bcf-414f-952e-272e3deaffc5)
+
+- Consolidated backend and frontend into a single Enterprise Application (Service Principal)
+- Removed `backend.subdomain.immy.bot` and pointed all API calls to `subdomain.immy.bot`
+  - This has the additional benefit of increasing performance as the browser no longer makes a CORS pre-flight check when hitting the API
+    - Note: If you are using the ImmyBot API, you will need to remove `backend.` from your URI
+
 ## 0.47.12
 
 Released 2021-11-29
