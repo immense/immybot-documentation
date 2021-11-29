@@ -1,10 +1,49 @@
 # Releases
 
-## 0.47.9
+## 0.47.12
 
-Release 2021-11-22
+Released 2021-11-29
 
 ### Bug Fixes
+---
+
+- Fixed a bug introduced in 0.47.11 where BITS downloads fail for files that do not specify an MD5 hash
+
+## 0.47.11
+
+Released 2021-11-24
+
+### Improvements
+---
+
+- Files without MD5 hashes will now always get overwritten for better security.
+
+### Bug Fixes
+---
+
+- Fixed Ephemeral Agent PowerShell execution failures on some machines
+- Fixed an issue with nested exceptions not showing the correct output
+
+## 0.47.10
+
+Released 2021-11-23
+
+### Improvements
+---
+
+- Ephemeral Agent EXE respects global proxies for https:// even though it uses wss://
+
+### Bug Fixes
+---
+
+- Fixed issue where Ephemeral Agent EXE failed to launch due to an extraction issue on Windows Server Core
+
+## 0.47.9
+
+Released 2021-11-22
+
+### Bug Fixes
+--- 
 
 1. Fixed an issue with inventory and script-run cancellation logic causing high memory usage
 1. Fixed an issue with function scripts being used in metascripts causing heavy load on global database
