@@ -1,5 +1,27 @@
 # Releases
 
+## 0.48.1
+
+Released 2021-11-30-21
+
+### Improvements
+---
+
+- Ephemeral Agent now uses Win32API directly to invoke Powershell, replacing the WMI calls which suffered from `System.PlatformNotSupportedException: The native library 'C:\Windows\Microsoft.NET\Framework64\v4.0.30319\wminet_utils.dll' does not have all required functions. Please, update the .NET Framework.` errors on some specific machines.
+
+### Bug Fixes
+---
+
+- Resolves issue with Ephemeral Agent sometimes launching PowerShell in 32-bit mode
+- Added additional error logging when maintenance task get/set/test fail
+- Fixed an issue with file paths containing "/" instead of "\"
+- Added back missing metascript aliases
+- Resolved 'AmsiContext' warnings being spammed in frontend
+  - ![image](https://immybot.blob.core.windows.net/release-media/d5da6576-6856-48bf-a516-5c4a96d6f3e7)
+- Improved the readability of the Azure page
+- Added an alert to the user page about creating new users
+- Replaced references to "Immybot" with "ImmyBot"
+
 ## 0.48.0
 
 Released 2021-11-29
