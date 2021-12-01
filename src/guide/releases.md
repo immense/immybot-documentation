@@ -1,8 +1,18 @@
 # Releases
 
+## 0.48.2
+
+Released 2021-12-01
+
+### Bug Fixes
+---
+
+- Fixed an issue with internal packages behaving incorrectly on the new Linux backend
+- Fixed a caching bug that was showing the previously viewed maintenance session details when switching to a different computer
+
 ## 0.48.1
 
-Released 2021-11-30-21
+Released 2021-11-30
 
 ### Improvements
 ---
