@@ -1,5 +1,22 @@
 # Releases
 
+## 0.48.3
+
+Released 2021-12-02
+
+### Improvements
+---
+
+- Added logout and switch user buttons to the landing page when you are signed in as an unauthorized user
+  
+![image](https://immybot.blob.core.windows.net/release-media/9ac4a8a6-3d2b-4518-9219-8407c32dd072)
+
+### Bug Fixes
+---
+
+- Fixed a bug where completed configuration tasks were incorrectly showing the message "Action interrupted"
+- Fixed a bug where providers failing to initialize were not getting disabled, causing them to continually throw exceptions
+
 ## 0.48.2
 
 Released 2021-12-01
