@@ -1,5 +1,14 @@
 # Releases
 
+## 0.48.5
+
+Released 2021-12-03
+
+### Bug Fixes
+---
+
+- Fixed a bug where failed test scripts run after an install were not setting the action to non-compliant
+
 ## 0.48.4
 
 Released 2021-12-03
