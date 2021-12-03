@@ -1,5 +1,15 @@
 # Releases
 
+## 0.48.4
+
+Released 2021-12-03
+
+### Bug Fixes
+---
+
+- Fixed an issue with some ImmyBot instances not being able to run scheduled jobs
+- Fixed a bug with basic downloads failing because paths were using forward slashes instead of backslashes.  This was causing all license downloads to fail.
+
 ## 0.48.3
 
 Released 2021-12-02
