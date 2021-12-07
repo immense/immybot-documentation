@@ -1,5 +1,14 @@
 # Releases
 
+## 0.48.6
+
+Released 2021-12-06
+
+### Bug Fixes
+---
+
+- Fixed a bug where deployments targeting an integration were getting deleted when updating to a different target type
+
 ## 0.48.5
 
 Released 2021-12-03
