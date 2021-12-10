@@ -1,5 +1,39 @@
 # Releases
 
+## 0.48.7
+
+Released 2021-12-10
+
+### Access Requests 
+---
+
+Your users and the ImmyBot support team can now request access to your instance! When an unauthorized person authenticates, a "Request Access" button is available that will submit an access request.  An MSP user can then grant or deny access from the user list page.  An expiration of one hour, one day, or never can be set for the user.
+
+The access request feature can be enabled/disabled on the preferences page.
+
+![image](https://immybot.blob.core.windows.net/release-media/bb34184f-c7c3-41cf-9fa3-f6489e6c3600)
+
+### Improvements
+---
+
+- Made some small improvements to the User list page
+- Added auto refreshing to the new computers page
+- Made the session list on the computer details page reload when it is shown
+
+### Bug Fixes
+---
+
+- Removed some extra whitespace showing on the tenant details page
+- Fixed a bug when using custom download scripts where the action would fail with `An item with the same key has already been added`
+- Changed "Triggered By" text from "Unknown" to "System - Automatic Onboarding" for maintenance sessions that onboard automatically
+- Changed parameter text from "override" to "specify" when a default valued is not specified
+- Fixed a bug where deployment parameter notes were not honoring line breaks
+- Changed the default target filter from `No Filter` to `Workstations and Portable Devices`
+- Fixed an error in metascripts, `Tee-Output : Cannot bind argument...`, that would occur if you ran the script `$null`, which should return null
+- Fixed a browser caching issue which would cause new features and bug fixes to not be immediately available when updating ImmyBot
+- Fixed an issue where the end time of the ImmyBot agent update action was not getting set, causing the time running to continually increase
+- Fixed an issue with the ImmyBot Chocolatey Feed app preference not updating when toggled
+
 ## 0.48.6
 
 Released 2021-12-06
