@@ -28,7 +28,7 @@ We do this by making a [Deployment](#deployment-aka-assignment) that assigns Ado
 
 ![](../.vuepress/images/2021-03-15-08-29-52.png)
 
-![](../.vuepress/images/2021-03-15-08-29-57.png)
+![image](https://user-images.githubusercontent.com/1424395/149639588-625ae756-7a7b-4177-9415-50a77d6bd10d.png)
 
 ![](../.vuepress/images/2021-03-15-08-30-04.png)
 
