@@ -79,15 +79,11 @@ The script runs on the server in the context of a specific tenant.
 
 ## Variables
 
-All variables are strings, but are castable to the datatypes specified.
-
-At this time, the variables are string replacements.
-
 Avoid setting these variables yourself or having variables with similar names.
 
 ### $AzureTenantId
 
-`[string] The Azure Principal Id of the computer's tenant.
+`[string]` The Azure Principal Id of the computer's tenant.
 
 - Software Detection
 - Software Auto Update
