@@ -1,5 +1,44 @@
 # Releases
 
+## 0.49.1
+
+Released 2022-01-17
+
+### Improvements
+---
+
+- The `$VerbosePreference` and `$DebugPreference` in a metascript now get passed down to the computer
+- The top navbar on smaller screen sizes is now accessible from a collapsible button
+- Added docs nav icon linking to https://docs.immy.bot
+- Standardized task verbiage in the UI
+- Added an additional task type filter on the task list page for "All, Computer, Cloud, Configuration"
+- `Write-Progress` now appends to the session log output
+- Added a health check for when the Hangfire server crashes and fails to restart
+- Changed chocolatey actions to no longer use a hardcoded path `C:\ProgramData\chocolatey\bin\choco.exe`. We now retrieve the path by using `Get-Command choco -ErrorAction Stop | select -expand Source`. This ensures we can run chocolatey when it is not in installed in the default location (Looking at you `SyncroRMM`).
+- Deployment filter scripts can now utilize function scripts
+- Added license description field
+- Improved performance of resolving azure group deployments
+
+### Bug Fixes
+---
+
+- Resolved issue where computers running non-English version of Windows could not run any scripts.  This issue also prevented successful identification for those computers.
+- Resolved parameters not being passed to user-context scripts
+- Fixed an issue with boolean deployment parameters not honoring `false`
+- Fixed an issue with adhoc deployments not using the parameters specified on the page
+- Fixed an issue with sessions showing passed when it should show partial passed
+- Fixed issue where duplicating deployments did not copy over the parameter values
+- Fixed issue with [ctrl-s] saving scripts from the editor
+- Fixed a bug where software from deleted deployments were still showing in the assigned software tab
+- Fixed a bug where the ephemeral agent retry logic was being ignored
+- Fixed an issue with the logs panel failing to stay scrolled to the bottom
+- Fixed an issue where inventory session logs were not showing up correctly
+- Fixed an issue where needs attention actions were showing "unavailable" for the date time
+- Fixed word wrapping on maintenance task parameter text
+- Fixed a bug where deployments targeting "All computers / No Filter" would show "Workstations and portable devices" instead
+- Fixed a bug where uploading files for global maintenance tasks would fail
+- Fixed a bug where schedule and deployment provider specific target data was not loading properly
+
 ## 0.49.0
 
 Released 2022-01-11
