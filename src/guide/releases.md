@@ -1,5 +1,25 @@
 # Releases
 
+## 0.49.3
+
+Released 2022-01-18
+
+### Improvements
+---
+
+- Reduced the number of concurrent inventory jobs that can run to preserve  performance until it can be refactored
+- Delivery of Ephemeral Agents on computers that don't support TLS v1.2 no longer spit out scary looking error. Instead, it now shows a warning that it will fallback to TLS v1.0.
+
+![image](https://immybot.blob.core.windows.net/release-media/f75ad884-21de-4737-9c79-0c0d55a05411)
+- Monitor maintenance tasks now run during execution except for previews which still run during detection
+
+### Bug Fixes
+---
+
+- Fixed an issue with maintenance item specific schedules causing sessions to get stuck in created
+- Fixed an issue with ephemeral agents not working correctly on Win7 x64-era machines
+- Fixed issue with immy version not showing in footer
+
 ## 0.49.2
 
 Released 2022-01-18
