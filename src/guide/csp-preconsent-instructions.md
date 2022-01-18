@@ -2,6 +2,8 @@
 
 ## 1. Create an App Registration
 
+Navigate to: https://aad.portal.azure.com/
+
 ![](../.vuepress/images/2020-12-07-15-46-18.png)
 
 ![](../.vuepress/images/2020-12-07-15-47-07.png)
