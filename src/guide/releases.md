@@ -1,5 +1,14 @@
 # Releases
 
+## 0.49.2
+
+Released 2022-01-18
+
+### Bug Fixes
+---
+
+- Fixed an issue where scripts run from the editor could throw the error: `An item with the same key has already been added. DebugPreference`
+
 ## 0.49.1
 
 Released 2022-01-17
