@@ -1,5 +1,19 @@
 # Releases
 
+## 0.49.4
+
+Released 2022-01-19
+
+### Improvements
+---
+- Significantly improved performance of re-initializing maintenance sessions upon the server starting up
+- Immy will now wait for one or more of a device's agents to reconnect when the device goes offline while attempting to run a script
+
+### Bug Fixes
+---
+- Fixed an issue with application restarts taking a long time to re-enqueue pending maintenance sessions
+- Fixed an issue with some exceptions that occur in maintenance sessions causing the sessions to be stuck in the "Created" status
+
 ## 0.49.3
 
 Released 2022-01-18
