@@ -1,0 +1,33 @@
+{
+  "name": "",
+  "isOrdered": true,
+  "folders": {
+    "src": {
+      "name": "src",
+      "isOrdered": true,
+      "folders": {
+        "guide": {
+          "name": "guide",
+          "isOrdered": true,
+          "folders": {},
+          "files": {
+            "connectwise-control-integration-setup": 0,
+            "connectwise-automate-integration-setup": 1,
+            "connectwise-manage-integration-setup": 2,
+            "csp-preconsent-instructions": 3,
+            "immy-commands": 4,
+            "introduction": 5,
+            "releases": 6,
+            "scripts": 7
+          }
+        }
+      },
+      "files": {
+        "index": 0
+      }
+    }
+  },
+  "files": {
+    "README": 0
+  }
+}
