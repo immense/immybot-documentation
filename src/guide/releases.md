@@ -1,5 +1,26 @@
 # Releases
 
+## 0.49.7
+
+Released 2022-01-26
+
+### Improvements
+---
+
+- General cleanup/refactoring to improve performance
+- Added an index that improves some maintenance session queries
+
+### Bug Fixes
+---
+
+- Fixed an issue with uploading licenses and software installers with users who have names that contain non-Latin1 characters
+- Fixed an issue where failed audit tasks were showing as compliant
+- Fixed an issue where the maintenance item selector was not showing correct results for the Tenant target category
+- Fixed an issue uploading an MSI where the `Uninstall MSI By ProductCode` script was being used on the software instead of the correct `Uninstall MSI By UpgradeCode`. The `Uninstall MSI By ProductCode` is now set on the software version. The software upgrade strategy is also defaulted to `install/over` instead of none.
+- Fixed several issues around script timeouts and memory management
+- Fixed an issue with some slow computer list queries
+- Fixed an issue with software test scripts causing detection to fail due to missing required maintenance task parameters
+
 ## 0.49.4
 
 Released 2022-01-19
