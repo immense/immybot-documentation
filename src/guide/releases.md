@@ -1,5 +1,14 @@
 # Releases
 
+## 0.49.8
+
+Released 2022-01-27
+
+### Bug Fixes
+---
+
+- Fixed a bug with quick deploy where maintenance actions were failing due to `Parameter <X> is marked required... and no value has been set`
+
 ## 0.49.7
 
 Released 2022-01-26
