@@ -1,5 +1,13 @@
 # Releases
 
+## 0.49.9
+
+Released 2022-02-02
+
+### Improvements
+
+- Inventory during a maintenance session now runs before resolving deployments since a deployment may rely on inventory data. e.g. Filter Scripts
+
 ## 0.49.8
 
 Released 2022-01-27
