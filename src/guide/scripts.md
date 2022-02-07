@@ -1,13 +1,54 @@
 # Scripts
 
+## Script Writing Best Practices
+* Don’t hardcode paths, instead rely on variables like $InstallerFile and $LicenseFilePath
+* Don’t hardcode license values or other sensitive information, instead utilize $LicenseValue or a custom parameter
+* Don’t repeat yourself. Leverage function scripts for reusable code
+* Look for a script that already does what you want. There is a lot of good logic in the built in function scripts
+* Include code to verify that the script did what it intended to do
+    * For Tasks, implement a “test” script
+    * For Software, make sure your Detection method works, and optionally implement a Test script to verify things are in working order
+        * When a software Test script returns $false, ImmyBot will re-install the software.
+* Use Metascripts, especially if your script needs to restart the machine or access APIs like IT Glue and therefore will contain sensitive data like API keys
+* Use throw “The bad thing that happened, what user should do” to prevent cascading failure. That message will be shown to the user in a prominent location so they can take corrective action
+
+From a 10,000ft view, here is what you need to know about ImmyBot:
+ImmyBot can deploy 2 things:
+1. Software
+2. Tasks (Anything that isn’t software, think Bitlocker, Power Options, etc)
+
+Software can be associated to a specific Task such that the software is installed before the task is run. This is the "Configuration Task" option on software.
+This is useful for configuring VPN profiles, or otherwise performing custom configuration of your application after it is installed.
+ 
+ImmyBot tests everything it does before and after it does it. 
+* Software requires a Detection Method which is run before and after to verify the desired version is installed. 
+* Tasks have a “test” mechanism that return $true or $false to indicate compliance
+
+**While it may be cumbersome to write additional logic to verify your work, the reward of knowing exactly how many machines are or or not compliant with your desired state is totally worth it. Without it, you are flying blind, and assuming everything went to plan. With it, you know exactly how many machines require additional attention, giving you to write better code that handles more edge cases. See the Helper Function section to see how we make your life easier.
+
+
 ## Script Types
 
 A script will have a specific type.  This type determines which variables and commands will be available in the script.
 
 ### Software Detection
 
+Software Detection scripts are used to determine whether an existing software is present and what version it may be.
+
+Avoid custom detection scripts where possible. Software with a custom detection script can't be matched to pre-existing inventory data on the machine, making it difficult to report on how many machines have the software already. Further, the "Assignable" software tab won't work since that matches the detection method to existing inventory data. However if your software doesn't create an entry in Add/Remove Programs, you may have no choice but to use a custom detection script. It is important to note that a lot of software creates hidden entries under Add/Remove Programs, ImmyBot inventories these hidden entries, further reducing the need for custom detection scripts.
+
+When you write your custom detection script, your best bet is to find a exe or dll file under Program Files\<software name> or ProgramData\<softwarename> that shows the version when you right click on it and go to Properties. To retrieve this version use a script similar to the following:
+
+```powershell
+Get-Command "C:\Program Files*\<softwarename>\mysoftware.exe" -ErrorAction SilentlyContinue | %{ $_.Version.ToString() }
+```
+
+If there is no exe or dll file containing the version, perhaps there is a .ini, .config, .json or .xml file that contains the installed version.
+
+If all else fails, you can simply return "1.0" if a file associated to the software exists. 
+
 These scripts  **must return a string that will cast to a valid `System.Version`**. 
-Returning an actual `System.Version` will fail. 
+Returning an actual `System.Version` will fail. (Although we may correct this in the future)
 For example 
 ```
 $version = [String]"1.2.3"
@@ -20,9 +61,126 @@ return $version
 ```
 will fail.
 
-Software Detection scripts are used to determine whether an existing software is present and what version it may be.
+## Scripting Frequently Asked Questions
+### Can I use custom parameters in my scripts?
+Yes. Add parameters to the Task your script is associated to. If this is a software install script, associate the task to the software as a "Configuration Task", and all parameters are passed into the Install scripts
 
-### Software Auto Update
+### Can I deploy files along with my scripts?
+Yes. Tasks have a “File” parameter type. Immy will download the file and provide the path to the file in variable.
+
+### Can I deploy a script to all of my computers?
+Yes, you do this by creating a Task. We strongly recommend your task includes a ‘Test’ so Immy can check its work and provide reporting on the effectiveness of your script.
+
+### Why do I have to create a Configuration Task to get custom parameters into my Software?
+Some software can only be configured at install time by providing command line parameters to the installer, think Antivirus products.
+Some software can only be configured after they are installed, think VPN Profiles
+Some software can go either way (Generally by manipulating config files or registry values)
+
+Let’s say your Software package accepts command line parameters at install time. You would create a Configuration Task with those parameters without implementing the scripts on that Task. ImmyBot will pass the parameters into the install script.
+
+Later you need to reconfigure this software on lots of machines. You discover that the parameters you passed into the installer are ultimately held as registry values (Duo Logon Provider is like this). At this time you would implement the scripts on the Software’s Configuration Task. These scripts task will test the existing registry values against the desired ones, and setting them to the to the desired value, and then re-testing to verify.
+
+### How does Immy get the latest version of software?
+This is done via “Dynamic Versions”. Rather than upload the latest installer for every version of a piece of software, create a dynamic versions script that returns the most current version number, and the URL to download it. Reader, Zoom, 7zip, Chrome, Edge, Firefox, Bluebeam, Citrix, Egnyte,  and many more already have dynamic version scripts defined. This allows Immy to keep these items up to date on all your machines.
+
+## Configuration Task Helper Functions
+We provide a helper functions for common tasks like Registry and configuration file manipulation
+When used in the context of a Task, these functions honor the $method variable containing the mode the script should be run in (‘test’, ‘set’, or ‘get’)
+**These must be run from the Metascript context
+### Get-WindowsRegistryValue | RegistryShould-Be
+#### Overview
+Get-WindowsRegistryValue fetches the value of the specified Path and Name, and RegistryShould-Be tests and sets the value, creating missing keys/values if required 
+
+On average this saves 8-10 lines of PowerShell per registry value and makes your code significantly more readable
+
+#### Usage
+* Microsoft Edge
+
+#### Example
+This assumes you have a parameter called ServerAddress
+
+```powershell
+Get-WindowsRegistryValue -Path "HKLM:\Software\MySoftware" -Name "ServerAddress" | RegistryShould-Be -Value $ServerAddress
+```
+### FileShould-Be
+#### Overview
+This accepts the source file path as input and verifies the files exists in the destination path, overwriting if the hashes don't match
+
+#### Example 1 - Config File
+This assumes you have created a parameter called ConfigFile
+```powershell
+$ConfigFile | FileShould-Be -in "C:\ProgramData\MySoftware"
+```
+
+#### Example 2 - Zip File
+This assumes you have a parameter called ZippedConfig
+
+The following script will iterate recursively over the extracted files and place them in the target directory. It will verify the hash matches when in test mode.
+
+```powershell
+# ImmyBot will automatically extract the Zip file and put the path it extracted it to into a variable named $ZippedConfigFolder
+dir $ZippedConfigFolder -Recurse | select -Expand FullName | ForEach-Object {
+  $FilePath = $_
+  $FilePath | FileShould-Be -in "C:\Program Files*\MySoftware" 
+}
+```
+
+### XMLShould-Be
+Let's say your software has an XML file you need to change settings in.
+
+This assumes you have a parameter called ServerAddress
+#### Usage
+* OpenDental
+* SmartBoard
+
+#### Example
+See the scripts for OpenDental and SmartBoard for usage of this
+
+```powershell
+$ConfigFilePath = "C:\ProgramData\MySoftware\configuration.xml"
+$XML = Get-Content $ConfigFilePath
+$XML = $XML | XMLShould-Be -XPath "/ServerAddress" -Value $ServerAddress
+$XML | Set-Content $ConfigFilePath 
+```
+
+### HKCUShould-Be
+```powershell
+Get-WindowsRegistryValue -Path "HKCU:\Software\Policies\OneDrive" -Name EnableADAL | HKCUShould-Be 1
+```
+
+### ShouldHave-One
+
+One of the aggravating things about PowerShell is ensuring there is exactly one item in a variable
+
+Typically you would do something like this:
+
+```powershell
+$MatchingUsers = Get-ADUser | ?{$_.SAMAccountName -like "Admin*" }
+$MatchingUserCount = $MatchingUsers | measure | select -Expand Count
+if($MatchingUserCount -eq 0)
+{
+  throw "No matching users found"
+}
+else if($MatchingUserCount -gt 1)
+{
+  throw "Multiple users found: $($MatchingUsers | Out-String)"
+}
+```
+
+Is reduced to
+```powershell
+$MatchingUsers = Get-ADUser | ?{$_.SAMAccountName -like "Admin*" }
+$MatchingUsers | ShouldHave-One
+```
+
+If you simply want to take the first element but warn if there are multiple, use the -TakeFirst switch
+
+```powershell
+$MatchingUsers = Get-ADUser | ?{$_.SAMAccountName -like "Admin*" }
+$MatchingUser = $MatchingUsers | ShouldHave-One -TakeFirst
+```
+
+### Software Auto Update (Deprecated, use dynamic versions instead)
 
 These scripts are useful for automatically adding new versions for a software.
 Script should return a `$SoftwareVersion` object.
