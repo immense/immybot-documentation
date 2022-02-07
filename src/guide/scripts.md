@@ -1,20 +1,32 @@
 # Scripting Guide
 
-From a 10,000ft view, here is what you need to know about ImmyBot:
-ImmyBot can deploy 2 things:
+## Preface
+ImmyBot deploys 2 things:
 1. Software
-2. Tasks (Tasks are anything that isn’t software, think Bitlocker, Power Options, etc)
+1. Tasks 
 
-ImmyBot also tests everything it does before and after it does it. 
-* Software 
-   * Version Detection Method - Runs before install to determine if installation is necessary, and after to verify the desired version is installed
-   * Test - If software is installed, the failure of this test (the test script returning $false) will trigger a "Repair" action (default Uninstall/Install) of the application
-      * Example: Check to verify Foxit PDF Editor is the Preview handler extension is working in Windows Explorer, reinstalling the PDF Editor usually corrects this scenario 
+Tasks are for anything that isn’t software, think Bitlocker, Power Options, etc.
 
-Software can have a "Configuration" Task that runs after the software is installed.
-* This task has its own Test script. This Test should be used to test things that can be corrected without re-installing the software
+- You can use Tasks to configure software  by selecting a "Configuration Task" for the software
+- Configuration Tasks are useful for configuring the application (even if the application wasn't installed by ImmyBot)
+- Configuration Tasks run after Immy determines the software is installed
+- Configuration Task parameters are available in all scripts related to the software
 
-This is useful for configuring the application even if the application wasn't installed by ImmyBot
+ImmyBot tests everything it does before and after it does it. 
+- Software 
+   - Version Detection - Runs before install to determine if installation is necessary, and after to verify the desired version is installed
+     - DisplayName
+       - Contains
+       - Regex
+       - Traditional (Wildcard \*)
+     - UpgradeCode (For MSI based installs)
+     - Script
+       - Must return a version or null
+   - Test Script - If software is installed, the failure of this test (the test script returning $false) will trigger a "Repair" action (default Uninstall/Install) of the application
+      - Example: Check to verify Foxit PDF Editor is the Preview handler extension is working in Windows Explorer, reinstalling the PDF Editor usually corrects this scenario 
+- Tasks
+  - Test script (When using separate scripts)
+  - Combined script returns $false when $method is 'test'
 
 ## Full Example: Adobe Reader
 Adobe Reader is detected on the machine using Regex against the DisplayName in Add/Remove Programs
@@ -28,20 +40,28 @@ The Software Install script installs the software silently
 There is a custom Upgrade script to apply the .msp patch file
 
 ## Best Practices
-* Don’t hardcode paths, instead rely on variables like $InstallerFile and $LicenseFilePath
-* Don’t hardcode license values or other sensitive information, instead utilize $LicenseValue or a custom parameter
-* Don’t repeat yourself. Leverage function scripts for reusable code
 * Look for a script that already does what you want. There is a lot of good logic in the built in function scripts
+* Have a machine you can test on
+* Have a _separate_ machine to test your sanity if you bork your first machine
+* Test by clicking Open Debugger in the logs
+  * This gives you all available parameters on the left so you can test the script in its natural context
+  * You can quickly revise the script here until it works as expected
+  * Saving the script here saves it permanently
+* Don’t hardcode paths to installer or license files, instead rely on $InstallerFile and $LicenseFilePath
+* Don’t hardcode license values or other sensitive information, instead utilize $LicenseValue or a custom parameter
+* Avoid (where possible) installers that have client specfic licenses or customizations built in
+  * If a generic installer isn't available (BitDefender) use Dynamic Versions (and potentially a URL parameter) to specify the download URL per customer or perhaps use an API to find the URL for the given customer
+  * If the URL requires authentication, use a custom Download script to perform the authenticated download (CrowdStrike/SentinelOne)
+* Don’t repeat yourself. Leverage function scripts to reuse code
 * Include code to verify that the script did what it intended to do
     * For Tasks, implement a “test” script
     * For Software, make sure your Detection method works, and optionally implement a Test script to verify things are in working order
         * When a software Test script returns $false, ImmyBot will re-install the software.
 * Use Metascripts, especially if your script needs to restart the machine or access APIs like IT Glue and therefore will contain sensitive data like API keys
 * Use throw “The bad thing that happened, what user should do” to prevent cascading failure. That message will be shown to the user in a prominent location so they can take corrective action
-
 * Tasks have a “test” mechanism that should return $true or $false to indicate compliance
 
-**While it may be cumbersome to write additional logic to verify your work, the reward of knowing exactly how many machines are or or not compliant with your desired state is totally worth it. Without it, you are flying blind, and assuming everything went to plan. With it, you know exactly how many machines require additional attention, giving you to write better code that handles more edge cases. See the Helper Function section to see how we make your life easier.
+**While it may be cumbersome to write additional logic to verify your work, the reward of knowing exactly how many machines are or are not compliant with your desired state is worth it. Without it, you are flying blind. With it, you know exactly how many machines require additional attention, giving you the opportunity to write better code that handles more edge cases. See the Helper Function section to see how we make your life easier.**
 
 ## Script Types
 
@@ -333,9 +353,9 @@ Yes. Tasks have a “File” parameter type. Immy will download the file and pro
 Yes, you do this by creating a Task. We strongly recommend your task includes a ‘Test’ so Immy can check its work and provide reporting on the effectiveness of your script.
 
 ### Why do I have to create a Configuration Task to get custom parameters into my Software?
-Some software can only be configured at install time by providing command line parameters to the installer, think Antivirus products.
-Some software can only be configured after they are installed, think VPN Profiles
-Some software can go either way (Generally by manipulating config files or registry values)
+- Some software can only be configured at install time by providing command line parameters to the installer, think Antivirus products.
+- Some software can only be configured after they are installed, think VPN Profiles
+- Some software can go either way (Generally by manipulating config files or registry values)
 
 Let’s say your Software package accepts command line parameters at install time. You would create a Configuration Task with those parameters without implementing the scripts on that Task. ImmyBot will pass the parameters into the install script.
 
@@ -346,7 +366,9 @@ This is done via “Dynamic Versions”. Rather than upload the latest installer
 
 ## Configuration Task Helper Functions
 We provide a helper functions for common tasks like Registry and configuration file manipulation
+
 When used in the context of a Task, these functions honor the $method variable containing the mode the script should be run in (‘test’, ‘set’, or ‘get’)
+
 **These must be run from the Metascript context
 ### Get-WindowsRegistryValue | RegistryShould-Be
 #### Overview
