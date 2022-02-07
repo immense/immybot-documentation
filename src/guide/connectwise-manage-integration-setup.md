@@ -3,8 +3,8 @@
 Setting up this integration allows you to
 1. Deploy Software to machines covered by a certain agreement type 
   - Example: Deploy Huntress to all customers with a Managed Security Agreement
-3. (Preferred) Deploy Software to machines covered by an Agreement with a specific Addition 
-  - Deploy SentinelOne to all computers that have SentinelOne as an Addition on their agreement
+1. (Preferred) Deploy Software to machines covered by an Agreement with a specific Addition 
+  - Example: Deploy SentinelOne to all computers that have SentinelOne as an Addition on their agreement
 
 **If you use Automate, setup the Automate integration first and import your customers from there. Importing customers from Manage generally results in many unnecessary Tenants being created in ImmyBot. You can link Automate to Manage to leverage the existing mappings between Automate<->Manage instead of manually mapping your Manage customers**
 
