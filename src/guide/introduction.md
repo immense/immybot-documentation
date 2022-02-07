@@ -20,21 +20,70 @@ You’ll receive this email when your instance is ready:
 
 ## Setup your first Computer
 
-### Scenario 1: Adobe Reader
+When you first login to ImmyBot you will be prompted to setup your first computer. We recommend unboxing a physical computer (Dell, HP, or Lenovo) so we can demonstrate applying the latest manufacturer BIOS and driver updates to a physical machine.
 
-In this example we will tell ImmyBot that all computers you setup should get Adobe Reader.
+You will be prompted to create your ImmyBot flash drive, and plug it into the new computer.
 
-We do this by making a [Deployment](#deployment-aka-assignment) that assigns Adobe Reader to all Workstations and Portable Devices. (Note, we use the term Portable Devices instead of laptops to be inclusive of Windows tablets. ImmyBot is not an MDM and does not support phones)
+Once the computer shows up in Immy, you will be brought to the Onboarding tab for that machine.
 
-![](../.vuepress/images/2021-03-15-08-29-52.png)
+ImmyBot needs:
+1. Customer
+2. Person (That will be using the computer, optional but recommended)
 
-![image](https://user-images.githubusercontent.com/1424395/149639588-625ae756-7a7b-4177-9415-50a77d6bd10d.png)
+You only have one customer and one person right now, and it’s your MSP and you. That’s fine, we’ll pretend we’re setting up a computer for you and your MSP. 
 
-![](../.vuepress/images/2021-03-15-08-30-04.png)
+Change nothing and select Save and Onboard
 
-### Test with Windows Sandbox
+An "Onboarding" session will be created for this computer, and ImmyBot will apply the "Recommended Deployments"
 
-Windows Sandbox is a fast loading disposable container in Windows that loses all settings when shutdown or restarted. It is very convenient for testing software deployments.
+### Recommended Deployments
+#### Create Profile for Primary User
+
+This allows Immy to set default browser and pdf editors.
+
+Remember how Microsoft made default PDF handler and default browser user level settings? These settings are stored in the profile of the user. Specifically in the user’s registry. But this is a new computer, and there is no user registry because the user hasn’t logged into the computer, and therefore a profile doesn’t exist for us to specify those settings. Rather than requiring you to ask the user for their password, we fetch their SID from AzureAD. If we find that the user is synced from Active Directory, we will use the SID from Active Directory. If the user is cloud only, we use their Azure AD SID. For the more discerning you may be wondering how we deal with the UserChoice hash, the anti-tamper mechanism preventing the automatic setting of these preferences.
+
+#### Microsoft 365 Apps
+Immy installs the apps the selected user is licensed for.
+Immy contains recommended deployments for
+* Apps for business
+* Apps for enterprise
+* Project
+* Visio
+
+You may be tempted to disable these because you are afraid Immy will install all of these apps on every computer. These deployments are limited using a “Metascript” filter that reaches out to the Microsoft Graph API to determine whether the selected user has a license for the product in question.
+
+#### Dell/Lenovo/HP Updates
+ImmyBot will install the latest updates from Dell, HP, and Lenovo, including driver updates and BIOS updates.
+
+You may be tempted to disable these Deployments as you don’t want HP updates applying to your Dell. This won’t happen. Each deployment uses a Filter script to ensure that these updates only apply to the appropriate machines
+
+#### Adobe Reader
+You may be tempted to disable this deployment because not all of your customers use Adobe Reader. You should instead leave it enabled and handle exceptions to the rule. See more under “Deployment Resolution”
+
+#### Set Computer Name and Domain Join
+This is one that I’d advise you to turn off, and instead customize for each customer. We leave it as a recommended deployment mostly to raise awareness that ImmyBot has the capability, but fully expect you to override it to suit your needs.
+
+### Frequently Asked Questions
+#### What if I don’t know which user will be using the computer?
+Do your best to find out, or assign machines to specific users ahead of time. Without this, user level customizations are impossible. However, you may find yourself in a shared-computer scenario where every computer gets the same 365 applications. Simply create a deployment for those 365 applications for all computers under that tenant.
+
+#### Can Immy join AzureAD?
+Yes. Create a deployment for the Join AzureAD task. We use the bulk enrollment technique and generate a provisioning package to join the machine to AzureAD. At the time of writing, this requires you to create a user in each customer’s tenant. We plan to remove this requirement in the future.
+
+#### Can Immy help migrate my customers to AzureAD from On-Premises environments?
+Yes, we have a Task that utilizes Forensit’s ProfWiz Corporate Edition to associate the user’s profile to their Azure AD identity.
+
+#### Domain Join didn’t work, what gives?
+Make sure there is a Domain Controller in Immy for the machine. If you are using a supported RMM like CW Automate/Control setup the integration so the Domain Controller is imported automatically. Otherwise, you’ll need to install the ImmyAgent on a domain controller for that customer.
+
+If the Domain Controller doesn’t have the red “Domain Controller” designation, press “Run Inventory”. This may happen if it was recently added to ImmyBot.
+
+Pay attention to the script output, Immy may be reporting that there is a name collision, or that it was unable to run scripts on the domain controller, usually due to security software.
+
+### Testing with Windows Sandbox
+
+Windows Sandbox is a fast loading disposable container in Windows that loses all settings when shutdown or restarted. It is very convenient for testing software deployments. It should be noted that not all software is compatible with Windows Sandbox, particular software that installs drivers or requires restarts.
 
 If you haven't used Windows Sandbox before, you can enable it by opening Windows PowerShell as Admin and running the following command:
 
@@ -63,7 +112,10 @@ This will create a Maintenance Session that will discover that Adobe Reader *sho
 
 ## Adding Users
 
-First, add a person
+### Access Request
+Have the person attempt to login to ImmyBot. They can request access, and you can approve that access from a yellow indicator at the top of the screen.
+
+### Manual
 
 If you haven't consented to allow Immy to read your AzureAD, you'll need to know the users' Object ID:
 
