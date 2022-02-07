@@ -1,5 +1,11 @@
 # ConnectWise Automate Integration
 
+Setting up this integration allows you to
+1. Import customers from Automate
+2. Import computers from Automate
+3. Manage all computers in Automate without deploying the ImmyBot Agent
+4. Map customers from Manage to ImmyBot tenant based on existing Automate<->Manage relationship
+
 ## Create ImmyBot Role
 ImmyBot requires the following permissions in Automate
 
