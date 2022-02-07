@@ -12,9 +12,12 @@ Provides a wrapper around `Connect-AzureAD`
 
 - https://docs.microsoft.com/en-us/powershell/module/azuread/connect-azuread?view=azureadps-2.0
 
-#### Examples
+#### Example
 
-Coming soon
+```powershell
+Connect-ImmyAzureAD 
+Get-AzureADUser -All $true
+```
 
 ### Get-ImmyAzureAuthHeader
 
@@ -30,37 +33,53 @@ Returns a `[dictionary]` containing the auth header
 
 #### Examples
 
-Coming soon
-
-### Get-ImmyGraphAccessToken
-
-Obtains an access token for the specified endpoint
-
-#### Usage
-
 ```powershell
-Get-ImmyGraphAccessToken [-Endpoint] <["MSGraph", "AzureAD"]>
+$Header = Get-ImmyAzureAuthHeader -ErrorAction Stop
+$Groups = Invoke-RestMethod "https://graph.microsoft.com/v1.0/groups/
 ```
-
-Returns a `[string]` containing the access token
-
-#### Examples
-
-Coming soon
-
-### Get-RMMProvider
+### Get-ProviderInfo
 
 Retrieves an instance of an RMM Provider for the specified type.
 
+#### Alias
+Get-RmmInfo
+
 #### Usage
 
 ```powershell
-Get-RmmProvider [-ProviderType] <["CW Automate", "CW Control"]>
+Get-ProviderInfo [[-ProviderType] <string>] [-IncludeClients] [<CommonParameters>]
 ```
 
 #### Examples
 
-Coming soon
+```powershell
+param(
+    [string]$FieldName,
+    [string]$Value,
+    $Computer
+)
+
+if(!$Computer)
+{
+    $Computer = Get-ImmyComputer
+}
+$RmmComputer = Get-RmmComputer -Computer $Computer -ProviderType CWAutomate
+$RmmInfo = Get-ProviderInfo -ProviderType CWAutomate
+
+$EDF = Get-CWAComputerEDF -FieldName $FieldName -Computer $Computer
+if(!$EDF)
+{
+    Write-Warning "Aborting: Unable to find EDF $FieldName"
+    return
+}
+
+$ExtraFieldDefinitionId = $EDF.ExtraFieldDefinitionId
+$ValueProperty = $EDF | select *FieldSettings* | Get-Member -MemberType NoteProperty | select -First 1 | %{$_.Name}
+$PatchPath = "$ValueProperty/Value"
+$Uri = "cwa/api/v1/computers/$($RmmComputer.RmmDeviceId)/extrafields/$ExtraFieldDefinitionId"
+$Body = ConvertTo-Json @(@{"op"="replace";"path"=$PatchPath;"value"=$Value})
+Invoke-CWARestMethod $Uri -Provider $RmmInfo.Provider -Method PATCH -Body $Body
+```
 
 ## Metascript Commands
 
