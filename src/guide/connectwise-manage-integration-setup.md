@@ -1,5 +1,9 @@
 # ConnectWise Manage Integration
 
+Setting up this agreement allows you to
+1. Deploy Software to machines covered by a certain agreement type (Deploy Huntress to all customers with a Managed Security Agreement)
+2. (Preferred) Deploy Software to machines covered by an Agreement with a specific Addition (Deploy SentinelOne to all computers that have SentinelOne as an Addition on their agreement)
+
 Follow this guide to setup ConnectWise Manage as a PSA Link.
 
 ## Create an ImmyBot Role with the following permissions
