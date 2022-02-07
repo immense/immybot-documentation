@@ -1,5 +1,39 @@
 # Releases
 
+## 0.50.0
+
+Released 2022-02-07
+
+### Intellisense `(beta)`
+---
+
+Intellisense can be enabled on the application preferences page (disabled by default). Having intellisense inside the script editor is going to make your life much easier when it comes to writing ImmyBot scripts.
+
+This feature is considered `beta` and there may be a few bugs present that will be get patched over the next few releases.
+
+![image](https://immybot.blob.core.windows.net/release-media/c3e74cc2-fafa-40e9-9fca-66ea816233cf)
+
+![image](https://immybot.blob.core.windows.net/release-media/5c2add32-38b5-4aca-9cf2-176b768be6a5)
+
+![image](https://immybot.blob.core.windows.net/release-media/3f5d35d8-1963-4a6a-96a1-7e6fe22dd44c)
+
+![image](https://immybot.blob.core.windows.net/release-media/92762a7f-5884-4e80-ae74-26403ebcfa01)
+
+### Other Improvements
+---
+
+- Added navigation link for tenant on the computer overview tab and the maintenance session list
+- Improved performance of filtering maintenance action table and dashboard results
+- Improved performance for instances that have a large number of ImmyBot agents by optimizing some database calls
+- Added compression support for JavaScript and CSS assets to decrease the initial page load time
+
+### Bug Fixes
+---
+
+- Fixed an issue with some deployments not resolving to computers that are auto-onboarding
+- Fixed an issue where clicking `Include Offline` in the Onboarding computer list would be de-selected after 5 seconds
+- Fixed an error that showed on the tenant details page for ImmyWorkbench instances that do not have schedules enabled
+
 ## 0.49.9
 
 Released 2022-02-02
