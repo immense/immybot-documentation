@@ -1,6 +1,12 @@
-# Executing Scripts on the Server
+# Metascripts / Cloud Scripts
 
-Immy provides different ways of executing a script on the ImmyBot server.  When used properly they can be very powerful.
+A Metascript is a script that runs scripts. These scripts run in the backend of ImmyBot. A Metascript can run a script on a computer using Invoke-ImmyCommand, which is modelled after PowerShell's native Invoke-Command, upto and including the ability to pass real objects into and out of the remote runspace, while preserving stream information. We consider our approach superior to capturing standard output and standard error as a string like most automation tools.
+
+Metascripts allow you to do things like persist reboots since the context is held by the backend.
+
+A Cloud script is the same as a Metascript except it targets a Tenant instead of a specific computer. This is useful for manipulating settings in each customer's Azure environment.
+
+Collectively we refer to Metascripts and Cloud scripts as server-side scripts.
 
 ## Common Commands
 
