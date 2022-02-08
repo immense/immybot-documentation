@@ -41,12 +41,12 @@ module.exports = {
     },
     nav: [
       {
-        text: 'Guide',
+        text: 'Home',
         link: '/index',
       },
     ],
     sidebar: {
-      '/guide/': [
+      '/': [
         {
           title: `What's New`,
           collapsable: false,
