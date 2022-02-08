@@ -59,7 +59,6 @@ module.exports = {
           title: 'Getting Started',
           collapsable: false,
           children: [
-            'introduction',
             'scripts',
             'immy-commands',
           ]
