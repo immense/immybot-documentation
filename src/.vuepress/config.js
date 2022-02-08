@@ -42,7 +42,7 @@ module.exports = {
     nav: [
       {
         text: 'Home',
-        link: '/index',
+        link: '/',
       },
     ],
     sidebar: {
