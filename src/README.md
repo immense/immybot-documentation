@@ -115,6 +115,8 @@ This will create a Maintenance Session that will discover that Adobe Reader *sho
 ## Access Request
 Have the person attempt to login to ImmyBot. They can request access, and you can approve that access from a yellow indicator at the top of the screen.
 
+![image](https://user-images.githubusercontent.com/1424395/153074628-4a22c81a-177e-4ebb-9845-898ab0f95d88.jpeg)
+
 ## Manual
 
 If you haven't consented to allow Immy to read your AzureAD, you'll need to know the users' Object ID:
