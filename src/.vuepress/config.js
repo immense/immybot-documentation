@@ -34,6 +34,7 @@ module.exports = {
     editLinkText: '',
     lastUpdated: true,
     smoothScroll: true,
+    displayAllHeaders: true,
     algolia: {
       apiKey: 'b9a03fdc7b6a3221b1efd3f75210b6c7',
       indexName: 'immy',
@@ -45,8 +46,7 @@ module.exports = {
         link: '/index',
       },
     ],
-    sidebar: {
-      '/index': [
+    sidebar: [
         {
           title: `What's New`,
           collapsable: false,
@@ -74,8 +74,7 @@ module.exports = {
           ]
         }
       ],
-    }
-  },
+    },
 
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
