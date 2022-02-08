@@ -47,34 +47,34 @@ module.exports = {
       },
     ],
     sidebar: [
-        {
-          title: `What's New`,
-          collapsable: false,
-          sidebarDepth: 0,
-          children: [
-            'releases',
-          ]
-        },
-        {
-          title: 'Getting Started',
-          collapsable: false,
-          children: [
-            'scripts',
-            'immy-commands',
-          ]
-        },
-        {
-          title: "Integrations",
-          collapsable: false,
-          children: [
-            'connectwise-automate-integration-setup',
-            'connectwise-control-integration-setup',
-            'connectwise-manage-integration-setup',
-            'csp-preconsent-instructions'
-          ]
-        }
-      ],
-    },
+      {
+        title: `What's New`,
+        collapsable: false,
+        sidebarDepth: 0,
+        children: [
+          'releases',
+        ]
+      },
+      {
+        title: 'Getting Started',
+        collapsable: false,
+        children: [
+          'scripts',
+          'immy-commands',
+        ]
+      },
+      {
+        title: "Integrations",
+        collapsable: false,
+        children: [
+          'connectwise-automate-integration-setup',
+          'connectwise-control-integration-setup',
+          'connectwise-manage-integration-setup',
+          'csp-preconsent-instructions'
+        ]
+      }
+    ],
+  },
 
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
