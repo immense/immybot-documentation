@@ -30,6 +30,7 @@ module.exports = {
     repo: 'immense/immybot-documentation',
     editLinks: true,
     docsDir: '',
+    docsBranch: 'main',
     editLinkText: '',
     lastUpdated: true,
     smoothScroll: true,
@@ -41,7 +42,7 @@ module.exports = {
     nav: [
       {
         text: 'Guide',
-        link: '/guide/introduction',
+        link: '/index',
       },
     ],
     sidebar: {
