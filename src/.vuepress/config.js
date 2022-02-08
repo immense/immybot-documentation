@@ -46,7 +46,7 @@ module.exports = {
       },
     ],
     sidebar: {
-      '/': [
+      '/index': [
         {
           title: `What's New`,
           collapsable: false,
