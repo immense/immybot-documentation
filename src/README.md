@@ -72,7 +72,7 @@ Do your best to find out, or assign machines to specific users ahead of time. Wi
 Yes. Create a deployment for the Join AzureAD task. We use the bulk enrollment technique and generate a provisioning package to join the machine to AzureAD. At the time of writing, this requires you to create a user in each customer’s tenant. We plan to remove this requirement in the future.
 
 ### Can Immy help migrate my customers to AzureAD from On-Premises environments?
-Yes, we have a Task that utilizes Forensit’s ProfWiz Corporate Edition to associate the user’s profile to their Azure AD identity.
+Yes, we have a [Task](#task) that utilizes Forensit’s ProfWiz Corporate Edition to associate the user’s profile to their Azure AD identity.
 
 ### Domain Join didn’t work, what gives?
 Make sure there is a Domain Controller in Immy for the machine. If you are using a supported RMM like CW Automate/Control setup the integration so the Domain Controller is imported automatically. Otherwise, you’ll need to install the ImmyAgent on a domain controller for that customer.
@@ -172,7 +172,7 @@ If you are just getting into ImmyBot, making Deployments is where you should sta
 
 Note: You won't see the word "Assignment" in the user interface anywhere, but we plan to re-rename "Deployment" back to "Assignment" it in a future release.
 
-A deployment is a rule that assigns [Software](#software) or [Maintenance Tasks](#maintenance-task) (Collectively known as "Maintenance Items") to a [Target](#target).
+A deployment is a rule that assigns [Software](#software) or [Tasks](#task) (Collectively known as "Maintenance Items") to a [Target](#target).
 
 ## Example: Adobe Reader
 
@@ -272,7 +272,7 @@ flowchart TD
  PostInstallDetect --> |No| Fail
 ```
 
-A *[Maintenance Session](#maintenance-session)* has one or more *[Maintenance Actions](#maintenance-action)*. A [Maintenance Action](#maintenance-action) could be to install software, apply a Windows Update, or run a [Maintenance Task](#maintenance-task).
+A *[Maintenance Session](#maintenance-session)* has one or more *[Maintenance Actions](#maintenance-action)*. A [Maintenance Action](#maintenance-action) could be to install software, apply a Windows Update, or run a [Task](#task).
 
 The image below depicts a typical [Maintenance Session](#maintenance-session) with many [Maintenance Actions](#maintenance-action)
 
@@ -318,7 +318,7 @@ A Detection Method is required in order to know whether or not a piece of Softwa
 
 For Software, the detection method must returns the version of the software installed on the machine, if any.
 
-For Maintenance Tasks, the Detection Method is the "test" mechanism, which must return true or false to indicate whether or not the machine is in compliance.
+For [Tasks](#task), the Detection Method is the "test" mechanism, which must return true or false to indicate whether or not the machine is in compliance.
 
 # Software Version
 ```mermaid
@@ -330,10 +330,12 @@ graph TD
     C --> Test
 ```
 
-# Maintenance Task
+# Task
+A Task (aka Mainenance Task) is a catch-all for anything that isn't software.
+
 ```mermaid
 graph TD
-    C[Maintenance Task] 
+    C[Task] 
     C --> Get
     C --> Set
     C --> Test
@@ -343,11 +345,11 @@ or
 
 ```mermaid
 graph TD
-    C[Maintenance Task] 
+    C[Task] 
     C --> S[Combined Script with $method parameter containing 'get','set', or 'test']    
 ```
 
-## Maintenance Task Modes
+## Task Modes
 
 ### Enforce
 Runs the "test" script, if the test returns false, runs "set", then runs "test" again to verify.
@@ -359,7 +361,7 @@ Runs the "test" script which should return true or false. It can output whatever
 Runs the "get" script, which can return anything. Useful for collecting data like Bitlocker Keys, Quickbooks Licenses, or any other piece of information you are interested in.
 
 # Scripts
-From the above diagrams, you can see that scripts are the building blocks for higher level objects like Software and Maintenance Tasks.
+From the above diagrams, you can see that scripts are the building blocks for higher level objects like Software and Tasks.
 
 ## Execution Context
 ### System
@@ -372,7 +374,7 @@ Will attempt to run as the logged on user
 Runs in the ImmyBot backend, and can spawn code on the system by using Invoke-ImmyCommand
 
 ### Cloud Script
-Runs in the ImmyBot backend, but intended to be run against a Tenant (perhaps for the purpose of getting or setting some setting in 365/Azure or some other system with an API). These are used exclusively in Maintenance Tasks targetting "Tenants".
+Runs in the ImmyBot backend, but intended to be run against a Tenant (perhaps for the purpose of getting or setting some setting in 365/Azure or some other system with an API). These are used exclusively in [Tasks](#task) targetting "Tenants".
 
 ![](./.vuepress/images/2021-03-01-14-17-29.png)
 
