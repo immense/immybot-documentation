@@ -1,5 +1,15 @@
 # Releases
 
+## 0.50.2
+
+Released 2022-02-09
+
+### Bug Fixes
+---
+
+- Fixed an issue with azure sync job creating duplicate users in the MSP tenant
+- Fixed an issue where a disabled integration could not be deleted
+
 ## 0.50.1
 
 Released 2022-02-08
