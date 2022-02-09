@@ -18,7 +18,7 @@ You’ll receive this email when your instance is ready:
 
 ![](./.vuepress/images/2021-03-15-08-27-29.png)
 
-## Setup your first Computer
+# Setup your first Computer
 
 When you first login to ImmyBot you will be prompted to setup your first computer. We recommend unboxing a physical computer (Dell, HP, or Lenovo) so we can demonstrate applying the latest manufacturer BIOS and driver updates to a physical machine.
 
@@ -36,8 +36,8 @@ Change nothing and select Save and Onboard
 
 An "Onboarding" session will be created for this computer, and ImmyBot will apply the "Recommended Deployments"
 
-## Recommended Deployments
-### Create Profile for Primary User
+# Recommended Deployments
+## Create Profile for Primary User
 
 This allows Immy to set default browser and pdf editors.
 
@@ -53,28 +53,28 @@ Immy contains recommended deployments for
 
 You may be tempted to disable these because you are afraid Immy will install all of these apps on every computer. These deployments are limited using a “Metascript” filter that reaches out to the Microsoft Graph API to determine whether the selected user has a license for the product in question.
 
-### Dell/Lenovo/HP Updates
+## Dell/Lenovo/HP Updates
 ImmyBot will install the latest updates from Dell, HP, and Lenovo, including driver updates and BIOS updates.
 
 You may be tempted to disable these Deployments as you don’t want HP updates applying to your Dell. This won’t happen. Each deployment uses a Filter script to ensure that these updates only apply to the appropriate machines
 
-### Adobe Reader
+## Adobe Reader
 You may be tempted to disable this deployment because not all of your customers use Adobe Reader. You should instead leave it enabled and handle exceptions to the rule. See more under “Deployment Resolution”
 
-### Set Computer Name and Domain Join
+## Set Computer Name and Domain Join
 This is one that I’d advise you to turn off, and instead customize for each customer. We leave it as a recommended deployment mostly to raise awareness that ImmyBot has the capability, but fully expect you to override it to suit your needs.
 
-## Frequently Asked Questions
-### What if I don’t know which user will be using the computer?
+# Frequently Asked Questions
+## What if I don’t know which user will be using the computer?
 Do your best to find out, or assign machines to specific users ahead of time. Without this, user level customizations are impossible. However, you may find yourself in a shared-computer scenario where every computer gets the same 365 applications. Simply create a deployment for those 365 applications for all computers under that tenant.
 
-### Can Immy join AzureAD?
+## Can Immy join AzureAD?
 Yes. Create a deployment for the Join AzureAD task. We use the bulk enrollment technique and generate a provisioning package to join the machine to AzureAD. At the time of writing, this requires you to create a user in each customer’s tenant. We plan to remove this requirement in the future.
 
-### Can Immy help migrate my customers to AzureAD from On-Premises environments?
+## Can Immy help migrate my customers to AzureAD from On-Premises environments?
 Yes, we have a [Task](#task) that utilizes Forensit’s ProfWiz Corporate Edition to associate the user’s profile to their Azure AD identity.
 
-### Domain Join didn’t work, what gives?
+## Domain Join didn’t work, what gives?
 Make sure there is a Domain Controller in Immy for the machine. If you are using a supported RMM like CW Automate/Control setup the integration so the Domain Controller is imported automatically. Otherwise, you’ll need to install the ImmyAgent on a domain controller for that customer.
 
 If the Domain Controller doesn’t have the red “Domain Controller” designation, press “Run Inventory”. This may happen if it was recently added to ImmyBot.
@@ -91,7 +91,7 @@ If you haven't used Windows Sandbox before, you can enable it by opening Windows
 Enable-WindowsOptionalFeature -FeatureName "Containers-DisposableClientVM" -All -Online -NoRestart
 ```
 
-## Download Windows Sandbox file (.wsb)
+### Download Windows Sandbox file (.wsb)
 
 ![](./.vuepress/images/2021-03-15-08-29-07.png)
 
@@ -170,8 +170,8 @@ Second, Make the Person a user
 * Can create Deployments scoped to individual Computers and People
 
 
-
-# Deployment (aka "Assignment")
+# Terminology
+## Deployment (aka "Assignment")
 
 **Important**
 If you are just getting into ImmyBot, making Deployments is where you should start.
@@ -180,7 +180,7 @@ Note: You won't see the word "Assignment" in the user interface anywhere, but we
 
 A deployment is a rule that assigns [Software](#software) or [Tasks](#task) (Collectively known as "Maintenance Items") to a [Target](#target).
 
-## Example: Adobe Reader
+### Example: Adobe Reader
 
 This is the first Deployment I make in most instances
 
@@ -226,7 +226,7 @@ This is particularly useful for security software, help desk portals, or anythin
 
 Conversely, you could use this feature remove your stack for customers you are offboarding. Simply create an "Offboarding" product in your PSA, and create a deployment for each of the pieces of software you would like removed setting the desired state to Uninstalled for all customers with the "Offboarding" product on their agreement. Note: ImmyBot even honors the date range on additions, making scheduled offboarding easier if say the customer wants your software removed on the last day of the month.
 
-# [Maintenance Session](#maintenance-session)
+## [Maintenance Session](#maintenance-session)
 
 A [Maintenance Session](#maintenance-session) is conceptually similar to running gpupdate /force
 
@@ -248,19 +248,19 @@ Or, you can view [Maintenance Sessions](#maintenance-session) for a specific Com
 
 ![](./.vuepress/images/2021-02-23-08-46-09.png)
 
-# [Maintenance Session](#maintenance-session) Stages
+## [Maintenance Session](#maintenance-session) Stages
 
-## Detection Stage
+### Detection Stage
 
 During the Detection Stage, ImmyBot "Detects" which Maintenance Actions are necessary to bring the computer into compliance. These Actions are added to the [Maintenance Session](#maintenance-session).
 
 This is a read-only process, and typically done while the user is active. This is so ImmyBot can notify the user of changes that will occur later during the Execution Stage. By doing this during the day, and scheduling Execution for later, we are giving the end user the best possible chance to be aware of the upcoming maintenance, Postponing if you allow. The Postpone feature is very popular among engineers that do may need to leave renderings and analysis tasks running overnight.
 
-## Execution Stage
+### Execution Stage
 
 ![](./.vuepress/images/2021-02-23-09-44-51.png)
 
-# [Maintenance Action](#maintenance-action)
+## [Maintenance Action](#maintenance-action)
 
 ```mermaid
 flowchart TD
@@ -284,7 +284,7 @@ The image below depicts a typical [Maintenance Session](#maintenance-session) wi
 
 ![](./.vuepress/images/2021-02-23-06-14-05.png)
 
-# Software
+## Software
 Software, in the context of ImmyBot refers to Software objects in My Software or Global Software.
 
 My Software - Initially empty. When you upload your own software to ImmyBot, it goes into My Software
@@ -302,7 +302,7 @@ graph TD
 ```
 
 
-## Pre-Requisities
+### Pre-Requisities
 This is a VERY powerful, and critically underrated feature in ImmyBot. ImmyBot resolves dependencies recursively, with built-in circular reference detection.
 
 Common uses for Pre-Requisites include
@@ -326,7 +326,7 @@ For Software, the detection method must returns the version of the software inst
 
 For [Tasks](#task), the Detection Method is the "test" mechanism, which must return true or false to indicate whether or not the machine is in compliance.
 
-# Software Version
+## Software Version
 ```mermaid
 graph TD
     C[Software Version] --> Install
@@ -336,7 +336,7 @@ graph TD
     C --> Test
 ```
 
-# Task
+## Task
 A Task (aka Mainenance Task) is a catch-all for anything that isn't software.
 
 ```mermaid
@@ -366,7 +366,7 @@ Runs the "test" script which should return true or false. It can output whatever
 ### Monitor
 Runs the "get" script, which can return anything. Useful for collecting data like Bitlocker Keys, Quickbooks Licenses, or any other piece of information you are interested in.
 
-# Scripts
+## Scripts
 From the above diagrams, you can see that scripts are the building blocks for higher level objects like Software and Tasks.
 
 ## Execution Context
@@ -384,12 +384,12 @@ Runs in the ImmyBot backend, but intended to be run against a Tenant (perhaps fo
 
 ![](./.vuepress/images/2021-03-01-14-17-29.png)
 
-# Schedules
+## Schedules
 Used to run maintenance periodically on machines. Can optionally be limited to a single Maintenance Item.
 
 NOTE You must also have a Deployment for the Maintenance Item to set the desired state. Imagine a scenario where you need to ensure a single piece of software is up-to-date on all computers except for a CNC machine. Create 2 deployments, the first setting the desired state to Installed->Latest for all computers, then a second stating that the desired state is Ignored for the CNC machine. When you create the schedule, the software will be ignored for the CNC machine.
 
-# RMM Links
+## RMM Links
 
 To ImmyBot an RMM is a system that provides a list of computers, and a mechanism to run PowerShell scripts on them.
 
@@ -405,7 +405,7 @@ If you add an RMM Link for ConnectWise Automate, Scheduled [Maintenance Sessions
 
 You can even add multiple RMMs of the same type, which is often useful in merger and acquisition scenarios. You may choose to use ImmyBot as your single pane of glass to manage both, or simply let ImmyBot be a neutral third party for facilitating the consolidation of RMM agents to the parent company's RMM.
 
-# Identification
+## Identification
 
 Because the same computer often exists in multiple RMMs (Like how CW Automate typically installs CW Control Automatically), ImmyBot prevents duplicates by identifying the computer by a unique id. We DO NOT use MAC Address! This unique id persists even if you wipe and reload the machine.
 
@@ -438,15 +438,15 @@ Often when an RMM Agent gets re-installed, it will get a new id in the RMM (Comp
 
 The most common causes of identification failure are an overloaded or unresponsive RMM, or the machine has broken WMI, preventing us from retrieving the uniqueid of the machine. You may retry identification on one or all of the failed computers once these conditions are resolved.
 
-# Onboarding
+## Onboarding
 
 In ImmyBot, Onboarding is the first [Maintenance Session](#maintenance-session) run against a machine. You may enable or disable Onboarding for a given Tenant or entirely under Settings->Preferences. When disabled, computers do not get put into New Computers, and go directly into the Computer list. This is useful if you have a customer that sets up their own computers outside of ImmyBot, as it prevents their machines from clogging up the New Computers area.
 
-# Tenants
+## Tenants
 
 These are your Customers. We recommend syncing Tenants from CW Automate or Azure.
 
-# User Computer Affinity
+## User Computer Affinity
 ImmyBot periodically runs whoami /upn on all computers and keeps a rolling list of the last 10 UPNs. It assigns the Primary User of the computer to the "Person" (Synced from Azure) with the matching UPN.
 
 For environments without AzureAD, ImmyBot will lookup the UPN of the Person from a Domain Controller in the computer's Tenant
