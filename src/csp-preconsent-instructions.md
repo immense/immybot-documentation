@@ -1,4 +1,4 @@
-# AzureAD/365 Integration
+# AzureAD/365
 
 Enabling this allows ImmyBot to
 1. Sync all users from your partner tenant
