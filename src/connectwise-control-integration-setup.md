@@ -1,4 +1,4 @@
-# ConnectWise Control Integration
+# ConnectWise Control
 
 Setting up this integration allows you to
 1. Import customers from Control
