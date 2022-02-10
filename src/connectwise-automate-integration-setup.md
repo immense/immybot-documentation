@@ -1,4 +1,4 @@
-# ConnectWise Automate Integration
+# ConnectWise Automate
 
 Setting up this integration allows you to
 1. Import customers from Automate
