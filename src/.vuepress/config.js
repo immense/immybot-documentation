@@ -29,7 +29,7 @@ module.exports = {
   themeConfig: {
     repo: 'immense/immybot-documentation',
     editLinks: true,
-    docsDir: '',
+    docsDir: 'src',
     docsBranch: 'main',
     editLinkText: '',
     lastUpdated: true,
