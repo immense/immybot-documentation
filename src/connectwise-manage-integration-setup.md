@@ -1,4 +1,4 @@
-# ConnectWise Manage Integration
+# ConnectWise Manage
 
 Setting up this integration allows you to
 1. Deploy Software to machines covered by a certain agreement type 
