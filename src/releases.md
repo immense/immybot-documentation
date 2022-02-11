@@ -30,6 +30,33 @@ Released 2022-02-11
 - Put in an update to the CW Control ImmyBot extension to work on CW Control 21.15+.  CW Control 21.15 introduced a breaking change to the API.
 - Fixed an issue where cross tenant device group target types were taking precedence over tenant specific target types
 
+## 0.50.2
+
+Released 2022-02-09
+
+### Bug Fixes
+---
+
+- Fixed an issue with azure sync job creating duplicate users in the MSP tenant
+- Fixed an issue where a disabled integration could not be deleted
+
+## 0.50.1
+
+Released 2022-02-08
+
+### Improvements
+---
+
+- When ImmyBot restarts, it will now attempt to restart any maintenance session that was active when it shutdown.  Before, it would only attempt to restart scheduled sessions
+- Restarting maintenance sessions should now be idempotent. If an action was running when the backend rebooted, then it will be restarted.
+- Removed some thread blocking code to improve performance
+
+### Bug Fixes
+---
+- Fixed issue with Microsoft.PowerShell.Security functions not found in metascripts
+- Fixed an issue with "Uninstall By Package Info" failing to uninstall via product code
+- Fixed an issue where pending connectivity sessions were not triggering for computers that had exactly one agent
+
 ## 0.50.0
 
 Released 2022-02-07
