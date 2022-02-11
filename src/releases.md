@@ -1,5 +1,35 @@
 # Releases
 
+## 0.50.3
+
+Released 2022-02-11
+
+### ImmyBot Agent Updates
+---
+
+- Fixed a bug where agent installers that were created before 0.50.0 were failing to register on new devices
+- Increased the verbosity of logging during agent installation for easier debugging
+- Fixed a null reference issue occurring on startup
+- Updated the MSI uninstallation to remove the `config.json` and `registration.json` files located under `C:\ProgramData\ImmyBotAgentService`.
+
+### Improvements
+---
+
+- Increased the Ephemeral Agent named-pipe connection timeout from 10s -> 60s to allow computers with extremely poor PowerShell initialization time likely due to system issues to still run scripts
+- Added software / task descriptions to deployment details page and license details page.  The descriptions are accessible by clicking the the question mark button
+
+### Bug Fixes
+---
+
+- Fixed an issue where filter scripts and software auto update scripts were not showing any output in the script editor
+- Fixed a label issue on tenant category schedules and tenant category deployments
+- Fixed an issue on the schedule details page where the maintenance item selector would should a blank selection by default
+  ![image](https://immybot.blob.core.windows.net/release-media/2b3ae6f7-2d72-4952-8aa5-37afd78cf20a)
+- Removed unnecessary code that fetched software twice during detection
+- Fixed an issue where the selected computers on the new computers page would de-select automatically
+- Put in an update to the CW Control ImmyBot extension to work on CW Control 21.15+.  CW Control 21.15 introduced a breaking change to the API.
+- Fixed an issue where cross tenant device group target types were taking precedence over tenant specific target types
+
 ## 0.50.0
 
 Released 2022-02-07
