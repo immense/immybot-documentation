@@ -33,6 +33,10 @@ Released 2022-02-18
 * Fixed issue where local accounts created by the PPKG were not being hidden
 * Fixed potential issue where local accounts created by the PPKG were not being added to the local administrators group if the local administrators group name wasn't called 'Administrators'
 
+## 0.50.4 
+
+Skipped
+
 ## 0.50.3
 
 Released 2022-02-11
