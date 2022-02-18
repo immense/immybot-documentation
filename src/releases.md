@@ -1,5 +1,38 @@
 # Releases
 
+## 0.50.5
+
+Released 2022-02-18
+
+### Improvements
+---
+
+- Updated ImmyBot from dotnet 5 to  dotnet 6
+- Non-existent items on the deployment ordering page are now automatically removed
+- Added description below the "Suppress reboots during business hours" checkbox to indicate that it is only applied for maintenance sessions that resume after a device comes back online
+- Deployments can now be disabled which will exclude them from being applied during full maintenance sessions. This can be useful if you want to stop a deployment from happening without deleting it.
+- ImmyAgent PPKG's should now work on Windows Home editions
+- Improved the load time of the maintenance session list for instances that have 1+ million sessions
+
+### Bug Fixes
+---
+
+- Removed unnecessary device online check when running metascripts through the script editor
+- Fixed issue with parameters not getting provided to scripts that are re-run from maintenance session logs
+- Fixed a format exception that occurred when attempting to schedule adhoc deployments to run after midnight
+- Fixed a null reference exception thrown when using the "Limited" option on the "Software Access Level" field
+- Fixed issue with the "Last logged on user" fields not showing on the computer overview tab
+- Updated the error text of user scripts to indicate whether or not there is currently a logged in user
+- Fixed an argument exception that occurred when trying to uninstall a software by product code
+- Fixed an internal issue with migrating items to global
+- Fixed an issue with maintenance action timeline events that was preventing them from showing in the list
+- Fixed a bug where cancelling scripts from the editor would not close the PowerShell stream reader
+- Updated broken links to https://docs.immy.bot
+- Fixed a poor performing query with instances that have millions of maintenance sessions
+- Fixed issue allowing you to click the install Immy agent button on computers that did not have an online agent to install it with
+* Fixed issue where local accounts created by the PPKG were not being hidden
+* Fixed potential issue where local accounts created by the PPKG were not being added to the local administrators group if the local administrators group name wasn't called 'Administrators'
+
 ## 0.50.3
 
 Released 2022-02-11
