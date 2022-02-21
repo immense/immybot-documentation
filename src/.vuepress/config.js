@@ -47,7 +47,7 @@ module.exports = {
       },
     ],
     sidebar: [
-      ['/guide/releases'],
+      '/guide/releases',
       {
         title: 'Getting Started',   // required
         path: '/',      // optional, link of the title, which should be an absolute path and must exist
