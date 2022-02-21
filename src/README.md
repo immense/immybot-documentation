@@ -1,3 +1,4 @@
+# Getting Started
 ## Create your trial instance
 
 If you don't already have an ImmyBot instance, sign-up for a trial at [https://www.immy.bot/pricing](https://www.immy.bot/pricing)

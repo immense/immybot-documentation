@@ -1,3 +1,4 @@
+# Frequently Asked Questions
 ## What if I don’t know which user will be using the computer?
 Do your best to find out, or assign machines to specific users ahead of time. Without this, user level customizations are impossible. However, you may find yourself in a shared-computer scenario where every computer gets the same 365 applications. Simply create a deployment for those 365 applications for all computers under that tenant.
 
