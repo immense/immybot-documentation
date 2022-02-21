@@ -47,7 +47,11 @@ module.exports = {
       },
     ],
     sidebar: [
-      '/guide/releases',
+      {
+        title: 'Releases',
+        path: '/guide/releases',
+        sidebarDepth: 0,
+      },
       {
         title: 'Getting Started',   // required
         path: '/',      // optional, link of the title, which should be an absolute path and must exist
@@ -59,6 +63,18 @@ module.exports = {
         path: '/FAQ',      // optional, link of the title, which should be an absolute path and must exist
         collapsable: false, // optional, defaults to true
         sidebarDepth: 2,    // optional, defaults to 1
+      },
+      {
+        title: 'Integrations',   // required
+        path: '/',      // optional, link of the title, which should be an absolute path and must exist
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 2,    // optional, defaults to 1
+        children: [
+          '/connectwise-automate-integration-setup',
+          '/connectwise-control-integration-setup',
+          '/connectwise-manage-integration-setup',
+          '/csp-preconsent-instructions',
+        ]
       },
     ]
   },
