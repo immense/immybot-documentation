@@ -15,10 +15,10 @@
   "license": "MIT",
   "devDependencies": {
     "vuepress": "^1.7.1",
-    "vuepress-plugin-mermaidjs": "^1.8.1",
-    "vuepress-auto-sidebar": "^1.1.1",
+    "vuepress-plugin-mermaidjs": "^1.8.1"
   },
   "dependencies": {
-    "vuepress-plugin-sitemap": "^2.3.1"
+    "vuepress-plugin-sitemap": "^2.3.1",
+    "vuepress-auto-sidebar": "^1.1.1"
   }
 }
