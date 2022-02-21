@@ -1,5 +1,4 @@
 const { description } = require('../../package')
-const sidebar = require('vuepress-auto-sidebar')
 
 module.exports = {
   /**
@@ -47,8 +46,7 @@ module.exports = {
         link: '/',
       },
     ],
-    base: "/src",
-    sidebar: sidebar.getSidebar(),
+    sidebar: 'auto'
   },
 
   /**
@@ -58,7 +56,6 @@ module.exports = {
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
     'vuepress-plugin-mermaidjs',
-    'vuepress-auto-sidebar',
     [
       'sitemap',
       {
