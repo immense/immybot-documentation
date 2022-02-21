@@ -249,7 +249,7 @@ flowchart TD
  Install --> PostInstallDetect{Software Installed?}
  PostInstallDetect --> |Yes|HasConfigurationTask
  HasConfigurationTask --> |Yes| MaintenanceTaskTest{Run Test Script}
- MaintenanceTaskTest --> |return $true| Success
+ MaintenanceTaskTest --> |return $true| Compliant
  MaintenanceTaskTest --> |return $false| RunSetScript(Run Set Script)
  RunSetScript --> PostMaintenanceTaskTest{Run Test Script}
  PostMaintenanceTaskTest --> |return $true| Compliant
