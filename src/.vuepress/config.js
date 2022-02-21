@@ -47,6 +47,7 @@ module.exports = {
         link: '/',
       },
     ],
+    base: "/src",
     sidebar: sidebar.getSidebar(),
   },
 
