@@ -43,7 +43,7 @@ This allows Immy to set default browser and pdf editors.
 
 Remember how Microsoft made default PDF handler and default browser user level settings? These settings are stored in the profile of the user. Specifically in the user’s registry. But this is a new computer, and there is no user registry because the user hasn’t logged into the computer, and therefore a profile doesn’t exist for us to specify those settings. Rather than requiring you to ask the user for their password, we fetch their SID from AzureAD. If we find that the user is synced from Active Directory, we will use the SID from Active Directory. If the user is cloud only, we use their Azure AD SID. For the more discerning you may be wondering how we deal with the UserChoice hash, the anti-tamper mechanism preventing the automatic setting of these preferences.
 
-#### Microsoft 365 Apps
+### Microsoft 365 Apps
 Immy installs the apps the selected user is licensed for.
 Immy contains recommended deployments for
 * Apps for business
@@ -81,7 +81,13 @@ If the Domain Controller doesn’t have the red “Domain Controller” designat
 
 Pay attention to the script output, Immy may be reporting that there is a name collision, or that it was unable to run scripts on the domain controller, usually due to security software.
 
-### Testing with Windows Sandbox
+## Why are my computers stuck in [Identification](#identification)
+1. The machine has a security tool like Defender for Endpoint, Crowdstrike, Bitdefender or Threatlocker blocking our scripts from running
+  - You'll want to create exclusions for ImmyBot
+1. WMI is broken on the machine (Usually on older machines)
+
+
+## Testing with Windows Sandbox
 
 Windows Sandbox is a fast loading disposable container in Windows that loses all settings when shutdown or restarted. It is very convenient for testing software deployments. It should be noted that not all software is compatible with Windows Sandbox, particular software that installs drivers or requires restarts.
 
