@@ -46,7 +46,21 @@ module.exports = {
         link: '/',
       },
     ],
-    sidebar: 'auto'
+    sidebar: [
+      ['/guide/releases'],
+      {
+        title: 'Getting Started',   // required
+        path: '/',      // optional, link of the title, which should be an absolute path and must exist
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 2,    // optional, defaults to 1
+      },
+      {
+        title: 'Frequently Asked Questions',   // required
+        path: '/FAQ',      // optional, link of the title, which should be an absolute path and must exist
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 2,    // optional, defaults to 1
+      },
+    ]
   },
 
   /**
