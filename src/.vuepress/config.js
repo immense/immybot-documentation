@@ -46,48 +46,7 @@ module.exports = {
         link: '/',
       },
     ],
-    sidebar: {
-      '/': [
-        {
-          title: `What's New`,
-          collapsable: false,
-          sidebarDepth: 0,
-          children: [
-            'releases',
-          ]
-        },
-        {
-          title: 'Getting Started',
-          collapsable: false,
-          children: [
-            '/'
-          ]
-        },
-        {
-          title: 'Advanced',
-          collapsable: false,
-          children: [
-            'scripts',
-            'immy-commands',
-          ]
-        },
-        {
-          title: 'Frequently Asked Questions',
-          collapsable: false,
-
-        },
-        {
-          title: "Integrations",
-          collapsable: false,
-          children: [
-            'connectwise-automate-integration-setup',
-            'connectwise-control-integration-setup',
-            'connectwise-manage-integration-setup',
-            'csp-preconsent-instructions'
-          ]
-        }
-      ]
-    }
+    sidebar: auto,
   },
 
   /**
