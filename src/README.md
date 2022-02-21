@@ -92,7 +92,7 @@ Wait for ImmyBot Agent to install
 
 ![](./.vuepress/images/2021-03-15-08-37-50.png)
 
-This will create a Maintenance Session that will discover that Adobe Reader *should* be installed on the machine, check if it is already installed, install Chocolatey, then use Chocolatey to install Adobe Reader.
+This will create an "Onboarding" Session (sessions are like running gpupdate) that will apply all applicable Deployments (deployments are like Group Policies)
 
 ## Adding Users
 
@@ -155,24 +155,19 @@ Second, Make the Person a user
 
 
 ## Terminology
-### Deployment (aka "Assignment")
+### Deployment
 
-**Important**
-If you are just getting into ImmyBot, making Deployments is where you should start.
+Deployments were originally called "Assignments" and are still called Assignments under the hood.
 
 Note: You won't see the word "Assignment" in the user interface anywhere, but we plan to re-rename "Deployment" back to "Assignment" it in a future release.
 
 A deployment is a rule that assigns [Software](#software) or [Tasks](#task) (Collectively known as "Maintenance Items") to a [Target](#target).
 
-#### Example: Adobe Reader
-
-This is the first Deployment I make in most instances
-
 ![](./.vuepress/images/2021-03-01-08-42-41.png)
 
 Deployments are conceptually similar to Group Policies in that they assign settings to a group of users or computers.
 
-IF YOU ARE JUST GETTING START WITH IMMYBOT, DO NOT BE AFRAID TO SAVE YOUR DEPLOYMENTS. THEY DO NOT APPLY AUTOMATICALLY.
+DO NOT BE AFRAID TO SAVE YOUR DEPLOYMENTS. THEY DO NOT APPLY AUTOMATICALLY.
 
 If you DO want your Deployments to be applied automatically, you need to create a [Schedule](#schedules).
 
@@ -255,11 +250,11 @@ flowchart TD
  PostInstallDetect --> |Yes|HasConfigurationTask
  HasConfigurationTask --> |Yes| MaintenanceTaskTest{Run Test Script}
  MaintenanceTaskTest --> |return $true| Success
- MaintenanceTaskTest --> |return $false| RunSetScript(Run Test Script)
+ MaintenanceTaskTest --> |return $false| RunSetScript(Run Set Script)
  RunSetScript --> PostMaintenanceTaskTest{Run Test Script}
- PostMaintenanceTaskTest --> |return $true| Success
- PostMaintenanceTaskTest --> |return $false| Fail
- PostInstallDetect --> |No| Fail
+ PostMaintenanceTaskTest --> |return $true| Compliant
+ PostMaintenanceTaskTest --> |return $false| Non-Compliant
+ PostInstallDetect --> |No| Non-Compliant
 ```
 
 A *[Maintenance Session](#maintenance-session)* has one or more *[Maintenance Actions](#maintenance-action)*. A [Maintenance Action](#maintenance-action) could be to install software, apply a Windows Update, or run a [Task](#task).
