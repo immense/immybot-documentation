@@ -47,7 +47,7 @@ module.exports = {
         link: '/',
       },
     ],
-    sidebar: 'auto',
+    sidebar: sidebar.getSidebar(),
   },
 
   /**
