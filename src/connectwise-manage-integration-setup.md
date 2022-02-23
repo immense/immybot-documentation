@@ -18,7 +18,7 @@ Setting up this integration allows you to
 
 ![](./.vuepress/images/2021-03-23-14-26-14.png)
 
-![](./.vuepress/images/manage-sc.png)
+![](./.vuepress/images/2022-02-23_15-00-31.png)
 
 ## Create an API Member
 
