@@ -1,5 +1,32 @@
 # Releases
 
+## 0.50.6
+
+Released 2022-02-24
+
+### Maintenance Task Serial Execution
+---
+A maintenance task now has the option to "Execute Serially".
+
+When checked, this maintenance task is guaranteed to only have one instance active at a time.
+
+e.g. If three maintenance sessions have an action for a maintenance task that executes serially, then one session will execute the maintenance task while the other two wait for it to complete.  Once the first completes, the second will execute.  Once the second completes, the third will execute.
+
+This is useful for maintenance tasks that rely on the state of subsequent executions.
+
+### Other Improvements
+---
+
+- Added a `Status` and `Types` column to the CW Manage client list on the integration details page so you can easily filter your list to clients you want to create tenants for.  Also made the `Linked Tenants` column filterable to "Linked" or "Not linked". The `Bulk create tenants for unassigned clients` is now `Bulk create tenants for filtered unassigned clients` and will only bulk create tenants for those visible rows matching the table filters.
+- Added checks to ensure that the identification job is running properly
+
+### Bug Fixes
+---
+
+- Fixed an error that was preventing the computer overview page from loading
+- Fixed an issue with scripts running multiple times if you opened, closed, and re-opened a script editor
+- Fixed issues with the CW Control integration not updating the device name, os name, and serial number of the agent
+
 ## 0.50.5
 
 Released 2022-02-18
