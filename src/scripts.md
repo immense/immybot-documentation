@@ -257,7 +257,7 @@ Avoid setting these variables yourself or having variables with similar names.
 
 ### $Method
 
-`[string]` Will be a value consisting of `[ "get" | "set" | "test" ]` that can be used in maintenance task scripts.
+`[string]` Will be a value consisting of `[ "get" | "set" | "test" ]` that can be used in Combined Task scripts.
 
 #### Accessible in
 
@@ -306,7 +306,7 @@ Avoid setting these variables yourself or having variables with similar names.
 
 ### $SoftwareName
 
-`[string] Name of the Software
+`[string]` Name of the Software
 
 #### Accessible in
 
