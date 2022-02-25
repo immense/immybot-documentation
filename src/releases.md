@@ -1,8 +1,8 @@
 # Releases
 
-## 0.50.6
+## 0.50.7
 
-Released 2022-02-24
+Released 2022-02-25
 
 ### Maintenance Task Serial Execution
 ---
@@ -26,6 +26,10 @@ This is useful for maintenance tasks that rely on the state of subsequent execut
 - Fixed an error that was preventing the computer overview page from loading
 - Fixed an issue with scripts running multiple times if you opened, closed, and re-opened a script editor
 - Fixed issues with the CW Control integration not updating the device name, os name, and serial number of the agent
+
+## 0.50.6
+
+Skipped
 
 ## 0.50.5
 
