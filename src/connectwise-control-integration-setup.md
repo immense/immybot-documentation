@@ -22,6 +22,7 @@ Setting up this integration allows you to
 
 FAQ
 What custom property do I use?
+
 By default most ConnectWise Control instances you would select 1 for the ClientName CustomProperty field, this is the "Company" property in Control.
 Secondary group is any number between 1-8 that you would like to group from based on Control groups.
 You can find more infomation about Control custom propertys here;
