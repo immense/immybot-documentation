@@ -37,7 +37,7 @@ ImmyBot requires the following permissions in Automate
 
 ## Add RMM Link for CW Automate
 
-![](./.vuepress/images/2021-03-23-15-05-59.png)
+![image](https://user-images.githubusercontent.com/1424395/156473997-68337c8f-4c50-4f94-b197-f62218a8276c.png)
 
 ![](./.vuepress/images/2021-03-23-18-59-10.png)
 
