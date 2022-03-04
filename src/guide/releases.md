@@ -1,5 +1,39 @@
 # Releases
 
+## 0.50.8
+
+Released 2022-03-04
+
+### Onboarding Deployments
+---
+
+The **Onboarding** target type has been moved to a separate checkbox so that you can limit deployments to onboarding only AND use the target type filters.
+
+### ImmyAgent Improvements
+---
+
+Updated internal infrastructure to utilize our new [extended verification code-signing certificate](https://www.digicert.com/signing/code-signing-certificates#EV-Code-Signing).
+
+We currently sign:
+1. ImmyAgent executable & MSI/EXE/PPKG Installers
+2. Ephemeral Agent executable
+3. Static PoSH run on computers
+
+In addition to being more secure, this ensures our software is no-longer flagged by SmartScreen.
+
+**IMPORTANT NOTE**
+
+Customers utilizing software such as ThreatLocker *MUST* ensure our new certificate is whitelisted, as our new EV cert required "LLC" to be present on our CN and O. 
+
+![image](https://immybot.blob.core.windows.net/release-media/40220de1-d9f9-48fb-a39e-ebb791bd19fe)
+
+### Bug Fixes
+---
+
+- Improved exception handling during maintenance sessions
+- Fixed an issue with re-running cloud scripts from a session log where it would throw an exception
+- Fixed some performance issues and improved caching of function scripts
+
 ## 0.50.7
 
 Released 2022-02-25
