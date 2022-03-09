@@ -1,5 +1,16 @@
 # Releases
 
+## 0.50.9
+---
+
+Released 2022-03-08
+
+
+### Bug Fixes
+---
+
+- Fixed a bug that was causing new instances of Immybot to crash when starting up
+
 ## 0.50.8
 
 Released 2022-03-04
