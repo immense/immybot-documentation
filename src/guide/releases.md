@@ -1,10 +1,36 @@
 # Releases
 
+## 0.50.10
+---
+
+Released 2022-03-14
+
+### Intellisense Improvements
+---
+Intellisense no longer restarts when syntax error is detected.
+
+Quickfix Actions work
+
+![image](https://immybot.blob.core.windows.net/release-media/883af21b-7a81-415b-8756-ff889273e390)
+
+![image](https://immybot.blob.core.windows.net/release-media/5e1e1e7a-70cf-4406-b4ba-4adfe02521c9)
+
+No more duplicate definition on hover
+
+![image](https://immybot.blob.core.windows.net/release-media/7b58fe4b-7bf6-4a42-8ea5-3a24f072f98f)
+
+### Bug Fixes
+---
+
+- Fixed an issue with downloading ImmyBot Agent EXEs which would intermittently fail
+- Fixed an issue where an unreachable integration could cause ImmyBot background jobs to not start up correctly
+- Fixed a null reference that could occur when re-running a maintenance action
+- Refactored some ephemeral agent PowerShell code for easier testing
+
 ## 0.50.9
 ---
 
 Released 2022-03-08
-
 
 ### Bug Fixes
 ---
