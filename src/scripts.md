@@ -367,7 +367,7 @@ Later you need to reconfigure this software on lots of machines. You discover th
 This is done via “Dynamic Versions”. Rather than upload the latest installer for every version of a piece of software, create a dynamic versions script that returns the most current version number, and the URL to download it. Reader, Zoom, 7zip, Chrome, Edge, Firefox, Bluebeam, Citrix, Egnyte,  and many more already have dynamic version scripts defined. This allows Immy to keep these items up to date on all your machines.
 
 ## Configuration Task Helper Functions
-We provide a helper functions for common tasks like Registry and configuration file manipulation
+We provide helper functions for common tasks like Registry and configuration file manipulation
 
 When used in the context of a Task, these functions honor the $method variable containing the mode the script should be run in (‘test’, ‘set’, or ‘get’)
 
