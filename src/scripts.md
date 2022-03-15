@@ -160,6 +160,8 @@ Avoid setting these variables yourself or having variables with similar names.
 
 `[string]` The Azure Principal Id of the computer's tenant.
 
+#### Accessible in
+
 - Software Detection
 - Software Auto Update
 - Software Version Action
