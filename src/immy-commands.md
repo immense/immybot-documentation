@@ -1,6 +1,6 @@
 # Metascripts / Cloud Scripts
 
-A Metascript is a script that runs scripts. These scripts run in the backend of ImmyBot. A Metascript can run a script on a computer using Invoke-ImmyCommand, which is modelled after PowerShell's native Invoke-Command, upto and including the ability to pass real objects into and out of the remote runspace, while preserving stream information. We consider our approach superior to capturing standard output and standard error as a string like most automation tools.
+A Metascript is a script that runs scripts. These scripts run in the backend of ImmyBot. A Metascript can run a script on a computer using Invoke-ImmyCommand, which is modelled after PowerShell's native Invoke-Command, up to and including the ability to pass real objects into and out of the remote runspace, while preserving stream information. We consider our approach superior to capturing standard output and standard error as a string like most automation tools.
 
 Metascripts allow you to do things like persist reboots since the context is held by the backend.
 
