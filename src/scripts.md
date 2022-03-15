@@ -110,7 +110,7 @@ return $SoftwareVersion
 
 ### Software Version Action
 
-These scripts an be used on a software version for installation, post-installation, uninstallation, post-uninstallation, testing, and upgrade scripts.
+These scripts can be used on a software version for installation, post-installation, uninstallation, post-uninstallation, testing, and upgrade scripts.
 
 ### Maintenance Task
 
