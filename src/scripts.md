@@ -361,7 +361,7 @@ Yes, you do this by creating a Task. We strongly recommend your task includes a 
 
 Let’s say your Software package accepts command line parameters at install time. You would create a Configuration Task with those parameters without implementing the scripts on that Task. ImmyBot will pass the parameters into the install script.
 
-Later you need to reconfigure this software on lots of machines. You discover that the parameters you passed into the installer are ultimately held as registry values (Duo Logon Provider is like this). At this time you would implement the scripts on the Software’s Configuration Task. These scripts task will test the existing registry values against the desired ones, and setting them to the to the desired value, and then re-testing to verify.
+Later you need to reconfigure this software on lots of machines. You discover that the parameters you passed into the installer are ultimately held as registry values (Duo Logon Provider is like this). At this time you would implement the scripts on the Software’s Configuration Task. These scripts task will test the existing registry values against the desired ones, and setting them to the desired value, and then re-testing to verify.
 
 ### How does Immy get the latest version of software?
 This is done via “Dynamic Versions”. Rather than upload the latest installer for every version of a piece of software, create a dynamic versions script that returns the most current version number, and the URL to download it. Reader, Zoom, 7zip, Chrome, Edge, Firefox, Bluebeam, Citrix, Egnyte,  and many more already have dynamic version scripts defined. This allows Immy to keep these items up to date on all your machines.
