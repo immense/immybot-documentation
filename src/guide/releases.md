@@ -1,5 +1,26 @@
 # Releases
 
+## 0.50.12
+
+Released 2022-03-29
+
+### Improvements
+
+---
+
+- Made the software override options more similar to the quick deploy options
+- The ImmyBot Agent no longer writes and executes scripts from C:\Windows\Temp\ImmyBot.
+
+### Bug Fixes
+
+---
+
+- Fixed an issue preventing the 'Getting Started Wizard' from showing
+- Fixed an issue with non-MSP users not being able to create configuration tasks from the software details page
+- Fixed an issue with the 'New Version' notice not showing up
+- Fixed an issue with configuration tasks running before the software was deemed compliant
+- Fixed an issue where dynamic versions that threw a terminating exception were not displaying the exception message under the maintenance action
+
 ## 0.50.11
 
 Released 2022-03-21
