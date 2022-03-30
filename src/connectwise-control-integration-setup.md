@@ -44,7 +44,7 @@ When you map a customer from an RMM, the computers will undergo Identification
 
 ![](./.vuepress/images/2021-03-23-19-08-30.png)
 
-# Troubleshooting
+## Troubleshooting
 
 ConnectWise Control uses Sqlite under the hood, making it vulnerable to performance issues unless aggressive Database Maintenance Tasks are enabled.
 
@@ -53,7 +53,7 @@ While ImmyBot only uses Control (and other integrations) to spawn an out-of-band
 Commands go into the SessionEvent table with EventType = 44
 Responses go into SessionConnectionEvent with EventType = 70
 
-## Automatic Cleanup
+### Automatic Cleanup
 Ensure you have the following maintenance actions:
 Access Sessions: Purge records of session activity older than 7 days for all events EXCEPT AddedNote
 
@@ -63,7 +63,7 @@ Access Sessions: Purge records of session connections older than 7 days for Host
 
 ![image](https://user-images.githubusercontent.com/1424395/160918906-6d6c0485-fe57-4ff8-b52f-99fa03b4cd74.png)
 
-## Manual Cleanup 
+### Manual Cleanup 
 
 If you host Control yourself, you can restore performance by doing the following
 
@@ -72,7 +72,7 @@ Open `C:\Program Files (x86)\ScreenConnect\App_Data\session.db`
 Navigate to SQL Editor
 Paste in the following SQL
 
-### Soft delete all commands and responses (This usually solves the problem without kicking everyone out of Control)
+#### Soft delete all commands and responses (This usually solves the problem without kicking everyone out of Control)
 ```sql
 update SessionEvents set EventAttributes = 1 where EventType = 44;
 update SessionConnectionEvents set EventAttributes = 1 where EventType = 70;
@@ -83,7 +83,7 @@ The reason this works is because the UI doesn't fetch soft-deleted items, so thi
 
 However, if it doesn't work, do you following
 
-### Delete commands and responses older than 7 days
+#### Delete commands and responses older than 7 days
 ```sql
 -- Delete queue commands in db older than 7 days
 DELETE
