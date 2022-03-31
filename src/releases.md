@@ -10,6 +10,7 @@ Released 2022-03-29
 
 - Made the software override options more similar to the quick deploy options
 - The ImmyBot Agent no longer writes and executes scripts from C:\Windows\Temp\ImmyBot.
+- You can now add a Tenant Slug under the "Edit" tab on the Tenant Details page. This value is exposed as the variable `$TenantSlug` for scripts that run against this tenant's computers.
 
 ### Bug Fixes
 
