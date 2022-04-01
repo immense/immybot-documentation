@@ -1,5 +1,35 @@
 # Releases
 
+## 0.50.13
+
+Released 2022-04-1
+
+### Capture Version from DisplayName with Regex
+
+---
+
+For software that puts its version in the DisplayName instead of the DisplayVersion field like this:
+
+![image](https://immybot.blob.core.windows.net/release-media/5fb9b29c-3f67-486f-b34b-3b85ff8a9ca0)
+
+You can now use a capture group to capture the version from the DisplayName
+
+#### Example
+
+HexCmp 2.34.1 can be captured with
+
+```regex
+HexCmp (\d+\.\d+)
+```
+
+### Script Editor Improvements
+
+---
+
+Within filter scripts, Get-ImmyComputer -InventoryKeys now shows valid InventoryKeys
+
+![image](https://immybot.blob.core.windows.net/release-media/76854789-9bf2-484b-9bd2-875f2ad55bc9)
+
 ## 0.50.12
 
 Released 2022-03-29
