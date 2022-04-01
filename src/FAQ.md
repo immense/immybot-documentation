@@ -19,3 +19,6 @@ Pay attention to the script output, Immy may be reporting that there is a name c
 1. The machine has a security tool like Defender for Endpoint, Crowdstrike, Bitdefender or Threatlocker blocking our scripts from running
   - You'll want to create exclusions for ImmyBot
 1. WMI is broken on the machine (Usually on older machines)
+
+## Where is the Download ImmyBot Agent Installer?
+1. This is a setting located in the Settings tab, under Integrations. Click the edit button next to Immybot Agent. Uncheck the Disabled box then click Update.
