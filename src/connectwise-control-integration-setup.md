@@ -77,7 +77,8 @@ Paste in the following SQL
 update SessionEvents set EventAttributes = 1 where EventType = 44;
 update SessionConnectionEvents set EventAttributes = 1 where EventType = 70;
 ```
-You will need to commit the changes in DB Browser. It will prompt you to commit the changes, click yes.
+You will need to commit the changes in DB Browser. You can doi this under File->Save
+If you forget to tdo this it will prompt you to commit the changes, when you exit, click yes.
 
 The reason this works is because the UI doesn't fetch soft-deleted items, so things become much snappier. 
 
