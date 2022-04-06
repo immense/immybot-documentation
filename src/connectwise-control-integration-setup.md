@@ -77,7 +77,7 @@ Paste in the following SQL
 update SessionEvents set EventAttributes = 1 where EventType = 44;
 update SessionConnectionEvents set EventAttributes = 1 where EventType = 70;
 ```
-You will need to commit the changes in DB Browser. You can doi this under File->Save
+You will need to commit the changes in DB Browser. You can do this by clicking Write Changes at the top by clicking File->Save
 If you forget to tdo this it will prompt you to commit the changes, when you exit, click yes.
 
 The reason this works is because the UI doesn't fetch soft-deleted items, so things become much snappier. 
@@ -89,11 +89,11 @@ However, if it doesn't work, do you following
 -- Delete queue commands in db older than 7 days
 DELETE
 FROM SessionEvent
-WHERE (EventType = '44') AND (Time < DATETIME('now', '-7 day')));
+WHERE (EventType = 44) AND (Time < DATETIME('now', '-7 day')));
 
 -- Delete responses older than 7 days
 DELETE
 FROM SessionConnectionEvent
-WHERE (EventType = '70') AND (Time < DATETIME('now', '-7 day'))
+WHERE (EventType = 70) AND (Time < DATETIME('now', '-7 day'))
 ```
 
