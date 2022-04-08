@@ -1,5 +1,66 @@
 # Releases
 
+## 0.51.0
+
+Released 2022-04-08
+
+### Onboarding Form: Maintenance Task Parameter Override
+
+---
+
+- New checkbox added to maintenance task parameters on the deployment details page: 'Allow override from computer onboarding'
+
+  ![image](https://immybot.blob.core.windows.net/release-media/882f6817-8b54-4d14-8ce9-f85d3fabee5e)
+
+- The checked parameters will show on the computer onboarding form, allowing the user to override the value just for the onboarding session
+
+  ![image](https://immybot.blob.core.windows.net/release-media/1e37389e-827a-4ec3-a9d6-20e141dcfd59)
+
+### Other Improvements
+
+---
+
+- Implemented a Get-Hash cmdlet in the Metascript engine useful for interacting with APIs like NinjaRMM and Mimecast that require HMACSHA1 signatures
+- We moved the Target Selector above the Software / Task Selector on the deployment page since it felt more natural to answer "Who am I creating a deployment for?" before answering "What am I creating a deployment for?"
+- Software Display Name Regex detection now supports capture groups to pull the version
+
+  ![image](https://immybot.blob.core.windows.net/release-media/60a6c664-4047-42b1-9966-0c8566713670)
+
+- Added Azure ID column to the User List page
+- Improved handling of integration API routes
+- Added a "Do not remember" option when overriding an "Update If Found" deployment, and added more options for overriding certain desired states.
+
+  ![image](https://immybot.blob.core.windows.net/release-media/4b5328d4-a1e0-4862-abdd-af62942286ec)
+
+- Added Tenant Slug. `$TenantSlug` is now exposed for all scripts executed against a computer. You can also conveniently edit the tenant slug directly in the Tenant List.
+
+  ![image](https://immybot.blob.core.windows.net/release-media/060b53e2-e7f5-45ed-be46-2403613662fa)
+
+- Hid the maintenance item selector behind a checkbox on the schedule details page since it was causing some confusion
+
+  ![image](https://immybot.blob.core.windows.net/release-media/d5b18e5a-7169-4925-af55-bcef87a90ae6)
+
+### Bug Fixes
+
+---
+
+- Fixed an issue where dynamic versions that throw a terminating exception were not displaying the exception message under the maintenance action
+- Fixed an issue with the "New Version" notice not showing up
+- Fixed an issue preventing the Getting Started Wizard modal from showing
+- Fixed an issue with configuration tasks running before the software was deemed compliant
+- Fixed an issue with non-msp users not being able to create configuration tasks from the software details page
+- Fixed various issues with deploying Ninite software
+- Fixed issue with software repair not re-installing software
+- [Global Software Only] Fixed an issue with saving a custom download installer script to a global software
+- Removed double base64 encoding that triggered alerts in BitDefender and Arctic Wolf
+- Fixed the script documentation link
+- Fixed issues with Invoke-ImmyCommand forcing terminating errors instead of honoring the error action preference set by the script
+- Fixed an issue with configuration task parameters not being provided to the test script when run during detection
+- Fixed an issue with loading deployments when you have multiple of the same provider type enabled
+- Fixed issues with loading CW Control, Automate, and Manage target groups on the deployment details page
+- Fixed some exceptions that were occurring when sending emails
+- Removed duplicate "Should not be present" text showing in the maintenance actions list
+
 ## 0.50.13
 
 Released 2022-04-1
