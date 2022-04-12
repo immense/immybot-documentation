@@ -1,5 +1,61 @@
 # Releases
 
+## 0.51.1
+
+Released 2022-04-12
+
+### Integration Health
+
+---
+
+Integrations can now have a health status of `Healthy`, `Degraded`, `Unhealthly`, or `Disabled`.
+
+- Healthy: All is well
+- Degraded: Started experiencing issues in the last few minutes
+- Unhealthy: Consistently experiencing issues (integration is no longer usable)
+- Disabled: Integration has been explicitly turned off by a user
+
+Unhealthy integrations will return to healthy automatically when transient issues subside.
+
+An alert with the latest message is shown on the integration details page.
+
+![image](https://immybot.blob.core.windows.net/release-media/e1a32644-c0a0-4a71-a77d-51ffc2cec2a9)
+
+A badge has been added to the integration list and on the computer details -> agents tab.
+
+![image](https://immybot.blob.core.windows.net/release-media/683eddb6-ffcf-4d6c-b9f7-6adb15a0898e)
+
+![image](https://immybot.blob.core.windows.net/release-media/bd0cdf65-4eab-442d-8c70-e8ca407bcbfd)
+
+The "Download ImmyBot Agent Installer" dropdown will now be disabled if the integration is unhealthy or disabled.
+
+![image](https://immybot.blob.core.windows.net/release-media/41646a94-3576-4a08-b8d6-8132eebab391)
+
+### Other Improvements
+
+---
+
+- Schedules can no longer be created with cron expressions using a `*` `,` `-` or `/` in the minute or hour position to help prevent to frequent scheduling.
+- **Important:** Schedules that are currently using a `*` `,` `-` or `/` in the minute or hour position will be automatically disabled in this version.
+- Software items in emails show "Up to Date" after successfully updating instead of "Update Available" which causes confusion whether the software has actually updated
+- Quick Assign and Assign actions are no longer disabled when the computer is already running a maintenance session
+- Added OS version after the OS name in the computer details overview info
+- MSP non-admins can now see the recommended deployments on the list page to know that they exist
+- Added detected version to items in the software tab
+- Removed the integration priority table and details since they are no longer applicable
+- When a maintenance session is manually resumed, the name of the user that resumed it now shows up in the logs. Or if it was resumed from an email, then it will indicate that a user clicked the "Update Now" button in the email.
+- Added field for maintenance task notes.
+
+### Bug Fixes
+
+---
+
+- Fixed an issue where the dynamic version response was incorrectly cached when the script was shared for multiple software and required different output for each software
+- Fixed an issue where the software detection radio options were disabled and unable to be changed
+- Fixed an issue where the "Skip x onboarding computers" button would disable even if you had computers selected
+- Undid the change that disabled the onboarding tab since it was a bad decision
+- Fixed an issue with slug not saving when creating a tenant
+
 ## 0.51.0
 
 Released 2022-04-08
