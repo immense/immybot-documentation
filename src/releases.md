@@ -1,5 +1,40 @@
 # Releases
 
+## 0.51.2
+
+Released 2022-04-21
+
+### Branding Updates
+---
+
+- Added color picker for `Text Color` and `Table Header Text Color`
+- Branding Logo and Mascot images are now optional
+- Added live branding preview
+
+![image](https://immybot.blob.core.windows.net/release-media/3466173c-3fbd-4d3b-b56f-1c73d4cbae21)
+
+### Other Improvements
+---
+
+- Added more details such as the reboot preference to the session details page. Also added a snazzier stage indicator.
+  - ![image](https://immybot.blob.core.windows.net/release-media/5d96e0e4-9928-4f7b-8678-102753559cde)
+- Changed access request default options to Three Days and Admin
+- Maintenance Tasks now have the "Ignore" option just like software and will take precedence over other deployments for the same task and target group.
+- Added desired software state "Any" as an available option for software that use dynamic versions
+- Maintenance emails no longer show software actions that have a desired state of "Update If Found" and no detected version.
+
+### Bug Fixes
+---
+
+- Fixed an issue with saving a tenant's default time zone
+- Fixed an issue with the software/task selector not correctly selecting tasks on the schedule and dashboard page
+- Fixed an issue with chocolatey items not showing in the software/task selector
+- Removed ability to use metascripts to define schedule targets (since metascripts do not resolve to list of computers)
+- Fixed an issue with configuration task file parameters not getting downloaded before the software's action runs
+- Fixed an issue where the Cloud Script execution context was not selected by default when creating a new dynamic version script from a software
+- Handled some common application initialization failures more gracefully
+- Fixed an issue with metascripts being able to override certain variables that were automatically provided.  E.g. `TenantId, ComputerId, ComputerName, etc` are now constant and cannot be overridden. This is because these variables may be referenced in core cmdlets and modifying the values could unintentionally change some cmdlets' behaviors.
+
 ## 0.51.1
 
 Released 2022-04-12
