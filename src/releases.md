@@ -5,6 +5,7 @@
 Released 2022-04-21
 
 ### Branding Updates
+
 ---
 
 - Added color picker for `Text Color` and `Table Header Text Color`
@@ -14,6 +15,7 @@ Released 2022-04-21
 ![image](https://immybot.blob.core.windows.net/release-media/3466173c-3fbd-4d3b-b56f-1c73d4cbae21)
 
 ### Other Improvements
+
 ---
 
 - Added more details such as the reboot preference to the session details page. Also added a snazzier stage indicator.
@@ -24,6 +26,7 @@ Released 2022-04-21
 - Maintenance emails no longer show software actions that have a desired state of "Update If Found" and no detected version.
 
 ### Bug Fixes
+
 ---
 
 - Fixed an issue with saving a tenant's default time zone
@@ -33,7 +36,7 @@ Released 2022-04-21
 - Fixed an issue with configuration task file parameters not getting downloaded before the software's action runs
 - Fixed an issue where the Cloud Script execution context was not selected by default when creating a new dynamic version script from a software
 - Handled some common application initialization failures more gracefully
-- Fixed an issue with metascripts being able to override certain variables that were automatically provided.  E.g. `TenantId, ComputerId, ComputerName, etc` are now constant and cannot be overridden. This is because these variables may be referenced in core cmdlets and modifying the values could unintentionally change some cmdlets' behaviors.
+- Fixed an issue with metascripts being able to override certain variables that were automatically provided.
 
 ## 0.51.1
 

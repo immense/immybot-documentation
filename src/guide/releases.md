@@ -36,7 +36,7 @@ Released 2022-04-21
 - Fixed an issue with configuration task file parameters not getting downloaded before the software's action runs
 - Fixed an issue where the Cloud Script execution context was not selected by default when creating a new dynamic version script from a software
 - Handled some common application initialization failures more gracefully
-- Fixed an issue with metascripts being able to override certain variables that were automatically provided. E.g. `TenantId, ComputerId, ComputerName, etc` are now constant and cannot be overridden. This is because these variables may be referenced in core cmdlets and modifying the values could unintentionally change some cmdlets' behaviors.
+- Fixed an issue with metascripts being able to override certain variables that were automatically provided.
 
 ## 0.51.1
 
