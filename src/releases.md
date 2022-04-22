@@ -1,5 +1,14 @@
 # Releases
 
+## 0.51.3
+
+Released 2022-04-21
+
+### Bug fixes
+---
+
+- Fixed an issue with upgrading to 0.51.3 where the instance would fail to start if you had a branding that did not specify a from address (which is now required)
+
 ## 0.51.2
 
 Released 2022-04-21
