@@ -1,10 +1,43 @@
 # Releases
 
+## 0.51.4
+
+Released 2022-04-27
+
+### Deployment List Improvements
+
+---
+
+- Removed the button "Show Recommended Deployments"
+- Recommended deployments and the ability to "Approve/Dismiss" them now show up in the list
+- Updated the group by filter and added two new filters.
+
+![image](https://immybot.blob.core.windows.net/release-media/98b28b56-ef88-4e63-b850-b5171d28d915)
+
+### Session Log Improvements
+
+---
+
+- Made several logs more concise
+- Added action name and stage name to the top level logs
+  - ![image](https://immybot.blob.core.windows.net/release-media/0081b188-7cac-4f88-be9c-bed8871ee2df)
+- Checking the box to the left of actions do a better job of filtering to the relevant logs for that action
+  - ![image](https://immybot.blob.core.windows.net/release-media/5bc3e22c-7799-421c-8858-cdb4d2d4a55e)
+
+### Bug Fixes
+
+---
+
+- Fixed a performance issue with a timeline events database query
+- Fixed an issue that was causing the Ephemeral Agent to not extract on machines running Windows PowerShell 4 or below
+- Fixed issue where ImmyBot would not verify dependencies for software that is already compliant
+
 ## 0.51.3
 
 Released 2022-04-21
 
 ### Bug fixes
+
 ---
 
 - Fixed an issue with upgrading to 0.51.3 where the instance would fail to start if you had a branding that did not specify a from address (which is now required)
