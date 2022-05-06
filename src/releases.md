@@ -1,5 +1,27 @@
 # Releases
 
+## 0.51.5
+
+Released 2022-05-06
+
+### Chat with ImmyBot
+
+---
+
+- Added a live chat button to ImmyBot as another option for support requests
+
+### Bug Fixes
+
+---
+
+- **COMMAND LINE WORKS AGAIN!** Fixed an issue where Command Line (non-PowerShell) scripts would not run correctly, resulting in software uninstalls not working as expected
+- Fixed an issue where maintenance actions with a prerequisite dependency would not execute after the dependency finished successfully
+- Fixed an issue where Immy support would be unable to regain access after expiration
+- Fixed an issue with the "Show Details" link on the computer software tab not opening
+- Increased the timeout for the ImmyBot Agent to connect from 20 seconds to 60 seconds since setting up the ephemeral agent on some machines may take longer
+- Fixed an issue with configuration tasks not displaying underneath the software action
+- Fixed an issue with configuration tasks not running when using quick deploy
+
 ## 0.51.4
 
 Released 2022-04-27
