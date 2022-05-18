@@ -1,5 +1,16 @@
 # Releases
 
+## 0.52.1
+
+Released 2022-05-18
+
+### Bug Fixes
+
+---
+
+- Fixed an issue where tag deployments were not resolving during full maintenance
+- Fixed an issue where cloud deployments were not resolving during full maintenance
+
 ## 0.52.0
 
 Released 2022-05-18
