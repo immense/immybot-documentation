@@ -1,5 +1,91 @@
 # Releases
 
+## 0.52.0
+
+Released 2022-05-18
+
+### Tags
+
+---
+
+You can now add tags to computers, and deploy software to tags! Manage tags under the settings link on the sidebar. Tags help in scenarios where workstations are shared by a variety of users and there is otherwise not a common property to target with a filter script.
+
+Tags can be added to computers as a batch action on the computer list page.
+
+![image](https://immybot.blob.core.windows.net/release-media/ac94e766-2362-48b0-936d-17a901aea82c)
+
+Tags can also be added to a computer on the details page.
+
+![image](https://immybot.blob.core.windows.net/release-media/d0a80ede-0dc5-42e9-a4d6-569eccd498be)
+
+Tags can be deployed as a cross-tenant target scope.
+
+![image](https://immybot.blob.core.windows.net/release-media/2903300b-656c-413c-a180-4a83b4de491f)
+
+Tags can also be deployed as a single-tenant target scope.
+
+![image](https://immybot.blob.core.windows.net/release-media/aa721717-f2ac-495e-88cd-b098abb7c3fb)
+
+Tags can be added to an ImmyBot installer to automatically set tags for new computers
+
+![image](https://immybot.blob.core.windows.net/release-media/1edb4f23-c17f-4ae5-9cb1-2863ca29dfbb)
+
+### Exclude Computer From Maintenance
+
+---
+
+You can now specify that a computer be excluded from maintenance under Tenant Preferences. Excluded computers will not be allowed to run any type of maintenance session.
+
+![image](https://immybot.blob.core.windows.net/release-media/900883d7-4019-4d50-b41d-b4a103adc235)
+
+### Immy Chat Integration
+
+---
+
+_Added in 0.51.5_
+
+We added LiveChat to Immy to make it easier for you to get support
+
+### Session Script Execution Improvements
+
+---
+
+Before executing a script on a device, we now check if it is online. If it is not online, we verify whether any of its agents are incorrectly reporting online and refresh the status appropriately. If it is still not online, we will wait up to 30 minutes for it come back online. If it is still not online, then we will mark the session as Pending Connectivity (only for Apply On Connect) or cancel the session due to the computer being offline.
+
+### Other Improvements
+
+---
+
+- On Immy startup, we now sync the online/offline state of all ImmyBot agents
+- Added an hourly job to pull the latest online/offline state of all ImmyBot agents
+- Updated parts of the frontend codebase with typescript to prevent accidental bugs
+- Improved performance of loading certain pages that relied on fetching clients from a provider
+- On the deployment details page, deploying to over 10 computers will now prompt to confirm this is the action you want to take
+- Active Ephemeral Agents will now prevent Windows from going to sleep to keep sessions from halting
+- A new preference has been added to aid in development of Ephemeral agent, as-well as diagnosing of bugs
+- Added Offline Behavior selector to the computer onboarding form and set the default option to "Apply On Connect"
+- The Run Maintenance button on the computer details page now defaults Offline Behavior to "Apply On Connect"
+- The Run Maintenance button on the computer details and list pages now provide a dropdown for the reboot preference
+- The Run Maintenance button on the computer details and list pages now have a confirmation modal
+- Azure groups now include devices as long as you grant ImmyBot the Device.Read.All permission
+- Azure groups now include all sub groups
+- Improved the action logs and result message for failed dependencies
+- Added a Preferences tab to the Tenant details page
+- Updated PowerShell Editor Services from 3.1.5 to 3.3.5
+
+### Bug Fixes
+
+---
+
+- Fixed an issue in the ephemeral agent that prevented the agent from exiting when finished running PowerShell
+- Fixed an issue with uninstall strings in the registry not containing quotes around paths with spaces
+- Fixed an issue where devices with unknown operating systems (non windows) were coming into Immy
+- Fixed an issue where dependencies for software set to update if found would run even if the software was not found
+- Fixed an issue where command line uninstall scripts with spaces in the path were not being wrapped in quotes
+- Fixed an issue where the access request button was not visible when access requests were disabled
+- Fixed an issue where failed dependencies were being removed instead of failed
+- Fixed an issue with the branding preview and test email not showing the mascot name
+
 ## 0.51.5
 
 Released 2022-05-06

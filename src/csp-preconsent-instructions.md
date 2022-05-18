@@ -1,6 +1,7 @@
 # AzureAD/365
 
 Enabling this allows ImmyBot to
+
 1. Sync all users from your partner tenant
 2. Sync all users from your customer's tenants
 3. Install the 365 applications a user is licensed for (Apps for business/Apps for entrprise/Project/Visio)
@@ -17,6 +18,12 @@ Navigate to: https://aad.portal.azure.com/
 ![](./.vuepress/images/2020-12-07-15-47-18.png)
 
 ## Grant Permissions
+
+### Target devices in Azure Groups
+
+If you would also like to target devices from your Azure groups, you will need to include the `Microsoft Graph - Devices.Read.All` permission.
+
+See the screenshots below for the minimum permissions.
 
 ![](./.vuepress/images/2020-12-07-15-47-33.png)
 
@@ -45,6 +52,5 @@ Navigate to: https://aad.portal.azure.com/
 ![](./.vuepress/images/2020-12-07-15-48-35.png)
 
 ![](./.vuepress/images/2020-12-07-15-48-38.png)
-
 
 ## Copy the `Application (client) ID` and `Client Secret Value` into the form in ImmyBot.
