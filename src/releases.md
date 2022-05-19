@@ -45,7 +45,13 @@ Tags can be added to an ImmyBot installer to automatically set tags for new comp
 
 ---
 
-You can now specify that a computer be excluded from maintenance under Tenant Preferences. Excluded computers will not be allowed to run any type of maintenance session.
+You can now specify that a computer be excluded from maintenance. Excluded computers will not be allowed to run any type of maintenance session.
+
+Settings -> Preferences -> Company Preferences -> Computers Excluded From Maintenance
+
+or
+
+Tenants -> Select a tenant -> Preferences tab -> Computers Excluded From Maintenance
 
 ![image](https://immybot.blob.core.windows.net/release-media/900883d7-4019-4d50-b41d-b4a103adc235)
 
