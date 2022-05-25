@@ -1,5 +1,55 @@
 # Releases
 
+## 0.52.2
+
+Released 2022-05-25
+
+### Ephemeral Agent and Identification Improvements
+
+---
+
+- **ALL** scripts now run through the ephemeral agent, even during identification and computer de-dupe logic 🎉
+- Additional exception information is now visible in Identification Failed tab, and in session output. This furthers insight for users to understand and fix potential reasons why the providers may have failed to run our agent.
+  ![image](https://immybot.blob.core.windows.net/release-media/22b9d763-3a43-4403-8c01-70e020e3a303)
+- Fixed an issue where the date was not being set correctly when adding a AgentIdentificationFailure log, leading the user to think this issue happened at the beginning of time!
+
+### Other Improvements
+
+---
+
+- Added computer batch actions button on the tenants -> tenant details -> computers tab
+- You can no longer create a schedule that executes within one hour of detection. This is a safety measure to help prevent reboots during business hours
+- Added a checked to the schedules page for "Execute maintenance immediately after detection" to make it easier for those that do actually want to run execution after detection. When checked, you cannot set the execution time.
+- The schedule list "Next Run" column now sorts correctly and also shows the browser's local "Next Run" time
+- Added clarity to session logs when we are checking if an agent is online
+- Quick deploy actions now use Offline Behavior: Apply on Connect
+- Auto onboarding sessions now use Offline Behavior: Apply on Connect
+- Computer list batch actions - Run Maintenance now uses Offline Behavior: Apply on Connect
+- On the schedule details page, renamed "Target Category" to "Runs Against", and changed the options to "Computers" or "Cloud"
+
+### Bug Fixes
+
+---
+
+- Fixed an issue with the primary user not being found when sending emails after an onboarding session
+- Fixed an issue with checking off "Send follow-up email" on the onboarding form where it would not actually send the email
+- Fixed an issue with unhealthy integration messages not showing the real error message
+- Fixed an issue with unhealthy integration agents showing on the computer onboarding form
+- Added missing script parameter `$LicenseFilePath` to detection scripts and configuration tasks
+- Removed maintenance tasks from accidentally showing in the software prerequisite dropdown
+- Updated the computer batch actions sidebar to have better clarity
+- Fixed an issue with loading the deployment list when a deployment existed for a computer or person that no longer existed
+- Fixed an issue where Get-ImmyAzureAuthHeader -UseMspTenant was failing if the Tenant didn't have an Azure mapping
+- Fixed an issue where Get-ImmyAzureAuthHeader -UseMspTenant was returning an access token for the Tenant instead of the MSP
+- Fixed an issue where some failed sessions were getting marked as pending connectivity
+- Fixed some more issues around offline/online agent detection during sessions
+- Implemented a HTTP Concurrency limit for requests to N-Central to prevent issues with too many requests hitting their backend
+- Fixed an issue with not being able to skip onboarding
+- Fixed an issue with the "Retry X failed computers" where it was re-attempting to identify all failed computers
+- Fixed an issue with "Analyze Installer" not returning any data
+- Fixed an issue with script output in session logs not being truncated to the last 5 lines
+- Fixed an issue with the Immy Agent installation request not reporting whether the integration is disabled or unhealthy
+
 ## 0.52.1
 
 Released 2022-05-18
