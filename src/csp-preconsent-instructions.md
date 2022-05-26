@@ -44,7 +44,7 @@ See the screenshots below for the minimum permissions.
 ## Granular Delegated Admin Permissions (GDAP)
 - Create a Security Group in Azure AD called "ImmyBot Security Group"
 - Add the ImmyBot Service Principal to that group
-- For each customer in the Partner Center, add the "ImmyBot Security Group" and add the "Directory readers" role.
+- For each customer in the Partner Center, add the "ImmyBot Security Group" and add the "Directory readers" and "Global Reader" role.
 
 ## Add to Admin Agents Group (Legacy DAP)
 
