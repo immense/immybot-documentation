@@ -1,5 +1,33 @@
 # Releases
 
+## 0.52.3
+
+Released 2022-05-27
+
+### Improvements
+
+---
+
+- ImmyAgents no longer need to see a valid board serial number in order to complete registration or rekey. Instead, ImmyAgent may fall back on and rely on an 'ImmyHWID' (Immy hardware id), when a board serial is not available. ImmyHWIDs are derived from CPU, BIOS, MOBO, GPU, and TPM information where available.
+- Updated maintenance sessions to listen on agent connected/disconnected events instead of computer online/offline events which have faster responses and higher success rates
+- When a new agent comes into ImmyBot, we now kick off the identification job immediately if it isn't already running in an effort to speed up identification
+- Added session logs for dependencies indicating what they are for. e.g. `Software A depends on Software B → If not installed then install`.
+- The actions in the maintenance email (Reboot Now, Update Now, and Postpone), now link to a form on the ImmyBot instance instead of linking directly to the backend api. The reason for this is because some spam filters will automatically follow links in an email, which has accidentally caused computer reboots. Moving the link to a form allows spam filters to no longer be able to trigger the action automatically.
+
+### Bug Fixes
+
+---
+
+- Fixed an issue causing the computer details page to sometimes not load
+- Fixed an issue with the ImmyAgent rekey request not being received
+- Fixed an issue where `Get-ImmyComputer` was incorrectly reporting offline
+- Fixed an issue where configuration file parameters were not being downloaded when the configuration task did not have any enabled scripts
+- Fixed an issue with displaying the dependency badges on maintenance actions
+- Fixed an issue with the schedule's day of week selector cutting off the last characters of "Wednesday"
+- Fixed an issue with the CompareTo-ImmyBotVersion metascript
+- Fixed an issue with some maintenance action start times showing "2021 years ago" instead of "Unavailable" when the action never started
+- Bump Azure IoTHub packages to resolve some connection issues with the ImmyAgent
+
 ## 0.52.2
 
 Released 2022-05-25
