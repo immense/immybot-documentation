@@ -1,20 +1,36 @@
 # Releases
 
+## 0.52.4
+
+Released 2022-05-21
+
+### Improvements
+---
+
+- Removed unnecessary checkboxes from the Computers table on the "Edit Schedule" page
+- Immy live chat now supports screenshare! Immy support can now request access to view your screen to help resolve issues faster.
+
+### Bug Fixes
+---
+
+- Fixed an issue with the maintenance email actions requiring authentication
+
 ## 0.52.3
 
 Released 2022-05-27
 
 ### Improvements
+
 ---
 
-- ImmyAgents no longer need to see a valid board serial number in order to complete registration or rekey.
-Instead, ImmyAgent may fall back on and rely on an 'ImmyHWID' (Immy hardware id), when a board serial is not available. ImmyHWIDs are derived from CPU, BIOS, MOBO, GPU, and TPM information where available.
+- ImmyAgents no longer need to see a valid board serial number in order to complete registration or rekey. Instead, ImmyAgent may fall back on and rely on an 'ImmyHWID' (Immy hardware id), when a board serial is not available. ImmyHWIDs are derived from CPU, BIOS, MOBO, GPU, and TPM information where available.
 - Updated maintenance sessions to listen on agent connected/disconnected events instead of computer online/offline events which have faster responses and higher success rates
 - When a new agent comes into ImmyBot, we now kick off the identification job immediately if it isn't already running in an effort to speed up identification
 - Added session logs for dependencies indicating what they are for. e.g. `Software A depends on Software B → If not installed then install`.
-- The actions in the maintenance email (Reboot Now, Update Now, and Postpone), now link to a form on the ImmyBot instance instead of linking directly to the backend api.  The reason for this is because some spam filters will automatically follow links in an email, which has accidentally caused computer reboots. Moving the link to a form allows spam filters to no longer be able to trigger the action automatically.
+- The actions in the maintenance email (Reboot Now, Update Now, and Postpone), now link to a form on the ImmyBot instance instead of linking directly to the backend api. The reason for this is because some spam filters will automatically follow links in an email, which has accidentally caused computer reboots. Moving the link to a form allows spam filters to no longer be able to trigger the action automatically.
 
 ### Bug Fixes
+
 ---
 
 - Fixed an issue causing the computer details page to sometimes not load
