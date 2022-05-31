@@ -2,15 +2,17 @@
 
 ## 0.52.4
 
-Released 2022-05-21
+Released 2022-05-31
 
 ### Improvements
+
 ---
 
 - Removed unnecessary checkboxes from the Computers table on the "Edit Schedule" page
 - Immy live chat now supports screenshare! Immy support can now request access to view your screen to help resolve issues faster.
 
 ### Bug Fixes
+
 ---
 
 - Fixed an issue with the maintenance email actions requiring authentication
