@@ -1,44 +1,5 @@
 # Scripting Guide
 
-## Preface
-ImmyBot deploys 2 things:
-1. Software
-1. Tasks 
-
-Tasks are for anything that isn’t software, think Bitlocker, Power Options, etc.
-
-- You can use Tasks to configure software  by selecting a "Configuration Task" for the software
-- Configuration Tasks are useful for configuring the application (even if the application wasn't installed by ImmyBot)
-- Configuration Tasks run after Immy determines the software is installed
-- Configuration Task parameters are available in all scripts related to the software
-
-ImmyBot tests everything it does before and after it does it. 
-- Software 
-   - Version Detection - Runs before install to determine if installation is necessary, and after to verify the desired version is installed
-     - DisplayName
-       - Contains
-       - Regex
-       - Traditional (Wildcard \*)
-     - UpgradeCode (For MSI based installs)
-     - Script
-       - Must return a version or null
-   - Test Script - If software is installed, the failure of this test (the test script returning $false) will trigger a "Repair" action (default Uninstall/Install) of the application
-      - Example: Check to verify Foxit PDF Editor is the Preview handler extension is working in Windows Explorer, reinstalling the PDF Editor usually corrects this scenario 
-- Tasks
-  - Test script (When using separate scripts)
-  - Combined script returns $false when $method is 'test'
-
-## Full Example: Adobe Reader
-Adobe Reader is detected on the machine using Regex against the DisplayName in Add/Remove Programs
-
-The dynamic versions script uses a public API to return the latest full version number of Adobe Reader, as well as the URL to download it, the latest patch version of Adobe Reader, and the URL to download it.
-
-The configuration task contains an optional boolean parameter called "SetAsDefaultPDFHandler" that verifies that Reader is the default handler for .PDF files for each user profile on the machine.
-
-The Software Install script installs the software silently
-
-There is a custom Upgrade script to apply the .msp patch file
-
 ## Best Practices
 * Look for a script that already does what you want. There is a lot of good logic in the built in function scripts
 * Have a machine you can test on
