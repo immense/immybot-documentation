@@ -1,5 +1,27 @@
 # Releases
 
+## 0.52.5
+
+Released 2022-06-13
+
+### N-Central Beta Updates
+
+---
+
+- Fixed an issue with exceptions that may occur inside the N-Central device-sync job causing memory to bloat
+- You can now get registration tokens from the NCentral integration via new PSCmdlet `Get-NCentralRegistrationToken`
+
+![image](https://immybot.blob.core.windows.net/release-media/501dd3bc-d823-40a0-a307-000ec5185e6a)
+
+### Other Improvements
+
+---
+
+- Under "Preferences", the description of the User Affinity Sync feature says it will run every 4 hours; this is incorrect. Verbiage was changed to indicate it will run every 24 hours.
+- On the integration details page, a confirmation modal has been added when clicking the "Bulk create tenants..." button to prepare users that this will cause code execution for linked clients.
+- Added more improvements to online/offline agent handling during maintenance sessions
+- Updated the online/offline event receiver for CW Control to return immediately in an effort to close requests faster
+
 ## 0.52.4
 
 Released 2022-05-31
