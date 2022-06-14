@@ -121,21 +121,46 @@ You’ll receive this email when your instance is ready:
 
 ## Setup your first Computer
 
-When you first login to ImmyBot you will be prompted to setup your first computer. We recommend unboxing a physical computer (Dell, HP, or Lenovo) so we can demonstrate applying the latest manufacturer BIOS and driver updates to a physical machine.
+When you first login to ImmyBot the Getting Started Wizard will be prompt you to create your ImmyBot flash drive, and plug it into the new computer.
 
-You will be prompted to create your ImmyBot flash drive, and plug it into the new computer.
+**THIS IS A ONE TIME PROCESS, YOU DO NOT NEED TO CREATE A FLASH DRIVE FOR EACH CLIENT. YOU WILL CHANGE THE CLIENT AFTER THE MACHINE IS IN IMMYBOT**
 
-Once the computer shows up in Immy, you will be brought to the Onboarding tab for that machine.
+![image](https://user-images.githubusercontent.com/1424395/173570369-b7a69a46-95b8-4a85-a4f9-9a4dda57b7e7.png)
+
+**We recommend unboxing a physical computer (Dell, HP, or Lenovo) so we can demonstrate applying the latest manufacturer BIOS and driver updates.**
+
+**If you insist on testing on a virtual machine, do the following to receive the PPKG inside an ISO, then mount it to the VM, and press the Windows Key 5 times when you are at the Region Selection screen. If you are past the region selection screen, simply double click the PPKG from the mounted disk**
+
+![image](https://user-images.githubusercontent.com/1424395/173570635-c50681ea-5612-4326-8203-c0de62e2c154.png)
+
+![image](https://user-images.githubusercontent.com/1424395/173571790-482162a3-a655-42ce-8d06-8dcd6ae973e8.png)
+
+Once the computer is identified, you will be directed to that computer to begin the Onboarding process:
+
+![image](https://user-images.githubusercontent.com/1424395/173592966-cb7d3ccd-098c-4940-bfa0-a435ca68d513.png)
 
 ImmyBot needs:
 1. Customer
-2. Person (That will be using the computer, optional but recommended)
+2. Primary User (That will be using the computer, optional but recommended)
+
+![image](https://user-images.githubusercontent.com/1424395/173594097-f975123b-217f-42ef-aa47-2b816a5593b6.png)
+
 
 You only have one customer and one person right now, and it’s your MSP and you. That’s fine, we’ll pretend we’re setting up a computer for you and your MSP. 
 
-Change nothing and select Save and Onboard
+::: tip
+Customers can be imported from your RMM or PSA, or by setting up the Azure integration
+:::
+
+::: tip 
+People are imported from your customers' Azure AD via the Azure integration
+:::
 
 An "Onboarding" session will be created for this computer, and ImmyBot will apply the "Recommended Deployments"
+
+::: tip 
+You can add your own Deployments and re-run this session as many times as you like until everything is to your liking.
+:::
 
 ## Recommended Deployments
 ### Create Profile for Primary User
@@ -515,11 +540,106 @@ Often when an RMM Agent gets re-installed, it will get a new id in the RMM (Comp
 
 ![](./.vuepress/images/2021-02-23-06-51-47.png)
 
-The most common causes of identification failure are an overloaded or unresponsive RMM, or the machine has broken WMI, preventing us from retrieving the uniqueid of the machine. You may retry identification on one or all of the failed computers once these conditions are resolved.
+##### Troubleshooting
+```mermaid
+graph 
+subgraph
+    1[Check ImmyAgent Logs in C:\ProgramData\ImmyBotAgentService\*.log] --> |Yes|EphemeralAgentConnect[Did Ephemeral Agent Websocket Connect?]
+    1 --> |No|BlockedBySecuritySoftware
+    EphemeralAgentConnect --> |No|d[Put on network without SSL Inspection]
+    d --> e[Ephemeral Agent Connect?]
+    e --> |Yes|f[Done]
+    e --> |No|g["Email logs from C:\ProgramData\ImmyBot\Scripts\*\*.logs to support@immy.bot"]
+end
+```
+##### Script Execution Overview
+
+1. RMM or ImmyAgent runs Immybot.Agent.Ephemeral.exe
+2. Immybot.Agent.Ephemeral.exe runs Invoke-PSPipeHost.ps1
+
+```mermaid
+graph LR
+subgraph "Ephemeral Agent"
+    ImmyBot --> |Parallel|Automate[Run script to download and run Ephemeral Agent via Automate]
+    ImmyBot --> |Parallel|Control[Run script to download and run Ephemeral Agent via Control]
+    ImmyBot --> |Parallel|ImmyAgent[Run script to download and run Ephemeral Agent via ImmyAgent]
+    ImmyBot --> |Parallel|N-Central[Run script to download and run Ephemeral Agent via N-Central]
+    Automate --> Immybot.Agent.Ephemeral.exe
+    Control --> Immybot.Agent.Ephemeral.exe
+    ImmyAgent --> Immybot.Agent.Ephemeral.exe
+    N-Central --> Immybot.Agent.Ephemeral.exe    
+end
+```
+
+
+
+The most common cause of identification failure is security software. 
+To know if this is the case, pull the logs from C:\ProgramData\ImmyBotAgentService\*.log
+
+![image](https://user-images.githubusercontent.com/1424395/173621779-51bd5d6d-e877-41a3-9b68-c1724747db21.png)
+
+Normal logs look like this:
+```
+2022-06-14 00:02:25.560 -05:00 [DBG] Hosting starting
+2022-06-14 00:02:25.799 -05:00 [INF] Starting Immybot Agent
+2022-06-14 00:02:25.943 -05:00 [INF] Using configuration file stored at: C:\ProgramData\ImmyBotAgentService\config.json
+2022-06-14 00:02:26.875 -05:00 [DBG] Initializing IoT Hub connection
+2022-06-14 00:02:35.023 -05:00 [INF] Application started. Hosting environment: Production; Content root path: C:\WINDOWS\TEMP\.net\Immybot.Agent.Service\lreaszzz.wwx\
+2022-06-14 00:02:35.024 -05:00 [DBG] Hosting started
+2022-06-14 00:02:40.552 -05:00 [WRN] IoT Hub connection status Changed Status => [Connected] Reason => [Connection_Ok]
+2022-06-14 02:06:32.159 -05:00 [DBG] Process started; ID: 12724
+2022-06-14 02:06:37.358 -05:00 [DBG] Running C:\ProgramData\ImmyBot\Scripts\840290f2bd2142e2bd2c612542436763\Immybot.Agent.Ephemeral.exe --ImmyScriptPath C:\ProgramData\ImmyBot\Scripts\840290f2bd2142e2bd2c612542436763 --BackendAddress wss://immense.immy.bot/ --SessionID c946e1d1-f5fd-d36d-0489-d2a9ad9084e0
+2022-06-14 02:06:38.335 -05:00 [DBG] PID 16184
+2022-06-14 02:06:38.372 -05:00 [DBG] Process exited; Code: 0
+```
+* [ThreatLocker](#threatlocker)
+* [BitDefender](#bitdefender)
+* [Microsoft Defender for Endpoint](#script-path-exclusion)
+* [Deep Instinct](#script-path-exclusion)
+* CrowdStrike
+* AlienVault
+
+### ThreatLocker
+
+1.	Application Control-> Applications
+2.	Create New Application
+3.	Put the following value into Certificate and click Add
+```
+CN=Immense Networks LLC, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
+```
+4.	Add your instance’s [script path](#script-path-exclusion)
+![image](https://user-images.githubusercontent.com/1424395/173602708-b8e239f8-efaa-4e16-a29c-9fb66f72e616.png)
+Ultimately it should look like this:
+![image](https://user-images.githubusercontent.com/1424395/173602739-2b60922f-5ac8-4d4c-bc93-d52a390e129e.png)
+5.	Create a New Application Policy
+	![image](https://user-images.githubusercontent.com/1424395/173602798-7042c0ea-1406-476c-a291-0deee6e843c5.png)
+
+an overloaded or unresponsive RMM, or the machine has broken WMI, preventing us from retrieving the uniqueid of the machine. You may retry identification on one or all of the failed computers once these conditions are resolved.
+
+### BitDefender
+BitDefender will randomly block script execution unless you disable Aggressive scanning mode or add a your instance's [Script Path](#script-path-exclusion) to your policy's exclusion list.
+
+### CrowdStrike
+CrowdStrike uses AI to decide what to allow and disallow. Periodically this AI will mark the ImmyBot Agent or ImmyBot Ephemeral Agent as malicious. This usually happens after we update it. Marking it as a false positive in your CrowdStrike portal will train the global AI to not treat it as malicious.
+
+### Microsoft Defender for Endpoint
+Add a your instance's [Script Path](#script-path-exclusion) to your policy's exclusion list.
+https://docs.microsoft.com/en-us/mem/intune/configuration/device-restrictions-configure#create-the-profile
+
+### Script Path Exclusion
+If your security software is unable to exclude based on code signing certificate, create an exclusion for your instance's Script Path
+
+Your script path can be found under Settings->Preferences->Script Path
+
+![image](https://user-images.githubusercontent.com/1424395/173610304-50bab775-c7c8-40b3-944e-fab1dde862ee.png)
 
 ### Onboarding
 
-In ImmyBot, Onboarding is the first [Maintenance Session](#maintenance-session) run against a machine. You may enable or disable Onboarding for a given Tenant or entirely under Settings->Preferences. When disabled, computers do not get put into New Computers, and go directly into the Computer list. This is useful if you have a customer that sets up their own computers outside of ImmyBot, as it prevents their machines from clogging up the New Computers area.
+Onboarding is the process of specifying inputs like Customer and Primary user, and running the a [Maintenance Session](#maintenance-session) to bring a machine into compliance with the Deployments associated with those inputs. 
+
+::: tip
+You may have customers that setup their own machines and install your RMM agent. To prevent these machines from building up in the New Computers area, you can disable Onboarding for that customer by going to Tenants-><Tenant Name>->Preferences->Onboarding.
+:::
 
 ### Tenants
 
