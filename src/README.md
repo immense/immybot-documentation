@@ -34,7 +34,7 @@ subgraph "Adobe Reader"
 end
 ```
 
-Often times, how things "Should" be is often dependent on external factors. For example
+How things "Should" be is often dependent on external factors. For example
 
 - Customer A should have SentinelOne because they pay for it
 - Person A should have Visio 365 because he has a license for it
