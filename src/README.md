@@ -162,6 +162,23 @@ An "Onboarding" session will be created for this computer, and ImmyBot will appl
 You can add your own Deployments and re-run this session as many times as you like until everything is to your liking.
 :::
 
+### Onboarding
+
+Onboarding is the process of specifying inputs like Customer and Primary user, and running the a [Maintenance Session](#maintenance-session) to bring a machine into compliance with the Deployments associated with those inputs. 
+
+::: tip
+You may have customers that setup their own machines and install your RMM agent. To prevent these machines from building up in the New Computers area, you can disable Onboarding for that customer by going to Tenants-><Tenant Name>->Preferences->Onboarding.
+:::
+
+### Tenants
+
+These are your Customers. We recommend syncing Tenants from CW Automate or Azure.
+
+### User Computer Affinity
+ImmyBot periodically runs whoami /upn on all computers and keeps a rolling list of the last 10 UPNs. It assigns the Primary User of the computer to the "Person" (Synced from Azure) with the matching UPN.
+
+For environments without AzureAD, ImmyBot will lookup the UPN of the Person from a Domain Controller in the computer's Tenant
+
 ## Recommended Deployments
 ### Create Profile for Primary User
 
@@ -495,7 +512,7 @@ NOTE You must also have a Deployment for the Maintenance Item to set the desired
 
 ### Integrations
 
-To ImmyBot an RMM is a system that provides a list of computers, and a mechanism to run PowerShell scripts on them.
+To ImmyBot, an RMM is a system that provides a list of computers, and a mechanism to run PowerShell scripts on them.
 
 ![](./.vuepress/images/2021-02-23-06-18-23.png)
 
@@ -534,24 +551,26 @@ Computers can have one or more RmmComputers(Agents). You can think of these as l
 ### Identification Failures
 
 ### Needs a Manual Decision
+Generally you will click "Agent Re-installed"
+
 Often when an RMM Agent gets re-installed, it will get a new id in the RMM (ComputerId in Automate, SessionID in Control). ImmyBot will recognize that it is the same computer, but due to the fact that virtualization technologies and hard drive cloning can lead to the same scenario, we require you to tell us whether we should overwrite the existing RmmComputer, or keep both. 99% of the time you will click "Overwrite Existing". If the machine was in fact cloned, you would click Keep Both, in which case Immy shims the duplicate UUID with its own to prevent collisions.
 
-#### Failed
+#### Troubleshooting Script Execution Failures
 
-![](./.vuepress/images/2021-02-23-06-51-47.png)
-
-##### Troubleshooting
 ```mermaid
-graph 
-subgraph
-    1[Check ImmyAgent Logs in C:\ProgramData\ImmyBotAgentService\*.log] --> |Yes|EphemeralAgentConnect[Did Ephemeral Agent Websocket Connect?]
-    1 --> |No|BlockedBySecuritySoftware
-    EphemeralAgentConnect --> |No|d[Put on network without SSL Inspection]
-    d --> e[Ephemeral Agent Connect?]
-    e --> |Yes|f[Done]
-    e --> |No|g["Email logs from C:\ProgramData\ImmyBot\Scripts\*\*.logs to support@immy.bot"]
-end
+graph TD
+    CheckImmyAgentLogs[Check ImmyAgent Logs in C:\ProgramData\ImmyBotAgentService\*.log] --> DidEphemeralAgentStart[Immybot.Agent.Ephemeral.exe start?]
+    DidEphemeralAgentStart --> |Yes|CheckEphemeralAgentLogs[Check Ephemeral Agent logs in C:\ProgramData\ImmyBot\Scripts\*\*.log]
+    DidEphemeralAgentStart --> |No|BlockedBySecuritySoftware[Exclude Script Path from Security Software]
+    CheckEphemeralAgentLogs --> EphemeralAgentConnect[Did Ephemeral Agent Websocket Connect?]
+    EphemeralAgentConnect -->|Yes|DidSuccessfullyIdentifyAfterFix
+    EphemeralAgentConnect --> |No|TryNoSSLInspect[Put on network without SSL Inspection]
+    TryNoSSLInspect --> DidSuccessfullyIdentifyAfterFix[Ephemeral Agent Connect After Fix?]
+    DidSuccessfullyIdentifyAfterFix[Machine Identify Successfully?] --> |No|EmailSupport
+    DidSuccessfullyIdentifyAfterFix[Machine Identify Successfully?] --> |Yes|Done
+    EmailSupport["Email logs from C:\ProgramData\ImmyBot\Scripts\*\*.logs to support@immy.bot"]
 ```
+
 ##### Script Execution Overview
 
 1. RMM or ImmyAgent runs Immybot.Agent.Ephemeral.exe
@@ -559,7 +578,6 @@ end
 
 ```mermaid
 graph LR
-subgraph "Ephemeral Agent"
     ImmyBot --> |Parallel|Automate[Run script to download and run Ephemeral Agent via Automate]
     ImmyBot --> |Parallel|Control[Run script to download and run Ephemeral Agent via Control]
     ImmyBot --> |Parallel|ImmyAgent[Run script to download and run Ephemeral Agent via ImmyAgent]
@@ -568,12 +586,10 @@ subgraph "Ephemeral Agent"
     Control --> Immybot.Agent.Ephemeral.exe
     ImmyAgent --> Immybot.Agent.Ephemeral.exe
     N-Central --> Immybot.Agent.Ephemeral.exe    
-end
 ```
 
-
-
 The most common cause of identification failure is security software. 
+
 To know if this is the case, pull the logs from C:\ProgramData\ImmyBotAgentService\*.log
 
 ![image](https://user-images.githubusercontent.com/1424395/173621779-51bd5d6d-e877-41a3-9b68-c1724747db21.png)
@@ -589,15 +605,16 @@ Normal logs look like this:
 2022-06-14 00:02:40.552 -05:00 [WRN] IoT Hub connection status Changed Status => [Connected] Reason => [Connection_Ok]
 2022-06-14 02:06:32.159 -05:00 [DBG] Process started; ID: 12724
 2022-06-14 02:06:37.358 -05:00 [DBG] Running C:\ProgramData\ImmyBot\Scripts\840290f2bd2142e2bd2c612542436763\Immybot.Agent.Ephemeral.exe --ImmyScriptPath C:\ProgramData\ImmyBot\Scripts\840290f2bd2142e2bd2c612542436763 --BackendAddress wss://immense.immy.bot/ --SessionID c946e1d1-f5fd-d36d-0489-d2a9ad9084e0
-2022-06-14 02:06:38.335 -05:00 [DBG] PID 16184
+2022-06-14 02:06:38.335 -05:00 [DBG] PID 16184 <----- Indicates successful execution
 2022-06-14 02:06:38.372 -05:00 [DBG] Process exited; Code: 0
 ```
+#### Security Software Exclusions
 * [ThreatLocker](#threatlocker)
 * [BitDefender](#bitdefender)
 * [Microsoft Defender for Endpoint](#script-path-exclusion)
 * [Deep Instinct](#script-path-exclusion)
-* CrowdStrike
-* AlienVault
+* [CrowdStrike](#script-path-exclusion)
+* [AlienVault](#script-path-exclusion)
 
 ### ThreatLocker
 
@@ -632,21 +649,4 @@ If your security software is unable to exclude based on code signing certificate
 Your script path can be found under Settings->Preferences->Script Path
 
 ![image](https://user-images.githubusercontent.com/1424395/173610304-50bab775-c7c8-40b3-944e-fab1dde862ee.png)
-
-### Onboarding
-
-Onboarding is the process of specifying inputs like Customer and Primary user, and running the a [Maintenance Session](#maintenance-session) to bring a machine into compliance with the Deployments associated with those inputs. 
-
-::: tip
-You may have customers that setup their own machines and install your RMM agent. To prevent these machines from building up in the New Computers area, you can disable Onboarding for that customer by going to Tenants-><Tenant Name>->Preferences->Onboarding.
-:::
-
-### Tenants
-
-These are your Customers. We recommend syncing Tenants from CW Automate or Azure.
-
-### User Computer Affinity
-ImmyBot periodically runs whoami /upn on all computers and keeps a rolling list of the last 10 UPNs. It assigns the Primary User of the computer to the "Person" (Synced from Azure) with the matching UPN.
-
-For environments without AzureAD, ImmyBot will lookup the UPN of the Person from a Domain Controller in the computer's Tenant
 
