@@ -31,3 +31,9 @@ Pay attention to the script output, Immy may be reporting that there is a name c
 ## Can you target devices in Azure Groups?
 
 Yes, but ImmyBot requires an additional permission on the ImmyBot app registration. You need to grant the `Microsoft Graph - Devices.Read.All` permission in order for devices to be pulled from Azure Groups.
+
+## How do I uninstall the ImmyAgent?
+Run the following from Command Line
+```
+wmic product where name ="ImmyBot Agent" call uninstall /nointeractive
+```
