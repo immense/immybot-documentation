@@ -82,6 +82,7 @@ module.exports = {
           'connectwise-automate-integration-setup',
           'connectwise-control-integration-setup',
           'connectwise-manage-integration-setup',
+          'ncentral-integration-setup',
           'csp-preconsent-instructions'
         ]
       }
