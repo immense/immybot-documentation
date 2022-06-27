@@ -1,5 +1,38 @@
 # Releases
 
+## 0.52.6
+
+Released 2022-06-27
+
+### Improvements
+
+---
+
+- Set the default install script for new software to the "Manual Install Script" and the upgrade strategy to "Install Over" whenever we don't have another specific install script to provide
+- Set the default software installer type to "Installer File"
+- Updated the example New-DynamicVersion script
+- We now show a confirmation modal when choosing the "Wiped" option for resolving an agent identification conflict.
+- You can now see Cloud Sessions from the main Sessions list!
+- Added warnings when the ephemeral agent is failing to establish a connection to help users identify causes for failing script execution
+- Fixed an issue with the detection stage stuck running when it fails to execute scripts in the beginning of the stage
+- Improved timeline connected/disconnected events. There were edge cases that would show multiple connects/disconnects back to back.
+- Removed timeline computer online/offline events to avoid confusion. These events were never actually based on a computer coming online or going offline. We simply emitted "online" when an agent connected and happened to be the only online agent. Similarly for "offline" events, we only emitted the event when an agent disconnected and all agents were offline. ImmyBot does not actively check whether a machine is online or offline. It only checks whether it has any connected agents to use. This concept will be further improved upon to help resolve issues with agents incorrectly reporting connected/disconnected.
+- Removed link to software/task on deployment list since people are clicking it thinking it is the edit deployment link
+- Moved the software/task selector back above the target selector on the deployment edit page
+- Removed the media nav item since it's not actually useful
+
+### Bug Fixes
+
+---
+
+- Moved "Update If Found" from underneath "Installed" to the same level as "Installed" for clarity. A software can be "installed, uninstalled, ignored, or updated if found"
+- Fixed an issue with cloud task previews failing with "device offline"
+- Fixed an issue where the ImmyBot agent update action would not run when the agent was offline
+- Fixed an issue with the agent updates stage, onboarding stage, and resolution stage not honoring pending connectivity
+- Fixed an issue where the resume and cancel session buttons were incorrectly showing for postponed sessions
+- Fixed an issue with CW Control and CW Automate health error messages excluding important details that can help diagnose the problem
+- Fixed an issue where we were not checking if a configuration task is actually marked as a configuration task. This resulted in tasks getting run when they should not have.
+
 ## 0.52.5
 
 Released 2022-06-13
