@@ -1,5 +1,23 @@
 # Releases
 
+## 0.52.7
+
+Released 2022-07-11
+
+### Improvements
+---
+
+- The script list page now persists your filters after refreshing or leaving the page.
+- Fixed width issues in the maintenance item column on the deployment list page
+- Reduced required permissions for N-Central integration. See [the new N-Central integration docs](https://docs.immy.bot/ncentral-integration-setup.html) for details
+- Added a new PowerShell cmdlet `Stop-ImmySession` that will cancel the maintenance session it is currently running in
+
+### Bug Fixes
+---
+- Fixed some potential issues around agent connected/disconnected events
+- Fixed potential N-Central exception with re-sending messages
+- Fixed potential issue with 'missing' devices from N-Central due to possible filter contamination in N-Central
+
 ## 0.52.6
 
 Released 2022-06-27
