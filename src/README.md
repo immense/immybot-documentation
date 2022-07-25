@@ -555,7 +555,7 @@ Generally you will click "Agent Re-installed"
 
 Often when an RMM Agent gets re-installed, it will get a new id in the RMM (ComputerId in Automate, SessionID in Control). ImmyBot will recognize that it is the same computer, but due to the fact that virtualization technologies and hard drive cloning can lead to the same scenario, we require you to tell us whether we should overwrite the existing RmmComputer, or keep both. 99% of the time you will click "Overwrite Existing". If the machine was in fact cloned, you would click Keep Both, in which case Immy shims the duplicate UUID with its own to prevent collisions.
 
-#### Troubleshooting Script Execution Failures
+#### Troubleshooting Identification Failures
 
 ```mermaid
 graph TD
