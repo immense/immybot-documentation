@@ -24,7 +24,7 @@ Create a new "ImmyBot" user in the instance with the "ImmyBot" role applied.
 ![](./.vuepress/images/ncentraldocs/add_user_guide_1.png)
 ![](./.vuepress/images/ncentraldocs/add_userrole_guide_2.png)
 
-## Login to the new ImmyBot user to get MFA code
+## Login to the new ImmyBot user to get MFA code and accept EULA
 
 Once you have created the new ImmyBot user account, you must attempt to login
 so that you may retrieve the MFA key, and complete any initial setup.
@@ -32,6 +32,9 @@ After entering the accounts email and password, there will be a MFA QR code disp
 You MUST press the "CAN'T SCAN IT?" button to get the Base32-encoded MFA key.
 After saving the key, use [a site such as this](https://totp.danhersam.com/?period=30&digits=6) to get the current token from the key, or temporarily scan the QR code on a device to complete sign-in.
 ![](./.vuepress/images/ncentraldocs/login_mfa_guide_1.png)
+::: tip
+Make sure you accept the EULA when you login, otherwise the computers will not import!
+:::
 
 ## Add integration for N-Central
 
@@ -58,3 +61,8 @@ When you map a customer from an RMM, the computers will undergo Identification
 ![](./.vuepress/images/2021-03-23-19-06-55.png)
 
 ![](./.vuepress/images/2021-03-23-19-08-30.png)
+
+## Troubleshooting
+
+### My customers are showing up but no computers
+Login to N-Central as the ImmyBot User and accept the EULA
