@@ -1,5 +1,93 @@
 # Releases
 
+## 0.53.0
+
+Released 2022-08-16
+
+### UI Improvements
+---
+
+#### Dark Mode
+
+![image](https://immybot.blob.core.windows.net/release-media/56e75095-ed15-4b01-88d4-08de18d6b3c1)
+
+#### Deploy Software from Dashboard
+![image](https://immybot.blob.core.windows.net/release-media/ab6d9b04-43cc-48fa-9a78-5e69f26ba0d7)
+
+#### Session Details
+
+![image](https://immybot.blob.core.windows.net/release-media/db579877-6aa8-4ede-9d7c-c0b8e33917b6)
+![image](https://immybot.blob.core.windows.net/release-media/824b4901-aad1-4e16-8f55-c66cb536745e)
+
+#### Main Menu
+Moved commonly used Main Menu items to the top, moved less commonly used items under sub-menus
+
+![image](https://immybot.blob.core.windows.net/release-media/130abc75-7a73-4aa2-9af6-61671cd9d79d)
+
+#### Integrations - New look and feel
+
+![image](https://immybot.blob.core.windows.net/release-media/b11cefd6-a36c-4fc9-93fc-07f32028fe2e)
+
+#### Integrations - Embedded Documentation
+
+![image](https://immybot.blob.core.windows.net/release-media/9835acfb-f516-45de-8956-30223d7e3f02)
+
+### Script Editor
+---
+
+Moved Script items into the left pane
+
+![image](https://immybot.blob.core.windows.net/release-media/7e9fbe48-4d66-45bd-9b26-759f29aa7c17)
+
+### New Integration - HaloPSA
+---
+Deploy software/tasks to customers with specified recurring invoice items
+
+### New Parameter Type - KeyValuePair
+---
+
+![image](https://immybot.blob.core.windows.net/release-media/a17d9261-c65f-4531-b5e5-4d912b40922c)
+
+![image](https://immybot.blob.core.windows.net/release-media/0c7ef61b-64fc-415b-a29b-c5c4fff0d70a)
+
+### Improvements
+---
+- ImmyAgent now detects 'dirty' shutdown events of the ImmyAgent with a `shutdown.dirty` file.
+- Added a description to /schedules "Show Postpone Button" checkbox
+- Improved the integration details page by embedding the integration's documentation
+- Added a button that triggers an immediate Azure AD Sync and a note about automatic Azure AD Sync
+- Started improving the dashboard page. Added the ability to trigger actions for items in the dashboard
+- Added cmdlets `Expand-String` and `New-LiteralString` cmdlets to help deal with strings that should or should not be expanded before being sent to a remote machine.
+- Upgraded Intellisense Engine and Monaco Editor to latest versions
+- Moved live chat button to the header navbar so it doesn't potentially block buttons on the page
+- Added 8 new Ephemeral Agent Timeline events
+- Added "Script Bytes Received" metric to system status page
+- Fixed an issue with quick assign not setting the correct desired state when running the detection only session
+- Made minor improvements to the getting started wizard
+- Moved script details into script editor sidebar for convenience
+
+### Bug Fixes
+---
+- ImmyAgent now sends 'online' events when we reconnect to IoTHub from an ungraceful network loss to prevent session hangs after the computer restarts
+- Fixed an issue with the Automate integration where we were unable to retrieve more than 50 Windows patches
+- ImmyAgent now handles exceptions returned from an instance during registration, and will continually retry instead of shutting down.
+- Fixed a typo in the SMTP port placeholder text
+- Fixed an issue with quick assign not setting the correct desired state when running the detection only session
+- Fixed an issue with checking online/offline status of agents during a session
+- Fixed an issue where a deployment referenced a specific version even when the desired state did not require one.  This was causing actions to fail
+- Fixed an issue with displaying the account dropdown on mobile
+- Fixed incorrect tooltip on install Immy agent icon in the computer list
+- Fixed an issue with the Automate integration where we were unable to retrieve more than 50 Windows patches.
+- Fixed issue where piping to Format-Table would result in an error or no output
+- Remove disabling of Cortana from PPKG builder output, as it is no-longer supported & may break newer OOBE installs.
+- Fixed issue with version restriction selector on License Edit page
+- Fixed issue with licenses deleting when saving a license with no tenant selected
+- Fixed issue displaying Customers on Azure Sync page
+- Fixed an issue with runnable script editor not including the user's tenantId in readonly cloud script editors
+- Fixed agent bug that prevents 'online' event on IoTHub reconnection
+- Fixed agent bug that would cause the agent to not retry transient registration failures
+- Only show Postpone and Update if "start immediately" not checked
+
 ## 0.52.7
 
 Released 2022-07-11
