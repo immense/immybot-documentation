@@ -1,5 +1,22 @@
 # Releases
 
+## 0.53.1
+
+Released 2022-08-18
+
+### Improvements
+---
+- Added a `Trigger Now` button to the Azure User Sync preference on the preferences page
+- Added a description to the PPKG reset windows checkbox - "Will perform a reset of windows with the remove user data option"
+
+### Bug Fixes
+---
+- Fixed an issue with agent identification where users were seeing the following error - `Failed attempt to differentiate existing agent and pending agent: 42883: procedure sp_create_computer_from_agent(integer, uuid, boolean, text, text, text, unknown, boolean) does not exist POSITION: 6`
+- Updated the alert of the person list page to match the available actions
+- Fixed an issue where the software configuration task edit link was missing
+- Fixed an issue where the branding logo alt text was still hardcoded to "Immense Networks" instead of the value provided by the branding
+- Fixed an issue with cancelling a detection only session from the computer details page -> software tab.
+
 ## 0.53.0
 
 Released 2022-08-16
