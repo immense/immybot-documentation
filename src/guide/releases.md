@@ -4,9 +4,6 @@
 
 Released 2022-08-19
 
-## 0.53.2
----
-
 ### Bug Fixes
 ---
 - Fixed an error that showed on the schedules list when a schedule existed that did not specify a time zone
