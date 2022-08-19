@@ -1,6 +1,24 @@
 # Releases
 
-## 0.53.1
+## 0.53.2
+
+Released 2022-08-19
+
+## 0.53.2
+---
+
+### Bug Fixes
+---
+- Fixed an error that showed on the schedules list when a schedule existed that did not specify a time zone
+- Fixed issue introduced in 0.53.1 where the current immy version stopped displaying in the sidebar
+- Fixed issue introduced in 0.53.1 where the maintenance item ordering page broke
+- Fixed issue introduced in 0.53.1 where showing/adding parameters on the maintenance task page broke
+- Fixed an issue where monitor results were only showing the last line of output instead of all output
+- Fixed an issue where monitor results were overflowing into other components
+- Fixed an issue where re-running actions while showing action details would not displaying logs as they came in
+- Fixed an issue introduced for instances that signed up after the release of 0.53.0 where identification would fail due to some missing database configurations
+
+## 0.53.1 (un-published)
 
 Released 2022-08-18
 
