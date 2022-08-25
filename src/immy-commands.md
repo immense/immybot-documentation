@@ -9,10 +9,11 @@ A Metascript can run a script on a computer using Invoke-ImmyCommand.
 $ServerPSVersionTable = $PSVersionTable
 $ComputerPSVersionTable = Invoke-ImmyCommand {
     $ServerPSVersionTable = $using:ServerPSVersionTable
-    Write-Host "Running from $env:ComputerName but ImmyBot is running PowerShell $($ServerPSVersionTable.PSVersion)" -ForegroundColor Green
+    Write-Host "Running from $env:ComputerName but ImmyBot backend is running PowerShell $($ServerPSVersionTable.PSVersion)" -ForegroundColor Green
     return $PSVersionTable
 }
-Write-Host "Running from ImmyBot backend, but the computer is running Windows PowerShell $($ComputerPSVersionTable)" -ForegroundColor Blue
+$VerbosePreference = 'Continue'
+Write-Verbose "Running from ImmyBot backend, but the computer is running Windows PowerShell $($ComputerPSVersionTable.PSVersion)"
 ```
 ## Output
 ![image](https://user-images.githubusercontent.com/1424395/186782839-81293dbb-8206-4dbb-be78-f94efbfbbacf.png)
