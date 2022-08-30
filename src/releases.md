@@ -1,11 +1,49 @@
 # Releases
 
+## 0.53.3
+
+Released 2022-08-30
+
+### Software Test Script Changes
+---
+
+We now execute the software test script during the detection stage for software that have updates available.
+
+**Before**, if a software needed to be upgraded, we would not run the software's test script in detection.  We would perform the upgrade and then run the test script afterwards.  However, if the test failed, the action would fail without any remediation.
+
+**Now**, if a software needs to be upgraded, and it has a test script, the test script will run in detection. If the test script fails, then the repair strategy will be performed instead of the upgrade strategy.  The test script will still be run after the upgrade as it did before.
+
+### General Improvements
+---
+
+- Updated the error text for schedule cron expressions to indicate that a schedule can run at most once per day.
+- The ImmyBot Agent service sometimes throws an exception about a missing file `CliWrap.dll`, which causes the agent to bork.  When we encounter this exception, we now auto restart the service to resolve the issue.
+- Improved the session log message "Detection stage failed: Software Action Id is not specified on the provided configuration task action" to include more information to help diagnose the issue.  It is usually because the deployment contains out-of-date data and needs to be updated.
+- Improved the performance of loading the main computer list when sorting by computer name
+- Test methods containing multiple outputs now return the result of ANDing those outputs together to compute the overall result.
+- Updated Quick Deploy to allow you to choose a desired state. e.g. "Install, Uninstall, Update If Found, Ignore" or "Enforce, Monitor, Audit"
+- Added detection of stuck/non-responsive jobs such as the agent identification job, which can initiate a self-restart of backend.
+- Added reboot preference dropdown to quick deploy and override forms
+- Moved several action columns on tables to the left side for consistency and best compatibility with mobile views.
+- Added an option to schedules and adhoc-deplyoments to send detection emails even when all actions are compliant.  This is to allow users whose computers are already up to date to still receive a maintenance email.
+- Updated the script list page and session log component to use the Monaco script editor
+- Added the CW Automate icon to the main computer list. Clicking the icon opens up the computer in CW Automate.
+- Added "Date Added" to the computer list and made it sortable
+- Added a simple "new" tag on the computer list for computers that have been added to ImmyBot within the last 24 hours
+- Added an 'X' button to easily remove linked tenants from integrations
+
+### Bug Fixes
+---
+
+- After a task is created, the `Runs Against` property is now disabled. Changing this value after it is created can cause issues for deployments that are referencing it.
+- Fixed an issue with Ephemeral Agent resilient script output logic that would fail to re-connect if the script had never had any output prior to connection loss. (Ex. SonicWall VPN installer script)
+- Added missing triggered by text on the session details page when the session was triggered by a schedule or automatic onboarding
+- Fixed a width issue on some dropdown buttons
+- Fixed an issue with the integration client list re-sorting after you link/unlink a tenant
+
 ## 0.53.2
 
 Released 2022-08-19
-
-## 0.53.2
----
 
 ### Bug Fixes
 ---
