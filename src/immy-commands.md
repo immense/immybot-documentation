@@ -1,8 +1,28 @@
 # Metascripts / Cloud Scripts
 
-A Metascript is a script that runs scripts. These scripts run in the backend of ImmyBot. A Metascript can run a script on a computer using Invoke-ImmyCommand, which is modelled after PowerShell's native Invoke-Command, up to and including the ability to pass real objects into and out of the remote runspace, while preserving stream information. We consider our approach superior to capturing standard output and standard error as a string like most automation tools.
+A Metascript is a script that runs scripts. These scripts run in the backend of ImmyBot. 
+
+A Metascript can run a script on a computer using Invoke-ImmyCommand.
+
+## Example
+```powershell
+$ServerPSVersionTable = $PSVersionTable
+$ComputerPSVersionTable = Invoke-ImmyCommand {
+    $ServerPSVersionTable = $using:ServerPSVersionTable
+    Write-Host "Running from $env:ComputerName but ImmyBot backend is running PowerShell $($ServerPSVersionTable.PSVersion)" -ForegroundColor Green
+    return $PSVersionTable
+}
+$VerbosePreference = 'Continue'
+Write-Verbose "Running from ImmyBot backend, but the computer is running Windows PowerShell $($ComputerPSVersionTable.PSVersion)"
+```
+## Output
+![image](https://user-images.githubusercontent.com/1424395/186782839-81293dbb-8206-4dbb-be78-f94efbfbbacf.png)
+
+Invoke-ImmyCommand is modelled after PowerShell's native Invoke-Command, up to and including the ability to pass real objects into and out of the remote runspace, while preserving stream information. We consider our approach superior to capturing standard output and standard error as a string like most automation tools.
 
 Metascripts allow you to do things like persist reboots since the context is held by the backend.
+
+## Cloud Scripts
 
 A Cloud script is the same as a Metascript except it targets a Tenant instead of a specific computer. This is useful for manipulating settings in each customer's Azure environment.
 
