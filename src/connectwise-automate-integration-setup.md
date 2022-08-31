@@ -13,12 +13,14 @@ ImmyBot requires the following permissions in Automate
   - Clients.Read
   - Clients.Show All
   - Computers.Show All
+  - Groups.Show All
   - Locations.Show All
   - Patch Manager.Read (Required if you want Immy to apply approved Windows Updates)
   
 ![](./.vuepress/images/2021-03-23-15-18-39.png)
 
-![](./.vuepress/images/2021-03-23-15-19-31.png)
+![Immy-CWA-User Class Manager-Permissions](https://user-images.githubusercontent.com/5932122/187803601-f2d49a3a-11cc-46b9-8aa2-b7ea1123902e.png)
+
 
 ## Create ImmyBot User
 ![](./.vuepress/images/2021-03-23-16-14-24.png)
