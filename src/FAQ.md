@@ -1,5 +1,18 @@
 # Frequently Asked Questions
 
+## Do I need a separate USB/Installer per tenant?
+No. Create a USB pointing to your own tenant (or create an “Onboarding” tenant) and don’t select the Auto-Onboard option. 
+
+You will change the tenant of the computer on the Onboarding area of the computer after it comes into New Computers 
+
+## Will ImmyBot start doing anything without my consent? Like when I save a deployment, will it automatically deploy?
+
+ImmyBot does not deploy anything automatically. You can feel safe saving your Deployments. Think of them like documenting how things SHOULD be. If you want Immy to automatically enforce deployments, you would need the Immy Deploy plan which allows you to create schedules. 
+
+Think of it like if Group Policy only updated if you manually ran gpupdate /force or otherwise specified a schedule for the gpupdates to happen. We understand that updating and installing software on existing computers can be intrusive to the user which is why we schedule these actions out and give the user the ability to postpone via interactive emails.
+
+IMPORTANT: If you setup integration with your RMM, when you map an RMM client to an ImmyBot tenant, ImmyBot will begin running inventory scripts on those machines every 24 hours. These scripts are read-only, but if you have aggressive monitoring software it may cause false alarms.
+
 ## What if I don’t know which user will be using the computer?
 
 Do your best to find out, or assign machines to specific users ahead of time. Without this, user level customizations are impossible. However, you may find yourself in a shared-computer scenario where every computer gets the same 365 applications. Simply create a deployment for those 365 applications for all computers under that tenant.
