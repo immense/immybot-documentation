@@ -1,5 +1,19 @@
 # Releases
 
+## 0.53.4
+
+Released 2022-09-08
+
+### Improvements
+---
+
+- For maintenance task test scripts, we made Immy tolerant of non-Boolean values by displaying a warning when non-Booleans are found on the pipeline along with helper text for preventing output pollution.
+- Updated the ImmyBot Agent to support installing beta versions
+
+### Bug Fixes
+---
+- Fixed a scripting error that caused Immy to indicate there was no output when there was definitely output
+
 ## 0.53.3
 
 Released 2022-08-30
