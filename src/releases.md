@@ -1,5 +1,14 @@
 # Releases
 
+## 0.53.5
+
+Released 2022-09-09
+
+### Bug Fixes
+---
+
+ - Fixed an issue from 0.53.4 where some code changes were unintentionally  included in the release which caused downloading the PPKG to fail
+
 ## 0.53.4
 
 Released 2022-09-08
