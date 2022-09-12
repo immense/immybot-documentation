@@ -1,5 +1,20 @@
 # Releases
 
+## 0.53.6
+
+Released 2022-09-12
+
+### Improvements
+---
+
+- Added `Set-ImmyDeviceId` cmdlet to be used during Inventory to keep the UUID of the machine up to date and prevent new computers from getting created when the UUID of the machine has changed due to a feature update.
+
+### Bug Fixes
+---
+
+- Fixed an issue where the "Determine Desired Version" phase was running before the "Detect Installed Version" phase. "Detect Installed Version" needs to run first so we can pass the detected version to scripts that may rely on it when determining the desired version.
+- Fixed an issue where dynamic versions were not properly installing dependent versions
+
 ## 0.53.5
 
 Released 2022-09-09
