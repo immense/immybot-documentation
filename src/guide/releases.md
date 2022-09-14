@@ -1,5 +1,22 @@
 # Releases
 
+## 0.53.7
+
+Released 2022-09-14
+
+### Improvements
+---
+
+- Increased the timeout of the Ephemeral Agent's Ping RPC method from 1 second to 5 seconds.  1 second was too short and was unnecessarily causing scripts to fail on machines with high network latency.
+- Added a warning message whenever the Ephemeral Agent's Ping RPC method takes over 1 second to respond to help identify machines with high network latency
+
+### Bug Fixes
+---
+
+- Fixed an issue with schedules where updating a schedule from a single tenant to cross tenant would delete the schedule. This was happening due to a bug in a database constraint between schedules and tenants.
+- Fixed an issue where the connectivity status button on the computer details page was not actually refreshing the agent's connectivity status
+- Fixed an issue where repairing a software would trigger full maintenance
+
 ## 0.53.6
 
 Released 2022-09-12
