@@ -10,10 +10,11 @@ Setting up this integration allows you to
 ImmyBot currently requires the following role permissions to operate correctly:
 
 - Devices Section:
-  - "Devices View" -> "All Devices" -> Read Only
-  - "Direct Support" -> Command Prompt -> Manage
-  - "Direct Support" -> File System -> Manage
-  - "Remote Control" -> "Custom" -> Manage
+  - Devices View -> All Devices -> Read Only
+  - Direct Support -> Command Prompt -> Manage
+  - Direct Support -> File System -> Manage
+  - Remote Control -> Custom -> Manage
+  - Devices -> Network Devices -> Add/Import Devices set to Manage (Required for Registration Token retrieval as of 2022-09)
 
 Create an "ImmyBot" role in your N-Central instance using above roles.
 ![](./.vuepress/images/ncentraldocs/add_userrole_guide_1.png)
