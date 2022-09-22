@@ -13,6 +13,8 @@ ImmyBot requires the following permissions in Automate
   - Clients.Read
   - Clients.Show All
   - Computers.Show All
+  - Computers.Edit (For moving existing computers to new locations
+  - Computers.Delete (For retiring duplicate computers)
   - Groups.Show All
   - Locations.Show All
   - Patch Manager.Read (Required if you want Immy to apply approved Windows Updates)
