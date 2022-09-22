@@ -1,5 +1,30 @@
 # Releases
 
+## 0.53.8
+
+Released 2022-9-22
+
+### Improvements
+---
+
+- The "Suppress Reboots During Business Hours" flag no longer relies on  offline behavior.  If you are suppressing reboots during business hours and you run a session during business hours, then Immy will suppress reboots.  Business hours are now checked on every script execution, and the `RebootPreference` variable passed to scripts will also be updated to `Suppress` if it was not already set. We did this so that scripts that handle reboots can safely rely on this variable.
+- The customer list on the Azure page no longer shows the MSP tenant as a selectable option in the Linked Tenant dropdown since the MSP tenant is mapped by default
+- Refactored how we handle ImmyBot agent connected and disconnected events.  Instances that heavily utilize the ImmyBot agent will have significantly improved performance.
+- The `Enable Automatic Onboarding` field on the PPKG form is now disabled and shows an alert if the onboarding preference is globally disabled or disabled for the selected tenant.
+
+### Bug Fixes
+---
+
+- Fixed an issue with loading the AzureAD module for metascripts.  This issue was causing all scripts that relied on AzureAD commands to fail.
+- Fixed an issue where syncing the connected state of large numbers of ImmyBot agents would prevent other system jobs from being performed
+- Fixed an issue where configuration tasks for already compliant software were executing at the very end of a maintenance session instead of in the expected order
+- Fixed an issue where the default upgrade strategy was set to none instead of install over
+- Fixed a permission issue where non-admins could not refresh the connectivity status of a computer
+- Fixed an issue with downloading the ImmyAgent installer as an `.iso` file where the extension was incorrectly set to `.ppkg`
+- Fixed an issue where software set to perform an update would incorrectly report compliant when the software did not specify an upgrade strategy and the upgrade was never performed.  The action will now fail and report "Upgrade failed: No Upgrade Strategy specified on the software."
+- Fixed an issue with maintenance action execution ordering. If the currently executing action has dependencies, it will now immediately execute the dependencies instead of waiting until the end of the session.
+- Fixed an issue with selecting a license on the deployment details page where the selected license was not shown upon refreshing
+
 ## 0.53.7
 
 Released 2022-09-14
