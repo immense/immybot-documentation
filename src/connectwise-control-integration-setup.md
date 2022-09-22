@@ -74,8 +74,8 @@ Paste in the following SQL
 
 #### Soft delete all commands and responses (This usually solves the problem without kicking everyone out of Control)
 ```sql
-update SessionEvents set EventAttributes = 1 where EventType = 44;
-update SessionConnectionEvents set EventAttributes = 1 where EventType = 70;
+update SessionEvent set EventAttributes = 1 where EventType = 44;
+update SessionConnectionEvent set EventAttributes = 1 where EventType = 70;
 ```
 You will need to commit the changes in DB Browser. You can do this by clicking Write Changes at the top by clicking File->Save
 If you forget to tdo this it will prompt you to commit the changes, when you exit, click yes.
@@ -89,7 +89,7 @@ However, if it doesn't work, do you following
 -- Delete queue commands in db older than 7 days
 DELETE
 FROM SessionEvent
-WHERE (EventType = 44) AND (Time < DATETIME('now', '-7 day')));
+WHERE (EventType = 44) AND (Time < DATETIME('now', '-7 day'));
 
 -- Delete responses older than 7 days
 DELETE
