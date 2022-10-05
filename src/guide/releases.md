@@ -1,5 +1,24 @@
 # Releases
 
+## 0.53.9
+
+Released 2022-10-05
+
+### Improvements
+---
+
+- SVGs now render correctly when uploaded as software icons
+- Increased some low timeout values on the ephemeral agent that were causing devices with slow network connections to fail
+- Changed the Pending Identification tab to default sort descending by Date Added since the most recent machines are the ones we are usually looking for.
+
+### Bug Fixes
+---
+
+- Fixed an issue with the ImmyBot Agent connected/disconnected events not propagating for pc reboots and pending connectivity sessions
+- Reduced likelyhood of `Output CircularBuffer has already over-run requested index` error in scripts
+- Ephemeral Agent reconnection is now prevented upon receiving a 500 status code.  This was previously causing agents to stay running indefinitely.
+- Fixed an issue on the system update page where the new releases dropdown was not stretching the width like the current release dropdown
+
 ## 0.53.8
 
 Released 2022-9-22
