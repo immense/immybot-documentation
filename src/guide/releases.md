@@ -1,5 +1,14 @@
 # Releases
 
+### 0.53.10
+
+Released 2022-10-05
+
+### Bug Fixes
+---
+
+- Fixed an issue with displaying large software icon sizes on the Library -> Ordering page
+
 ## 0.53.9
 
 Released 2022-10-05
