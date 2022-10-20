@@ -1,6 +1,28 @@
 # Releases
 
-### 0.53.10
+## 0.53.11
+
+Released 2022-10-20
+
+### Bug Fixes
+---
+
+- Fixed a null reference exception that was occurring when sending the maintenance session follow-up email
+- Fixed a potential exception that could occur in the N-Central API
+- Fixed an exception that occurred when trying to retrieve the online agents for a computer
+- Fixed an uncommon issue where some dynamic version scripts were throwing a null reference exception
+- Fixed an uncommon exception with ImmyBot Agent connection events that caused the event to not get saved
+- Fixed an issue with syncing devices from CW Automate where it would potentially take a few minutes and block other requests
+- Fixed an issue where some CW Control and N-Central agents were not automatically onboarding when they should
+- Fixed issue where `Get-ImmyComputer -InventoryKeys` metascript was not auto populating the available keys
+- Fixed an issue with incorrect breadcrumbs sometimes showing on the computer list page
+- Added a missing debug log that indicates when an ImmyBot agent fails to provide inventory data
+- Fixed a bug where we were dropping both dedupe markers over the same agent instead of different agents
+- Fixed an issue with maintenance sessions reporting failed after re-running an action successfully
+- Fixed an issue where loading the deployments list would throw a `ArgumentNullException`
+- Fixed an issue with some Chocolatey and Ninite logs not showing up under a maintenance action's phases
+
+## 0.53.10
 
 Released 2022-10-05
 
