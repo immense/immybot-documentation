@@ -401,7 +401,7 @@ One of the aggravating things about PowerShell is ensuring there is exactly one 
 Typically you would do something like this:
 
 ```powershell
-$MatchingUsers = Get-ADUser | ?{$_.SAMAccountName -like "Admin*" }
+$MatchingUsers = Get-ADUser -Filter * | ?{$_.SAMAccountName -like "Admin*" }
 $MatchingUserCount = $MatchingUsers | measure | select -Expand Count
 if($MatchingUserCount -eq 0)
 {
@@ -415,13 +415,13 @@ else if($MatchingUserCount -gt 1)
 
 Is reduced to
 ```powershell
-$MatchingUsers = Get-ADUser | ?{$_.SAMAccountName -like "Admin*" }
+$MatchingUsers = Get-ADUser -Filter * | ?{$_.SAMAccountName -like "Admin*" }
 $MatchingUsers | ShouldHave-One
 ```
 
 If you simply want to take the first element but warn if there are multiple, use the -TakeFirst switch
 
 ```powershell
-$MatchingUsers = Get-ADUser | ?{$_.SAMAccountName -like "Admin*" }
+$MatchingUsers = Get-ADUser -Filter * | ?{$_.SAMAccountName -like "Admin*" }
 $MatchingUser = $MatchingUsers | ShouldHave-One -TakeFirst
 ```
