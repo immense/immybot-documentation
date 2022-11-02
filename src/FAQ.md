@@ -48,7 +48,7 @@ Yes, but ImmyBot requires an additional permission on the ImmyBot app registrati
 ## How do I uninstall the ImmyAgent?
 Run the following from Command Line
 ```
-wmic product where name ="ImmyBot Agent" call uninstall /nointeractive
+wmic product where name="ImmyBot Agent" call uninstall /nointeractive
 ```
  
 
