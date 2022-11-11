@@ -608,7 +608,7 @@ Normal logs look like this:
 2022-06-14 02:06:38.335 -05:00 [DBG] PID 16184 <----- Indicates successful execution
 2022-06-14 02:06:38.372 -05:00 [DBG] Process exited; Code: 0
 ```
-#### Security Software Exclusions
+### Security Software Exclusions
 * [ThreatLocker](#threatlocker)
 * [BitDefender](#bitdefender)
 * [Microsoft Defender for Endpoint](#script-path-exclusion)
@@ -616,7 +616,7 @@ Normal logs look like this:
 * [CrowdStrike](#script-path-exclusion)
 * [AlienVault](#script-path-exclusion)
 
-### ThreatLocker
+#### ThreatLocker
 
 1.	Application Control-> Applications
 2.	Create New Application
@@ -633,13 +633,13 @@ Ultimately it should look like this:
 
 an overloaded or unresponsive RMM, or the machine has broken WMI, preventing us from retrieving the uniqueid of the machine. You may retry identification on one or all of the failed computers once these conditions are resolved.
 
-### BitDefender
+#### BitDefender
 BitDefender will randomly block script execution unless you disable Aggressive scanning mode or add a your instance's [Script Path](#script-path-exclusion) to your policy's exclusion list.
 
-### CrowdStrike
+#### CrowdStrike
 CrowdStrike uses AI to decide what to allow and disallow. Periodically this AI will mark the ImmyBot Agent or ImmyBot Ephemeral Agent as malicious. This usually happens after we update it. Marking it as a false positive in your CrowdStrike portal will train the global AI to not treat it as malicious.
 
-### Microsoft Defender for Endpoint
+#### Microsoft Defender for Endpoint
 Add a your instance's [Script Path](#script-path-exclusion) to your policy's exclusion list.
 https://docs.microsoft.com/en-us/mem/intune/configuration/device-restrictions-configure#create-the-profile
 
