@@ -1,5 +1,14 @@
 # Releases
 
+## 0.54.1
+
+Released 2022-11-14
+
+### Bug Fixes
+---
+
+- Fixed an issue with CW Control syncs causing CW Control agents to re-sync into ImmyBot unnecessarily
+
 ## 0.54.0
 
 Released 2022-11-11
@@ -30,6 +39,16 @@ We now utilize the serial numbers for devices that come from trusted manufacture
 - Added a new tenant preference "Exclude from Cross-Tenant Deployments and Schedules". When a tenant is excluded, all cross-tenant deployments and schedules targeting the tenant or its computers will not be applied when full maintenance is ran. This is particularly useful for Co-Managed IT situations that don't don't want your cross-tenant schedules or deployments.
 - Improved startup time of instances in situations where there was a large number of recently added agents
 - Added "Change Tenant" in batch actions for the computers table
+
+## 0.53.12
+
+Released 2022-11-09
+
+### Bug Fixes
+---
+
+- Removed the ImmyBot Agent from the Tenant -> Mappings table
+- Reduced metric reporter frequency to 30 minutes
 
 ## 0.53.11
 
