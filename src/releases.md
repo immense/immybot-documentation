@@ -1,5 +1,25 @@
 # Releases
 
+## 0.54.2
+
+Released 2022-11-17
+
+### Improvements
+---
+- Improved our identification de-dupe logic to automatically associate re-installed agents to the correct computers
+- Added more identification logs for some edge case scenarios to help with debugging
+- Added onboarding text to dashboard underneath onboarding computers
+- Slightly improved performance of preview/deploy functionality on the dashboard page
+- Increased the width of the tag selector in the ImmyBot Installer form and on the computer details page
+
+### Bug Fixes
+---
+- Fixed some issues where newly identified agents would always skip onboarding
+- Fixed an issue where non-msp admins could not view tag deployments limited to their tenant
+- Added missing times to the time dropdown for scheduling adhoc deployments
+- Fixed descriptions on the maintenance task get/set/test script dropdowns
+- Fixed some mobile styling issues with the navigation bar and on computer list page
+
 ## 0.54.1
 
 Released 2022-11-14
