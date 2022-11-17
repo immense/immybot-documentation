@@ -365,7 +365,8 @@ The following script will iterate recursively over the extracted files and place
 
 ```powershell
 # ImmyBot will automatically extract the Zip file and put the path it extracted it to into a variable named $ZippedConfigFolder
-dir $ZippedConfigFolder -Recurse | select -Expand FullName | ForEach-Object {
+$ZippedConfigFolder = Invoke-ImmyCommand { Get-ChildItem $using:Folder -Recurse -File }
+$ZippedConfigFolder | select -Expand FullName | ForEach-Object {
   $FilePath = $_
   $FilePath | FileShould-Be -in "C:\Program Files*\MySoftware" 
 }
