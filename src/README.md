@@ -548,14 +548,12 @@ Computers can have one or more RmmComputers(Agents). You can think of these as l
 
 ![](./.vuepress/images/2021-02-23-06-45-47.png)
 
-### Identification Failures
+## Identification Failures
 
 ### Needs a Manual Decision
 Generally you will click "Agent Re-installed"
 
 Often when an RMM Agent gets re-installed, it will get a new id in the RMM (ComputerId in Automate, SessionID in Control). ImmyBot will recognize that it is the same computer, but due to the fact that virtualization technologies and hard drive cloning can lead to the same scenario, we require you to tell us whether we should overwrite the existing RmmComputer, or keep both. 99% of the time you will click "Overwrite Existing". If the machine was in fact cloned, you would click Keep Both, in which case Immy shims the duplicate UUID with its own to prevent collisions.
-
-#### Troubleshooting Identification Failures
 
 ```mermaid
 graph TD
@@ -571,7 +569,7 @@ graph TD
     EmailSupport["Email logs from C:\ProgramData\ImmyBot\Scripts\*\*.logs to support@immy.bot"]
 ```
 
-##### Script Execution Overview
+## Script Execution
 
 1. RMM or ImmyAgent runs Immybot.Agent.Ephemeral.exe
 2. Immybot.Agent.Ephemeral.exe runs Invoke-PSPipeHost.ps1
@@ -594,7 +592,7 @@ To know if this is the case, pull the logs from C:\ProgramData\ImmyBotAgentServi
 
 ![image](https://user-images.githubusercontent.com/1424395/173621779-51bd5d6d-e877-41a3-9b68-c1724747db21.png)
 
-Normal logs look like this:
+Normal Immybot Agent logs look like this:
 ```
 2022-06-14 00:02:25.560 -05:00 [DBG] Hosting starting
 2022-06-14 00:02:25.799 -05:00 [INF] Starting Immybot Agent
@@ -608,7 +606,45 @@ Normal logs look like this:
 2022-06-14 02:06:38.335 -05:00 [DBG] PID 16184 <----- Indicates successful execution
 2022-06-14 02:06:38.372 -05:00 [DBG] Process exited; Code: 0
 ```
-### Security Software Exclusions
+
+Windows Defender will make the logs look like this:
+```
+2022-11-17 13:13:36.604 +11:00 [DBG] Hosting starting
+2022-11-17 13:13:36.817 +11:00 [INF] Starting Immybot Agent
+2022-11-17 13:13:36.840 +11:00 [INF] Using configuration file stored at: C:\ProgramData\ImmyBotAgentService\config.json
+2022-11-17 13:13:37.590 +11:00 [DBG] Initializing IoT Hub connection
+2022-11-17 13:13:37.860 +11:00 [DBG] Hosting started
+2022-11-17 13:13:38.598 +11:00 [WRN] IoT Hub connection status Changed Status => [Connected] Reason => [Connection_Ok]
+2022-11-17 13:13:39.157 +11:00 [WRN] Dirty-Shutdown detected! Dirty-File created at: "2022-11-07T04:11:59.3975026Z" UTC
+2022-11-17 13:13:41.686 +11:00 [DBG] Process started; ID: 5660
+2022-11-17 13:13:44.674 +11:00 [DBG] Running C:\ProgramData\ImmyBot\Scripts\4303da9b790b41c6978b50b872fe17cb\Immybot.Agent.Ephemeral.exe --ImmyScriptPath C:\ProgramData\ImmyBot\Scripts\4303da9b790b41c6978b50b872fe17cb --BackendAddress wss://ericom.immy.bot/ --SessionID a92c0ed1-ea3b-7f8a-d9c6-946d9b44ccc5
+2022-11-17 13:13:49.577 +11:00 [DBG] WMI Error 2					      
+```
+DNS Filtering/Issues make the logs look like this
+```
+2022-09-20 20:39:59.712 +10:00 [INF] RESPONSE: {
+  "Resource": "installer/challenge/request",
+  "Method": "POST",
+  "StatusCode": 0,
+  "ErrorException": {
+    "ClassName": "System.Net.WebException",
+    "Message": "No such host is known. (XXXX.immy.bot:443)"
+```
+To correct it, you need to exclude DNS filtering for your instances hostnames, which are found under
+	Show more > integrations > Fetch IP Address and Hostnames
+## Security Software Exclusions
+Ideally you would instruct your security software would support excluding code signed by
+						      
+```
+CN=Immense Networks LLC, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
+```
+
+However, if your security software is lame and unable to exclude based on code signing certificate, create an exclusion for your instance's Script Path
+
+Your script path can be found under Settings->Preferences->Script Path
+
+![image](https://user-images.githubusercontent.com/1424395/173610304-50bab775-c7c8-40b3-944e-fab1dde862ee.png)
+	
 * [ThreatLocker](#threatlocker)
 * [BitDefender](#bitdefender)
 * [Microsoft Defender for Endpoint](#script-path-exclusion)
@@ -616,7 +652,7 @@ Normal logs look like this:
 * [CrowdStrike](#script-path-exclusion)
 * [AlienVault](#script-path-exclusion)
 
-#### ThreatLocker
+### ThreatLocker
 
 1.	Application Control-> Applications
 2.	Create New Application
@@ -631,22 +667,25 @@ Ultimately it should look like this:
 5.	Create a New Application Policy
 	![image](https://user-images.githubusercontent.com/1424395/173602798-7042c0ea-1406-476c-a291-0deee6e843c5.png)
 
-an overloaded or unresponsive RMM, or the machine has broken WMI, preventing us from retrieving the uniqueid of the machine. You may retry identification on one or all of the failed computers once these conditions are resolved.
+### BitDefender
+BitDefender will intermittently block script execution unless you disable Aggressive scanning mode or add a your instance's [Script Path](#script-path-exclusion) to your policy's exclusion list.
 
-#### BitDefender
-BitDefender will randomly block script execution unless you disable Aggressive scanning mode or add a your instance's [Script Path](#script-path-exclusion) to your policy's exclusion list.
-
-#### CrowdStrike
+### CrowdStrike
 CrowdStrike uses AI to decide what to allow and disallow. Periodically this AI will mark the ImmyBot Agent or ImmyBot Ephemeral Agent as malicious. This usually happens after we update it. Marking it as a false positive in your CrowdStrike portal will train the global AI to not treat it as malicious.
 
-#### Microsoft Defender for Endpoint
+### Microsoft Defender for Endpoint
 Add a your instance's [Script Path](#script-path-exclusion) to your policy's exclusion list.
 https://docs.microsoft.com/en-us/mem/intune/configuration/device-restrictions-configure#create-the-profile
 
-### Script Path Exclusion
-If your security software is unable to exclude based on code signing certificate, create an exclusion for your instance's Script Path
-
-Your script path can be found under Settings->Preferences->Script Path
-
-![image](https://user-images.githubusercontent.com/1424395/173610304-50bab775-c7c8-40b3-944e-fab1dde862ee.png)
-
+### Cylance
+Cylance blocks our websocket making the ImmybotAgent log look like this:
+```
+2022-09-21 12:24:26.562 -04:00 [INF] Process exiting.
+2022-09-21 12:24:40.106 -04:00 [DBG] Closing Websocket...
+2022-09-21 12:24:49.743 -04:00 [INF] Marked ConnectionState as disconnected.
+2022-09-21 12:24:50.171 -04:00 [ERR] Application shutting down (App lifetime token cancelled)
+System.IO.IOException: Cannot access a closed stream.
+at System.Net.Http.HttpConnection.RawConnectionStream.WriteAsync(ReadOnlyMemory`1 buffer, CancellationToken cancellationToken)
+```
+To correct it, you need to bypass SSL Inspection for your instances hostnames/IPs, which are found under
+	Show more > integrations > Fetch IP Address and Hostnames
