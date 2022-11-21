@@ -569,10 +569,17 @@ graph TD
     EmailSupport["Email logs from C:\ProgramData\ImmyBot\Scripts\*\*.logs to support@immy.bot"]
 ```
 
-## Script Execution
+## Identification Failures
 
+Top 3 reasons for Identification Failures
+1. SSL Inspection blocking our websocket
+1. Security Software blocking PowerShell 
+1. Incorrect time not preventing SSL/TLS connection
+	
+To understand the various reasons identification can fail, it helps to understand how ImmyBot executions PowerShell
 1. RMM or ImmyAgent runs Immybot.Agent.Ephemeral.exe
-2. Immybot.Agent.Ephemeral.exe runs Invoke-PSPipeHost.ps1
+1. Immybot.Agent.Ephemeral.exe establishes a secure websocket to wss://subdomain.immy.bot and runs Invoke-PSPipeHost.ps1
+1. Immybot.Agent.Ephemeral.exe feeds Invoke-PSPipeHost.ps1 PowerShell over a named pipe from
 
 ```mermaid
 graph LR
@@ -584,6 +591,7 @@ graph LR
     Control --> Immybot.Agent.Ephemeral.exe
     ImmyAgent --> Immybot.Agent.Ephemeral.exe
     N-Central --> Immybot.Agent.Ephemeral.exe    
+    Immybot.Agent.Ephemeral.exe --> cmd.exe --> powershell.exe --> Invoke-PSPipeHost.ps1
 ```
 
 The most common cause of identification failure is security software. 
