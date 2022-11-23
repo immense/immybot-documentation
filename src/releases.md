@@ -1,5 +1,26 @@
 # Releases
 
+## 0.54.3
+
+Released 2022-11-23
+
+### Improvements
+---
+
+- Improved enqueueing of maintenance sessions based on priority.  Adhoc > Onboarding > Scheduled maintenance
+- Removed service bus form options for CW Control as the service bus is now always used
+- Added a health check to the CW Control integration to report unhealthy when the extension is not up to date
+- Updated the connected indicator on the computer details page to have a yellow lightning bolt when the ephemeral agent is connected
+- Scripts are now allowed to run for computers that have an ephemeral agent connected even if the agents all report disconnected
+- Updated the batch actions on the tenant list page to include tenant preferences. e.g. You can now update tenant business hours in bulk
+- Clicking "Attempt Identification Again" or "Rety x failed agents" on the identification tab now immediately triggers identification where before it would take up to 60 seconds
+
+### Bug Fixes
+---
+
+- Made computer feature usage calculator no longer count computers that have zero agents
+- Fixed a race condition in the Ephemeral Agent that would cause scripts to hang and sessions to timeout
+
 ## 0.54.2
 
 Released 2022-11-17
