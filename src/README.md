@@ -8,11 +8,11 @@ The goal of ImmyBot is to setup a computer knowing only the customer and the end
 graph LR
 subgraph Input
     User["End User (Optional)"]
-    Customer[Customer] 
+    Customer[Customer]
 end
 User --> Magic --> F
 subgraph Output
-    Customer --> User 
+    Customer --> User
     F[Perfectly Setup Computer]
 end
 ```
@@ -64,7 +64,7 @@ This is out of the box functionality in ImmyBot. I'm just showing you how it wor
 ## Overview
 ImmyBot deploys 2 things:
 1. Software
-1. Tasks 
+1. Tasks
 
 Tasks are for anything that isn’t software, think Bitlocker, Power Options, etc.
 
@@ -73,8 +73,8 @@ Tasks are for anything that isn’t software, think Bitlocker, Power Options, et
 - Configuration Tasks run after Immy determines the software is installed
 - Configuration Task parameters are available in all scripts related to the software
 
-ImmyBot tests everything it does before and after it does it. 
-- Software 
+ImmyBot tests everything it does before and after it does it.
+- Software
    - Version Detection - Runs before install to determine if installation is necessary, and after to verify the desired version is installed
      - DisplayName
        - Contains
@@ -84,13 +84,13 @@ ImmyBot tests everything it does before and after it does it.
      - Script
        - Must return a version or null
    - Test Script - If software is installed, the failure of this test (the test script returning $false) will trigger a "Repair" action (default Uninstall/Install) of the application
-      - Example: Check to verify Foxit PDF Editor is the Preview handler extension is working in Windows Explorer, reinstalling the PDF Editor usually corrects this scenario 
+      - Example: Check to verify Foxit PDF Editor is the Preview handler extension is working in Windows Explorer, reinstalling the PDF Editor usually corrects this scenario
 - Tasks
   - Test script (When using separate scripts)
   - Combined script returns $false when $method is 'test'
 
 ### Example: Adobe Reader
-We find that most MSPs install Adobe Reader by default so ImmyBot includes a Recommended Deployment that states 
+We find that most MSPs install Adobe Reader by default so ImmyBot includes a Recommended Deployment that states
 - "the latest version of Adobe Reader should be installed for all Workstations and Portable Devices"
 
 When this rule applies (i.e. it isn't disabled or overridden by a more specific rule) ImmyBot will do the following:
@@ -146,25 +146,25 @@ ImmyBot needs:
 ![image](https://user-images.githubusercontent.com/1424395/173594097-f975123b-217f-42ef-aa47-2b816a5593b6.png)
 
 
-You only have one customer and one person right now, and it’s your MSP and you. That’s fine, we’ll pretend we’re setting up a computer for you and your MSP. 
+You only have one customer and one person right now, and it’s your MSP and you. That’s fine, we’ll pretend we’re setting up a computer for you and your MSP.
 
 ::: tip
 Customers can be imported from your RMM or PSA, or by setting up the Azure integration
 :::
 
-::: tip 
+::: tip
 People are imported from your customers' Azure AD via the Azure integration
 :::
 
 An "Onboarding" session will be created for this computer, and ImmyBot will apply the "Recommended Deployments"
 
-::: tip 
+::: tip
 You can add your own Deployments and re-run this session as many times as you like until everything is to your liking.
 :::
 
 ### Onboarding
 
-Onboarding is the process of specifying inputs like Customer and Primary user, and running the a [Maintenance Session](#maintenance-session) to bring a machine into compliance with the Deployments associated with those inputs. 
+Onboarding is the process of specifying inputs like Customer and Primary user, and running the a [Maintenance Session](#maintenance-session) to bring a machine into compliance with the Deployments associated with those inputs.
 
 ::: tip
 You may have customers that setup their own machines and install your RMM agent. To prevent these machines from building up in the New Computers area, you can disable Onboarding for that customer by going to Tenants-><Tenant Name>->Preferences->Onboarding.
@@ -245,7 +245,7 @@ Have the person attempt to login to ImmyBot. Have them request access:
 
 Approve that access from a yellow indicator at the top of the screen.
 
-![image](https://immybot.blob.core.windows.net/release-media/bb34184f-c7c3-41cf-9fa3-f6489e6c3600
+![image](https://immybot.blob.core.windows.net/release-media/bb34184f-c7c3-41cf-9fa3-f6489e6c3600)
 
 ### Manual
 
@@ -462,7 +462,7 @@ A Task (aka Mainenance Task) is a catch-all for anything that isn't software.
 
 ```mermaid
 graph TD
-    C[Task] 
+    C[Task]
     C --> Get
     C --> Set
     C --> Test
@@ -472,8 +472,8 @@ or
 
 ```mermaid
 graph TD
-    C[Task] 
-    C --> S[Combined Script with $method parameter containing 'get','set', or 'test']    
+    C[Task]
+    C --> S[Combined Script with $method parameter containing 'get','set', or 'test']
 ```
 
 ### Task Modes
@@ -573,9 +573,9 @@ graph TD
 
 Top 3 reasons for Identification Failures
 1. SSL Inspection blocking our websocket
-1. Security Software blocking PowerShell 
+1. Security Software blocking PowerShell
 1. Incorrect time not preventing SSL/TLS connection
-	
+
 To understand the various reasons identification can fail, it helps to understand how ImmyBot executions PowerShell
 1. RMM or ImmyAgent runs Immybot.Agent.Ephemeral.exe
 1. Immybot.Agent.Ephemeral.exe establishes a secure websocket to wss://subdomain.immy.bot and runs Invoke-PSPipeHost.ps1
@@ -590,11 +590,11 @@ graph LR
     Automate --> Immybot.Agent.Ephemeral.exe
     Control --> Immybot.Agent.Ephemeral.exe
     ImmyAgent --> Immybot.Agent.Ephemeral.exe
-    N-Central --> Immybot.Agent.Ephemeral.exe    
+    N-Central --> Immybot.Agent.Ephemeral.exe
     Immybot.Agent.Ephemeral.exe --> cmd.exe --> powershell.exe --> Invoke-PSPipeHost.ps1
 ```
 
-The most common cause of identification failure is security software. 
+The most common cause of identification failure is security software.
 
 To know if this is the case, pull the logs from C:\ProgramData\ImmyBotAgentService\*.log
 
@@ -626,7 +626,7 @@ Windows Defender will make the logs look like this:
 2022-11-17 13:13:39.157 +11:00 [WRN] Dirty-Shutdown detected! Dirty-File created at: "2022-11-07T04:11:59.3975026Z" UTC
 2022-11-17 13:13:41.686 +11:00 [DBG] Process started; ID: 5660
 2022-11-17 13:13:44.674 +11:00 [DBG] Running C:\ProgramData\ImmyBot\Scripts\4303da9b790b41c6978b50b872fe17cb\Immybot.Agent.Ephemeral.exe --ImmyScriptPath C:\ProgramData\ImmyBot\Scripts\4303da9b790b41c6978b50b872fe17cb --BackendAddress wss://ericom.immy.bot/ --SessionID a92c0ed1-ea3b-7f8a-d9c6-946d9b44ccc5
-2022-11-17 13:13:49.577 +11:00 [DBG] WMI Error 2					      
+2022-11-17 13:13:49.577 +11:00 [DBG] WMI Error 2
 ```
 DNS Filtering/Issues make the logs look like this
 ```
@@ -642,7 +642,7 @@ To correct it, you need to exclude DNS filtering for your instances hostnames, w
 	Show more > integrations > Fetch IP Address and Hostnames
 ## Security Software Exclusions
 Ideally you would instruct your security software would support excluding code signed by
-						      
+
 ```
 CN=Immense Networks LLC, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
 ```
@@ -652,7 +652,7 @@ However, if your security software is lame and unable to exclude based on code s
 Your script path can be found under Settings->Preferences->Script Path
 
 ![image](https://user-images.githubusercontent.com/1424395/173610304-50bab775-c7c8-40b3-944e-fab1dde862ee.png)
-	
+
 * [ThreatLocker](#threatlocker)
 * [BitDefender](#bitdefender)
 * [Microsoft Defender for Endpoint](#script-path-exclusion)
