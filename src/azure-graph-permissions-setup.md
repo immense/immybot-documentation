@@ -77,6 +77,8 @@ This step is optional. This is only necessary if you want to sync non-GDAP custo
 
 After enabling GDAP Customer Syncing from the desired Azure permission form on the Azure settings page, you can sync GDAP customers:
 
+![](./.vuepress/images/2022-12-12_12-10-21.png)
+
 ![](./.vuepress/images/2022-12-12_11-26-00.png)
 
 ![](./.vuepress/images/2022-12-12_11-41-18.png)
