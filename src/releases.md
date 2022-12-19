@@ -1,5 +1,31 @@
 # Releases
 
+## 0.54.4
+
+Released 2022-12-19
+
+### Improvements
+---
+
+- Added bulk cancel and bulk rerun buttons to the maintenance session list page
+Added `Split-Path` cmdlet as well as `$ActionId`, `$SessionId` and `$SessionGroupId` to the included variables
+- Improved Ephemeral Agent connection speed
+- Discontinued use of WMI CreateProcess which flags AV, specifically Windows Defender for Endpoint
+- Made modifications to the light color theme to improve readability
+
+### Bug Fixes
+---
+
+- Fixed several issues with the NCentral integration.  Should be more stable overall.
+- Fixed an issue where preview/deploy from the dashboard table header were not getting enqueued and would crash instances by running too many sessions as once.
+- Fixed an issue with saving local software versions where it would respond with an error about certain fields being required when they shouldn't be
+- Fixed an issue with the `Stop-ImmySession` cmdlet where it was not setting the session or stage status to Cancelled
+- Fixed issues with our BITS download where it could get potentially stuck trying to download when an ephemeral agent could not be established
+- Fixed an issue with computers getting set to needs onboarding incorrectly when an agent gets assigned to an existing computer that is not new
+- Centered the text in the "Session #xxx in progress" button
+- Fixed an issue with saving the SMTP form
+- Fixed an issue where session logs could repeat "Reboots have been suppressed during business hours" over and over
+
 ## 0.54.3
 
 Released 2022-11-23
