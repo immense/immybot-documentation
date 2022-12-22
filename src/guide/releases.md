@@ -1,5 +1,16 @@
 # Releases
 
+## 0.54.5
+
+Released 2022-12-22
+
+### Bug Fixes
+---
+
+- Fixed an issue with deleting actions that caused sessions to fail
+- Fixed an issue saving some database calls due to issues from the migration to flex database servers
+- Fixed an issue with saving scripts that incorrectly fail with a message that the name is not unique
+
 ## 0.54.4
 
 Released 2022-12-19
