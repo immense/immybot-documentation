@@ -1,5 +1,24 @@
 # Releases
 
+## 0.54.6
+
+Released 2022-12-27
+
+### Improvements
+---
+- Only MSP Admins have access to the Tenant Mappings tab now
+
+### Bug Fixes
+---
+
+- Fixed an issue where schedules with an invalid cron expression were allowed to be saved
+- Existing invalid cron expressions will be converted to a valid cron expression when possible, using NCronTab validation functions.
+- Fixed an issue where system and user scripts could possibly timeout before an ephemeral agent was ever established
+- Fixed an issue with downloading the immy agent installer as an .iso file
+- Fixed an issue preventing computers from being deleted
+- Mitigated an issue with N-Central which eventually resulted in N-Central hangs and crashes
+- Fixed a transient issue related to starting Ephemeral Agents on some N-Central devices the first time
+
 ## 0.54.5
 
 Released 2022-12-22
