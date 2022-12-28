@@ -569,8 +569,6 @@ graph TD
     EmailSupport["Email logs from C:\ProgramData\ImmyBot\Scripts\*\*.logs to support@immy.bot"]
 ```
 
-## Identification Failures
-
 Top 3 reasons for Identification Failures
 1. SSL Inspection blocking our websocket
 1. Security Software blocking PowerShell 
