@@ -1,5 +1,24 @@
 # Releases
 
+## 0.54.7
+
+Released 2022-01-04
+
+### Improvements
+---
+
+- Improved error messages when the error is coming from an integration's API, such as the CW Automate API, CW Manage API, or CW Control ImmyBot extension API.
+- Added manufacturer to duplicate agent table
+- Added Device ID to the computer overview details
+
+### Bug Fixes
+---
+
+- Fixed a potential issue where a computer architecture could not be found while trying to resolve a dynamic software version
+- Fixed a transient issue that was causing detection to fail when it could have continued
+- Fixed an issue where pending connectivity sessions would not be triggered for a computer that came online due to a manual resolution for a conflicting agent
+- Fixed an issue during identification where the device id of "00000000-0000-0000-0000-000000000000" was allowed as a valid GUID.  It is not valid, and new devices with this GUID will be assigned a new one.
+
 ## 0.54.6
 
 Released 2022-12-27
