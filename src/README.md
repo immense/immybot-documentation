@@ -645,7 +645,7 @@ Ideally you would instruct your security software would support excluding code s
 CN=Immense Networks LLC, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
 ```
 
-However, if your security software is lame and unable to exclude based on code signing certificate, create an exclusion for your instance's Script Path
+Exclusions based on code signing certificate are an industry standard feature and should be a standard feature in any best-in-class security software. However, if your security software is unable to exclude based on code signing certificate, create an exclusion for your instance's Script Path.
 
 Your script path can be found under Settings->Preferences->Script Path
 
