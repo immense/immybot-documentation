@@ -1,5 +1,16 @@
 # Releases
 
+## 0.54.8
+
+Released 2022-01-17
+
+### Bug Fixes
+---
+- Fixed a potential deadlock that could cause the ephemeral agent to never connect. Potentially isolated to just devices using CW Automate
+- Fixed a potential deadlock in the N-Central integration that could cause Immy to hang up
+- Fixed some frontend issues where a maintenance action's status and reason would not show correctly for certain values
+- Fixed an issue where a terminating exception in a custom download script would get swallowed and allow the install to continue anyway
+
 ## 0.54.7
 
 Released 2022-01-04
