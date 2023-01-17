@@ -2,7 +2,7 @@
 
 ## 0.54.8
 
-Released 2022-01-17
+Released 2023-01-17
 
 ### Bug Fixes
 ---
@@ -13,7 +13,7 @@ Released 2022-01-17
 
 ## 0.54.7
 
-Released 2022-01-04
+Released 2023-01-04
 
 ### Improvements
 ---
