@@ -657,11 +657,13 @@ Your script path can be found under Settings->Preferences->Script Path
 ![image](https://user-images.githubusercontent.com/1424395/173610304-50bab775-c7c8-40b3-944e-fab1dde862ee.png)
 	
 * [ThreatLocker](#threatlocker)
+* [Sophos Central](#sophoscentral)
 * [BitDefender](#bitdefender)
 * [Microsoft Defender for Endpoint](#script-path-exclusion)
 * [Deep Instinct](#script-path-exclusion)
 * [CrowdStrike](#script-path-exclusion)
 * [AlienVault](#script-path-exclusion)
+
 
 ### ThreatLocker
 
@@ -678,6 +680,24 @@ Ultimately it should look like this:
 5.	Create a New Application Policy
 	![image](https://user-images.githubusercontent.com/1424395/173602798-7042c0ea-1406-476c-a291-0deee6e843c5.png)
 
+### Sophos Central
+**Tenant Specific**
+Manual Addition:
+1.  Launch Client Shell
+2.  Navigate to Global Settings - Allowed Applications
+3.  Select "Add apps"
+4.  In the "allow by:" dropdown, select certificate and add the following
+```
+CN=Immense Networks LLC, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
+```
+Event Log Method:
+If Sophos reports that Immy Bot has been blocked, you have the option of going to the Event Log and and select the option to allow by Certificate. This will only work if Sophos has picked up an alert for a process signed by the Immy Bot code signing certificate
+
+**Partner Global Templates**
+1.  Navigate to Settings & Policies - Global Templates and select the template you would like to modify
+2.  Once in the template, navigate to Global Settings - Allowed Applications
+3.  Follow steps 3 and 4 listed in the **Tenant Specific** section above
+	
 ### BitDefender
 BitDefender will intermittently block script execution unless you disable Aggressive scanning mode or add a your instance's [Script Path](#script-path-exclusion) to your policy's exclusion list.
 
