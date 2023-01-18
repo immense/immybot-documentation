@@ -42,16 +42,16 @@ Get-Command "C:\Program Files*\<softwarename>\mysoftware.exe" -ErrorAction Silen
 
 If there is no exe or dll file containing the version, perhaps there is a .ini, .config, .json or .xml file that contains the installed version.
 
-If all else fails, you can simply return "1.0" if a file associated to the software exists. 
+If all else fails, you can simply return "1.0" if a file associated to the software exists.
 
-These scripts  **must return a string that will cast to a valid `System.Version`**. 
+These scripts  **must return a string that will cast to a valid `System.Version`**.
 Returning an actual `System.Version` will fail. (Although we may correct this in the future)
-For example 
+For example
 ```
 $version = [String]"1.2.3"
 return $version
 ```
-will work, but currently 
+will work, but currently
 ```
 $version = [System.Version]"1.2.3"
 return $version
@@ -335,7 +335,7 @@ When used in the context of a Task, these functions honor the $method variable c
 **These must be run from the Metascript context
 ### Get-WindowsRegistryValue | RegistryShould-Be
 #### Overview
-Get-WindowsRegistryValue fetches the value of the specified Path and Name, and RegistryShould-Be tests and sets the value, creating missing keys/values if required 
+Get-WindowsRegistryValue fetches the value of the specified Path and Name, and RegistryShould-Be tests and sets the value, creating missing keys/values if required
 
 On average this saves 8-10 lines of PowerShell per registry value and makes your code significantly more readable
 
@@ -368,7 +368,7 @@ The following script will iterate recursively over the extracted files and place
 $ZippedConfigFolder = Invoke-ImmyCommand { Get-ChildItem $using:Folder -Recurse -File }
 $ZippedConfigFolder | select -Expand FullName | ForEach-Object {
   $FilePath = $_
-  $FilePath | FileShould-Be -in "C:\Program Files*\MySoftware" 
+  $FilePath | FileShould-Be -in "C:\Program Files*\MySoftware"
 }
 ```
 
@@ -387,7 +387,7 @@ See the scripts for OpenDental and SmartBoard for usage of this
 $ConfigFilePath = "C:\ProgramData\MySoftware\configuration.xml"
 $XML = Get-Content $ConfigFilePath
 $XML = $XML | XMLShould-Be -XPath "/ServerAddress" -Value $ServerAddress
-$XML | Set-Content $ConfigFilePath 
+$XML | Set-Content $ConfigFilePath
 ```
 
 ### HKCUShould-Be
@@ -425,4 +425,88 @@ If you simply want to take the first element but warn if there are multiple, use
 ```powershell
 $MatchingUsers = Get-ADUser -Filter * | ?{$_.SAMAccountName -like "Admin*" }
 $MatchingUser = $MatchingUsers | ShouldHave-One -TakeFirst
+```
+
+
+## Dynamic Maintenance Task Parameters
+
+Maintenance task parameters can now be defined dynamically using a script's param block. This can be useful if you are comfortable using PowerShell and want to build complex parameter forms to be filled out for a deployment.
+
+In addition to all of PowerShell's built in Parameter attributes, we have added the following custom attributes:
+
+### MediaAttribute
+
+Attribute that is used to display the media selector. Can optionally provide a default media id and type. The value provided to the script will be the url of the media object.
+
+#### Example
+
+```powershell
+[CmdletBinding()]
+param(
+  [Media(DefaultMediaId = $null, DefaultMediaType = $null)]
+  $MediaUrl
+)
+```
+
+### PasswordAttribute
+
+Attribute that is used to to render password inputs
+
+#### Example
+
+```powershell
+[CmdletBinding()]
+param(
+  [Password()]
+  [string]$Password
+)
+```
+
+### DropdownAttribute
+
+Attribute that is used to render dynamic dropdowns.
+
+#### Example
+
+The following example renders a dropdown of azuer users.  `$SelectedUser`'s value will be set to the object of the chosen value from the dropdown.
+
+```powershell
+[CmdletBinding()]
+param(
+  [Dropdown({
+   $AuthHeader = Get-ImmyAzureAuthHeader -Endpoint MSGraph
+   Get-MSGraphApiResults -EndPoint "/users" -Filter "userType ne 'Guest' and mail ne null and accountEnabled eq true" -Headers $AuthHeader | %{
+    New-Object PSObject -Property ([Ordered]@{
+     Id = $_.Id
+     Name = "$($_.DisplayName) ($($_.UserPrincipalName))"
+    })
+   }
+  }, IdPropertyName = "Id", LabelPropertyName = "Name")]
+  $SelectedUser
+)
+```
+
+### DependsOnAttribute
+
+Attribute that is used to conditionally render other parameters.
+
+#### Example
+
+The following example will only render the boolean parameter `$ShowUSernameInput` at first.
+
+If the value is set to true, then the *Username* input will be shown.
+
+If a value is provided for the *Username* input, the *SomeOtherField* input will be shown.
+
+```powershell
+[CmdletBinding()]
+param(
+  [boolean]$ShowUsernameInput,
+
+  [DependsOn("ShowUsernameInput")]
+  [string]$Username,
+
+  [DependsOn("Username")]
+  [string]$SomeOtherField
+)
 ```
