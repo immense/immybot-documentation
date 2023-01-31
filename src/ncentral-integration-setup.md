@@ -24,7 +24,7 @@ ImmyBot currently requires the following role permissions to operate correctly:
 Create an "ImmyBot" role in your N-Central instance using above roles.
 ![](./.vuepress/images/ncentraldocs/add_userrole_guide_1.png)
 
-![image](https://user-images.githubusercontent.com/1424395/215891495-9c485090-5406-47e7-82cc-4d9f7003f98d.png)
+![image](https://user-images.githubusercontent.com/1424395/215892150-1f3e0f27-dfbd-4149-941c-f6790b5a02d5.png)
 
 ## Create ImmyBot user in N-Central
 
