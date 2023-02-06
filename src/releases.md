@@ -1,5 +1,14 @@
 # Releases
 
+## 0.54.9
+
+Released 2023-02-06
+
+### Bug Fixes
+---
+
+- Fixed an issue with new instances where some recommended deployments were automatically approving when they should not have been
+
 ## 0.54.8
 
 Released 2023-01-17
