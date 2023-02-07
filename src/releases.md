@@ -1,5 +1,82 @@
 # Releases
 
+## 0.55.0
+
+Released 2023-02-07
+
+### Stale Computers
+---
+
+A new "Stale" tab has been added to the Computers List page showing devices that have not had a recent agent connection event.
+By default, the staleness threshold is 30 days. This value can be configured from the System Preferences page.
+
+![image](https://immybot.blob.core.windows.net/release-media/8d9c4bb5-af75-4aa0-992c-74b0340af3db)
+
+This feature can be used to cleanup old computers when you are coming close to the maximum limit for computers.
+
+### Dynamic Maintenance Task Parameters (PowerShell Param Blocks)
+---
+
+Maintenance task parameters can now be defined dynamically using a script's param() and dynamicparam{} block.
+
+![image](https://immybot.blob.core.windows.net/release-media/f0a4f734-fbf7-4e7e-adae-5ad3c840d20d)
+
+PowerShell has a robust parameter definition and validation engine. By leveraging it, we give ourselves features like:
+* Parameter Sets
+* Regex Validation
+* Conditional/Dynamic Parameters
+* Dynamic Values
+* Type enforcement
+
+When deploying Onboarding tasks, you can define which parameters should be visible to the technician, while hiding others or setting their defaults in the Deployment.
+![image](https://immybot.blob.core.windows.net/release-media/9d29e0d1-4101-4eba-816e-7fc1f5e71aed)
+
+### GDAP Support
+---
+
+"GDAP Customer Syncing" option has been added to the Azure settings page. Enabling this option does the following:
+   - Adds the *DelegatedAdminRelationship.Read.All* permission to ImmyBot's default app registration, to allow retrieval of your GDAP customers
+   - Enables ImmyBot to offer a consent link for each GDAP customer to be synced by ImmyBot
+
+Please see the [GDAP Customer Syncing documentation](https://docs.immy.bot/azure-graph-permissions-setup.html#gdap-customer-syncing) for usage details.
+
+**Important!** If you are using a custom app registration (also known as the CSP App Registration), your app registration must have a Web redirect URI of https://&lt;your-domain&gt;.immy.bot/consent-callback, replacing &lt;your-domain&gt; appropriately. Please see the updated [custom app registration docs](https://docs.immy.bot/azure-graph-permissions-setup.html#create-an-app-registration) for details on how to add the redirect URI
+
+### Other Improvements
+---
+
+- Onboarding only maintenance tasks now have an option to "Ignore during automatic onboarding".  This is useful if you have an installer set to automatically onboard the computer and the task requires data that wasn't able to be provided.
+- Improved code around establishing Ephemeral Agent connection & eliminated possible race condition.
+- Prepend an "[ImmyBot User]" tag for the username that displays for remote session started from a supported provider.
+This makes it clear at a glance who is connected to a machine initiated from an ImmyBot user.
+- Removed the need for executing suspicious-looking encoded powershell for N-Central integration which would trigger some AV alerts while also moderately decreasing latency to start ephemeral agent.
+- When the Immy Agent fails to update during a maintenance session, it will now retry up to 3 times in case it failed due to a transient error
+- You can now assign tags to a computer from its Onboarding form
+  - ![image](https://immybot.blob.core.windows.net/release-media/0c452151-e33b-4f4f-9c5a-2ec21c4670a2)
+- When we run a script and to establish an ephemeral agent and detect that there are no online agents, we only wait 5 minutes instead of 30 minutes. For integrations like Automate and N-Central and don't support connectivity changed events, a machine would potentially restart so fast the RMM was unaware, therefore we would wait 30 minutes before realizing the machine was actually online.
+- Removed execute and verify progress bars when action is a task monitor, and changed the "detect" progress text to "monitor".
+- Added the ability to change a computer's primary user from the overview page.
+- Improved performance of computer list page when sorting by Date Created
+- Added `-IncludeTags` switch parameter to `Get-ImmyComputer` that includes an array of tags containing the tag id and the tag name
+- Added a date input to the dashboard page to optionally return actions that were executed on or after the specified date
+- Added basic health check functionality to all integrations that were missing health checks
+- Added a test suite for the NCentral integration to run in our build pipeline to help reduce bugs
+- Made the main scripts table use server-side pagination to decrease the amount of data initially transferred to the page.  Global scripts are now showing over 3MB combined.
+- Added better error messages when we fail to sync users due to permissions issues
+- Improved and simplified some internal logic related to permissions in our Metascript cmdlets
+
+### Bug Fixes
+---
+
+- Fixed an issue with tag acccess levels not saving the limited tenants selected
+- Fixed an issue with metacript exception handling where any error with the category `OperationStopped` was being treated as terminating exception
+- Fixed an issue with Uri parameter values being inserted into scripts with type `string` instead of type `Uri`
+- Fixed an issue where the software upload analysis result description had the wrong color making it impossible to read
+- Fixed issue on the computer list -> pending tab where massive exceptions were not limited to a reasonable height
+- Fixed issues with SQL queries timing out early than intended
+Fixed a bug that would prevent users from actually using the N-Central integration with servers that are hosted on a non-standard port.
+- Fixed an issue where the tenant link on a computer's overview page had a bunch of whitespace that could be accidentally clicked.
+
 ## 0.54.8
 
 Released 2023-01-17
