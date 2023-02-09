@@ -1,5 +1,23 @@
 # Releases
 
+## 0.55.1
+
+Released 2023-02-09
+
+### Improvements
+---
+- Added batch action to maintenance session list to cancel all incomplete sessions.
+  -  ![image](https://immybot.blob.core.windows.net/release-media/8a26d693-2e55-4f7e-b836-479548315ea5)
+- Improved the performance of the integration client's table. Instances with thousands of clients and tenants should now be able to use this page without running into performance issues.
+- Updated the ImmyBot backend from .net 6 to .net 7
+
+### Bug Fixes
+---
+- Fixed an issue that prevented the maintenance email's reboot now button from rebooting the computer
+- Fixed an issue where some assignments using tags would not be resolved to a computer due to using data from a stale cache
+- Fixed an issue CW Control integration where it was not forcing https:// on the url
+
+
 ## 0.55.0
 
 Released 2023-02-07
