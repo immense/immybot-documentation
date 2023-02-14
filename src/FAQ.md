@@ -103,3 +103,7 @@ Yes, you would accomplish this with tags
 Yes, but we can't verify that it is written to Azure AD as that would require additional privileges that our App Registration doesn't request.
 
 We also write the Bitlocker Recovery Key to Active Directory for Domain Joined machines. This doesn't require any Group Policy setup, or line of site to the domain controller. This works as long as the machine is joined to a domain and there is a domain controller for that domain in ImmyBot.
+
+## Is Immy able to reset windows?
+
+Yes, you can create a PPKG with the windows reset option selected and then use the task "Apply Provisioning Package (PPKG)" to deploy the PPKG.
