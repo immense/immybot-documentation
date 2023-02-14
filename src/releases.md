@@ -1,5 +1,25 @@
 # Releases
 
+## 0.55.2
+
+Released 2023-02-14
+
+### Improvements
+---
+
+- Increased the font-weight of heading text in the light theme for better contrast
+- Fixed an issue where some global software and tasks were incorrectly failing due to permission issues.
+- Updated dynamic version scripts to show logs even when it is already cached
+- Removed maintenance task parameter description from onboarding form unless the parameter is being specified
+- Made onboarding task/assignment title bar visible when scrolling down on dynamic parameter panels
+- Added ability to manually refresh dynamic parameters on onboarding form
+
+### Bug Fixes
+---
+- Fixed an issue with loading deployments that targeted people where the deployment wouldn't allow saving
+- Fixed an issue where rerunning a session that contained reran actions would fail unexpectedly
+- Fixed an issue with binding malformed uri parameters
+
 ## 0.55.1
 
 Released 2023-02-09
