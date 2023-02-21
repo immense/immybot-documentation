@@ -6,7 +6,6 @@ Released 2023-02-21
 
 ### Improvements
 ---
-- Added ephemeral agent details under the agents tab on the  computer details page
 - Syncing azure users now deletes people in Immy that no longer exist in Azure (if the person in Immy has the Azure Object Id set).
 - You can now upload .msp, .appx, .appxbundle, .msix, and .msixbundle installer files!
 
