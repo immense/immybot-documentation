@@ -1,5 +1,23 @@
 # Releases
 
+## 0.55.4
+
+Released 2023-02-24
+
+### Improvements
+---
+
+- A new application preference has been added: "Allow Non-Admins and Non-MSP Users to Use Terminal and Edit Scripts"
+   - Default: disabled (by default, only MSP Admins will be able to use terminals or edit scripts)
+- Added ephemeral agent details under the Computer Details Page -> Agents tab with the ability to kill the active ephemeral agent
+
+### Bug Fixes
+---
+
+- The ImmyStarter plan no longer allows maintenance to be run against computers that were added into Immy over 7 days ago.
+- Added "Tags" to the default display set returned from `Get-ImmyComputer`
+
+
 ## 0.55.3
 
 Released 2023-02-21
