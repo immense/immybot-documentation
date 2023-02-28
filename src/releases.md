@@ -1,5 +1,18 @@
 # Releases
 
+## 0.55.5
+
+Released 2023-02-28
+
+### Improvements
+---
+- Improved performance of session counts on session list page
+
+### Bug Fixes
+---
+- Fixed an exception that was occurring frequently when the ephemeral agent established a websocket connection
+- Fixed an internal error that occurred when we add function scripts to the PowerShell InitialSessionState
+
 ## 0.55.4
 
 Released 2023-02-24
