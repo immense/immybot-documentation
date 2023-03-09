@@ -1,5 +1,23 @@
 # Releases
 
+## 0.55.6
+
+Released 02023-03-08
+
+### Improvements
+---
+- Improved performance of searching the main computer list
+- Added a button near maintenance task parameters to copy the parameters as a script param block string.  Useful in converting a task to use a script param block
+
+### Bug Fixes
+---
+- Fixed an issue where identification logs would sometimes not be sorted by date.
+- Fixed an issue where we were not considering case-insensitive serial numbers for trusted manufacturers
+- Made non-admins able to delete their tenant's computers
+- Made non-admins able to add and remove tags from their tenant's computers
+- Fixed an exception that was occurring where the azure sync was trying to delete people who existed as an Immy user.
+- Fix issue with PowerShell formatting of `System.Version`
+
 ## 0.55.5
 
 Released 2023-02-28
