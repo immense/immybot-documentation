@@ -1,8 +1,26 @@
 # Releases
 
+## 0.55.7
+
+Released 2023-03-14
+
+### Improvements
+---
+- Parameters for "Not Present" deployments now show up on the deployment edit page.
+- Removed 100 and 1000 page sizes from all tables for performance reasons
+
+### Bug Fixes
+---
+- Fixed an issue in the azure sync users job that was causing it to fail
+- Fixed more issues with the ephemeral agent getting locked up
+- Fixed an issue where agent disconnect events would show duplicated in the timeline events table
+- Fixed an issue where computers would be moved to needs-onboarding after a new agent connects for an existing online computer
+- Fixed issue where newly-installed immy agents would not result in new computers in ImmyBot under some circumstances
+
+
 ## 0.55.6
 
-Released 02023-03-08
+Released 2023-03-08
 
 ### Improvements
 ---
