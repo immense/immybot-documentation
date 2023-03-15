@@ -1,5 +1,17 @@
 # Releases
 
+## 0.55.8
+
+Released 2023-03-15
+
+### Improvements
+---
+- Improved performance of syncing devices from all integrations.  Automate in particular was failing to sync device updates (online/offline statuses).
+
+### Bug Fixes
+---
+- Fixed a WebSocket exception where we were attempting to close the WebSocket after it was already closed
+
 ## 0.55.7
 
 Released 2023-03-14
