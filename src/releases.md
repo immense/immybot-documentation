@@ -1,5 +1,19 @@
 # Releases
 
+## 0.55.9
+
+Released 2023-03-16
+
+### Improvements
+---
+- Using the `[Person()]` attribute on param block parameters now takes into account the selected tenant on the deployment form and only shows people belonging to the selected tenant.
+- The computer list page now supports the following query parameters: `filter` and `includeDisconnected`. This can be used to filter the computer list e.g `demo.immy.bot/computers?filter=desktop-R2D2&includeDisconnected=true`
+
+### Bug Fixes
+---
+- Fixed an issue with hashtable parameter values not working when provided from the deployment
+- Fixed an issue with the CW Control device sync
+
 ## 0.55.8
 
 Released 2023-03-15
