@@ -1,5 +1,14 @@
 # Releases
 
+## 0.55.10
+
+Released 2023-03-21
+
+### Bug Fixes
+---
+- Fixed an issue where adhoc deployed sessions would go over the session limit and cause performance issues
+- Fixed an issue in the ImmyBot Agent that would cause devices to rapidly send connected messages to the IoTHub, depleting the quota and preventing new devices from registering
+
 ## 0.55.9
 
 Released 2023-03-16
