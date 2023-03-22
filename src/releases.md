@@ -1,5 +1,14 @@
 # Releases
 
+## 0.55.11
+
+Released 2023-03-22
+
+### Bug Fixes
+---
+- Fixed issues with the websocket connection randomly disconnecting when adhoc deploying to a large number of computers
+- Fixed an issue with PowerShell Editor Services continually starting and stopping
+
 ## 0.55.10
 
 Released 2023-03-21
