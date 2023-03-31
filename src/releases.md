@@ -1,5 +1,25 @@
 # Releases
 
+## 0.55.12
+
+Released 2023-03-31
+
+### Improvements
+---
+
+- Added timespan parameter `-AgentConnectionWaitTimeout` to `Invoke-ImmyCommand` so you can override the default 5 minute wait time.
+
+### Bug Fixes
+---
+
+- Fixed an issue where some session logs were failing to save due to issues sanitizing a script's param block
+- Fixed an issue where deployments targeting an Azure Group were not applying when the computer's primary user was set during the onboarding stage
+- Fixed an issue where executing quick deployments against computers needing onboarding would incorrectly trigger the onboarding stage
+- Fixed an issue with the onboarding form's assignment links not bringing users to the specified assignment
+- Fixed an issue where reboots were occurring during business hours than spanned over to the following day. e.g 9am - 4am
+- Fixed an issue where the Primary User task was running after Set Computer Name and Domain Join.  This was causing computers to not get the correct name when the computer is named after the primary user.
+- Fixed a long-standing issue where Immy PPKGs wouldn't reliably disable sleep/hibernation when the option was checked on some computers. This has been improved.
+
 ## 0.55.11
 
 Released 2023-03-22
