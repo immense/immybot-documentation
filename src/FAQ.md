@@ -23,7 +23,7 @@ Yes. Create a deployment for the Join AzureAD task. We use the bulk enrollment t
 
 ## Can Immy help migrate my customers to AzureAD from On-Premises environments?
 
-Yes, we have a [Task](#task) that utilizes Forensit’s ProfWiz Corporate Edition to associate the user’s profile to their Azure AD identity.
+Yes, we have a [Task](#task) that can migrate machines to associate the user’s profile to their Azure AD identity and join the machine to Azure AD. It can also do the same to and from Active Directory
 
 ## Domain Join didn’t work, what gives?
 
