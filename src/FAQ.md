@@ -1,13 +1,13 @@
 # Frequently Asked Questions
 
 ## Do I need a separate USB/Installer per tenant?
-No. Create a USB pointing to your own tenant (or create an “Onboarding” tenant) and don’t select the Auto-Onboard option. 
+No. Create a USB pointing to your own tenant (or create an “Onboarding” tenant) and don’t select the Auto-Onboard option.
 
-You will change the tenant of the computer on the Onboarding area of the computer after it comes into New Computers 
+You will change the tenant of the computer on the Onboarding area of the computer after it comes into New Computers
 
 ## Will ImmyBot start doing anything without my consent? Like when I save a deployment, will it automatically deploy?
 
-ImmyBot does not deploy anything automatically. You can feel safe saving your Deployments. Think of them like documenting how things SHOULD be. If you want Immy to automatically enforce deployments, you would need the Immy Deploy plan which allows you to create schedules. 
+ImmyBot does not deploy anything automatically. You can feel safe saving your Deployments. Think of them like documenting how things SHOULD be. If you want Immy to automatically enforce deployments, you would need the Immy Deploy plan which allows you to create schedules.
 
 Think of it like if Group Policy only updated if you manually ran gpupdate /force or otherwise specified a schedule for the gpupdates to happen. We understand that updating and installing software on existing computers can be intrusive to the user which is why we schedule these actions out and give the user the ability to postpone via interactive emails.
 
@@ -50,10 +50,10 @@ Run the following from Command Line
 ```
 wmic product where name="ImmyBot Agent" call uninstall /nointeractive
 ```
- 
+
 
 ## How/are we able to define which version of Windows is installed during the initial setup?
- 
+
 ImmyBot doesn't install Windows on bare metal. The workflow is you unbox the system from Dell, HP, Lenovo, Microsoft, or your manufacturer of choice and insert the USB with the ImmyBot.ppkg file at the root while the machine is at the out of box screen.
 
 We don't image the machine, we script the factory image into compliance.
@@ -61,7 +61,7 @@ We don't image the machine, we script the factory image into compliance.
 We can, however, install Feature Updates during Onboarding (as well as after Onboarding)
 
 ## Since Immy.Bot doesn’t use an ISO, does it require a device to have the ability to have 2 USB devices plugged in? One for a Windows ISO and one for the ImmyBot ppkg?
- 
+
 If you want to wipe the computer you can use the Media Creation Tool to create a Windows Setup flash drive and then put our .ppkg file on it. After installing Windows, it will automatically apply the .ppkg
 
 ## Does Immy rely on the Windows preboot for drivers during initial deployment, or does the ImmyBot agent installer have drivers?
@@ -70,12 +70,12 @@ Since we are working with the manufacturer's image, all drivers are typically in
 
 ## Does Immy’s setup process support a USB NIC for WiFi?  If so, how do we present those drivers to Immy, or do we even need to?
 
-I've found Windows has built in drivers for most USB NICs. If yours doesn't have drivers built into Windows, I'd suggest purchasing one that does. 
+I've found Windows has built in drivers for most USB NICs. If yours doesn't have drivers built into Windows, I'd suggest purchasing one that does.
 
 ## SentinelOne - How do we define which site Immy.Bot places the agent in during installation of the S1 agent?
 
 Supply ImmyBot with an API Key to SentinelOne, and Immy will look for a Site in your SentinelOne instance that matches the name of the Tenant you are onboarding the computer for.
- 
+
 ## Are there any repository limits for software deployments?  Either to the size of custom software or number of custom installers we can upload?
 
 There are currently no limits. Everything you upload goes into an Azure Storage Account created just for your ImmyBot instance. Don't be the reason we can't have nice things.
@@ -83,7 +83,7 @@ There are currently no limits. Everything you upload goes into an Azure Storage 
 # For computer rename, are there any other operators we can use when naming devices other then the ones shown? Can we add operators?
 
 You can duplicate the Task into your instance an manipulate it however you like. If it's something you think other MSPs could use, I'd encourage you to submit a ticket to support@immy.bot and we can add it.
- 
+
 ## Employee profile caching during on-boarding - is this supported?  If so/how?
 
 ImmyBot will create a profile for the Primary Person you selected for this machine on the Onboarding screen (It does this via the "Create Profile for Primary Person" task)
@@ -107,3 +107,7 @@ We also write the Bitlocker Recovery Key to Active Directory for Domain Joined m
 ## Is Immy able to reset windows?
 
 Yes, you can create a PPKG with the windows reset option selected and then use the task "Apply Provisioning Package (PPKG)" to deploy the PPKG.
+
+## ImmyBot Agent logs show an error of "The specified SAS token is expired"
+
+This will occur if the device's system time is incorrect.  Ensure that the system time is correct and then restart the ImmyBot Agent Service.
