@@ -1,5 +1,14 @@
 # Releases
 
+## 0.55.13
+
+Released 2023-04-03
+
+### Bug Fixes
+---
+
+- Fixed a regression in 0.55.12 where some business hours checks would report within business hours but the computer would still be rebooted
+
 ## 0.55.12
 
 Released 2023-03-31
