@@ -24,7 +24,7 @@ Now that tags can target tenants, you can create a schedule that targets tags to
 Tags for tenants can be assigned on the tenant list and tenant details pages.
 
 Tags for persons can be assigned on the person list and person details pages.
-### ImmyBot Session Suport Requests
+### ImmyBot Session Support Requests
 ---
 
 You can now request support from Immy technicians from maintenance sessions. When requesting support, you can:
