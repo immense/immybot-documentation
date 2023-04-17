@@ -1,5 +1,136 @@
 # Releases
 
+## 0.56.0
+
+Released 2023-04-17
+
+### Tenant and Person tags
+---
+
+Support has been added for Person and Tenant tags.
+
+A tag no longer has a "type".  A tag can be assigned to any person, computer, or tenant.
+
+Deploying a software or maintenance task with a tag target type now resolves computers for the following:
+
+1) computers that have the tag
+2) computers for tenants that have the tag
+3) primary computers for people who have the tag
+
+Deploying a cloud task can now target tags assigned to tenants, as well as integrations that support client groups.
+
+Now that tags can target tenants, you can create a schedule that targets tags to run a single schedule across multiple tenants.
+
+Tags for tenants can be assigned on the tenant list and tenant details pages.
+
+Tags for persons can be assigned on the person list and person details pages.
+### ImmyBot Session Suport Requests
+---
+
+You can now request support from Immy technicians from maintenance sessions. When requesting support, you can:
+
+- Add details about the issue you are experiencing
+- Select whether an Immy technician should be allowed to access your instance
+  - If selected, there is no need to approve an access request for the Immy tech to log into your instance
+  - You can disable Immy technician access at any time from the Application Preferences page
+- Select whether the session's logs and computer timeline events should be available in the support ticket
+  - The logs / timeline events are formatted as a text file and stored in your instance's blob storage account, and a link to download this file is added to the support ticket
+  - You can also download this file before submitting the ticket
+### Global Script Editor
+---
+
+Below are some of the new features in the script editor!
+
+- General VS Code "vibe"
+- Open/Close multiple scripts(tabs)
+- Go To Definition support for function scripts
+- Script Search and Directory Views with result highlighting
+- Variable preview based on script execution context, category, and a selected target (computer, tenant, task, software).
+- Parameter Form for scripts with param blocks, selected software that have configuration tasks, and selected maintenance tasks that have parameters
+- Closing a script tab with unsaved changes alerts you
+- Function name/definition view that shows the results of `Get-Help {functionName} -Detailed | Out-String`
+- Basic hotkey support
+
+![image](https://immybot.blob.core.windows.net/release-media/9be569f7-c3d4-4013-bad2-00693efc73ba)
+
+![image](https://immybot.blob.core.windows.net/release-media/87aa4eef-f90f-4939-9587-38f0c89fdf4f)
+
+![image](https://immybot.blob.core.windows.net/release-media/93b1246a-18d4-41f8-a24c-89fd50289f75)
+
+![image](https://immybot.blob.core.windows.net/release-media/e50180a3-1d07-4dc7-8709-a50f441bff1d)
+
+You can access the script editor from the top navbar or in the sidebar under Library -> Script Editor
+
+![image](https://immybot.blob.core.windows.net/release-media/f5850129-0f74-43d4-a2a2-67d54a42a60d)
+
+![image](https://immybot.blob.core.windows.net/release-media/fa21a1a2-1206-457f-ae3e-3f02669e4d86)
+
+### Parameter Value View
+---
+
+Sometimes deployment parameters result in an exception when performing the binding.  This can happens when the parameter types have been updated but the values have not.
+
+You can now toggle the parameter form to a value view that provides you the ability to remove/reset values that may be causing issues.
+
+![image](https://immybot.blob.core.windows.net/release-media/6fbe70fc-96b0-42dc-9416-b654c2aa7276)
+### Tenant Software
+---
+
+The Tenant Details Page now has a Software tab that displays a grid of software that was detected on endpoint machines and could be matched to software in the global database. The result set is grouped by global software name/ID and sorted descending by total installs (i.e. number of devices that have it installed). Each group has a Deploy button, which will open a new deployment for the software that targets all computers under that tenant.
+
+![image](https://immybot.blob.core.windows.net/release-media/fb09bb5c-d6d0-4473-a1e7-60fbede16b02)
+
+## Other Improvements
+---
+
+- On the Deployment List Page, tenants with missing or deleted tenants will show `Tenant no-longer exists` under tenant column and the entire row will be highlighted red.
+- The current ImmyBot agent version is now shown on the frontend in the installer modal and in the sidebar's ImmyBot Agent Download box.
+- Added the ImmyBot version in a session log at the start of a session.  This will be useful when debugging session-related issues since we can correlate the problems to the version ImmyBot was on when the session ran.
+- You can now install the ImmyBot Script Editor as a progressive web app.
+- Cleaned up some of the error messages returned by integrations
+- Fixed issues with tag deployments not getting applied during an onboarding session
+- System scripts that use param blocks will now through an error letting users known that param blocks are only available in metascript and cloudscript contexts.
+- Maintenance tasks can now specify function scripts
+- Added a session log when attempting to apply a windows patch since there are currently none
+- Added a check for whether the computer is online before attempting to apply windows patches
+- Get-Hash now supports HMACMD5, HMACSHA256, HMACSHA384, and HMACSHA512
+- Added back session list "Completed" count and filter and removed "All"
+- Added internal auditing tables for scripts, software, tasks, and deployments.  The future plan is to expose an audit trail for these objects so you can see who made changes and when they were made, with the ability to revert changes.
+- Moved the tenant tag selector to the edit tab. The tags now show inline next to the tenant's name
+- Made session log database handler more efficient by breaking large updates into smaller queries
+- Reduced likelihood of CW Control Integration failing to sync devices.
+- The deployment page no longer hangs when attempting to preview/deploy to a large number of computers
+- Improved Package Analyzer to handle improper/malformed `content-disposition` header returned from some file servers, which resulted in a failure to analyze a package.
+- Expired users can now be un-expired from the edit user form
+- `Wait-ImmyComputer` (and therefor `Restart-ComputerAndWait`) has been improved with a new `RebootWithPollingFallback` option that should help alleviate issues with ImmyBot not detecting when a machine has been rebooted and now back online. This option will periodically poll providers/integrations about machine connectivity status if they haven't reported target machine as online after an expected `WaitForEventTimeout` period.
+- You can now define multiple functions in a Module script and import them into other scripts using Import-Module
+- Maintenance task get/test can now create child actions during detection using the new cmdlet `Add-ImmyMaintenanceActionChild`
+
+### Bug Fixes
+---
+
+- Fixed an exception in the Sync Azure Users Job that was preventing some person entities from being deleted
+- Fixed a bug where integrations would all become unhealthy until ImmyBot restarts when one provider failed to initialize in a timely fashion
+- Fixed an issue where a specific unrecoverable ephemeral agent exception was being suppressed
+- Fixed an issue with postpone button from scheduled maintenance emails not actually postponing the session in some circumstances
+- Fixed unnecessary logging of an exception when an Ephemeral Agent Session was disposed correctly
+- Fixed an internal exception with ephemeral agent sessions where we were failing to dispose of the connection timeout callback
+- Fixed issue with instances that have large session logs tables having poor database performance and dropping session logs
+- Fixed issue with logs displayed on maintenance sessions occasionally showing up unsorted-by-timestamp
+- Fixed an issue that was allowing a device to sleep when the ephemeral is connected
+- Potentially fixed an issue where sessions would get stuck in the running status after the backend restarted
+- Fixed an issue where tasks marked to be ignored would show as compliant instead of ignored on the maintenance session's action list
+- Resolve potential bug with ImmyAgent causing IoTHub issues
+- Fixed browser warnings about using variable names starting with $ or _ in setup()
+- `Restart-ComputerAndWait` now will show agent timeline events in correct order
+- Fixed issue with gdap customers not showing up when azure permission level is reset from custom to default and custom didn't have correct permissions
+- Fixed an issue with media missing the base url
+- Fixed an issue where software deployments don't report download failures correctly and will continue on.
+- Fixed an issue where quick deploying software would not also deploy the configuration task if it had one
+* Fixed $using variables on single line scripts
+- Fixed an issue where the cross tenant deployment grooup was not sorted at the top of the deployment list page
+* Delete existing UserAffinities when new user is set to prevent reverting to old user
+
 ## 0.55.13
 
 Released 2023-04-03
