@@ -111,3 +111,7 @@ Yes, you can create a PPKG with the windows reset option selected and then use t
 ## ImmyBot Agent logs show an error of "The specified SAS token is expired"
 
 This will occur if the device's system time is incorrect.  Ensure that the system time is correct and then restart the ImmyBot Agent Service.
+
+## What are trusted manufacturers?
+
+Dell, HP, and Lenovo are considered trusted manufacturers.  A trusted manufacturer is expected to provide unique serial numbers for their devices. We rely on trusted manufactuers and device serial numbers during device identification.  If the agent reports it comes from a trusted manufacturer and a computer already exists inside ImmyBot with the same manufacturer and serial number, then we will automatically associated the agent with the existing computer.
