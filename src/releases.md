@@ -1,5 +1,27 @@
 # Releases
 
+## 0.56.1
+
+Released 2023-04-24
+
+### Improvements
+---
+
+- When an agent is identified to a computer that already exists in ImmyBot, we will now automatically select the "Wiped" option if the computer name and OS install date reported by the agent are different than what is reported by the existing computer.
+- The ephemeral agent no longer extracts to c:/windows/temp.  This alleviates issues around A/V blocking .dlls coming from the temp directory, and also alleviates issues around windows randomly removing required .dlls for the ephemeral agent to run.
+- Updated the identification log text that explains why a manual decision is required
+- Added the manufacturer name and serial number of an agent in the agent identification logs when resolving a trusted manufacturer
+- Added ability to group by target on the deployment list
+
+### Bug Fixes
+---
+- Fixed issue with tenant tags not resolving deployments
+- Fixed issue where cancelling sessions would sometimes cause session to retry some number of times
+- Fixed an issue causing new instances immy agent integration to not be properly initialized
+- Fixed a bug where alternate providers were not getting disabled when dynamic versions are selected
+- Fixed an internal issue where Immy Support Technicians were not allowed access due to existing expired access requests
+- Fixed an issue where a pending agent that has the same trusted manufacturer and serial number as an existing computer would sometimes require a manual decision instead of automatically replacing the existing agent
+
 ## 0.56.0
 
 Released 2023-04-17
