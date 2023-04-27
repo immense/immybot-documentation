@@ -1,5 +1,25 @@
 # Releases
 
+## 0.56.2
+
+Released 2023-04-27
+
+### Improvements
+---
+
+- Updated the alert on the schedule details page when targeting a specific item to state, "Metascript deployment targets are not supported when the schedule is limited to a specific maintenance item because it would require executing a script against every computer in the system."
+- Azure User Sync now excludes external users
+- Renamed the "All" tab to "Active" on the computer list page to avoid confusion.  "All" implies it should contain "Pending" agents, which it does not.
+
+### Bug Fixes
+---
+- Fixed an issue where new instances would not be able to use immy agent provider
+- Fixed an issue where some business hours were not being computed correctly and the session incorrectly reported that we were within business hours
+- Fixed an issue with the computer terminal not maintaining execution when toggling between tabs
+- Fixed bug where exceptions that occur while resolving Cw Control remote screen share URLs caused the maintenance session page to not load any data
+- Software Post Uninstall phase is now only shown when the software or version has a post uninstall script
+
+
 ## 0.56.1
 
 Released 2023-04-24
