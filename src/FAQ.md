@@ -104,9 +104,19 @@ Yes, but we can't verify that it is written to Azure AD as that would require ad
 
 We also write the Bitlocker Recovery Key to Active Directory for Domain Joined machines. This doesn't require any Group Policy setup, or line of site to the domain controller. This works as long as the machine is joined to a domain and there is a domain controller for that domain in ImmyBot.
 
-## Is Immy able to reset windows?
+## Is Immy able to reset Windows / Wipe and Reload a computer?
 
-Yes, you can create a PPKG with the windows reset option selected and then use the task "Apply Provisioning Package (PPKG)" to deploy the PPKG.
+Yes, the current process will be simplified but here's how to do it:
+
+1. Click Download ImmyAgent on the left to create a PPKG with the Windows Reset option selected
+
+![image](https://user-images.githubusercontent.com/1424395/235902691-46845e47-2965-4141-a68c-2004a02b7300.png)
+
+![image](https://user-images.githubusercontent.com/1424395/235902014-4a63dc2f-efe3-454c-a2f4-5c6578190982.png)
+
+2. Create a Deployment for "Apply Provisioning Package (PPKG)" to deploy the PPKG to the specified machine
+
+![image](https://user-images.githubusercontent.com/1424395/235902286-5ad3303e-167c-4cd4-abb6-5dea45da3600.png)
 
 ## ImmyBot Agent logs show an error of "The specified SAS token is expired"
 
