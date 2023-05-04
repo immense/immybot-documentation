@@ -1,5 +1,23 @@
 # Releases
 
+## 0.56.3
+
+Released 2023-05-04
+
+### Improvements
+---
+- Added a note to the ImmyBot Agent installer modal indicating that there's an issue on Windows 11 22h2 builds that prevent the PPKG from working and added notes on how to resolve it.
+
+### Bug Fixes
+---
+- Added missed user auditing to certain software, task, and deployment operations
+- Fixed an issue with assigning tags while creating a new tenant
+- Fixed an issue where schedules targeting a specific maintenance item were picking up onboarding only deployments
+- Fixed an issue where some macOS agents were not being excluded
+- Fixed an issue where navigating to a computer that did not exist threw a non-404 unexpected error
+- Fixed an issue with schedules targeting CW Control groups not being limited to the specified tenant on the schedule
+- Fixed an issue with sessions failing when attempting to retrieve bulk software and the bulk software response contains text that is not representable as valid UTF-8
+
 ## 0.56.2
 
 Released 2023-04-27
