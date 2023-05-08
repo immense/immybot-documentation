@@ -1,5 +1,16 @@
 # Releases
 
+## 0.56.4
+
+Released 2023-05-08
+
+### Bug Fixes
+---
+- Fixed an issue where duplicating a task would not copy over all data
+- Fixed an issue that sometimes prevented the onboarding task forms from loading
+- Fixed an issue where scripts with the category "Filter Script Deployment Target" and "Metascript Deployment Target" were not automatically selecting the correct execution context
+- Fixed an issue where some actions would have incorrect parameters or variables when multiple sessions executed the script at the same time
+
 ## 0.56.3
 
 Released 2023-05-04
