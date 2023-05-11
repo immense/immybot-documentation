@@ -1,5 +1,25 @@
 # Releases
 
+## 0.56.5
+
+Released 2023-05-11
+
+### Improvements
+---
+- Made it more obvious when actions are skipped because reboots are suppressed and the action's software requires a reboot
+- Removed the hardcoded "Uninstall by Package Info" logic from software uninstall steps since it could cause unexpected reboots
+- Updated the description of the tenant Onboarding Patching preference to indicate that it currently only applies to CW Automate
+- Added PowerShell Version to computer overview tab
+
+### Bug Fixes
+---
+- Added missing logs around reboot checks
+- Fixed a XSS vulnerability found in param block descriptions
+- Fixed an issue where GDAP customers that need consent would show up as consented when they had previously been synced as a non-GDAP customer
+- Fixed an issue with quick deploy where it would sometimes not kick off the session
+- Fixed an issue where dynamic form errors were not clearing upon refresh
+- Fixed issue where the url in a cloud session's support request was incorrect
+
 ## 0.56.4
 
 Released 2023-05-08
