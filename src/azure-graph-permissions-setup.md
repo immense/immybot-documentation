@@ -33,19 +33,15 @@ Navigate to: <https://aad.portal.azure.com/>
 
 ### Grant Permissions
 
-#### Target devices in Azure Groups
-
-If you would also like to target devices from your Azure groups, you will need to include the `Microsoft Graph - Devices.Read.All` permission.
-
 See the screenshots below for the minimum permissions.
 
 ![](./.vuepress/images/2020-12-07-15-47-33.png)
 
-![](./.vuepress/images/2020-12-07-15-47-40.png)
+![image](https://github.com/immense/immybot-documentation/assets/1424395/ed4d173b-b0dc-4a11-a3bc-85e8231e1dbd)
 
-![](./.vuepress/images/2020-12-07-15-47-49.png)
+![image](https://github.com/immense/immybot-documentation/assets/1424395/db0bbf02-ecea-499d-80f2-a1d92ff6764d)
 
-![](./.vuepress/images/2020-12-07-15-47-52.png)
+![image](https://github.com/immense/immybot-documentation/assets/1424395/f5c4ec0f-35f2-49ad-a690-7e940c187d0a)
 
 ### Create Client Secret
 
@@ -55,11 +51,12 @@ See the screenshots below for the minimum permissions.
 
 ![](./.vuepress/images/2021-08-16-13-23-26.png)
 
-### CSP Preconsent
+### Assign GDAP Permissions to ImmyBot Service Principal 
+- Create a Security Group in Azure AD called "ImmyBot Security Group"
+- Add the ImmyBot Service Principal to that group
+- For each customer in the Partner Center, add the "ImmyBot Security Group" and add the "Directory Readers" and "Global Reader" role.
 
-This step is optional. This is only necessary if you want to sync non-GDAP customers.
-
-#### Add to Admin Agents Group (Legacy DAP)
+### Add to Admin Agents Group (Legacy DAP)
 
 ![](./.vuepress/images/2020-12-07-15-48-22.png)
 
@@ -71,16 +68,4 @@ This step is optional. This is only necessary if you want to sync non-GDAP custo
 
 ![](./.vuepress/images/2020-12-07-15-48-38.png)
 
-### Copy the `Application (client) ID` and `Client Secret Value` into the form in ImmyBot
-
-## GDAP Customer Syncing
-
-After enabling GDAP Customer Syncing from the desired Azure permission form on the Azure settings page, you can sync GDAP customers:
-
-![](./.vuepress/images/2022-12-12_12-10-21.png)
-
-![](./.vuepress/images/2022-12-12_11-26-00.png)
-
-![](./.vuepress/images/2022-12-12_11-41-18.png)
-
-![](./.vuepress/images/2022-12-12_11-44-58.png)
+### Copy the `Application (client) ID` and `Client Secret Value` into the form in ImmyBot.
