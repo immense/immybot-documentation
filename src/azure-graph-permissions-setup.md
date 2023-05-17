@@ -37,9 +37,7 @@ See the screenshots below for the minimum permissions.
 
 ![](./.vuepress/images/2020-12-07-15-47-33.png)
 
-![image](https://github.com/immense/immybot-documentation/assets/1424395/ed4d173b-b0dc-4a11-a3bc-85e8231e1dbd)
-
-![image](https://github.com/immense/immybot-documentation/assets/1424395/db0bbf02-ecea-499d-80f2-a1d92ff6764d)
+![image](https://github.com/immense/immybot-documentation/assets/1424395/24640a0d-b078-4575-8125-e035788f06e8)
 
 ![image](https://github.com/immense/immybot-documentation/assets/1424395/f5c4ec0f-35f2-49ad-a690-7e940c187d0a)
 
