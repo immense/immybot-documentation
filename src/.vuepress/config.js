@@ -79,6 +79,7 @@ module.exports = {
           "connectwise-manage-integration-setup",
           "ncentral-integration-setup",
           "azure-graph-permissions-setup",
+          "halo-integration-setup",
         ],
       },
     ],
