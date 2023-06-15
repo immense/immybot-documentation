@@ -27,6 +27,14 @@ Check if MFA Requirement for Joining is enabled via [Conditional Access](https:/
 MFA requirement for all users in [Conditional Access](https://portal.azure.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies) will also block the execution, as the package_XXX user will encounter a MFA prompt.
 Most other situations are noted during execution failure.
 
+## Can Immy make deploying via Intune more simple?
+
+Absolutely! There is a global [Task](#task) labeled "**Deploy ImmyAgent to Intune**" that can do an excellent job of it.
+- Ensure you are using the [**Custom** Graph Permissions](https://docs.immy.bot/azure-graph-permissions-setup.html#custom)
+- Ensure you have added the Graph **Application** permission DeviceManagementConfiguration.ReadWrite.All to your app registration
+- Ensure you have re-consented to your linked tenants with your new Custom registration
+- If there is a failure of the deployment, there is likely a permissions issue with the app registration
+ 
 ## Can Immy help migrate my customers to AzureAD from On-Premises environments?
 
 Yes, we have a [Task](#task) that can migrate machines to associate the user’s profile to their Azure AD identity and join the machine to Azure AD. It can also do the same to and from Active Directory
