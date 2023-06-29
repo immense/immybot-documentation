@@ -2,11 +2,11 @@
 
 Released 06-29-23
 
-## Agent Delivery - Whitelist cdn.immy.bot
+## Agent Delivery - Whitelist **cdn.immy.bot**
 
 Make sure to whitelist cdn.immy.bot in your endpoint protection tools.
 
-The ImmyBot Agent and the Ephemeral Agent are now served from a Cloudflare CDN at https://cdn.immy.bot.
+The ImmyBot Agent and the Ephemeral Agent are now served from a Cloudflare CDN at https://cdn.immy.bot
 
 ## ImmyBot Plans - Starter vs Standard - Agent Information
 
@@ -47,6 +47,18 @@ When maintenance is performed against a computer older than 7 days, ImmyBot will
     - If it is not, then this computer will be added to your active maintained computer count, and maintenance can be performed on this computer.
 
 When a subscription is at the maximum maintained count, only maintenance for computers considered in the count will be allowed. In order to run maintenance on other computers, you can purchase more computer licenses for your subscription.
+
+## ImmyBot Remote Control (Remotely) - BETA
+
+Initial support for remote control is here!
+
+The newest version of the ImmyBot Agent will support the ability to establish remote control sessions.
+
+Remote control can be established by clicking the "Open Remote Session" dropdown and then clicking the "ImmyBot Agent" option.
+
+![image](https://immybot.blob.core.windows.net/release-media/96fe75cd-c059-46ce-ad2b-ca040e7e04c1)
+
+You can also select the initial Windows session within which to start remote control.
 
 ## Task Deprecation & Supersedence
 
@@ -117,18 +129,6 @@ The first global preflight script that has been added will check if the computer
 ### Pending Preflight Session Status
 
 A new session status has been added called "Pending Preflight".  When a preflight script fails during a session, the session will go into "Pending Preflight". The action that was actively being performed when the preflight script failed will not failed so that it can be resumed when the computer passes preflight.  A background service will continually attempt to run preflight against a computer until it passes.  Once preflight passes, the session will continue.
-
-## ImmyBot Remote Control (Remotely) - BETA
-
-Initial support for remote control is here!
-
-The newest version of the ImmyBot Agent will support the ability to establish remote control sessions.
-
-Remote control can be established by clicking the "Open Remote Session" dropdown and then clicking the "ImmyBot Agent" option.
-
-![image](https://immybot.blob.core.windows.net/release-media/96fe75cd-c059-46ce-ad2b-ca040e7e04c1)
-
-You can also select the initial Windows session within which to start remote control.
 
 ## Built-In ImmyBot Agent Software
 
