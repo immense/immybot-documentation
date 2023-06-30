@@ -1,3 +1,9 @@
+# 0.57.1
+
+Released 06-30-23
+
+Fixed an issue for new instances deployed without an IoTHub being unable to install Immy Agents.
+
 # 0.57.0
 
 Released 06-29-23
