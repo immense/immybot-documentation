@@ -56,6 +56,10 @@ Run the following from Command Line
 ```
 wmic product where name="ImmyBot Agent" call uninstall /nointeractive
 ```
+Or
+```
+MsiExec.exe /X "{BF77AD97-A742-43D3-9940-CF7B8374D0EF}" /qn /norestart
+```
 
 
 ## How/are we able to define which version of Windows is installed during the initial setup?
