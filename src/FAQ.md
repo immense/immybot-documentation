@@ -58,7 +58,13 @@ wmic product where name="ImmyBot Agent" call uninstall /nointeractive
 ```
 Or
 ```
-MsiExec.exe /X "{BF77AD97-A742-43D3-9940-CF7B8374D0EF}" /qn /norestart
+$product = Get-WmiObject win32_product | `
+
+where{$_.name -eq "ImmyBot Agent"}
+
+$product.IdentifyingNumber
+
+msiexec /x $product.IdentifyingNumber /quiet /noreboot
 ```
 
 
