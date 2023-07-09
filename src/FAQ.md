@@ -52,6 +52,12 @@ Pay attention to the script output, Immy may be reporting that there is a name c
 Yes, but ImmyBot requires an additional permission on the ImmyBot app registration. You need to grant the `Microsoft Graph - Devices.Read.All` permission in order for devices to be pulled from Azure Groups.
 
 ## How do I uninstall the ImmyAgent?
+Create a deployment for the "ImmyBot Agent" and set software should be to "Uninstalled"
+
+![image](https://github.com/immense/immybot-documentation/assets/95599350/02be5654-7393-4f95-bf56-dde089582ccf)
+
+Or
+
 Run the following from Command Line
 ```
 wmic product where name="ImmyBot Agent" call uninstall /nointeractive
