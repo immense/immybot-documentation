@@ -147,3 +147,7 @@ This will occur if the device's system time is incorrect.  Ensure that the syste
 ## What are trusted manufacturers?
 
 Dell, HP, and Lenovo are considered trusted manufacturers.  A trusted manufacturer is expected to provide unique serial numbers for their devices. We rely on trusted manufactuers and device serial numbers during device identification.  If the agent reports it comes from a trusted manufacturer and a computer already exists inside ImmyBot with the same manufacturer and serial number, then we will automatically associated the agent with the existing computer.
+
+## Can I embed the ImmyAgent into an image?
+
+Create a PPKG and place it in `C:\Recovery\Customizations`, create the folder if it doesn't exist.
