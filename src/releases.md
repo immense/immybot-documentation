@@ -1,3 +1,23 @@
+# 0.57.3
+
+Released 07-14-23
+
+## Improvements
+
+- Optimized the load time of the Computer List page
+
+## Bug Fixes
+
+-  Fixed an issue where an ephemeral agent would disconnect after attempting to run a user script without a logged-on user
+
+# 0.57.2
+
+Released 07-11-23
+
+## Bug Fixes
+
+- Limited Support Technician access to members of the Immense Entra ID with the Immy Support Technician role
+
 # 0.57.1
 
 Released 06-30-23
