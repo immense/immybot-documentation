@@ -556,13 +556,13 @@ Generally you will click "Agent Re-installed"
 Often when an RMM Agent gets re-installed, it will get a new id in the RMM (ComputerId in Automate, SessionID in Control). ImmyBot will recognize that it is the same computer, but due to the fact that virtualization technologies and hard drive cloning can lead to the same scenario, we require you to tell us whether we should overwrite the existing RmmComputer, or keep both. 99% of the time you will click "Overwrite Existing". If the machine was in fact cloned, you would click Keep Both, in which case Immy shims the duplicate UUID with its own to prevent collisions.
 
 ## Pending Computers
-Computers in the pending status have yet to be identified. 
+Computers in the pending status have yet to be identified.
 
 Computers may get stuck here if we are unable to run our Ephemeral Agent
 
 ```mermaid
 graph TD
-    CheckImmyAgentLogs[Check ImmyAgent Logs in C:\ProgramData\ImmyBotAgentService\*.log] --> DidEphemeralAgentStart[Immybot.Agent.Ephemeral.exe start?]
+    CheckImmyAgentLogs[Check ImmyAgent Logs in C:\ProgramData\ImmyBot\Logs] --> DidEphemeralAgentStart[Immybot.Agent.Ephemeral.exe start?]
     DidEphemeralAgentStart --> |Yes|CheckEphemeralAgentLogs[Check Ephemeral Agent logs in C:\ProgramData\ImmyBot\Scripts\*\*.log]
     DidEphemeralAgentStart --> |No|BlockedBySecuritySoftware[Exclude Script Path from Security Software]
     CheckEphemeralAgentLogs --> EphemeralAgentConnect[Did Ephemeral Agent Websocket Connect?]
@@ -571,7 +571,7 @@ graph TD
     TryNoSSLInspect --> DidSuccessfullyIdentifyAfterFix[Ephemeral Agent Connect After Fix?]
     DidSuccessfullyIdentifyAfterFix[Machine Identify Successfully?] --> |No|EmailSupport
     DidSuccessfullyIdentifyAfterFix[Machine Identify Successfully?] --> |Yes|Done
-    EmailSupport["Email logs from C:\ProgramData\ImmyBot\Scripts\*\*.logs to support@immy.bot"]
+    EmailSupport["Email logs from C:\ProgramData\ImmyBot\Logs and C:\ProgramData\ImmyBot\Scripts\*\*.logs to support@immy.bot"]
 ```
 
 Top 3 reasons for Identification Failures
