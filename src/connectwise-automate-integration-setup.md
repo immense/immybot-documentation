@@ -33,6 +33,9 @@ ImmyBot requires the following permissions in Automate
 
 ## Enable Google MFA for ImmyBot User
 
+The integration requires Google for MFA. Duo is not supported as Duo does not expose the MFA token anywhere for us to use and doesn't appear to be the standard TOTP like Google uses.
+You will need to exclude the integration user from your Duo deployment if using Duo and configure the Google MFA plugin for Automate for this user.
+
 ![](./.vuepress/images/2021-03-23-18-35-49.png)
 
 ![](./.vuepress/images/2021-03-23-18-35-28.png)
