@@ -1,3 +1,32 @@
+# 0.57.4
+
+Released 08-07-23
+
+## Improvements
+
+- Started work on improving performance of computer and tenant deletions.  More improvements to come.
+- In the global script editor, scripts with param blocks will now only have the parameters auto-binded when the script has been newly opened instead of when it was focused.
+- Fixed a bug where `undefined` would sometimes show up as an error in the global script editor output.
+- Eliminated 2-step Verify/Create on Integrations
+- Updated the error message you get when you attempt to create a deployment for software that does not have a version to deploy. "There are no available versions for this software. The software must have a static version, a dynamic version script, or be linked to software from an alternate provider such as Ninite or Chocolatey in order to be installed."
+- Made `New-Parameter -Position` nullable and not default to 0 to prevent parameter binding error "Cannot bind positional parameters because no names were given."
+- The ephemeral agent exe now has the correct version where before it would always have 0.0.1
+- Moved Remote Control feature to the top of the Preference Page for better visibility
+- Package Analyzer will fallback to use `FileVersion` if `ProductVersion` is missing on EXE installers.
+- Package Analyzer will now return relative path to installer nested multiple directories inside of a ZIP archive.
+For example, a package bundled like `(MyInstallerPackage.zip) => [MyInstallerPackage] -> [InnerFolder] -> Setup.exe`  will return `InnerFolder\Setup.exe` as the FileName instead of `Setup.exe`
+- Package Analyzer will now fallback to a list of known-good DNS servers for downloading binary. This should help alleviate issues for a few customers where Azure's default DNS fails to resolve the address. Errors stemming from downloading issues will additionally contain a DNS Audit trail.
+Package Analyzer download speed has been improved by up to 50%, reducing time waiting for analysis.
+
+## Bug Fixes
+
+- Fixed a `NullReferenceException` when no response was received from `InvokeCWARestMethod`
+- Fixes an issue where the computer was not showing the active session tag for all computers that had one
+- Fixed an issue where Cloud Tasks were failing because pre-flight script were trying to run
+- Remote Control: Fixed an issue where some special characters would cause "Type Clipboard" function to fail.
+- Fixed a bug with Package Analyzer which caused it to fail to analyze some installers where the server inappropriately  returned a quoted filename.
+- Fixed an issue with Package Analyzer failing to extrapolate filename (if one wasn't provided) from the download URL if the server didn't return a `content-disposition` header.
+
 # 0.57.3
 
 Released 07-14-23
