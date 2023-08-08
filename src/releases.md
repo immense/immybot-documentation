@@ -1,3 +1,11 @@
+# 0.57.5
+
+Released 08-08-23
+
+## Bug Fixes
+- Fixed a bug introduced in 0.57.4 where the default value for CW Control's Custom Property Client Name and Secondary Index fields had the wrong values
+- Fixed an issue with new instances having a disabled / non-working ImmyBot integration
+
 # 0.57.4
 
 Released 08-07-23
