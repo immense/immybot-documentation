@@ -1,3 +1,27 @@
+# 0.57.6
+
+Released 08-10-23
+
+## Improvements
+
+- Implemented new `Get-CwControlFields` cmdlet
+
+   ![image](https://immybot.blob.core.windows.net/release-media/6bb5e5e8-2fd5-4390-abd3-371f1a919ca1)
+
+- Added a new `Get-OTP` cmdlet, capable of creating TOTP & HOTP codes.
+
+   ![image](https://immybot.blob.core.windows.net/release-media/d2c7329a-eba8-4b9a-8c39-7ac86ba0c33b)
+
+- The script that downloads and starts the ephemeral agent script now uses an absolute path for PowerShell. `%systemroot%\System32\WindowsPowerShell\v1.0\powershell.exe`
+- Optimized the code responsible for syncing agents from integrations
+
+## Bug Fixes
+
+- Fixed an issue where array values specified in the script editor parameters pane were not getting passed to the script
+- Fixed an issue where reran actions may have contained incorrect information from another action
+- Fixed an issue where rerunning a session after rerunning an action would cause the new session to only perform the reran action
+- Fixed an issue where ImmyBot would show offline when you did not have access to login
+
 # 0.57.5
 
 Released 08-08-23
