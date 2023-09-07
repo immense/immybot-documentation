@@ -1,3 +1,87 @@
+# 0.58.0
+
+Released 09-08-23
+
+## PowerShell WebHooks
+
+This can be used to map Toast buttons to actions in Immy
+
+```powershell
+$Hook = New-ImmyWebHook
+$Hook.PublicUri | Add-UriQueryParameter @{
+    MyParam = "MyVal"
+}
+$Hook.PublicUri.ToString()
+Write-Host "Waiting for Hook"
+$Hook | Wait-ImmyWebHook
+Write-Host "Got WebHook!"
+```
+
+## Atomic and Cached Operations
+
+Added 3 new PowerShell Cmdlets.
+1. `Set-CacheKeyExpiration`
+2. `Invoke-CommandCached`
+3. `Invoke-AtomicCommand`
+
+![image](https://immybot.blob.core.windows.net/release-media/24ae8f1d-08ee-4bfb-9bd7-daf35a69c869)
+
+![image](https://immybot.blob.core.windows.net/release-media/28df2016-3fed-455f-b31a-7c07dbfd5401)
+
+![image](https://immybot.blob.core.windows.net/release-media/4c710593-4424-4137-8ec5-6377664ac721)
+
+
+## Improvements
+
+- You can now link ImmyBot tenants to Azure tenants (including partner tenants) from the Tenant Edit page
+- You can now have multiple MSP tenants
+- ImmyBot tenants can be upgraded to MSP tenants from the Tenant Edit page
+- You can now include msp tenants when creating cross-tenant deployments and schedules
+- You can now give MSP Non-Admins the ability to manage cross-tenant deployments that do not affect the MSP tenant using the "Can manage cross-tenant deployments" option on the User Edit page
+- Non-MSP-Admin users with the "Can manage cross-tenant deployments" permission will automatically (and unalterably) have "Include MSP Tenants" unchecked when creating cross-tenant deployments and schedules
+- Only MSP Admin users can check the "Include MSP Tenants" box on Deployments and Schedules
+- Improved performance of loading maintenance sessions with hundreds of actions
+- Added a background service that periodically checks for online computers that have pending connectivity sessions and runs them
+- Fixed a potential deadlock issue using `Invoke-AtomicCommand`, and added inherit internal 'watch/guard dogs' for `Invoke-AtomicCommand` and `Invoke-CachedCommand` with the capability to kill scripts that are detected to be in a deadlock state so other lock-waiters may continue.
+- Prevented recurring inventory jobs from retrying to connect an ephemeral agent more than once so we can quickly move on to the next computer needing inventory
+- You can now target provider client groups (e.g. CW Manage Agreement Products) with cloud tasks
+- Reduced memory footprint of some session related data
+- Added an Agents tab to the Integration Details Page if the integration supports listing agents.
+- Saving a script in the script editor now shows a loading icon in the tab and disables the buttons to prevent multiple requests
+- The software dropdown on the license details page is now limited to software that support licenses
+- Added text to the maintenance ordering page that explains that onboarding actions will always be executed at the beginning of the session in the order that they are listed.
+- `Get-Hash` cmdlet now supports an additional `AsHex` switch to get a hexadecimal output.
+
+## Bug Fixes
+- Fixed an issue with PPKGs not setting the password
+- Fixed an issue where a session would fail with "Uncaught exception running maintenance session. Computer does not have any enabled agents that support running scripts"
+- Fixed an issue where updating a schedule would bring you back to the computer list page
+- Added some additional logging around the Immy Agent when attempting to establish an ephemeral agent connection
+- Fixed possible errors that could occur after an IoT Hub has been removed
+- Fixed an issue where exporting to Excel from dashboard would fail if there are multiple maintenance items with the same name
+- Fixed a bug where GDAP Customer would incorrectly show up as a warning in certain circumstances, causing confusion consenting as GDAP Azure Customers
+- Fixed an issue where Automate patches were being performed on action reruns
+- Fixed an issue where Automate patches were not being performed during manual onboarding
+- Fixed an issue where there was one non-dismissible notification for a recommended deployment
+- Fixed an issue where the Provider Audit table would cause an `IAsyncEnumerableReader` error to be thrown.
+- Fixed a potential script deadlock issue when using `Invoke-CommandCached`
+- Fixed an issue where the `ExtraData` property from an IProvider was inaccessible.
+- Fixed an issue where some dynamic form bind errors were not showing in the script editor
+- Fixed an issue with persons selected to be notified on onboarding screen not showing up
+- Fixed an issue updating tenant slugs on the tenant list page
+- Fixed an issue where licenses were failing to be updated
+- Fixed an issue where versions listed on the software details page were not sorting by version correctly
+- Fixed an issue with ImmyAgent EXE installers being corrupted during download.
+- Fixed an issue where integrations would sometimes become unhealthy on startup with "The JSON value could not be converted to System.Boolean...`
+- The "More Actions" link on global software is now hidden for non-immybot-core users since no actions can be taken
+- Fixed an issue on the dashboard table where the company column was not sorting or filtering
+- Fixed an issue where users could update/delete the ImmyAgent integration which could potentially cause issues
+- Fixed an ordering issue on the deployment page where the cross-tenant tag target type was showing a lower priority than integration target types
+- Added a log interceptor that can be used for dynamic and built-in integrations to log method calls
+- Fixed an issue where deployments targeting cross-tenant tags were incorrectly taking priority over several other more specific deployments
+- Intellisense continues to work after closing all editor tabs and opening another one.
+- Fixed an issue with minimum version deployments where the action would update the version even when the detected version was greater than the specified minimum version
+
 # 0.57.6
 
 Released 08-10-23
