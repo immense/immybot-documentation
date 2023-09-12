@@ -427,7 +427,7 @@ $MatchingUsers = Get-ADUser -Filter * | ?{$_.SAMAccountName -like "Admin*" }
 $MatchingUser = $MatchingUsers | ShouldHave-One -TakeFirst
 ```
 
-## Dynamic Parameters
+## Parameters
 
 Dynamic parameters allow you to define which parameters should be visible to the technician, while hiding others or setting their defaults.
 
