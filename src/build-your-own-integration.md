@@ -110,4 +110,3 @@ return $Integration
 
 #### Dynamic Integration Capabilities
 * List Customers from the remote system so they can be mapped in the ImmyBot UI
-* 
