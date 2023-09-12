@@ -431,12 +431,11 @@ $MatchingUser = $MatchingUsers | ShouldHave-One -TakeFirst
 
 Dynamic parameters allow you to define which parameters should be visible to the technician, while hiding others or setting their defaults.
 
-![image](https://github.com/immense/immybot-documentation/assets/31077619/420a42c0-815c-4d2c-8081-4a795fc6529b)
-
-
 ### New-OAuthConsentParameter
 
-Allows you to leverage OAuth to interact with third-party services.
+The New-OAuthConsentParameter allows you to leverage OAuth2 to interact with third-party services/APIs.
+
+Note: If you want to pass a client_secret you have to use the dynamic param block
 #### Usage
 
 ```powershell
@@ -445,12 +444,29 @@ New-OAuthConsentParameter [-Name] <string> [-ResponseType <string>] [-Scope <str
 
 #### Examples
 
+##### Dynamic Param Block
 ```powershell
 dynamicparam
     {
         New-ParameterCollection @(
+            # The variable $RefreshToken now contains the OAuth response
             New-OAuthConsentParameter -Name RefreshToken -ResponseType code -AuthorizationEndpoint "<AUTH_ENDPOINT>" -TokenEndpoint "<TOKEN_ENDPOINT>" -ClientID '<CLIENT_ID>' -ClientSecret '<CLIENT_SECRET>'  -Scope "<SCOPE>" -Mandatory
-        )
-
+        )        
     }
+```
+
+##### Param Block
+```powershell
+param(
+    [Parameter(Mandatory)]
+    [OAuthConsent(
+        authorizationEndpoint = "<AUTH_ENDPOINT>",
+        tokenEndpoint = "<TOKEN_ENDPOINT>", 
+        responseType = "<RESPONCE_CODE>", 
+        resource = "<RESOURCE>",
+        scope = "<SCOPE>", 
+        ClientId = "<CLIENT_ID>",
+        extraQueryParameters = $null)]
+    $OAuthInfo
+)
 ```
