@@ -74,6 +74,7 @@ module.exports = {
         title: "Integrations",
         collapsable: false,
         children: [
+          "build-your-own-integration",
           "connectwise-automate-integration-setup",
           "connectwise-control-integration-setup",
           "connectwise-manage-integration-setup",
