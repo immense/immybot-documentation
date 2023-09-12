@@ -426,3 +426,31 @@ If you simply want to take the first element but warn if there are multiple, use
 $MatchingUsers = Get-ADUser -Filter * | ?{$_.SAMAccountName -like "Admin*" }
 $MatchingUser = $MatchingUsers | ShouldHave-One -TakeFirst
 ```
+
+## Dynamic Parameters
+
+Dynamic parameters allow you to define which parameters should be visible to the technician, while hiding others or setting their defaults.
+
+![image](https://github.com/immense/immybot-documentation/assets/31077619/420a42c0-815c-4d2c-8081-4a795fc6529b)
+
+
+### New-OAuthConsentParameter
+
+Allows you to leverage OAuth to interact with third-party services.
+#### Usage
+
+```powershell
+New-OAuthConsentParameter [-Name] <string> [-ResponseType <string>] [-Scope <string[]>] [-AuthorizationEndpoint <uri>] [-TokenEndpoint <uri>] [-Resource <string>] [-ClientId <string>] [-ClientSecret <string>] [-ExtraQueryParameters <hashtable>] [-AllowNull] [-DefaultValue <Object>] [-HelpMessage <string>] [-Hidden] [-Mandatory] [-Position <int>] [-Type <type>] [-ValidatePattern <string>] [-ValidatePatternErrorMessage <string>] [-ValidValues <string[]>] [-ValueFromPipeline] [-ValueFromPipelineByPropertyName] [-ValueFromRemainingArguments] [-ValidateScript <scriptblock>] [-ParameterSetName <string>] [<CommonParameters>]
+```
+
+#### Examples
+
+```powershell
+dynamicparam
+    {
+        New-ParameterCollection @(
+            New-OAuthConsentParameter -Name RefreshToken -ResponseType code -AuthorizationEndpoint "<AUTH_ENDPOINT>" -TokenEndpoint "<TOKEN_ENDPOINT>" -ClientID '<CLIENT_ID>' -ClientSecret '<CLIENT_SECRET>'  -Scope "<SCOPE>" -Mandatory
+        )
+
+    }
+```
