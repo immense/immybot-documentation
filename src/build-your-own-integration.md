@@ -2,9 +2,11 @@
 
 The goal of this feature is primarily for our own use to more rapidly implement integrations with other RMMs and PSA, but we have opened it up for you to create your own integrations as well.
 
-![Alt text](image.png)
+![image](https://github.com/immense/immybot-documentation/assets/31077619/ebdbfab0-a149-4d0d-8e56-cad8291df879)
 
-![Alt text](image-1.png)
+
+![image](https://github.com/immense/immybot-documentation/assets/31077619/f5a9d865-2a7d-4843-9a58-298557dd674d)
+
 
 #### Example: SentinelOne (Implemented in Global already)
 ```powershell
@@ -103,7 +105,8 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsTenantUninst
 return $Integration
 ```
 
-![Alt text](image-2.png)
+![image](https://github.com/immense/immybot-documentation/assets/31077619/67ea8b15-0ae9-44e6-b3e0-9de250b15010)
+
 
 #### Dynamic Integration Capabilities
 * List Customers from the remote system so they can be mapped in the ImmyBot UI
