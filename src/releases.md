@@ -1,10 +1,29 @@
 # 0.58.0
 
-Released 09-08-23
+Released 09-13-23
 
-## PowerShell WebHooks
+## Bring Your Own Integrations
 
-This can be used to map Toast buttons to actions in Immy
+The goal of this feature is primarily for our own use to more rapidly implement integrations with other RMMs and PSA, but we have opened it up for you to create your own integrations as well.
+
+[https://docs.immy.bot/build-your-own-integration.html](https://docs.immy.bot/build-your-own-integration.html)
+
+## New Parameter New-OAuthConsentParameter
+
+This parameter creates a button that will perform the oauth code authorization flow and allow you to use the response in the script.
+
+[https://docs.immy.bot/scripts.html#parameters](https://docs.immy.bot/scripts.html#parameters)
+
+## Agent Tracking
+The Computer -> Agents tab now includes all agents, not just ones used to run scripts. This is preparation for the upcoming computer/tenant offboarding feature. Which will allow us to not only uninstall the agents from the machine but de-provision them from their respective platforms.
+
+##  Metascript WebHooks
+
+You can now receive web requests from within Metascripts.
+
+The webhook URL is *{your-domain}.immy.bot/api/v1/webhooks/{web-hook-id}*, and it accepts Post and Get requests. The webhook id can be retrieved from `$Hook.Id`
+
+An example scenario is this can be used to map Toast buttons to actions in ImmyBot.
 
 ```powershell
 $Hook = New-ImmyWebHook
@@ -17,12 +36,9 @@ $Hook | Wait-ImmyWebHook
 Write-Host "Got WebHook!"
 ```
 
-## Atomic and Cached Operations
+## Atomic and Cache Cmdlets
 
-Added 3 new PowerShell Cmdlets.
-1. `Set-CacheKeyExpiration`
-2. `Invoke-CommandCached`
-3. `Invoke-AtomicCommand`
+Added 3 new Cmdlets, `Set-CacheKeyExpiration` , `Invoke-CommandCached`, and `Invoke-AtomicCommand`
 
 ![image](https://immybot.blob.core.windows.net/release-media/24ae8f1d-08ee-4bfb-9bd7-daf35a69c869)
 
@@ -30,30 +46,29 @@ Added 3 new PowerShell Cmdlets.
 
 ![image](https://immybot.blob.core.windows.net/release-media/4c710593-4424-4137-8ec5-6377664ac721)
 
-
-## Improvements
-
-- You can now link ImmyBot tenants to Azure tenants (including partner tenants) from the Tenant Edit page
-- You can now have multiple MSP tenants
-- ImmyBot tenants can be upgraded to MSP tenants from the Tenant Edit page
-- You can now include msp tenants when creating cross-tenant deployments and schedules
-- You can now give MSP Non-Admins the ability to manage cross-tenant deployments that do not affect the MSP tenant using the "Can manage cross-tenant deployments" option on the User Edit page
-- Non-MSP-Admin users with the "Can manage cross-tenant deployments" permission will automatically (and unalterably) have "Include MSP Tenants" unchecked when creating cross-tenant deployments and schedules
-- Only MSP Admin users can check the "Include MSP Tenants" box on Deployments and Schedules
+## Other Improvements
+- Error text for deployment parameters now show as markdown
+- Added Completion for Attribute parameters
+- Immy-specific core types no longer tab complete to lowercase
+- Immy-specific Attributes like DropdownAttribute and OAuthConsentAttribute no longer tab-complete to include "Attribute"
+- Remote control can now automatically reconnect after logging off a Windows user or rebooting the computer.
 - Improved performance of loading maintenance sessions with hundreds of actions
 - Added a background service that periodically checks for online computers that have pending connectivity sessions and runs them
-- Fixed a potential deadlock issue using `Invoke-AtomicCommand`, and added inherit internal 'watch/guard dogs' for `Invoke-AtomicCommand` and `Invoke-CachedCommand` with the capability to kill scripts that are detected to be in a deadlock state so other lock-waiters may continue.
+- `Get-Hash` cmdlet now supports an additional `AsHex` switch to get a hexadecimal output.
 - Prevented recurring inventory jobs from retrying to connect an ephemeral agent more than once so we can quickly move on to the next computer needing inventory
 - You can now target provider client groups (e.g. CW Manage Agreement Products) with cloud tasks
 - Reduced memory footprint of some session related data
 - Added an Agents tab to the Integration Details Page if the integration supports listing agents.
 - Saving a script in the script editor now shows a loading icon in the tab and disables the buttons to prevent multiple requests
+- You can now link ImmyBot tenants to Azure tenants (including partner tenants) from the Tenant Edit page
+- You can now have multiple MSP tenants
+- ImmyBot tenants can be upgraded to MSP tenants from the Tenant Edit page
 - The software dropdown on the license details page is now limited to software that support licenses
 - Added text to the maintenance ordering page that explains that onboarding actions will always be executed at the beginning of the session in the order that they are listed.
-- `Get-Hash` cmdlet now supports an additional `AsHex` switch to get a hexadecimal output.
-
+- Added a log interceptor that can be used for dynamic and built-in integrations to log method calls
+- Implemented `ISupportsAgentUninstallToken` and `Get-IntegrationAgentUninstallToken` (for SentinelOne) and removed the need for specifying the clientid
 ## Bug Fixes
-- Fixed an issue with PPKGs not setting the password
+- Fixed issue where Computers running ImmyAgent < 0.51.0 and no other agents failed to establish an Ephemeral connection.
 - Fixed an issue where a session would fail with "Uncaught exception running maintenance session. Computer does not have any enabled agents that support running scripts"
 - Fixed an issue where updating a schedule would bring you back to the computer list page
 - Added some additional logging around the Immy Agent when attempting to establish an ephemeral agent connection
@@ -77,10 +92,10 @@ Added 3 new PowerShell Cmdlets.
 - Fixed an issue on the dashboard table where the company column was not sorting or filtering
 - Fixed an issue where users could update/delete the ImmyAgent integration which could potentially cause issues
 - Fixed an ordering issue on the deployment page where the cross-tenant tag target type was showing a lower priority than integration target types
-- Added a log interceptor that can be used for dynamic and built-in integrations to log method calls
-- Fixed an issue where deployments targeting cross-tenant tags were incorrectly taking priority over several other more specific deployments
-- Intellisense continues to work after closing all editor tabs and opening another one.
-- Fixed an issue with minimum version deployments where the action would update the version even when the detected version was greater than the specified minimum version
+- Fixed a wrapping issue with the new integration page
+- Fixed an issue where non-msp users could not see their tenant's filter script deployments
+- Made Get-ImmyAzureAuthHeader cmdlet respect the app registration that the customer was consented with
+- Fixed an issue where computers show licensed even when they haven't had maint in the current usage period
 
 # 0.57.6
 
