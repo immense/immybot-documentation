@@ -7,7 +7,7 @@ hero:
   text: ""
   tagline: "Documentation"
   image:
-    src: ./.vitepress/images/logo-256x256.png
+    src: ./public/logo-256x256.png
     alt: ImmyBot
   actions:
     - theme: brand
