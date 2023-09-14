@@ -10,7 +10,7 @@ export default withMermaid({
     hostname: 'https://docs.immy.bot'
   },
   themeConfig: {
-    logo: './public/immybot-glasses.png',
+    logo: '/immybot-glasses.png',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
