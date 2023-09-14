@@ -167,7 +167,7 @@ You can add your own Deployments and re-run this session as many times as you li
 Onboarding is the process of specifying inputs like Customer and Primary user, and running the a [Maintenance Session](#maintenance-session) to bring a machine into compliance with the Deployments associated with those inputs.
 
 ::: tip
-You may have customers that setup their own machines and install your RMM agent. To prevent these machines from building up in the New Computers area, you can disable Onboarding for that customer by going to Tenants-><Tenant Name>->Preferences->Onboarding.
+You may have customers that setup their own machines and install your RMM agent. To prevent these machines from building up in the New Computers area, you can disable Onboarding for that customer by going to Tenants -> Tenant Name -> Preferences -> Onboarding.
 :::
 
 ### Tenants
