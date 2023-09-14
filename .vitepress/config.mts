@@ -37,7 +37,7 @@ export default withMermaid({
           { text: 'ConnectWise Manage', link: '/connectwise-manage-integration-setup' },
           { text: 'N-Central', link: '/ncentral-integration-setup' },
           { text: 'HaloPSA', link: '/halo-integration-setup' },
-          { text: 'Azure', link: '/azure-integration' },
+          { text: 'Azure', link: '/azure-graph-permissions-setup' },
         ],
       },
       {
