@@ -1,23 +1,13 @@
 {
-  "name": "vuepress-demo",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "authors": {
-    "name": "",
-    "email": ""
-  },
-  "repository": "/vuepress-demo",
-  "scripts": {
-    "dev": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress dev src",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && vuepress build src"
-  },
-  "license": "MIT",
   "devDependencies": {
-    "vuepress": "^1.9.2",
-    "vuepress-plugin-mermaidjs": "^1.8.1"
+    "mermaid": "^10.4.0",
+    "vitepress": "^1.0.0-rc.13",
+    "vitepress-plugin-mermaid": "^2.0.14",
+    "vue": "^3.3.4"
   },
-  "dependencies": {
-    "vuepress-plugin-sitemap": "^2.3.1"
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
   }
 }

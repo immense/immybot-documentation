@@ -17,6 +17,6 @@ yarn install
 To host locally, run
 
 ```
-yarn run dev
+yarn docs:dev
 ```
 

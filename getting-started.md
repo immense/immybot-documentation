@@ -107,17 +107,17 @@ If you don't already have an ImmyBot instance, sign-up for a trial at [https://w
 
 You will receive a welcome email, click Setup ImmyBot:
 
-![](./.vuepress/images/2021-03-15-08-26-56.png)
+![](./.vitepress/images/2021-03-15-08-26-56.png)
 
-![](./.vuepress/images/2021-03-15-08-27-10.png)
+![](./.vitepress/images/2021-03-15-08-27-10.png)
 
 Do something else for 6 minutes. Or 9 minutes if you are in Australia. It takes longer there for some reason.
 
 You’ll receive this email when your instance is ready:
 
-![](./.vuepress/images/2021-03-15-08-27-20.png)
+![](./.vitepress/images/2021-03-15-08-27-20.png)
 
-![](./.vuepress/images/2021-03-15-08-27-29.png)
+![](./.vitepress/images/2021-03-15-08-27-29.png)
 
 ## Setup your first Computer
 
@@ -167,7 +167,7 @@ You can add your own Deployments and re-run this session as many times as you li
 Onboarding is the process of specifying inputs like Customer and Primary user, and running the a [Maintenance Session](#maintenance-session) to bring a machine into compliance with the Deployments associated with those inputs.
 
 ::: tip
-You may have customers that setup their own machines and install your RMM agent. To prevent these machines from building up in the New Computers area, you can disable Onboarding for that customer by going to Tenants-><Tenant Name>->Preferences->Onboarding.
+You may have customers that setup their own machines and install your RMM agent. To prevent these machines from building up in the New Computers area, you can disable Onboarding for that customer by going to Tenants -> Tenant Name -> Preferences -> Onboarding.
 :::
 
 ### Tenants
@@ -219,20 +219,20 @@ Enable-WindowsOptionalFeature -FeatureName "Containers-DisposableClientVM" -All 
 
 #### Download Windows Sandbox file (.wsb)
 
-![](./.vuepress/images/2021-03-15-08-29-07.png)
+![](./.vitepress/images/2021-03-15-08-29-07.png)
 
-![](./.vuepress/images/2021-03-15-08-29-35.png)
+![](./.vitepress/images/2021-03-15-08-29-35.png)
 
 Wait for ImmyBot Agent to install
-![](./.vuepress/images/2021-03-15-08-29-41.png)
+![](./.vitepress/images/2021-03-15-08-29-41.png)
 
 
 [Onboard](#onboarding) the Sandbox
-![](./.vuepress/images/2021-03-15-08-30-29.png)
+![](./.vitepress/images/2021-03-15-08-30-29.png)
 
-![](./.vuepress/images/2021-03-15-08-47-28.png)
+![](./.vitepress/images/2021-03-15-08-47-28.png)
 
-![](./.vuepress/images/2021-03-15-08-37-50.png)
+![](./.vitepress/images/2021-03-15-08-37-50.png)
 
 This will create an "Onboarding" Session (sessions are like running gpupdate) that will apply all applicable Deployments (deployments are like Group Policies)
 
@@ -251,21 +251,21 @@ Approve that access from a yellow indicator at the top of the screen.
 
 If you haven't consented to allow Immy to read your AzureAD, you'll need to know the users' Object ID:
 
-![](./.vuepress/images/LoginImg1.png)
+![](./.vitepress/images/LoginImg1.png)
 
-![](./.vuepress/images/LoginImg2.png)
+![](./.vitepress/images/LoginImg2.png)
 
-![](./.vuepress/images/LoginImg3.png)
+![](./.vitepress/images/LoginImg3.png)
 
 Second, Make the Person a user
 
-![](./.vuepress/images/Loginimg4.png)
+![](./.vitepress/images/Loginimg4.png)
 
 (Optional) Make that User an Admin.
 
-![](./.vuepress/images/LoginImg6-1024x100.png)
+![](./.vitepress/images/LoginImg6-1024x100.png)
 
-![](./.vuepress/images/LoginImg7.png)
+![](./.vitepress/images/LoginImg7.png)
 
 ## User Roles
 
@@ -305,7 +305,7 @@ Note: You won't see the word "Assignment" in the user interface anywhere, but we
 
 A deployment is a rule that assigns [Software](#software) or [Tasks](#task) (Collectively known as "Maintenance Items") to a [Target](#target).
 
-![](./.vuepress/images/2021-03-01-08-42-41.png)
+![](./.vitepress/images/2021-03-01-08-42-41.png)
 
 Deployments are conceptually similar to Group Policies in that they assign settings to a group of users or computers.
 
@@ -328,11 +328,11 @@ Let's say you have a customer "Contoso" that uses Adobe Acrobat instead of Adobe
 
 First, create a Deployment that sets the desired state of Adobe Reader to Uninstalled for Contoso
 
-![](./.vuepress/images/2021-03-01-08-44-19.png)
+![](./.vitepress/images/2021-03-01-08-44-19.png)
 
 Then, create a Deployment that Installs Adobe Acrobat for their computers
 
-![](./.vuepress/images/2021-03-01-08-51-38.png)
+![](./.vitepress/images/2021-03-01-08-51-38.png)
 
 ### [Target](#target)
 A "[Target](#target)" is a grouping of computers (or Tenants in the case of "Cloud Tasks")
@@ -363,11 +363,11 @@ That's a [Maintenance Session](#maintenance-session).
 
 You can view [Maintenance Sessions](#maintenance-session) for all computers under Computers->Sessions
 
-![](./.vuepress/images/2021-02-23-08-47-36.png)
+![](./.vitepress/images/2021-02-23-08-47-36.png)
 
 Or, you can view [Maintenance Sessions](#maintenance-session) for a specific Computer under the Sessions tab for that Computer
 
-![](./.vuepress/images/2021-02-23-08-46-09.png)
+![](./.vitepress/images/2021-02-23-08-46-09.png)
 
 ### [Maintenance Session](#maintenance-session) Stages
 
@@ -379,7 +379,7 @@ This is a read-only process, and typically done while the user is active. This i
 
 #### Execution Stage
 
-![](./.vuepress/images/2021-02-23-09-44-51.png)
+![](./.vitepress/images/2021-02-23-09-44-51.png)
 
 ### [Maintenance Action](#maintenance-action)
 
@@ -403,7 +403,7 @@ A *[Maintenance Session](#maintenance-session)* has one or more *[Maintenance Ac
 
 The image below depicts a typical [Maintenance Session](#maintenance-session) with many [Maintenance Actions](#maintenance-action)
 
-![](./.vuepress/images/2021-02-23-06-14-05.png)
+![](./.vitepress/images/2021-02-23-06-14-05.png)
 
 ### Software
 Software, in the context of ImmyBot refers to Software objects in My Software or Global Software.
@@ -435,10 +435,10 @@ Common uses for Pre-Requisites include
 
 #### Install required dependencies
 
-![](./.vuepress/images/2021-02-23-09-18-04.png)
+![](./.vitepress/images/2021-02-23-09-18-04.png)
 
 #### Ordering [Maintenance Actions](#maintenance-action)
-![](./.vuepress/images/2021-02-23-09-15-27.png)
+![](./.vitepress/images/2021-02-23-09-15-27.png)
 
 ### Detection Method
 A Detection Method is required in order to know whether or not a piece of Software is installed on a machine.
@@ -503,7 +503,7 @@ Runs in the ImmyBot backend, and can spawn code on the system by using Invoke-Im
 #### Cloud Script
 Runs in the ImmyBot backend, but intended to be run against a Tenant (perhaps for the purpose of getting or setting some setting in 365/Azure or some other system with an API). These are used exclusively in [Tasks](#task) targetting "Tenants".
 
-![](./.vuepress/images/2021-03-01-14-17-29.png)
+![](./.vitepress/images/2021-03-01-14-17-29.png)
 
 ### Schedules
 Used to run maintenance periodically on machines. Can optionally be limited to a single Maintenance Item.
@@ -514,13 +514,13 @@ NOTE You must also have a Deployment for the Maintenance Item to set the desired
 
 To ImmyBot, an RMM is a system that provides a list of computers, and a mechanism to run PowerShell scripts on them.
 
-![](./.vuepress/images/2021-02-23-06-18-23.png)
+![](./.vitepress/images/2021-02-23-06-18-23.png)
 
 To avoid having to deploy the ImmyAgent to existing machines, ImmyBot optionally integrates with RMMs like ConnectWise Automate and ConnectWise Control and uses their agents instead. These systems are not as performant as the ImmyAgent, but can suppliment ImmyBot functionality.
 
 For example, if you add an RMM Link for ConnectWise Control, you can open a remote session to the computer directly within ImmyBot:
 
-![](./.vuepress/images/2021-02-23-06-34-22.png)
+![](./.vitepress/images/2021-02-23-06-34-22.png)
 
 If you add an RMM integration for ConnectWise Automate, Scheduled [Maintenance Sessions](#maintenance-session) will apply all Approved Windows Updates using the ConnectWise Automate API based on your Approval Policies in Automate Patch Manager.
 
@@ -531,7 +531,7 @@ You can even add multiple RMMs of the same type, which is often useful in merger
 Because the same computer often exists in multiple RMMs (Like how CW Automate typically installs CW Control Automatically), ImmyBot prevents duplicates by identifying the computer by a unique id. We DO NOT use MAC Address! This unique id persists even if you wipe and reload the machine.
 
 When a new machine is detected, it first goes to New Computers->Actively Identifying
-![](./.vuepress/images/2021-02-23-06-44-25.png)
+![](./.vitepress/images/2021-02-23-06-44-25.png)
 
 It uses the following script to collect the UUID from the machine:
 ```
@@ -546,7 +546,7 @@ If it is a machine ImmyBot has seen before, it will be associated to the existin
 
 Computers can have one or more RmmComputers(Agents). You can think of these as logical "pathways" to the computer. We only need one to be online to function.
 
-![](./.vuepress/images/2021-02-23-06-45-47.png)
+![](./.vitepress/images/2021-02-23-06-45-47.png)
 
 ## Identification Failures
 
