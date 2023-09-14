@@ -52,7 +52,7 @@ export default withMermaid({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/immense/immybot-documentation' }
     ],
     search: {
       provider: 'algolia',
