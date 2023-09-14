@@ -23,11 +23,11 @@ In this mode, you create an app registration and provide its credentials to Immy
 
 Navigate to: <https://aad.portal.azure.com/>
 
-![](./.vuepress/images/2020-12-07-15-46-18.png)
+![](./.vitepress/images/2020-12-07-15-46-18.png)
 
-![](./.vuepress/images/2020-12-07-15-47-07.png)
+![](./.vitepress/images/2020-12-07-15-47-07.png)
 
-![](./.vuepress/images/2022-12-12_10-42-55.png)
+![](./.vitepress/images/2022-12-12_10-42-55.png)
 
 **Important!** Your app registration must have a Web redirect uri of `https://<your-domain>.immy.bot/consent-callback`, replacing `<your-domain>` appropriately
 
@@ -35,7 +35,7 @@ Navigate to: <https://aad.portal.azure.com/>
 
 See the screenshots below for the minimum permissions.
 
-![](./.vuepress/images/2020-12-07-15-47-33.png)
+![](./.vitepress/images/2020-12-07-15-47-33.png)
 
 ![image](https://github.com/immense/immybot-documentation/assets/1424395/24640a0d-b078-4575-8125-e035788f06e8)
 
@@ -43,27 +43,27 @@ See the screenshots below for the minimum permissions.
 
 ### Create Client Secret
 
-![](./.vuepress/images/2021-08-16-13-19-15.png)
+![](./.vitepress/images/2021-08-16-13-19-15.png)
 
-![](./.vuepress/images/2021-08-16-13-20-45.png)
+![](./.vitepress/images/2021-08-16-13-20-45.png)
 
-![](./.vuepress/images/2021-08-16-13-23-26.png)
+![](./.vitepress/images/2021-08-16-13-23-26.png)
 
-### Assign GDAP Permissions to ImmyBot Service Principal 
+### Assign GDAP Permissions to ImmyBot Service Principal
 - Create a Security Group in Azure AD called "ImmyBot Security Group"
 - Add the ImmyBot Service Principal to that group
 - For each customer in the Partner Center, add the "ImmyBot Security Group" and add the "Directory Readers" and "Global Reader" role.
 
 ### Add to Admin Agents Group (Legacy DAP)
 
-![](./.vuepress/images/2020-12-07-15-48-22.png)
+![](./.vitepress/images/2020-12-07-15-48-22.png)
 
-![](./.vuepress/images/2020-12-07-15-48-26.png)
+![](./.vitepress/images/2020-12-07-15-48-26.png)
 
-![](./.vuepress/images/2020-12-07-15-48-31.png)
+![](./.vitepress/images/2020-12-07-15-48-31.png)
 
-![](./.vuepress/images/2020-12-07-15-48-35.png)
+![](./.vitepress/images/2020-12-07-15-48-35.png)
 
-![](./.vuepress/images/2020-12-07-15-48-38.png)
+![](./.vitepress/images/2020-12-07-15-48-38.png)
 
 ### Copy the `Application (client) ID` and `Client Secret Value` into the form in ImmyBot.

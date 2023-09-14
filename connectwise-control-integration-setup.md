@@ -9,16 +9,16 @@ Setting up this integration allows you to
 
 ## Install ImmyBot Extension for Control
 
-![](./.vuepress/images/2021-03-23-19-12-34.png)
+![](./.vitepress/images/2021-03-23-19-12-34.png)
 
-![](./.vuepress/images/2021-03-23-19-13-56.png)
+![](./.vitepress/images/2021-03-23-19-13-56.png)
 
-![](./.vuepress/images/2021-03-23-19-17-38.png)
+![](./.vitepress/images/2021-03-23-19-17-38.png)
 
 ## Create RMMLink for Control
 
-![](./.vuepress/images/2022-01-26-00-11-38.png)
-![](./.vuepress/images/2022-01-26-00-09-33.png)
+![](./.vitepress/images/2022-01-26-00-11-38.png)
+![](./.vitepress/images/2022-01-26-00-09-33.png)
 
 FAQ
 What custom property do I use?
@@ -30,19 +30,19 @@ https://docs.connectwise.com/ConnectWise_Control_Documentation/Get_started/Admin
 
 ## Import your customers
 
-![](./.vuepress/images/2021-03-23-18-57-19.png)
+![](./.vitepress/images/2021-03-23-18-57-19.png)
 
-![](./.vuepress/images/2021-03-23-19-01-36.png)
+![](./.vitepress/images/2021-03-23-19-01-36.png)
 
 Alternatively, you can create/map only certain customers.
 
 When you map a customer from an RMM, the computers will undergo Identification
 
-![](./.vuepress/images/2021-03-23-19-21-03.png)
+![](./.vitepress/images/2021-03-23-19-21-03.png)
 
-![](./.vuepress/images/2021-03-23-19-24-06.png)
+![](./.vitepress/images/2021-03-23-19-24-06.png)
 
-![](./.vuepress/images/2021-03-23-19-08-30.png)
+![](./.vitepress/images/2021-03-23-19-08-30.png)
 
 ## Troubleshooting
 
@@ -63,7 +63,7 @@ Access Sessions: Purge records of session connections older than 7 days for Host
 
 ![image](https://user-images.githubusercontent.com/1424395/160918906-6d6c0485-fe57-4ff8-b52f-99fa03b4cd74.png)
 
-### Manual Cleanup 
+### Manual Cleanup
 
 If you host Control yourself, you can restore performance by doing the following
 
@@ -80,7 +80,7 @@ update SessionConnectionEvent set EventAttributes = 1 where EventType = 70;
 You will need to commit the changes in DB Browser. You can do this by clicking Write Changes at the top by clicking File->Save
 If you forget to tdo this it will prompt you to commit the changes, when you exit, click yes.
 
-The reason this works is because the UI doesn't fetch soft-deleted items, so things become much snappier. 
+The reason this works is because the UI doesn't fetch soft-deleted items, so things become much snappier.
 
 However, if it doesn't work, do you following
 
