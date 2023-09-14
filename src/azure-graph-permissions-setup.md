@@ -1,25 +1,31 @@
 # AzureAD/365 Graph Permissions
 
-Enabling this allows ImmyBot to
+Your first ImmyBot tenant will be automatically linked to the Azure tenant that you signed up for ImmyBot with. You can link other ImmyBot tenants to Azure from the tenant Azure tab.
 
-1. Sync all users from your partner tenant
-2. Sync all users from your customer's tenants
+## Linking to an Azure Tenant
+
+After creating an ImmyBot tenant, link it to an Azure tenant by navigating to the Azure tab in ImmyBot and entering the Azure tenant's principal id or domain and clicking `Save`.
+
+## Azure Permission Level
+
+Once your ImmyBot tenant has been linked to Azure, you can set the **Azure Permission Level** from the tenant Azure tab. This allows ImmyBot to:
+
+1. Sync all users from the Azure tenant
+2. Sync all users from your customer's tenants (if your Azure tenant is a Partner tenant)
 3. Install the 365 applications a user is licensed for (Apps for business/Apps for entrprise/Project/Visio)
 4. Deploy software to Teams, On-Premises Security Groups (Ex. Everyone in the Engineering Team gets AutoCAD 2022)
 
-## Default
+The **Azure Permission Level** has two options: _Default_ and _Custom_
+
+### Default
 
 In this mode, you don't need to create an app registration. You consent as an administrator, allowing ImmyBot access users in your tenant.
 
-[GDAP Customer Syncing](#gdap-customer-syncing) can be enabled in this mode.
+### Custom
 
-## Custom
+In this mode, you create an app registration and provide its credentials to ImmyBot.
 
-In this mode, you create an app registration and provide its credentials to ImmyBot. This mode is required if you want to be able to [sync non-GDAP customers](#csp-preconsent).
-
-[GDAP Customer Syncing](#gdap-customer-syncing) can be enabled in this mode.
-
-### Create an App Registration
+#### Create an App Registration
 
 Navigate to: <https://aad.portal.azure.com/>
 
@@ -31,7 +37,7 @@ Navigate to: <https://aad.portal.azure.com/>
 
 **Important!** Your app registration must have a Web redirect uri of `https://<your-domain>.immy.bot/consent-callback`, replacing `<your-domain>` appropriately
 
-### Grant Permissions
+#### Grant Permissions
 
 See the screenshots below for the minimum permissions.
 
@@ -41,7 +47,7 @@ See the screenshots below for the minimum permissions.
 
 ![image](https://github.com/immense/immybot-documentation/assets/1424395/f5c4ec0f-35f2-49ad-a690-7e940c187d0a)
 
-### Create Client Secret
+#### Create Client Secret
 
 ![](./.vuepress/images/2021-08-16-13-19-15.png)
 
@@ -49,21 +55,10 @@ See the screenshots below for the minimum permissions.
 
 ![](./.vuepress/images/2021-08-16-13-23-26.png)
 
-### Assign GDAP Permissions to ImmyBot Service Principal 
+#### Assign GDAP Permissions to ImmyBot Service Principal
+
 - Create a Security Group in Azure AD called "ImmyBot Security Group"
 - Add the ImmyBot Service Principal to that group
 - For each customer in the Partner Center, add the "ImmyBot Security Group" and add the "Directory Readers" and "Global Reader" role.
 
-### Add to Admin Agents Group (Legacy DAP)
-
-![](./.vuepress/images/2020-12-07-15-48-22.png)
-
-![](./.vuepress/images/2020-12-07-15-48-26.png)
-
-![](./.vuepress/images/2020-12-07-15-48-31.png)
-
-![](./.vuepress/images/2020-12-07-15-48-35.png)
-
-![](./.vuepress/images/2020-12-07-15-48-38.png)
-
-### Copy the `Application (client) ID` and `Client Secret Value` into the form in ImmyBot.
+#### Copy the `Application (client) ID` and `Client Secret Value` into the form in ImmyBot.
