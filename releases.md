@@ -1,5 +1,45 @@
 # Releases
 
+## 0.58.1
+
+Released 09-28-23
+
+### Improvements
+- Made errors that occur while interacting with the graph api show on the frontend to help guide the user on how to resolve common Azure configuration problems
+- Added the ability to specify a docs url for dynamic integrations that will be shown on the integration edit details page
+- Added the installer download url to the session log when attempting a BITS or basic download
+- ImmyBot now defaults to dark mode unless the browser preference is set to light
+- Moved immy support access preference to the top of the preferences page
+- Made Add-UriQueryParameter no longer require -Parameter when Uri is passed in via Pipeline
+- Added the ability to trigger an agent sync from an integration on the clients tab and agents tab
+- Added support for incoming http request inspection to integration audit logging
+- Added support for non-mandatory integration method parameters
+- Dynamic Integrations that support agents can now specify whether the agent supports an online/offline status. Some integrations were defaulting to always online which caused issues with the pending connectivity logic
+- Updated session log text about retrying to fetch PowerShell version
+- Added a better error message when a dynamic version script returns a newer version than what was detected previously in the session. The message is "The dynamic version script is returning a newer version than what was retrieved the last time the script was ran. If so, re-deploy this action. We will automatically handle this scenario in a future release."
+
+### Bug Fixes
+- Fixed an issue with onboarding and deployment parameters where the form would sometimes not render due to hidden errors. The errors are now visible in this case.
+- Fixed an issue on the onboarding form where values specified on the deployment form were not considered when resolving any errors
+- Fixed a bug where only the first 300 Azure customers of a partner tenant would show up in the Azure customer mapper
+- Fixed an issue where global software -> agent integration dropdown was showing local integrations
+- Fixed a bug where linking an az customer would incorrectly set the az tenant type as Standalone, preventing usage of the graph api for that customer
+- Fixed an issue where sessions would sometimes not show the computer name, and links to the computer would result in a 404
+- Fixed an issue where a license couldn't be deleted because it was used by a deployment that was no longer showing the license selector.  The selector now shows and the license can be successfully removed from the deployment
+- Fixed a rare issue where agents would fail to be synced if the integration reported multiple agents with the same agent id
+- Fixed an issue where `Immybot.Agent.Shared.dll` from the ImmyBot agent MSI installer was not signed
+- Fixed an issue where linking a dynamic integration client was removing other agents incorrectly during the sync
+- Fixed a bug where tenant select boxes couldn't be searched on provider client link pages
+- Fixed an issue where custom app reg could not be changed without first toggling permission level
+- Fixed an issue where reloading integration types would result in a permission error
+- Fixed an issue where the unlinked msp client banner would show up even when the msp client was linked
+- Fixed an issue that was preventing the ImmyBot agent's .dlls to be signed
+- Removed extra "$" in front of version in the dynamic version response
+- Removed the agent's client name from the agent tab to prevent confusion
+- Fixed an issue where a pending agent "Let Immy Try Agent" action was not working as expected
+- Fixed an issue where a script dropdown would show incorrect results if it was toggled to only show global scripts or toggled to only show local scripts
+- Fixed a "downlaod" typo in "Action To Take"
+
 ## 0.58.0
 
 Released 09-13-23
