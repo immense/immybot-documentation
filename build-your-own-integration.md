@@ -102,6 +102,24 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsTenantUninst
     return "implement me"
 }
 
+$Integration | Add-DynamicIntegrationCapability -Interface ISupportsHttpRequest -HandleHttpRequest {
+    [CmdletBinding()]
+    [OutputType([Microsoft.AspNetCore.Mvc.IActionResult])]
+    param(
+        [Parameter(Mandatory=$True)]
+        [Microsoft.AspNetCore.Http.HttpContext]$httpContext,
+        [Parameter(Mandatory=$false)]
+        $body,
+        [Parameter(Mandatory=$True)]
+        $route
+    )
+will response to  "plugins/api/v1/{providerLinkId}"
+    # handle a http request sent to this integration
+    # return an [ObjectResult] and set the status code
+    $res = [ObjectResult]::new('ok')
+    $res.StatusCode = 200;
+    return $res;
+}
 return $Integration
 ```
 
@@ -110,3 +128,40 @@ return $Integration
 
 #### Dynamic Integration Capabilities
 * List Customers from the remote system so they can be mapped in the ImmyBot UI
+* List Computers/Agents (Think RMM Agent, AV agent etc) from a remote system
+* Provide an inventory script that returns the agent id (that gets mapped to the id from the API)
+* Provide Tenant level install tokens automatically scoped based on the Customer mapping above
+* Disable/Enable Maintenance Mode/Learning Mode in remote systems during maintenance
+* Respond to HttpRequests in PowerShell (like an Azure PowerShell function) but utilizing the Metascript engine
+
+##### Example - Respond to webhook with ISupportsHttpRequest
+
+
+```powershell
+$Integration = New-DynamicIntegration -Init {
+    param()
+    [OpResult]::Ok()
+} -HealthCheck {
+    New-HealthyResult 
+} 
+$Integration | Add-DynamicIntegrationCapability -Interface ISupportsHttpRequest -HandleHttpRequest {
+    [CmdletBinding()]
+    [OutputType([Microsoft.AspNetCore.Mvc.IActionResult])]
+    param(
+        [Parameter(Mandatory=$True)]
+        [Microsoft.AspNetCore.Http.HttpContext]$httpContext,
+        [Parameter(Mandatory=$false)]
+        $body,
+        [Parameter(Mandatory=$True)]
+        $route
+    )
+    # handle a http request sent to this integration
+    # return an [ObjectResult] and set the status code
+    $res = [ObjectResult]::new('ok')
+    $res.StatusCode = 200;
+    return $res;
+}
+
+$Integration
+```
+<img width="688" alt="image" src="https://github.com/immense/immybot-documentation/assets/1424395/6bf7dd8b-3700-4414-aa57-ad6d8151245f">
