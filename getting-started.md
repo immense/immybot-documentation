@@ -643,6 +643,11 @@ DNS Filtering/Issues make the logs look like this
 ```
 To correct it, you need to exclude DNS filtering for your instances hostnames, which are found under
 	Show more > integrations > Fetch IP Address and Hostnames
+
+If Powershell is failing to start on the endpoint within 60 seconds a timeout will occur.
+
+Here is a suggestion on a cause and possible fix for that one https://www.reddit.com/r/PowerShell/comments/rx68fw/powershell_slow_to_open_long_load_timesfixed
+ 
 ## Security Software Exclusions
 Ideally you would instruct your security software would support excluding code signed by
 
