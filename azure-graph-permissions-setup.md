@@ -19,11 +19,11 @@ The **Azure Permission Level** has two options: _Default_ and _Custom_
 
 ### Default
 
-In this mode, you don't need to create an app registration. You consent as an administrator, allowing ImmyBot access users in your tenant.
+In this mode, you don't need to create an app registration. You consent as an administrator, allowing ImmyBot access users in your tenant and your customers tenants (if you have established GDAP relationships with your customers).
 
 ### Custom
 
-In this mode, you create an app registration and provide its credentials to ImmyBot.
+In this mode, you create an App Registration and provide its Application (client) Id and Secret to ImmyBot, allowing you to customize the permissions Immy has to you and your customer's environments.
 
 #### Create an App Registration
 
