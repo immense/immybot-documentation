@@ -1,5 +1,44 @@
 # Releases
 
+## 0.58.2
+
+Released 10-11-23
+
+### Audit Page
+
+An audit page was added that MSP admins can use to view changes made to objects such as Target Assignments and Scripts.  This also includes changes made to global objects.  This is part one of an effort to provide more transparency around changes made to global data. This page is accessible under Show More -> Audit, or "your-instance.immy.bot/settings/audit".
+
+### Improvements
+- `Get-ImmyComputer -IncludeTags` from a filter script or a meta script now include the tags for the computer's tenant and primary user
+- Improved our resiliency for Redis reconnection for background jobs
+- Updated the Hangfire Service watcher to fix common issues that may occur when it restarts
+- Improved some internal logging that will help diagnose application crashes
+- Added some additional logging to detect performance issues related to CW Control connection events
+- Added support for putting an agent in maintenance mode at the beginning of a session
+- Sessions with reboot preference set to force now only force a reboot at the beginning and end of the session. Reboot checks after each action will only reboot if necessary.
+- Added the ability to toggle online status support for agents of an integration since some dynamic integrations don't support online status
+- The "Install Agent" button on the computer details page now kicks off a maintenance session instead of installing behind the scenes
+- Updated the version of our dependency on the Azure.Storage.Blobs package, which provides better performance.
+
+### Bug Fixes
+- Fixed some theme styling issues on some of the tables
+- Fixed an error in the web inspector console that was reporting `BackendVersion` was null
+- Fixed an issue where array parameters that used `[ValidateSet]` would not render the dropdown of valid values
+- Fixed an incorrect variable name in the license alert on the software details form.  `$LicenseFile` should have been `$LicenseFilePath`
+- Fixed an issue where the session resume button would stay disabled if you clicked it but didn't confirm the action.
+- Fixed an issue where deployment parameters were not showing in the correct positions
+Fixed an issue with the Package Analyzer failing to download some software hosted behind CloudFront CDN.
+- Fixed an issue where `Invoke-CommandCached` would return objects slightly differently than expected, causing some unexpected behavior for scripts.
+- Fixed an issue where the "Show value view" on a parameter form would not actually show the parameter values
+- Fixed an issue with agent inventory identification where old agents tied to a computer were not getting replaced by the a newer agent
+- Fixed an issue where a phase could be considered successful if the agent went offline at just the right time
+- Fixed an issue where an agent going offline would fail a maintenance task action during the Download Installer phase
+- Fixed an issue where refreshing the computer's connected status would throw an error regarding some agents not supporting the ability to refresh an agent's online status
+- Fixed a potential null reference exception that was thrown when reloading integration types
+- Fixed an issue where dynamic integration agents were not syncing updated data, such as changed name, serial number, or osname
+- Fixed an issue with pending connectivity kicking off incorrectly for disabled/unhealthy links
+- Fixed an issue where the ImmyAgent provider would fail to initialize due to Azure changing the machine hostname, causing it to exceed maximum expected length.
+
 ## 0.58.1
 
 Released 09-28-23
