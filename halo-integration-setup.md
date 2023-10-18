@@ -25,6 +25,6 @@ Setting up this integration allows you to
 
 ## Plug in the Client ID and Client Secret in ImmyBot
 
-Create a HaloPSA Integration Link and fill in the **Integritation Settings**
+Create a HaloPSA Integration Link and fill in the **Integration Settings**
 
 ![image](https://user-images.githubusercontent.com/18588314/184726437-c4398dec-1add-48c3-9443-88dc1b384c5b.png)
