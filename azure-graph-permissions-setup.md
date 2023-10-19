@@ -15,11 +15,15 @@ Once your ImmyBot tenant has been linked to Azure, you can set the **Azure Permi
 3. Install the 365 applications a user is licensed for (Apps for business/Apps for entrprise/Project/Visio)
 4. Deploy software to Teams, On-Premises Security Groups (Ex. Everyone in the Engineering Team gets AutoCAD 2022)
 
-The **Azure Permission Level** has two options: _Default_ and _Custom_
+The **Azure Permission Level** has two modes: _Default_ and _Custom_
+
+**NB: In both the _Default_ and _Custom_ modes, you must manually provide consent for each customer you want to sync!**<br />
+**NB: When consenting to an Azure customer, you must authenticate using an administrator account from that customer!**<br />
+Consent can be initiated from within ImmyBot by clicking on the `Consent` (or `Reconsent`) button for the customer on either the Azure Settings page or on the Azure tab of the ImmyBot tenant linked to the customer.
 
 ### Default
 
-In this mode, you don't need to create an app registration. You consent as an administrator, allowing ImmyBot access users in your tenant and your customers tenants (if you have established GDAP relationships with your customers).
+In this mode, you don't need to create an app registration. You consent as an administrator, allowing ImmyBot access users in your tenant and your customers tenants (if you have established GDAP relationships with your customers and have consented with an admin from that customer).
 
 ### Custom
 
