@@ -17,6 +17,7 @@ ImmyBot currently requires the following role permissions to operate correctly:
   - File System -> Manage
 - Remote Control
   - Custom -> Manage
+  - Take Control -> Manage
 - Network Devices
   - Add/Import Devices -> Manage
   - Edit Device Settings -> Manage
