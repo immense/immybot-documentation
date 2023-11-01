@@ -1,5 +1,96 @@
 # Releases
 
+## 0.58.3
+
+Released 11-1-23
+
+### Notifications
+
+#### Notification Sidebar
+
+We have updated how our notification system works.
+
+The bell icon in the navbar will provide a number of the unacknowledged notifications you have.
+
+![image](https://immybot.blob.core.windows.net/release-media/bfedef8b-0e81-4e63-b114-5e1908af6b12)
+
+The sidebar will show when clicking this icon.
+
+![image](https://immybot.blob.core.windows.net/release-media/8e8bd0e6-5cfd-485f-8e2c-fb9b2b4438ec)
+
+#### Notification History
+
+You can access all notifications from the primary sidebar under "Show More" -> "Notifications". By default, it will only show you unacknowledged notifications. You can click the "reset" link or change the filter on the "Acknowledgement" column to view acknowledged notifications.
+
+![image](https://immybot.blob.core.windows.net/release-media/3b1dd160-7e04-4da1-8bf0-09c5c021b463)
+
+#### Silencing notifications
+
+From the notification sidebar, you can silence notifications by the notification type or for the specific object the notification was for.
+
+![image](https://immybot.blob.core.windows.net/release-media/74f3d26c-0c5d-4f27-a954-17c2b0c3a046)
+
+You can then view all of your silenced notifications from the notification history page.
+
+![image](https://immybot.blob.core.windows.net/release-media/9d04a155-a82e-4d81-9732-e3e0fd79001f)
+
+#### Notification Types
+
+We have plenty of notification types in the pipeline.  Here are the notification types currently implemented.
+
+1. Integration Unhealthy - a notification to let MSP users know that an integration has become unhealthy
+2. Access Requested - a notification to let MSP users know that someone is requesting access to their instance of ImmyBot
+3. Large Script Output - a notification to let MSP users know that a specific script has outputted a large amount of data. When scripts like this run during maintenance for hundreds of devices, it can easily cause high CPU and memory which leads to sluggish performance and potential crashes.
+4. Unacknowledged Recommended Deployments - a notification to let MSP users know that there are new recommended deployments that need to be allowed or denied.
+
+Some notification types that will be coming soon include, but are not limited to:
+
+1. Agents Requires Manual Decision - a notification that lets MSP users know there are agents pending identification that could not be automatically resolved to a computer and require manual actions.
+2. ImmyBot Updated - a notification that lets MSP users know that ImmyBot has been updated to a newer version
+3. Cross-Tenant Deployment Requires Approval - a notification that lets MSP admin users know that a cross-tenant deployment was created or modified and needs approval from an MSP Admin. (Feature coming soon)
+4. Azure related notifications
+
+### Improvements
+- Updated variable alert on the license details page to be the same alert shown on the software details page -> license help alert
+- Added random jitter to the time we schedule some of our recurring jobs so that we reduce high database load due to all instances kicking off the jobs at the same time.
+- For maintenance sessions that target a specific item, a session log has been added at the beginning that provides the name of the maintenance item
+- Added auditing for static software versions and static maintenance task parameters
+- Schedules that target a specific maintenance item will now always create a maintenance session for every computer resolved in the schedule's target group. If the computer does not have a deployment for the specified maintenance item, then the session will complete instantly with no actions added.
+- Upgraded PowerShell Editor Services from 3.6 to 3.13
+- Batch actions sidebar now slides out underneath the navbar to not block actions
+- Batch actions sidebar background color was updated to provide more contrast
+- You can now restart Intellisense from the status bar.
+  - ![image](https://immybot.blob.core.windows.net/release-media/f10daf67-7113-402b-8686-be1e2c0692c0)
+- Intellisense will restart automatically when changing script type.
+- Removed dependency on Ace.js that shaved off 366KB from the project
+- Made a slight performance change to schedule logic that should result in faster start times for schedules with many computers
+- Added a "Job Args" property to the session details page info panel that expands to show more data associated with the session.
+- ImmyBot no longer tries to run scripts against non-Pro N-Central agents
+- Added custom PSScriptAnalyzerRule with Code Action to detect and fix missing $using: scope modifier in Invoke-ImmyCommand
+  - ![image](https://immybot.blob.core.windows.net/release-media/0b53ca8b-e399-4b04-90e5-4f59d424df99)
+
+### Bug Fixes
+- Fixed an issue with azure tenant data sync job not getting scheduled correctly
+- Fixed an issue with cloud deployments targeting tags where the session would error in a `NotImplementedException`
+- Fixed an issue where agent updates only maintenance sessions were not viewable by a non-msp admin even if the computer was under their tenant
+- Improve deadlock handling when integrations need to be created, removed, or re-initialized
+- Fixed an issue where users were unable to upload license files
+- Fixed an issue on instance startup where integrations were possibly initializing twice unnecessarily
+- Added a default timeout of 5 minutes to every API request made to Automate. We were not specifying a timeout before so the request could have been long-lived
+- Improved the initialization of the CW Automate integration by reducing the number of times we instantiate an API client to communicate with the Automate Server
+- Refactored the logic that handles enqueuing scripts to execute over CW Automate to prevent potential locking and add additional debug logging
+- Fixed an issue where the system status page was not showing metrics under CW Automate and CW Control when it should have
+- Fixed issue where Intellisense would be unrecoverable after selecting script type Software Auto Update
+- Fixed an issue where provider sync jobs could continually enqueue when only one should ever be enqueued at a time.
+- Fixed an issue where CWControl provider would fail to initialize due to Azure changing the machine hostname, causing it to exceed maximum expected length
+  - ![image](https://immybot.blob.core.windows.net/release-media/69441580-fc89-4acf-86a3-4edbd1ac662d)
+- Fixed an issue where some actions would result in an error of "Invalid maintenance action type."
+- Fixed a potential issue with all providers remaining unhealthy upon server starting up
+- Improved the load time of the application on startup
+- Fixed an issue where some more known bad device ids were being used to uniquely identify a computer, e.g. ffffffff-ffff-ffff-ffff-ffffffffffff
+- Fixed an issue where ImmyAgent provider would fail to initialize due to Azure changing the machine hostname, causing it to exceed maximum expected length.
+  - ![image](https://immybot.blob.core.windows.net/release-media/781b7878-5628-4ea0-aaab-14941f1293af)
+
 ## 0.58.2
 
 Released 10-11-23
