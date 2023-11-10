@@ -66,3 +66,24 @@ See the screenshots below for the minimum permissions.
 - For each customer in the Partner Center, add the "ImmyBot Security Group" and add the "Directory Readers" and "Global Reader" role.
 
 #### Copy the `Application (client) ID` and `Client Secret Value` into the form in ImmyBot.
+
+## Common Issues
+
+### Consent
+
+#### AADSTS500113: No reply address is registered for the application
+
+This error occurs when the redirect uri is not set correctly on the custom app registration.
+Please follow these steps to set the redirect uri correctly:
+
+1. Navigate to the Azure Portal
+1. Navigate to the Microsoft Entra ID blade
+1. Navigate to the App Registrations blade
+1. Select the app registration you created for ImmyBot
+   - You may need to change the filter to "All Applications"
+   - You can paste the Application (client) ID of your custom app registration into the search box to find it
+1. Navigate to the Authentication blade
+1. Add a new redirect uri
+   - Select "Web" as the type
+   - Enter `https://<your-domain>.immy.bot/consent-callback` as the redirect uri, replacing `<your-domain>` appropriately
+1. Click "Save"
