@@ -119,57 +119,6 @@ You’ll receive this email when your instance is ready:
 
 ![](./.vitepress/images/2021-03-15-08-27-29.png)
 
-## Setup your first Computer
-
-When you first login to ImmyBot the Getting Started Wizard will be prompt you to create your ImmyBot flash drive, and plug it into the new computer.
-
-**THIS IS A ONE TIME PROCESS, YOU DO NOT NEED TO CREATE A FLASH DRIVE FOR EACH CLIENT. YOU WILL CHANGE THE CLIENT AFTER THE MACHINE IS IN IMMYBOT**
-
-![image](https://user-images.githubusercontent.com/1424395/173570369-b7a69a46-95b8-4a85-a4f9-9a4dda57b7e7.png)
-
-**We recommend unboxing a physical computer (Dell, HP, or Lenovo) so we can demonstrate applying the latest manufacturer BIOS and driver updates.**
-
-**If you insist on testing on a virtual machine, do the following to receive the PPKG inside an ISO, then mount it to the VM, and press the Windows Key 5 times when you are at the Region Selection screen. If you are past the region selection screen, simply double click the PPKG from the mounted disk**
-
-![image](https://user-images.githubusercontent.com/1424395/173570635-c50681ea-5612-4326-8203-c0de62e2c154.png)
-
-![image](https://user-images.githubusercontent.com/1424395/173571790-482162a3-a655-42ce-8d06-8dcd6ae973e8.png)
-
-Once the computer is identified, you will be directed to that computer to begin the Onboarding process:
-
-![image](https://user-images.githubusercontent.com/1424395/173592966-cb7d3ccd-098c-4940-bfa0-a435ca68d513.png)
-
-ImmyBot needs:
-1. Customer
-2. Primary User (That will be using the computer, optional but recommended)
-
-![image](https://user-images.githubusercontent.com/1424395/173594097-f975123b-217f-42ef-aa47-2b816a5593b6.png)
-
-
-You only have one customer and one person right now, and it’s your MSP and you. That’s fine, we’ll pretend we’re setting up a computer for you and your MSP.
-
-::: tip
-Customers can be imported from your RMM or PSA, or by setting up the Azure integration
-:::
-
-::: tip
-People are imported from your customers' Azure AD via the Azure integration
-:::
-
-An "Onboarding" session will be created for this computer, and ImmyBot will apply the "Recommended Deployments"
-
-::: tip
-You can add your own Deployments and re-run this session as many times as you like until everything is to your liking.
-:::
-
-### Onboarding
-
-Onboarding is the process of specifying inputs like Customer and Primary user, and running the a [Maintenance Session](#maintenance-session) to bring a machine into compliance with the Deployments associated with those inputs.
-
-::: tip
-You may have customers that setup their own machines and install your RMM agent. To prevent these machines from building up in the New Computers area, you can disable Onboarding for that customer by going to Tenants -> Tenant Name -> Preferences -> Onboarding.
-:::
-
 ### Tenants
 
 These are your Customers. We recommend syncing Tenants from CW Automate or Azure.
@@ -178,34 +127,6 @@ These are your Customers. We recommend syncing Tenants from CW Automate or Azure
 ImmyBot periodically runs whoami /upn on all computers and keeps a rolling list of the last 10 UPNs. It assigns the Primary User of the computer to the "Person" (Synced from Azure) with the matching UPN.
 
 For environments without AzureAD, ImmyBot will lookup the UPN of the Person from a Domain Controller in the computer's Tenant
-
-## Recommended Deployments
-### Create Profile for Primary User
-
-This allows Immy to set default browser and pdf editors.
-
-Remember how Microsoft made default PDF handler and default browser user level settings? These settings are stored in the profile of the user. Specifically in the user’s registry. But this is a new computer, and there is no user registry because the user hasn’t logged into the computer, and therefore a profile doesn’t exist for us to specify those settings. Rather than requiring you to ask the user for their password, we fetch their SID from AzureAD. If we find that the user is synced from Active Directory, we will use the SID from Active Directory. If the user is cloud only, we use their Azure AD SID. For the more discerning you may be wondering how we deal with the UserChoice hash, the anti-tamper mechanism preventing the automatic setting of these preferences.
-
-### Microsoft 365 Apps
-Immy installs the apps the selected user is licensed for.
-Immy contains recommended deployments for
-* Apps for business
-* Apps for enterprise
-* Project
-* Visio
-
-You may be tempted to disable these because you are afraid Immy will install all of these apps on every computer. These deployments are limited using a “Metascript” filter that reaches out to the Microsoft Graph API to determine whether the selected user has a license for the product in question.
-
-### Dell/Lenovo/HP Updates
-ImmyBot will install the latest updates from Dell, HP, and Lenovo, including driver updates and BIOS updates.
-
-You may be tempted to disable these Deployments as you don’t want HP updates applying to your Dell. This won’t happen. Each deployment uses a Filter script to ensure that these updates only apply to the appropriate machines
-
-### Adobe Reader
-You may be tempted to disable this deployment because not all of your customers use Adobe Reader. You should instead leave it enabled and handle exceptions to the rule. See more under “Deployment Resolution”
-
-### Set Computer Name and Domain Join
-This is one that I’d advise you to turn off, and instead customize for each customer. We leave it as a recommended deployment mostly to raise awareness that ImmyBot has the capability, but fully expect you to override it to suit your needs.
 
 ## Testing with Windows Sandbox
 
