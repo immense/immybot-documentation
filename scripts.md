@@ -1,7 +1,7 @@
 # Scripting Guide
 
 ## Best Practices
-* Look for a script that already does what you want. There is a lot of good logic in the built in function scripts
+* Use Ctrl+Shift+F or Ctrl+P in our script editor to find scripts that already do what you want. There is a lot of good logic in the built in function scripts
 * Have a machine you can test on
 * Have a _separate_ machine to test your sanity if you bork your first machine
 * Test by clicking Open Debugger in the logs
@@ -26,7 +26,18 @@
 
 ## Script Types
 
-A script will have a specific type.  This type determines which variables and commands will be available in the script.
+* Software Detection
+* Software Action (Install/Uninstall/Update)
+* Maintenance Task Setter
+* Metascript (Deployment Target)
+* Filter Script (Deployment Target)
+* Device Inventory
+* Function
+* Dynamic Version
+* Download Installer
+* Module
+* Preflight
+* Integration
 
 ### Software Detection
 
