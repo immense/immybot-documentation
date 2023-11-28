@@ -119,15 +119,6 @@ You’ll receive this email when your instance is ready:
 
 ![](./.vitepress/images/2021-03-15-08-27-29.png)
 
-### Tenants
-
-These are your Customers. We recommend syncing Tenants from CW Automate or Azure.
-
-### User Computer Affinity
-ImmyBot periodically runs whoami /upn on all computers and keeps a rolling list of the last 10 UPNs. It assigns the Primary User of the computer to the "Person" (Synced from Azure) with the matching UPN.
-
-For environments without AzureAD, ImmyBot will lookup the UPN of the Person from a Domain Controller in the computer's Tenant
-
 ## Testing with Windows Sandbox
 
 Windows Sandbox is a fast loading disposable container in Windows that loses all settings when shutdown or restarted. It is very convenient for testing software deployments. It should be noted that not all software is compatible with Windows Sandbox, particular software that installs drivers or requires restarts.
@@ -188,36 +179,16 @@ Second, Make the Person a user
 
 ![](./.vitepress/images/LoginImg7.png)
 
-## User Roles
-
-### MSP Admin
-
-* Full Access, no restrictions
-
-### MSP Non-Admin
-
-* Cannot create/edit/delete Schedules
-* Cannot create/edit/delete Users
-* Cannot create/edit/delete Cross Tenant Deployments
-* _Can_ create/edit/delete Single-Tenant and Individual Deployments
-  * NOTE: You can disable this in Settings->Preferences with the "Allow Non-Admin Users to Manage Deployments" setting
-
-### Customer (Tenant) Admin
-
-* Can view/edit Computers, Schedules, Licenses and Deployments for their Tenant
-* Can create users in their tenant
-* Software they upload is owned by their tenant and are not visible to other tenants
-* Licenses they create are owned by their tenant and are not visible to other tenants
-
-### Customer (Tenant) Non-Admin
-
-* Cannot create Schedules
-* Cannot create Cross Tenant Deployments
-* Cannot create Users
-* Can create Deployments scoped to individual Computers and People
-
-
 ## Terminology
+### Tenants
+
+These are your Customers. We recommend syncing Tenants from CW Automate or Azure.
+
+### User Computer Affinity
+ImmyBot periodically runs whoami /upn on all computers and keeps a rolling list of the last 10 UPNs. It assigns the Primary User of the computer to the "Person" (Synced from Azure) with the matching UPN.
+
+For environments without AzureAD, ImmyBot will lookup the UPN of the Person from a Domain Controller in the computer's Tenant
+
 ### Deployment
 
 Deployments were originally called "Assignments" and are still called Assignments under the hood.
