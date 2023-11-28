@@ -1,22 +1,7 @@
-# Getting Started
+# Getting Started / Thinking with Immy
 
-## Preface
-ImmyBot is a desired-state enforcement tool.
+**The goal of ImmyBot is to setup a computer knowing only the customer and the end user.**
 
-The goal of ImmyBot is to setup a computer knowing only the customer and the end user.
-```mermaid
-graph LR
-subgraph Input
-    User["End User (Optional)"]
-    Customer[Customer]
-end
-User --> Magic --> F
-subgraph Output
-    Customer --> User
-    F[Perfectly Setup Computer]
-end
-```
-### Thinking with Immy
 Thinking with Immy means thinking in terms of how things "Should" be.
 
 You teach Immy how things "should" be by creating Deployments.
@@ -118,35 +103,6 @@ You’ll receive this email when your instance is ready:
 ![](./.vitepress/images/2021-03-15-08-27-20.png)
 
 ![](./.vitepress/images/2021-03-15-08-27-29.png)
-
-## Testing with Windows Sandbox
-
-Windows Sandbox is a fast loading disposable container in Windows that loses all settings when shutdown or restarted. It is very convenient for testing software deployments. It should be noted that not all software is compatible with Windows Sandbox, particular software that installs drivers or requires restarts.
-
-If you haven't used Windows Sandbox before, you can enable it by opening Windows PowerShell as Admin and running the following command:
-
-```powershell
-Enable-WindowsOptionalFeature -FeatureName "Containers-DisposableClientVM" -All -Online -NoRestart
-```
-
-#### Download Windows Sandbox file (.wsb)
-
-![](./.vitepress/images/2021-03-15-08-29-07.png)
-
-![](./.vitepress/images/2021-03-15-08-29-35.png)
-
-Wait for ImmyBot Agent to install
-![](./.vitepress/images/2021-03-15-08-29-41.png)
-
-
-[Onboard](#onboarding) the Sandbox
-![](./.vitepress/images/2021-03-15-08-30-29.png)
-
-![](./.vitepress/images/2021-03-15-08-47-28.png)
-
-![](./.vitepress/images/2021-03-15-08-37-50.png)
-
-This will create an "Onboarding" Session (sessions are like running gpupdate) that will apply all applicable Deployments (deployments are like Group Policies)
 
 ## Adding Users
 
