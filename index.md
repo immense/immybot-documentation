@@ -33,4 +33,7 @@ features:
   - title: Scripting
     details: Understand the Metascript engine
     link: /scripts
+  - title: Terminology
+    details: ImmyBot Jargon
+    link: /terminology
 ---
