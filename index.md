@@ -21,7 +21,9 @@ features:
   - title: FAQ
     details: Frequently Asked questions
     link: /FAQ.md
-
+  - title: Computer Onboarding
+    details: Setup a New Computer using ImmyBot
+    link: /onboarding.md
   - title: Integrations
     details: Integrations that ImmyBot supports
     link: /build-your-own-integration
