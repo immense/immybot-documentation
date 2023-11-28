@@ -21,6 +21,9 @@ features:
   - title: FAQ
     details: Frequently Asked questions
     link: /FAQ
+  - title: Add Users
+    details: How to add users
+    link: /add-users
   - title: Computer Onboarding
     details: Setup a New Computer using ImmyBot
     link: /onboarding
@@ -36,4 +39,7 @@ features:
   - title: Terminology
     details: ImmyBot Jargon
     link: /terminology
+  - title: Troubleshooting
+    details: What do?
+    link: /troubleshooting
 ---
