@@ -20,12 +20,26 @@ hero:
 features:
   - title: FAQ
     details: Frequently Asked questions
-    link: /FAQ.md
-
+    link: /FAQ
+  - title: Add Users
+    details: How to add users
+    link: /add-users
+  - title: Computer Onboarding
+    details: Setup a New Computer using ImmyBot
+    link: /onboarding
   - title: Integrations
     details: Integrations that ImmyBot supports
     link: /build-your-own-integration
-  - title: Advanced
-    details: Documentation for power users
+  - title: User Roles and Security
+    details: Restrict access to ImmyBot features
+    link: /user-roles
+  - title: Scripting
+    details: Understand the Metascript engine
     link: /scripts
+  - title: Terminology
+    details: ImmyBot Jargon
+    link: /terminology
+  - title: Troubleshooting
+    details: What do?
+    link: /troubleshooting
 ---
