@@ -78,12 +78,15 @@ Please follow these steps to set the redirect uri correctly:
 
 1. Navigate to the Azure Portal
 1. Navigate to the Microsoft Entra ID blade
-1. Navigate to the App Registrations blade
+1. Navigate to the [App Registrations blade](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
 1. Select the app registration you created for ImmyBot
    - You may need to change the filter to "All Applications"
    - You can paste the Application (client) ID of your custom app registration into the search box to find it
+![image](https://github.com/immense/immybot-documentation/assets/95599350/ae22d9b4-6ce4-4c34-b3ea-cc4005d5b5c0)
 1. Navigate to the Authentication blade
-1. Add a new redirect uri
+   - Select "Add a platform"
    - Select "Web" as the type
+   - ![image](https://github.com/immense/immybot-documentation/assets/95599350/3df15893-7ea1-4a3f-9025-7852dce08627)
    - Enter `https://<your-domain>.immy.bot/consent-callback` as the redirect uri, replacing `<your-domain>` appropriately
-1. Click "Save"
+   - Click "Configure"
+   - ![image](https://github.com/immense/immybot-documentation/assets/95599350/3a1e678e-223d-4a05-a7d1-71d68750fbdc)
