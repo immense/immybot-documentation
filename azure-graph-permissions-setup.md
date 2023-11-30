@@ -86,7 +86,7 @@ Please follow these steps to set the redirect uri correctly:
 1. Navigate to the Authentication blade
    - Select "Add a platform"
    - Select "Web" as the type
-   - ![image](https://github.com/immense/immybot-documentation/assets/95599350/3df15893-7ea1-4a3f-9025-7852dce08627)
+   ![image](https://github.com/immense/immybot-documentation/assets/95599350/3df15893-7ea1-4a3f-9025-7852dce08627)
    - Enter `https://<your-domain>.immy.bot/consent-callback` as the redirect uri, replacing `<your-domain>` appropriately
    - Click "Configure"
-   - ![image](https://github.com/immense/immybot-documentation/assets/95599350/3a1e678e-223d-4a05-a7d1-71d68750fbdc)
+   ![image](https://github.com/immense/immybot-documentation/assets/95599350/3a1e678e-223d-4a05-a7d1-71d68750fbdc)
