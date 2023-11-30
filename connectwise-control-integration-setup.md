@@ -17,10 +17,11 @@ Setting up this integration allows you to
 
 ## Create RMMLink for Control
 
-![](./.vitepress/images/2022-01-26-00-11-38.png)
-![](./.vitepress/images/2022-01-26-00-09-33.png)
+![image](https://github.com/immense/immybot-documentation/assets/95599350/157501cd-b0df-48fa-9a31-d6445777a04b)
+![image](https://github.com/immense/immybot-documentation/assets/95599350/7b8b278e-ce38-48bc-a12f-509542556f43)
+![image](https://github.com/immense/immybot-documentation/assets/95599350/92bc66c7-6f07-4665-94fe-d849258bd159)
 
-FAQ
+## FAQ
 What custom property do I use?
 
 By default most ConnectWise Control instances you would select 1 for the ClientName CustomProperty field, this is the "Company" property in Control.
