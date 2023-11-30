@@ -82,11 +82,12 @@ Please follow these steps to set the redirect uri correctly:
 1. Select the app registration you created for ImmyBot
    - You may need to change the filter to "All Applications"
    - You can paste the Application (client) ID of your custom app registration into the search box to find it
-![image](https://github.com/immense/immybot-documentation/assets/95599350/ae22d9b4-6ce4-4c34-b3ea-cc4005d5b5c0)
+   ![image](https://github.com/immense/immybot-documentation/assets/95599350/2021ff38-03cd-4132-88b4-bd70fcf8f861)
 1. Navigate to the Authentication blade
    - Select "Add a platform"
    - Select "Web" as the type
-   ![image](https://github.com/immense/immybot-documentation/assets/95599350/3df15893-7ea1-4a3f-9025-7852dce08627)
+   ![image](https://github.com/immense/immybot-documentation/assets/95599350/a4ac66be-3353-45d6-af38-6d76c16dc303)
    - Enter `https://<your-domain>.immy.bot/consent-callback` as the redirect uri, replacing `<your-domain>` appropriately
    - Click "Configure"
-   ![image](https://github.com/immense/immybot-documentation/assets/95599350/3a1e678e-223d-4a05-a7d1-71d68750fbdc)
+   ![image](https://github.com/immense/immybot-documentation/assets/95599350/292eef9f-fa2b-46ff-8834-b2ef2f24ae0f)
+
