@@ -112,7 +112,7 @@ There are currently no limits. Everything you upload goes into an Azure Storage 
 
 # For computer rename, are there any other operators we can use when naming devices other then the ones shown? Can we add operators?
 
-You can duplicate the Task into your instance an manipulate it however you like. If it's something you think other MSPs could use, I'd encourage you to submit a ticket to support@immy.bot and we can add it.
+You can duplicate the Task into your instance an manipulate it however you like. If it's something you think other MSPs could use, I'd encourage you to submit a request on the [ImmyBot Community]([https://docs.immy.bot/azure-graph-permissions-setup.html#custom] and we can add it.
 
 ## Employee profile caching during on-boarding - is this supported?  If so/how?
 
@@ -159,3 +159,7 @@ Dell, HP, and Lenovo are considered trusted manufacturers.  A trusted manufactur
 ## Can I embed the ImmyAgent into an image?
 
 Create a PPKG and place it in `C:\Recovery\Customizations`, create the folder if it doesn't exist.
+
+## Do you take requests for features/software/tasks/scripts?
+
+Yes, please feel welcome to submit a request on the [ImmyBot Community]([https://docs.immy.bot/azure-graph-permissions-setup.html#custom]
