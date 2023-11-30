@@ -76,8 +76,8 @@ See the screenshots below for the minimum permissions.
 This error occurs when the redirect uri is not set correctly on the custom app registration.
 Please follow these steps to set the redirect uri correctly:
 
-1. Navigate to the Azure Portal
-1. Navigate to the Microsoft Entra ID blade
+1. Navigate to the [Azure Portal](https://portal.azure.com)
+1. Navigate to the [Microsoft Entra ID blade](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview)
 1. Navigate to the [App Registrations blade](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
 1. Select the app registration you created for ImmyBot
    - You may need to change the filter to "All Applications"
