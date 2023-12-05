@@ -161,6 +161,7 @@ Dell, HP, and Lenovo are considered trusted manufacturers.  A trusted manufactur
 Create a PPKG and place it in `C:\Recovery\Customizations`, create the folder if it doesn't exist.
 
 You can also use [SetupComplete](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/add-a-custom-script-to-windows-setup?view=windows-11)
+This method was confirmed working on Server 2022.
 
 Place both the ImmyAgent EXE installer and the SetupComplete.cmd in the C:\Windows\Setup\Scripts directory
 Content of SetupComplete.cmd can be as simple as:
