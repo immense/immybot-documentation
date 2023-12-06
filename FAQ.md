@@ -1,5 +1,45 @@
 # Frequently Asked Questions
 
+## What is the differrence between the Starter and Standard plan?
+
+Both plans allow you to import all of your existing agents into ImmyBot if you use one of our support integrations.
+
+Both plans allow installing and updating of the ImmyBot agent on all of your existing computers.
+
+Both plans allow running maintenance on all of your computers given that the computer was imported into ImmyBot in the last 7 days.
+
+### Starter
+
+Starter does not charge maintenance per computer since it does not support ongoing maintenance for your computers.
+
+Once a computer has been in ImmyBot for at least 7 days, maintenance can no longer be executed against it. This includes all onboarding, full maintenance, and adhoc sessions. If you need to manage ongoing maintenance against a computer older than 7 days, then you will need to upgrade to Standard.
+
+### Standard
+
+Standard charges per maintained computer since it supports ongoing maintenance.
+
+#### What is a maintained computer?
+
+Since we allow you to import all of your agents into ImmyBot, we don't simply charge per agent.
+
+Instead, we only consider computers that have received ongoing maintenance.
+
+A computer has received ongoing maintenance if an onboarding, full maintenance, or adhoc session has been run against it after the computer has been in ImmyBot for over 7 days.
+
+#### Maintenance per computer
+
+When maintenance is performed against a computer older than 7 days, ImmyBot will check the following:
+
+1) Is this computer already counted towards your maintained count?
+
+    - If it is, then maintenance can be performed on this computer.
+
+2) Are we at the maximum number of maintained computers for this subscription?
+
+    - If it is not, then this computer will be added to your active maintained computer count, and maintenance can be performed on this computer.
+
+When a subscription is at the maximum maintained count, only maintenance for computers considered in the count will be allowed. In order to run maintenance on other computers, you can purchase more computer licenses for your subscription.
+
 ## Do I need a separate USB/Installer per tenant?
 No. Create a USB pointing to your own tenant (or create an “Onboarding” tenant) and don’t select the Auto-Onboard option.
 
@@ -23,7 +63,7 @@ Yes. Create a deployment for the Join AzureAD task. We use the bulk enrollment t
 
 ## My AzureAD Join action is failing, what are some common fixes?
 
-Check if MFA Requirement for Joining is enabled via [Conditional Access](https://portal.azure.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies) or [Azure Device Settings](https://portal.azure.com/#view/Microsoft_AAD_Devices/DevicesMenuBlade/~/DeviceSettings/menuId~/null).  
+Check if MFA Requirement for Joining is enabled via [Conditional Access](https://portal.azure.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies) or [Azure Device Settings](https://portal.azure.com/#view/Microsoft_AAD_Devices/DevicesMenuBlade/~/DeviceSettings/menuId~/null).
 MFA requirement for all users in [Conditional Access](https://portal.azure.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies) will also block the execution, as the package_XXX user will encounter a MFA prompt.
 Most other situations are noted during execution failure.
 
@@ -34,7 +74,7 @@ Absolutely! There is a global [Task](#task) labeled "**Deploy ImmyAgent to Intun
 - Ensure you have added the Graph **Application** permission DeviceManagementConfiguration.ReadWrite.All to your app registration
 - Ensure you have re-consented to your linked tenants with your new Custom registration
 - If there is a failure of the deployment, there is likely a permissions issue with the app registration
- 
+
 ## Can Immy help migrate my customers to AzureAD from On-Premises environments?
 
 Yes, we have a [Task](#task) that can migrate machines to associate the user’s profile to their Azure AD identity and join the machine to Azure AD. It can also do the same to and from Active Directory

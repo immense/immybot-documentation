@@ -366,46 +366,6 @@ Make sure to whitelist cdn.immy.bot in your endpoint protection tools.
 
 The ImmyBot Agent and the Ephemeral Agent are now served from a Cloudflare CDN at https://cdn.immy.bot
 
-### ImmyBot Plans - Starter vs Standard - Agent Information
-
-Both plans allow you to import all of your existing agents into ImmyBot if you use one of our support integrations.
-
-Both plans allow installing and updating of the ImmyBot agent on all of your existing computers.
-
-Both plans allow running maintenance on all of your computers given that the computer was imported into ImmyBot in the last 7 days.
-
-#### Starter
-
-Starter does not charge maintenance per computer since it does not support ongoing maintenance for your computers.
-
-Once a computer has been in ImmyBot for at least 7 days, maintenance can no longer be executed against it. This includes all onboarding, full maintenance, and adhoc sessions. If you need to manage ongoing maintenance against a computer older than 7 days, then you will need to upgrade to Standard.
-
-#### Standard
-
-Standard charges per maintained computer since it supports ongoing maintenance.
-
-##### What is a maintained computer?
-
-Since we allow you to import all of your agents into ImmyBot, we don't simply charge per agent.
-
-Instead, we only consider computers that have received ongoing maintenance.
-
-A computer has received ongoing maintenance if an onboarding, full maintenance, or adhoc session has been run against it after the computer has been in ImmyBot for over 7 days.
-
-##### Maintenance per computer
-
-When maintenance is performed against a computer older than 7 days, ImmyBot will check the following:
-
-1) Is this computer already counted towards your maintained count?
-
-    - If it is, then maintenance can be performed on this computer.
-
-2) Are we at the maximum number of maintained computers for this subscription?
-
-    - If it is not, then this computer will be added to your active maintained computer count, and maintenance can be performed on this computer.
-
-When a subscription is at the maximum maintained count, only maintenance for computers considered in the count will be allowed. In order to run maintenance on other computers, you can purchase more computer licenses for your subscription.
-
 ### ImmyBot Remote Control (Remotely) - BETA
 
 Initial support for remote control is here!
