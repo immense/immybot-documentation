@@ -1,10 +1,10 @@
-## User Roles
+# User Roles
 
-### MSP Admin
+## MSP Admin
 
 * Full Access, no restrictions
 
-### MSP Non-Admin
+## MSP Non-Admin
 
 * Cannot create/edit/delete Schedules
 * Cannot create/edit/delete Users
@@ -15,14 +15,14 @@
   * NOTE: You can disable this in Settings->Preferences with the "Allow Non-Admins and Non-MSP Users to Use Terminal and Edit Scripts"
     * Disabling this prevents these users from being able to run arbitrary code on devices
 
-### Customer (Tenant) Admin
+## Customer (Tenant) Admin
 
 * Can view/edit Computers, Schedules, Licenses and Deployments for their Tenant
 * Can create users in their tenant
 * Software they upload is owned by their tenant and are not visible to other tenants
 * Licenses they create are owned by their tenant and are not visible to other tenants
 
-### Customer (Tenant) Non-Admin
+## Customer (Tenant) Non-Admin
 
 * Cannot create Schedules
 * Cannot create Cross Tenant Deployments

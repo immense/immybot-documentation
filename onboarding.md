@@ -1,4 +1,4 @@
-## Setup your first Computer
+# Setup your first Computer
 
 When you first login to ImmyBot the Getting Started Wizard will be prompt you to create your ImmyBot flash drive, and plug it into the new computer.
 

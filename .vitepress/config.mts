@@ -25,6 +25,13 @@ export default withMermaid({
         items: [
           { text: 'Getting Started', link: '/getting-started' },
           { text: 'What\'s New', link: '/releases' },
+          { text: 'Add Users', link: './add-users' },
+          { text: 'Onboarding', link: './onboarding' },
+          { text: 'Recommended Deployments', link: './recommended-deployments' },
+          { text: 'Terminology', link: './terminology' },
+          { text: 'Troubleshooting', link: './troubleshooting' },
+          { text: 'User Roles', link: './user-roles' },
+          { text: 'Windows Sandbox', link: './windows-sandbox' },
         ],
       },
       {

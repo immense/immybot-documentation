@@ -1,4 +1,5 @@
-## Adding Users
+# Adding Users
+
 Have the person attempt to login to ImmyBot. Have them request access:
 
 ![image](https://user-images.githubusercontent.com/1424395/153074628-4a22c81a-177e-4ebb-9845-898ab0f95d88.jpeg)
