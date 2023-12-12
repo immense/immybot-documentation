@@ -1,5 +1,140 @@
 # Releases
 
+## 0.59.0
+
+Released 12-12-23
+
+### Detected Computer Software Export
+
+We added a page to view all computer detected software and a button to export it to a csv file.
+
+You can access this page from `/reporting/detected-computer-software`. Values from this table are populated from inventory.
+
+<img src="https://immybot.blob.core.windows.net/media-qa/f30cb597-3a97-49d9-b26a-7018b1dd5605" max-width="100%" />
+
+### OAuth Parameters
+
+Added the ability to create and select auto-refreshing OAuth tokens as script parameters
+
+<img src="https://immybot.blob.core.windows.net/media-qa/85259b64-917e-4676-9f44-8cde043e6fa6" max-width="100%" />
+
+---
+
+<img src="https://immybot.blob.core.windows.net/media-qa/ec13e684-8bd3-479c-9c94-69ee21103dfc" max-width="100%" />
+
+---
+
+<img src="https://immybot.blob.core.windows.net/media-qa/94275c46-2c78-4739-a0fb-43260f210f88" max-width="100%" />
+
+---
+
+Added a button to the Azure Partner Settings page to pre-consent customers to the default or custom app registration via the Partner Center API
+
+This removes the need to provide consent for each customer manually using an admin account from the customer
+
+<img src="https://immybot.blob.core.windows.net/media-qa/8a3c312d-b8d4-4b94-8f1a-5c2c1cb13d65" max-width="100%" />
+
+---
+
+Added an OAuth Token Acquisition mechanism to allow Partner admins to give ImmyBot consent to use the Partner Center API
+
+<img src="https://immybot.blob.core.windows.net/media-qa/1d78a586-637b-49b5-9ec4-5a349a8c77b4" max-width="100%" />
+
+---
+
+### Automatic ImmyBot Agent Updates (Alpha)
+
+When a computer attempts to run a script and we establish an ephemeral agent connection, we now also upgrade the ImmyBot Agent if it is outdated. This is currently in alpha and
+can be opted into from the Application Preferences page.
+
+### Improvements
+- You can use the new ScriptTimeout attribute to override the default execution time of 60 seconds in integration scripts (Supports up to 300 seconds)
+- Integrations supporting ISupportsHttpRequest now display the HttpRequest Uri
+- Added integration release stage badges to indicate whether an integration is in the `Alpha`, `Beta`, or `Production` stage.
+- Uninstalling software no longer enforces required parameters specified by the deployment.
+- \[Alpha Opt-In\] `Write-Progress -Activity "Activity 1" -Status "Migrating"` Calling Write-Progress with both Activity and Status parameters creates a new row on the action in the session. This helps visualize the progress of long running tasks.
+- Added BitLocker Recovery Keys, BitLocker Status, and TPM Version to the physical disk tab on the computer details page
+- Added disabled deploy button next to configuration tasks with a tooltip explaining that they cannot be deployed directly.  The missing deploy button was causing confusion.
+- Added a docs link for agent identification failures under the computer page -> pending tab.
+- Updated help text of desired software state - Latest Version, to read "Will install/update the software to the latest version"
+- Added a link to the ordering page from the deployment list page
+- Updated the execution order help text to read "All tasks that are limited to onboarding computers will
+      be executed at the beginning of the session in the onboarding stage, following the
+      sequence in which they are listed. Once the onboarding process is complete, we will proceed to
+      execute all other actions, also in the order they are listed."
+- Added 'Azure Tenant Problems Detected' notifications to indicate errors and other detected problems related to Azure tenants
+- Made notification creation more performant
+- Added User preference area and moved the theme toggle to it.
+- Improved some UI color settings
+- Creating, updating, and deleting schedules show up in the audit table.
+- Maintenance tasks can now specify an integration to link
+- Fixed an issue on startup that was causing some startup jobs to not run
+- The logic that ensures we have online agents before running a script on a computer no longer runs if we have an active ephemeral agent connection
+- Added `AssignmentScope` as a script parameter. Possible values are `CrossTenant`, `SingleTenant`, and `Individual`.
+- When ImmyBot restarts, we no longer cancel sessions due to them being considered "outdated". This was an old piece of code that was there to prevent accidental reboots during business hours. This check is no longer needed since we check for active hours and business hours during the maintenance session when deciding if the computer needs to reboot.
+- **Important** - ImmyBot agents that are installed with automatic onboarding will now **ALWAYS** automatically onboard.  Before, we would optionally not perform onboarding if the agent resolved to an existing computer that had previously run at least one maintenance session.
+- Removed converted parameter values from parameter validation responses since it could possibility contain sensitive data and the value was not being used on the frontend
+- `Invoke-CommandCached` and `Invoke-AtomicCommand` cmdlets are now available for use inside Filter Scripts.
+- Action errors regarding missing/failed software prerequisites now show the software's name instead of the type and identifier.
+- Changes to software prerequisites now show up in the audit table
+- Added a link to the ImmyBot community forum to the navbar
+- Minimizing the script editor persists any ephemeral tabs you had open.
+- Extended the ephemeral agent disconnected text to say "This computer does not have an ephemeral agent. An ephemeral agent will connect when a script is run against this computer."
+- Several new Azure-related notifications have been added
+- Fixed an issue where multiple sidebars could be showing and overlapping at the same time
+- Parameter descriptions are now always visible.  Before, they were only visible if you were overriding the default value.
+- Improved styling of default value key/value pair parameters on the deployment form
+- Improved serial execution of maintenance tasks by adding a more visible locking mechanism.  You can now see who the currently executing computer / session is.
+- Added a check when creating or updating a deployment that warns you when a duplicate deployment is detected. You have the option to replace the existing deployment or fix the newer one such that it is no longer a duplicate.
+- Schedules and Adhoc Deployments now apply batching to create the maintenance sessions.  We've seen about a 6x improvement in speed in creation.
+- Debounced script editor changes to prevent Intellisense crashes
+- You can now save scripts that have syntax errors by acknowledging the confirmation modal. Useful for saving unfinished scripts or scripts that may not actually have syntax errors when run on an endpoint
+- Improved ImmyAgent setup when deploying new instances that should result in fewer errors and faster instance setup
+- Improved performance of session cancellation by simplifying the database queries
+- Adding an invisible Formatter, so that information can be easily hidden.  Using this to hide ParameterSetBinding messages.
+- In the Debugger section Parameters and Variables, the subsections are now open by default
+ - In the Script Details section for the Type dropdown, the Software Auto Update element has been removed
+- Added integration capability `ISupportsAgentDownload`. Allowing integrations to provide their own "Download Installer" script.
+- Added integration capability `ISupportsAuthenticatedDownload`. Allowing integrations to provide authentication information without leaking sensitive information.
+- N-Central integration has finally graduated from Beta status, and can now be found in the Integrations page 🎉
+
+### Bug Fixes
+- Fixed an issue where some ImmyBot tenants linked to Azure customers were getting reset to Partner type within ImmyBot
+   - **For Customer tenants that are erroneously set to Partner in ImmyBot, you can fix these by finding the customer on the Azure Settings page, and unlinking/relinking it**
+- Fixed an issue where full maintenance schedule sessions did not have the "Full Maintenance" tag in the sessions table
+Fixed an issue with N-Central integration failing to re-authenticate after ~24hrs of running.
+- Fixed an issue where starting ImmyBot remote control for an outdated agent was kicking off a session that contained actions other than the agent update.
+- Fixed an issue with license descriptions now showing on the deployment page
+- Fixed potential null reference exception on Deployment page when ValidateScript is used
+- Fixed an issue where wiped computers were not being treated as wiped if an existing computer was found. A wiped computer is one where the hostname and OS install date are different that the computer we already see inside of ImmyBot.
+- Fixed a divide by zero error that could occur while computing a software installer's download speed.
+- Set the audit user text to show the user's email address if the user does not have a first or last name specified
+- Fixed an issue where some ImmyAgent & Ephemeral Agent binaries included some unsigned assemblies, falsely triggering some security tooling like ThreatLocker.
+- Fixed an issue where Immy Starter plans were able to select the schedules nav item
+- Fixed an issue where resolving agent identification issues resulted in "404 - entity could not be found."
+- Fixed an issue where resolving agent identification issues with "Let Immy Try again" was not doing anything.
+- Fixed an issue where some ImmyBot agents were failing to connect to ImmyBot when it was re-installed
+- Fixed an issue where only the ImmyBot team could view global dynamic integration types
+- Fixed an issue with scheduling the user computer affinity job once a day
+- Removed some old migration code that was delaying startup and potentially causing issues
+- Fixed an issue where some Immy Agent upgrades would leave installs dead in the water due to a config parsing issue.
+- Fixed an issue where sometimes analyzing an installer package would cause an IOException.
+- Fixed an issue where a software prerequisite would not be installed if an "update if found" deployment for the prerequisite resulted in "no action" because it was not found on the endpoint. Now, an install action for the prerequisite will be created anyway.
+- Fixed an issue where selecting text on expanded script-runs would collapse the script
+- Fixed an issue with fetching CW Manage agreement products where the deployment would show "Server error. Please contact your Administrator." Occurred when CW Manage attempted to return several hundred agreement products.
+- Fixed an issue running `invoke-immycommand` from a cloud script against a computer that would throw an error during the preflight check, "Value cannot be null. (Parameter 'psComputers')".
+- Fixed issue removing previous pages breadcrumbs on the session list page
+- Fixed an issue on the onboarding form where mandatory parameters would not show the input by default if the parameter was dynamically discovered
+- Fixed several minor issues found with the agent installer download modal and the getting started wizard modal
+- Fixed a caching issue with inserting session logs into the database
+- Fixed a caching issue with detected software from a machine
+- Fixed an issue where database queries to get a list of sorted deployments during a maintenance session were not being cached
+- Fixed an issue where the Package Analyzer would throw a `The process cannot access the file` error
+- Fixed issue with our script analyzer rule for detecting missing $using: in Invoke-ImmyCommand
+- Fixed the N-Central issue that keeps appearing "InvalidLoginCredentialsException: New tab request failed!"
+- ParameterSetBinding should not emit output.
+
+
 ## 0.58.3
 
 Released 11-1-23
