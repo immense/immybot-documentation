@@ -53,7 +53,8 @@ can be opted into from the Application Preferences page.
 - Added integration release stage badges to indicate whether an integration is in the `Alpha`, `Beta`, or `Production` stage.
 - Uninstalling software no longer enforces required parameters specified by the deployment.
 - \[Alpha Opt-In\] `Write-Progress -Activity "Activity 1" -Status "Migrating"` Calling Write-Progress with both Activity and Status parameters creates a new row on the action in the session. This helps visualize the progress of long running tasks.
-- Added BitLocker Recovery Keys, BitLocker Status, and TPM Version to the physical disk tab on the computer details page
+- Added BitLocker Status to the logical disk tab on the computer details page
+- Added TPM Version to the overview on the computer details page
 - Added disabled deploy button next to configuration tasks with a tooltip explaining that they cannot be deployed directly.  The missing deploy button was causing confusion.
 - Added a docs link for agent identification failures under the computer page -> pending tab.
 - Updated help text of desired software state - Latest Version, to read "Will install/update the software to the latest version"
