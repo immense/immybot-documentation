@@ -1,5 +1,14 @@
 # Releases
 
+## 0.59.1
+
+Released 12-13-23
+
+### Bug Fixes
+
+- Fixed issue where Computers and Tenants were still being included in the preview for the Edit Deployment screen even though the tenant had the "Exclude from Cross Tenant Schedules and Deployments" preference set
+- Fixed a caching issue where scheduled maintenance sessions were not always picking the correct deployment
+
 ## 0.59.0
 
 Released 12-12-23
