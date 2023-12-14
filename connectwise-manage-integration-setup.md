@@ -35,3 +35,14 @@ Create a new API key
 Create a new PSA Link and fill in the **Provider Info**
 
 ![](./.vitepress/images/2021-03-23-14-44-05.png)
+
+# CW Manage Pod v1
+
+Go to Show More -> Integrations
+
+Add CW Manage Pod
+
+Go to ConnectWise -> Setup Tables -> Manage Hosted API -> +
+
+![image](https://github.com/immense/immybot-documentation/assets/1424395/88fade4c-0ee7-4b88-971e-34138929e4e3)
+
