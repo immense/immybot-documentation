@@ -1,5 +1,15 @@
 # Releases
 
+## 0.59.2R
+
+Released 12-19-23
+
+### Bug Fixes
+
+- Fixed issue with showing media on the media list page
+- Fixed issue on the tenant details page where the batch actions button on the computer table was not working
+- Fixed issue with calls to Get-ImmyComputer from metascripts where it was incorrectly excluding computers that were excluded from maintenance.  This check is only supposed to happen when resolving computers for a deployment or a schedule.
+
 ## 0.59.1
 
 Released 12-13-23
