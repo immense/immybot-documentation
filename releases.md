@@ -1,5 +1,88 @@
 # Releases
 
+## 0.60.0
+
+Released 01-09-24
+
+### Automatic ImmyBot Version Upgrades
+
+When a new version of ImmyBot is released, you can now specify if you want to automatically update to that release after a specified amount of time. This behavior is configurable in preferences.
+
+![image](https://immybot.blob.core.windows.net/release-media/9f9fafab-054b-4b22-98e4-f0343d1dea4d)
+
+### Release Channel
+
+The release channel determines what versions of ImmyBot are available to you. You can now choose which release channel you want to subscribe to.
+
+The available channels are: Alpha, Beta, and General.
+
+- **Alpha**: This channel contains releases that have passed development but may still be unstable.  Only use this channel if it's absolutely necessary for a critical fix or to test brand new features and provide feedback.
+- **Beta**: This channel is for early adopters and contains releases that are in the final rounds of testing.  Use this channel to test new features and provide feedback.
+- **General**: This channel contains releases that have been tested and are ready for general use. This is the recommended channel for stability.
+
+All instances will default to the General channel.
+
+You can change your channel on the System Update Page.
+
+![image](https://immybot.blob.core.windows.net/release-media/3498b1e7-a742-471d-9ef5-13f3a8ed4b2f)
+
+### ImmyBot is on .NET 8
+
+The ImmyBot backend is now running .NET 8.  While this doesn't introduce new features to end users, it does provide better performance and newer development features that benefit ImmyBot.
+
+### Cross-Tenant Deployment Change Requests
+
+A new application preference has been introduced that when enabled will require MSP non-admin users to submit change requests
+when creating or updating cross-tenant deployments.
+
+![image](https://immybot.blob.core.windows.net/release-media/73850538-f178-4b45-99c3-a47ee1ea748a)
+
+On a per user basis, you can additionally opt-out of requiring change requests by assigning the user the following capability from the edit user page:
+
+![image](https://immybot.blob.core.windows.net/release-media/0bd8b8e5-89f6-4c5e-96ed-e024d345e209)
+
+Change requests are submitted from the deployment details page in the same area you would normally create and update a deployment.
+
+![image](https://immybot.blob.core.windows.net/release-media/9ba72b1a-0069-4bfa-a306-2399792aa072)
+
+Once submitted, the change request can be reviewed in a read-only format. MSP non-admins will have the option to edit the change request, while MSP admins will have the ability to approve or deny the change request.
+
+#### MSP non-admins see
+
+![image](https://immybot.blob.core.windows.net/release-media/c04cdad1-9391-43c0-9646-2fd8ef07f01d)
+
+#### MSP admins see
+
+![image](https://immybot.blob.core.windows.net/release-media/2a7bcdd1-3f2a-4807-a806-4126729f49bc)
+
+All open change requests can be seen from the deployment list page.
+
+![image](https://immybot.blob.core.windows.net/release-media/e666d95b-b85e-479a-8253-3e3f027e6c3c)
+
+### Improvements
+
+- Added hidden column to the detected computer software table that shows the potentially matched global software id
+- The tenant software search tab on the tenant details page now renders as a filterable table with the ability to export
+- Automatic ImmyAgent updates are now enabled by default
+- When creating a new deployment, selecting Onboarding Only will now default to "Value from: deployment".
+- Changed notifications list page to hide resolved notifications by default
+- Deployments page will now default to grouping by tenant
+- IntelliSense can be restarted without refreshing the browser
+
+### Bug Fixes
+
+- Fixed issue with some property text in the audit table colliding with other property text
+- Fixed issue where unmatched software in the detected computer software table were not filterable
+- Fixed an issue where detection could fail with "Exception of type 'CwAutomateProvider.CwAutomateHttpException' was thrown." when checking for windows patching. It will now skip windows patching, provide a more useful message, and continue the session.
+- Fixed an issue where creating/updating deployments for integration group targets was not saving the selected tenant
+- Fixed an issue where starting ephemeral agent would cause an error on some older machines.
+- Fixed an issue where the getting started wizard was popping up even when a computer had already been added
+- Fixed an issue where the software repair custom script was not showing up under the Repair Strategy label on the software details page
+- Persistent Agent main connection will now more aggressively obey System Web proxy when attempting to connect.
+- Fixed an issue where Immy Agent EXE downloads would produce a corrupted binary.
+- Fixed an issue where upgrade code and product code were failing to match to global software during detection
+- Fixed issue where Azure Tenant Problem notifications were being created when there were not actually any problems
+
 ## 0.59.3
 
 Released 12-20-23
