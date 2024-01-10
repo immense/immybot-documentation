@@ -207,6 +207,9 @@ Place both the ImmyAgent EXE installer and the SetupComplete.cmd in the C:\Windo
 Content of SetupComplete.cmd can be as simple as:
 start C:\Windows\Setup\Scripts\ImmyAgentInstallerBundle.exe /qn
 
+A member of the ImmyBot community also likes to use the below method to embedded a PPKG into an image:
+DISM.exe /Image:D:\mount /Add-ProvisionedAppxPackage /PackagePath:C:\Users\Moi\Downloads\ImmyBotAgentInstaller.ppkg
+
 ## Do you take requests for features/software/tasks/scripts?
 
 Yes, please feel welcome to submit a request on the [ImmyBot Community](https://community.immy.bot)
