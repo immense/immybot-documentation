@@ -12,11 +12,7 @@ export default withMermaid({
   themeConfig: {
     logo: '/immybot-glasses.png',
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Getting Started', link: '/getting-started' },
-      { text: 'What\'s New', link: '/releases' },
-    ],
+    
 
     sidebar: [
       {
