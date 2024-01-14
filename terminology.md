@@ -57,7 +57,14 @@ If you enable PSA integration, a [Target](#target) could be all computers covere
 
 This is particularly useful for security software, help desk portals, or anything else in your stack that you may only want to be installed for customers that are paying you for it.
 
-Conversely, you could use this feature remove your stack for customers you are offboarding. Simply create an "Offboarding" product in your PSA, and create a deployment for each of the pieces of software you would like removed setting the desired state to Uninstalled for all customers with the "Offboarding" product on their agreement. Note: ImmyBot even honors the date range on additions, making scheduled offboarding easier if say the customer wants your software removed on the last day of the month.
+### Offboarding
+
+Conversely, you could create Deployments that remove your stack for customers you are offboarding. 
+- Create an "Offboarding" product in your PSA
+- Create a deployment for each of the pieces of software you would like removed setting the desired state to Uninstalled 
+- Target all customers with the "Offboarding" product on their agreement
+
+Note: ImmyBot even honors the date range on additions, making scheduled offboarding easier if say the customer wants your software removed on the last day of the month.
 
 ## [Maintenance Session](#maintenance-session)
 
