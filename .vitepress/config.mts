@@ -58,9 +58,9 @@ export default withMermaid({
     search: {
       provider: 'algolia',
       options: {
-        apiKey: "b9a03fdc7b6a3221b1efd3f75210b6c7",
+        apiKey: "3227008161d9c561b48d759ddefc8432",
         indexName: "immy",
-        appId: 'BH4D9OD16A',
+        appId: 'SU6GB55GXI',
       }
     }
   }
