@@ -87,7 +87,8 @@ All open change requests can be seen from the deployment list page.
 
 Released 12-20-23
 
-## Bug Fixes
+### Bug Fixes
+
 - Fixed a caching issue where adhoc deploying to multiple computers and then re-running a session would sometimes trigger the session for a different computer
 - Fixed an issue where msp admins would sometimes show up as MSP Tenants
 - Fixed an issue with the detected computer software table where it was not updating information after re-running inventory
