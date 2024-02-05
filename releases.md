@@ -1,5 +1,100 @@
 # Releases
 
+## 0.61.0
+
+Released 02-05-24
+
+### Deployment Notes
+
+Deployments can now have notes. After saving a deployment, notes can be added to it.
+
+![image](https://immybot.blob.core.windows.net/release-media/88f21756-7837-4b69-81cf-c6019f80711f)
+
+A notes column has been added on the deployment list page.  If it is not visible by default, click the ![image](https://immybot.blob.core.windows.net/release-media/1336fb35-f27f-4edd-9a51-d529021fb80d) icon to add it.
+
+![image](https://immybot.blob.core.windows.net/release-media/6f4017b6-10a1-49e9-a9cf-ec66f93c84a5)
+### Computer Excel Export
+
+Located under `Reporting -> Computers` or at the URL /reporting/computers.
+
+A new report table has been added for "Computers" that can be used to generate an excel report of computers by clicking the xlsx button.
+
+When the table is filtered, only the results in the filter will be exported.
+### Soft Delete Computers & Agents
+
+Deletion of computers and agents are now performed using a soft-delete.
+
+The current exceptions are:
+
+1) Deleting tenants: which will cascade delete all computers for the tenant
+2) Deleting integrations: which will cascade delete all agents for the integration
+
+### General Improvements
+- The system status page now refreshes automatically every 5 seconds
+- Updated the deployment list column visibility defaults to hide the software version and disabled columns and show the notes column
+- Most recent `Write-Progress -Activity <value>` now shown on activity detail and current activity overview
+- Added system preference to exclude Chocolatey software results from the deployment software search
+- Dymamic Integrations can implement required interface for running scripts on target
+- Notifications for agents requiring a manual decision are now automatically resolved if there are no more agents that require a manual decision
+- Added warning messages to the deployment screen when required scripts are missing
+- Improved performance by fixing possible memory leaks that could occur during maintenance sessions
+- You can now add a person selector as a dropdown parameter via `New-PersonParameter`
+- Newly generated Powershell install scripts for Immy Agents now point to an always-latest installer binary 🥳🎉
+- Computer Software report is now generated using excel instead of csv. Also, the export now only exports rows matching the current filter.
+- Added up to 3 retry attempts when attempting to set the unique identifier for a device during identification
+- Added logic to track computers that have been wiped and replaced by other computers. This isn't shown anywhere in the UI as of right now, but can be added in the future
+- Standardized order of Filter Script and Metascript between Cross Tenant and Single Tenant selections when creating deployments
+- Improved performance of saving maintenance session related data to the database
+- Removed word assignment from deployment page data column.
+- Added autocomplete="off" to dynamic form inputs to prevent browsers from injecting unwanted values on deployment and integration pages
+- The "New" software button on the software list page now links directly to the software upload page
+- ISupportsMaintenanceMode for dynamic integrations now disables maintenance mode at the end of sessions
+- Versions details page will automatically show overrides if any are present
+- Software details version table now displays when the version has overrides
+- Updated the software details detection method table to pull results from the detected computer software table used in reporting.  This provides better performance and unifies the results between this feature and the reporting.
+- Added warning tooltips to computer overview page for unsupported OS and PowerShell versions
+- Added security exclusions confirmation on session support request page
+- Added hidden column to the detected computer software table that shows the potentially matched global software id
+- Added new report page for computers with the ability to export to excel
+- The "Show Identification Logs" button in the computer page / pending tab is now aligned to the top right instead of in the middle of the row, and renders above any potential errors
+- Application Locks (used for things such as `Invoke-AtomicCommand`, `Invoke-CommandCached`) are now visible & controlable via the new 'Application Locks' page under 'Show More'.
+
+### Bug Fixes
+- When viewing page on mobile, the sidebar is now hidden on navigation change
+- Fixed an issue where the filter on the tags list was not working as expected
+- Fixed an issue where adhoc maintenance sessions marked as pending connectivity were never being resumed
+- Agents Requiring Manual Decision Notification shows resolved text when no more agents require a manual decision
+- Fixed duplicate text under the Script Path application preference
+- Fixed an issue where checking if we are within business hours was not getting cached, causing additional unnecessary checks
+- Fixed an issue where the within business hours session log was not getting emitted
+- Fixed a deadlock issue that could occur when cancelling a session
+- Updated copyright date to be dynamically set
+- Fixed an issue where `New-MediaParameter` values were not being set to the path to the downloaded file
+- Fixed styling of access request notifications
+- Added missing border to the top of the Azure notification group header
+- Corrected inconsistent padding of Azure notification group header
+- Fixed issue with missing bottom padding between integrations on integration list page
+- Fixed an issue where some filter scripts were not specifying the cloud context
+- Integration Audit Entries no longer get hung and show no output when clicking details
+- Intellisense no longer stops working when you switch between script tabs
+- Status spinner no longer spins forever when in Stopped state
+- Fixed an issue where multiple ephemeral agents were possibly spinning up during identification of a device
+- Fixed a visual issue where loading a schedule would incorrectly show "Sunday" as the day to run when the value was not "Sunday"
+- Fixed an issue where a duplicate streaming button would show up when streaming agent identification logs
+- The primary user deployment is now hidden from the deployment list since it is a mandatory deployment
+- Updated uninstall help text to reflect existing behavior
+- Fixed an issue where brandings that didn't specify a logo or header image would sometimes still show a broken image
+- Fixed an issue where we were not checking if the port had been specified for an SMTP and resulted in an obscure exception for the end user if the port value was missing
+- Fixed an issue where the person dropdown parameter in onboarding tasks were not limited to persons in the computer's tenant.
+- Fixed an issue on the software upload page, where the validation message for the software version was not showing up.
+- Fixed an issue on the Tasks list page where filtering to Computer tasks were incorrectly including configuration tasks
+- Fixes incorrect PPKG text in download modal
+- Fixed an issue where scripts could fail with FileNotFound.
+- Fixed issue with detected computer software table where it would exclude registry entries that had duplicate display names, but different versions, or some being linked to global and not others
+- Added missing timestamps when hovering over "x days ago" text throughout the application
+- New software versions will now default to the Inherited upgrade strategy
+- Fixed an issue where some Win7 machines were failing to start Ephemeral agent.
+
 ## 0.60.0
 
 Released 01-09-24
