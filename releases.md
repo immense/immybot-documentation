@@ -1,5 +1,13 @@
 # Releases
 
+## 0.61.2
+
+Released 02-08-23
+
+### Bug Fixes
+
+- Fixed an issue with not being able to update the value of licenses
+
 ## 0.61.1
 
 Released 02-08-24
