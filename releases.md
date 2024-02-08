@@ -1,5 +1,18 @@
 # Releases
 
+## 0.61.1
+
+Released 02-08-24
+
+### Bug Fixes
+
+- Fixed an issue in the ImmyAgent where it was attempting to connect over the IoT Hub even if the agent was never registered with the IoT Hub. This issue manifested in the agent never showing up in pending list.
+
+### Improvements
+
+- The latest version of the ImmyAgent removes references to the IoT Hub since it has been deprecated.
+- For agents that experienced the bug with the IoT Hub mentioned above, they will now be able to successfully connect to Immy and show up in the pending list.  Some agents will automatically get associated to their existing computers while some may need to be manually identified to the correct tenant.
+
 ## 0.61.0
 
 Released 02-05-24
