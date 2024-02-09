@@ -1,8 +1,17 @@
 # Releases
 
+## 0.61.3
+
+Released 02-09-24
+
+### Bug Fixes
+
+- Fixed an issue where target assignments for an azure group were failing with "PostgresException: 42703: column i.deleted_at does not exist"
+- Fixed an issue with intellisense not starting when opening a script from a maintenance session
+
 ## 0.61.2
 
-Released 02-08-23
+Released 02-08-24
 
 ### Bug Fixes
 
