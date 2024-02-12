@@ -1,5 +1,13 @@
 # Releases
 
+## 0.61.4
+
+Released 02-12-24
+
+### Bug Fixes
+
+- Fixed an issue with the script editor not showing output when loading a script for the first time.
+
 ## 0.61.3
 
 Released 02-09-24
