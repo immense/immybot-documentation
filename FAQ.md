@@ -1,3 +1,8 @@
+::: danger *ImmyBot will no longer support Windows 7, Sever 2008 (or Server 2012 w/o [ESUs](https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates-overview)) machines after May 14th, 2024*
+.NET 7 support is ending May 14th, and as a result we will be transitioning the Agent to .NET 8 at that time period. We will not be offering support for these machines after May 14th.
+
+Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
+:::
 # Frequently Asked Questions
 
 ## What is the differrence between the Starter and Standard plan?
@@ -66,6 +71,17 @@ Yes. Create a deployment for the Join AzureAD task. We use the bulk enrollment t
 Check if MFA Requirement for Joining is enabled via [Conditional Access](https://portal.azure.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies) or [Azure Device Settings](https://portal.azure.com/#view/Microsoft_AAD_Devices/DevicesMenuBlade/~/DeviceSettings/menuId~/null).
 MFA requirement for all users in [Conditional Access](https://portal.azure.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies) will also block the execution, as the package_XXX user will encounter a MFA prompt.
 Most other situations are noted during execution failure.
+
+## What Windows versions does ImmyAgent support?
+
+The ImmyAgent is written in .NET, and as such supports the same [Windows versions the .NET runtime supports](https://github.com/dotnet/core/blob/main/release-notes/8.0/supported-os.md).
+**Currently, the ImmyAgent runs on .NET 7 and therefore supports Win7+ devices. However, support for .NET 7 is ending May 14th, 2024.**
+After May 14th, Immybot will be transitioning the Agent to the .NET 8 runtime. Win7 is not officially supported in .NET 8, and as such will no longer be supported in ImmyBot.
+Older systems may continue to work inside of ImmyBot with necessary updates applied, however, we will not be offering any support for unsupported machines.
+ - Internal testing has shown Win7 (and similar) machines can still work on .NET 8 as long as they have the necessary updates, utilizing a [3rd party tool such as Legacy Update](https://legacyupdate.net/).
+::: danger
+We do not endorse Legacy Update or similar tools. The best thing to do is upgrade the system. Use at your own risk.
+:::
 
 ## Can Immy make deploying via Intune more simple?
 
