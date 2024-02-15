@@ -5,6 +5,17 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 :::
 # Releases
 
+## 0.61.5
+
+Released 02-25-24
+
+### Bug Fixes
+
+- Fixed an issue where users were unable to toggle Remote Control tenant preferences
+- Fixed an issue with non-MSP users unable to load the deployment list
+- Fixed an issue with the "Show dismissed recommended deployments" selector not working
+- Fixed an issue with manually identified agents always being associated with the MSP tenant instead of the selected tenant
+
 ## 0.61.4
 
 Released 02-12-24
