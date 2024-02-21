@@ -3,11 +3,26 @@
 
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
+
 # Releases
+
+## 0.61.6
+
+Released 02-21-24
+
+### Improvements
+
+- The session logs for verifying the installed software version now include the detected version
+- Inventory is now always performed for full maintenance sessions to ensure inventory data is as up to date as possible before resolving deployments
+
+### Bug Fixes
+
+- Fixed an issue with tags not immediately displaying in the tenant list
+- Fixed an issue with some checkbox values not updating after the first click
 
 ## 0.61.5
 
-Released 02-25-24
+Released 02-15-24
 
 ### Bug Fixes
 
