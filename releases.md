@@ -6,6 +6,46 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.62.0
+
+Released 02/29/24
+
+### Bug Fixes
+
+- Fixed an issue where computers that failed to run inventory were incorrectly being classified as workstations/desktops by default. This was causing workstation deployments to incorrectly resolve to the computer.
+- Fixed an issue with application errors disappearing when clicking the "Show Details" link
+- Chocolatey packages no longer fail detection (Removed -lo from Choco command)
+- Fixed issue where even though an "Agent Integration" was specified with GetDynamicVersions implemented, Immy would not run GetDynamicVersions unless the "Use dynamic versions" checkbox was checked
+- Fixed a long standing issue where The Immy Agent/Ephemeral would drop & invoke an unsigned powershell script named Invoke-PSPipeHost.ps1. This would cause some AV & EDR to not like us.
+- Fixed an issue where some computers were stuck in the onboarding status after completion of an onboarding session
+- Fixed an issue where the stale link in preferences was not working
+- Fixed a minor issue in the Application Locks page that would show all active locks fetched as 'cancellable' when they may actually be 'terminal' when requested.
+- Fixed a bug where changing the slug from tenants list page for an MSP tenant would unset the tenant's MSP status
+- Fixed a null reference exception that could occur in the NCentral API client
+- Fixed several null reference exceptions that could occur when loading certain pages
+- Fixed a null reference exception that could occur when parsing a dynamic version result
+- Fixed some null reference exceptions that were occurring sending commands to CW Automate
+- Fixed a null reference exception that was occurring for immy agents attempting to execute scripts over the IoT Hub even when the hub has been removed
+- The detected computer software table now includes software that have SystemComponent set to 0 in the registry.
+
+### Improvements
+
+- Added a new reporting page called Computer Inventory Scripts that contains the latest results of all inventory scripts ran against computers
+- Added more details to exceptions coming from integrations to help diagnose issues
+- (Developer improvement) We have integrated new security testing into our code repository to help us detect potential vulnerabilities before they are released.
+- The version text in the download agent button on the sidebar has been removed to avoid confusion. The agent version is still displayed in the modal that shows after clicking the button.
+- We have exposed the immy.bot API under your-instance.immy.bot/swagger using the Swagger OpenAPI spec. https://swagger.io/specification/.  Although officially this is not support, it may be useful if you are attempting to use our api in a 3rd party application.
+- Edit Software: Advanced items with overridden (non-default) values are visible without expanding Advanced
+- Edit Software: Selecting an Integration hides Version/Dynamic Versions UI to make it more obvious that the expectation is for the Integration to handle this logic.
+- If a software is linked to an integration type but the deployment is missing the IntegrationId, but only one integration of that type exists, Immy will fall back to using that single integration.
+- Updated ImmyBot references to immy.bot
+- Removed deprecated IoT Hub code and dependencies from the latest version of the ImmyBot Agent
+- Added a help button explaining global vs local on the Software and Tasks pages
+- Removed progress bar from System context scripts that don't specify PercentComplete. Only the most recent ProgressRecords show status
+- You can now create your own computer inventory tasks. In another release we will add the ability to represent them in the UI.  For now, you can see results in the Computer Inventory Table and query them in filter/meta scripts.
+- Added more maintenance options to the computer batch actions. In addition to running full maintenance, you can now run inventory scripts, deployment resolution, and deployment detection.
+- On the computer details page toolbar, "Re-Inventory" was renamed to "Deployment Detection"
+
 ## 0.61.6
 
 Released 02-21-24
