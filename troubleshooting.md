@@ -1,4 +1,4 @@
-::: danger *ImmyBot will no longer support Windows 7, Sever 2008 (or Server 2012 w/o [ESUs](https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates-overview)) machines after May 14th, 2024*
+::: danger *ImmyBot will no longer support Windows 7, Server 2008 (or Server 2012 w/o [ESUs](https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates-overview)) machines after May 14th, 2024*
 .NET 7 support is ending May 14th, and as a result we will be transitioning the Agent to .NET 8 at that time period. We will not be offering support for these machines after May 14th.
 
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
@@ -162,6 +162,13 @@ at System.Net.Http.HttpConnection.RawConnectionStream.WriteAsync(ReadOnlyMemory`
 ```
 To correct it, you need to bypass SSL Inspection for your instances hostnames/IPs, which are found under
 	Show more > integrations > Fetch IP Address and Hostnames
+
+ ### SentinelOne
+ Sentinel requires BOTH your instance's Script path and the ImmyBot Agent process excluded. With only the script path excluded, devices will regularly have issues running the ImmyBot Agent to download the ephemeral agent. This is apparent in two cases:
+ 	1. Importing devices - The new agent can't download the ephemeral agent to start running inventory.
+  	2. Updating ImmyBot Agents - The new agent can't download the corresponding new ephemeral agent when attempting to run deployments or scripts.
+
+You can also set your Exclusion Mode to "Interoperability - Extended".
 
  ### Group Policy Objects
 
