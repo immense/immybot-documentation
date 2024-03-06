@@ -6,6 +6,15 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.62.1
+
+Released 03/06/24
+
+### Bug Fixes
+
+- Fixed an issue creating/updating tags with limited tenants specified
+- Fixed an issue creating/updating software licenses
+
 ## 0.62.0
 
 Released 02/29/24
