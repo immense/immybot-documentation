@@ -6,6 +6,14 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.62.2
+
+Released 03/07/34
+
+### Bug Fixes
+
+- Fixed an issue with N-Central where the dynamic version script would not run and prevented installs and updates
+
 ## 0.62.1
 
 Released 03/06/24
