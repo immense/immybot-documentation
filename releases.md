@@ -6,9 +6,19 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.62.4
+
+Released 03/12/24
+
+### Bug Fixes
+
+- Fixed a bug where instance-updated emails were not getting sent after updating ImmyBot to the latest version
+- Fixed an issue with updating maintenance tasks where it sometimes complained about certain fields being required when it should not have
+- Fixed a bug where reboot pref would not update on schedule page
+
 ## 0.62.3
 
-Released 03/12/23
+Released 03/12/24
 
 ### Bug Fixes
 
