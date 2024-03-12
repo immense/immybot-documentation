@@ -6,9 +6,18 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.62.3
+
+Released 03/12/23
+
+### Bug Fixes
+
+- Fixed an error that occurred when uploading a license
+- Fixed an error that occurred when creating a deployment for a CW Automate Group or CW Control Secondary Group
+
 ## 0.62.2
 
-Released 03/07/34
+Released 03/07/24
 
 ### Bug Fixes
 
