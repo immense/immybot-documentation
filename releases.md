@@ -6,6 +6,13 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.62.5
+
+Released 03/19/24
+
+### Bug Fixes
+- Fixed an exception that occurred when analyzing a package by url
+
 ## 0.62.4
 
 Released 03/12/24
