@@ -38,6 +38,11 @@ Create a new PSA Link and fill in the **Provider Info**
 
 # CW Manage Pod v1
 
+Setting up this integration allows you to Look up the contact's email address in Immy and shows you their computers (Immy does User Computer Affinity behind the scenes so you don't have to do it manually). Technicians can jump into their computers or push software via the ticket.
+
+![image](https://github.com/immense/immybot-documentation/assets/95599350/c9b28636-c7d9-4f80-b850-780efefe6b4e)
+
+
 Go to Show More -> Integrations
 
 Add CW Manage Pod
