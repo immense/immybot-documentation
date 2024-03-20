@@ -1,23 +1,17 @@
 {
-  "name": "vuepress-demo",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "authors": {
-    "name": "",
-    "email": ""
-  },
-  "repository": "/vuepress-demo",
-  "scripts": {
-    "dev": "vuepress dev src",
-    "build": "vuepress build src"
-  },
-  "license": "MIT",
   "devDependencies": {
-    "vuepress": "^1.7.1",
-    "vuepress-plugin-mermaidjs": "^1.8.1"
+    "@ulu/vitepress-auto-menus": "^0.0.3",
+    "mermaid": "^10.4.0",
+    "path": "^0.12.7",
+    "vite": "^5.0.11",
+    "vitepress": "^1.0.0-rc.13",
+    "vitepress-plugin-mermaid": "^2.0.14",
+    "vue": "^3.3.4"
   },
-  "dependencies": {
-    "vuepress-plugin-sitemap": "^2.3.1"
-  }
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "dependencies": {}
 }

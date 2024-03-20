@@ -1,3 +1,35 @@
 {
-    "MarkdownPaste.path": "../.vuepress/images"
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "editor.rulers": [
+    100
+  ],
+  "editor.tabSize": 2,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.format.insertSpaceAfterConstructor": true,
+  "javascript.format.enable": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.singleQuote": false,
+  "prettier.trailingComma": "es5",
+  "prettier.printWidth": 100,
+  "javascript.format.semicolons": "insert",
+  "typescript.format.semicolons": "insert",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "findUnusedExports.detectCircularImports": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "MarkdownPaste.path": "../.vitepress/images"
 }

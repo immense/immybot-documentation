@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "serve",
+      "type": "npm",
+      "script": "docs:dev",
+      "isBackground": true,
+      "problemMatcher": [
+        "$vite",
+        "$vite-eslint-visualstudio",
+        "$vite-esbuild",
+        {
+          "owner": "typescript",
+          "source": "Typescript",
+          "fileLocation": "absolute",
+          "applyTo": "allDocuments",
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "vite",
+            "endsPattern": "Local"
+          },
+          "pattern": [
+            {
+              "regexp": "(ERROR|WARNING)\\(TypeScript\\)  (.*)",
+              "severity": 1,
+              "message": 2
+            },
+            {
+              "regexp": "^ FILE  (.*):(\\d*):(\\d*)$",
+              "file": 1,
+              "line": 2,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
