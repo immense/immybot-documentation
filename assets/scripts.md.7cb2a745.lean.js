@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as e,Q as n}from"./chunks/framework.392dd896.js";const u=JSON.parse('{"title":"Scripting Guide","description":"","frontmatter":{},"headers":[],"relativePath":"scripts.md","filePath":"scripts.md"}'),o={name:"scripts.md"},l=n("",191),t=[l];function p(r,i,c,y,h,d){return a(),e("div",null,t)}const m=s(o,[["render",p]]);export{u as __pageData,m as default};
