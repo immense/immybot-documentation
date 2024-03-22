@@ -6,6 +6,15 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.62.6
+
+Released 03/22/24
+
+### Bug Fixes
+
+- Fixed a performance issue with intellisense in the script editor that was causing high CPU
+- Fixed a common exception that was occurring during scheduled inventory jobs
+
 ## 0.62.5
 
 Released 03/19/24
