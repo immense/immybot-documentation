@@ -5,7 +5,7 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 :::
 # Frequently Asked Questions
 
-## What is the differrence between the Starter and Standard plan?
+## What is the difference between the Starter and Standard plan?
 
 Both plans allow you to import all of your existing agents into ImmyBot if you use one of our support integrations.
 
