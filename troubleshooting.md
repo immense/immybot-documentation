@@ -133,11 +133,11 @@ Your script path can be found under Settings->Preferences->Script Path
 * [ThreatLocker](#threatlocker)
 * [Sophos Central](#sophoscentral)
 * [BitDefender](#bitdefender)
-* [CrowdStrike](#CrowdStrike)
+* [CrowdStrike](#crowdstrike)
 * [Microsoft Defender for Endpoint](#microsoft-defender-for-endpoint)
-* [Cylance](#Cylance)
-* [SentinelOne](#SentinelOne)
-* [DNSFilter](#DNSFilter)
+* [Cylance](#cylance)
+* [SentinelOne](#sentinelone)
+* [DNSFilter](#dnsfilter)
 
 ### ThreatLocker
 
