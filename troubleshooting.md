@@ -181,7 +181,7 @@ If Sophos reports that Immy Bot has been blocked, you have the option of going t
 
 ### BitDefender
 
-BitDefender will intermittently block script execution unless you disable Aggressive scanning mode or add a your instance's [Script Path](#script-path-exclusion) to your policy's exclusion list.
+BitDefender will intermittently block script execution unless you disable Aggressive scanning mode or add a your instance's [Script Path](#security-software-exclusions) to your policy's exclusion list.
 
 ### CrowdStrike
 
@@ -189,7 +189,7 @@ CrowdStrike uses AI to decide what to allow and disallow. Periodically this AI w
 
 ### Microsoft Defender for Endpoint
 
-Add a your instance's [Script Path](#script-path-exclusion) to your policy's exclusion list.
+Add a your instance's [Script Path](#security-software-exclusions) to your policy's exclusion list.
 <https://docs.microsoft.com/en-us/mem/intune/configuration/device-restrictions-configure#create-the-profile>
 
 ### Cylance
