@@ -218,10 +218,13 @@ You can also set your Exclusion Mode to "Interoperability - Extended".
 
 ### DNSFilter
 
-There has been reports that DNSFilter (and possibly other DNS Filtering tools) while not directly blocking subdomain.immy.bot, has been failing to resolve some DNS.
-In the case of DNSFilter it was confirmed that it was not blocking ImmyBot, but was not resolving DNS so connection attempted to the backend were failing.
-Expliclty allowing the DNS subdomain.immy.bot (replace subdomain with your ImmyBot instance subdomain) was confirmed to resolve the resolution failing
-https://help.dnsfilter.com/hc/en-us/articles/1500008111381-Allow-and-Block-Lists
+There have been reports indicating that DNSFilter, along with potentially other DNS filtering tools, is not directly blocking subdomain.immy.bot but has failed to resolve some DNS queries. 
+
+Specifically, in the case of DNSFilter, it was confirmed that ImmyBot was not being blocked. However, the failure in DNS resolution meant that connection attempts to the backend were unsuccessful. 
+
+Explicitly allowing the DNS for subdomain.immy.bot (replacing "subdomain" with your specific ImmyBot instance subdomain) was verified to resolve the issue of failed DNS resolutions. 
+
+For guidance on managing allow and block lists, please refer to: https://help.dnsfilter.com/hc/en-us/articles/1500008111381-Allow-and-Block-Lists
 
 ### Group Policy Objects
 
