@@ -129,13 +129,15 @@ Your script path can be found under Settings->Preferences->Script Path
 
 ![image](https://user-images.githubusercontent.com/1424395/173610304-50bab775-c7c8-40b3-944e-fab1dde862ee.png)
 
+
 * [ThreatLocker](#threatlocker)
 * [Sophos Central](#sophoscentral)
 * [BitDefender](#bitdefender)
-* [Microsoft Defender for Endpoint](#script-path-exclusion)
-* [Deep Instinct](#script-path-exclusion)
-* [CrowdStrike](#script-path-exclusion)
-* [AlienVault](#script-path-exclusion)
+* [CrowdStrike](#CrowdStrike)
+* [Microsoft Defender for Endpoint](#microsoft-defender-for-endpoint)
+* [Cylance](#Cylance)
+* [SentinelOne](#SentinelOne)
+* [DNSFilter](#DNSFilter)
 
 ### ThreatLocker
 
@@ -213,6 +215,13 @@ To correct it, you need to bypass SSL Inspection for your instances hostnames/IP
    2. Updating ImmyBot Agents - The new agent can't download the corresponding new ephemeral agent when attempting to run deployments or scripts.
 
 You can also set your Exclusion Mode to "Interoperability - Extended".
+
+### DNSFilter
+
+There has been reports that DNSFilter (and possibly other DNS Filtering tools) while not directly blocking subdomain.immy.bot, has been failing to resolve some DNS.
+In the case of DNSFilter it was confirmed that it was not blocking ImmyBot, but was not resolving DNS so connection attempted to the backend were failing.
+Expliclty allowing the DNS subdomain.immy.bot (replace subdomain with your ImmyBot instance subdomain) was confirmed to resolve the resolution failing
+https://help.dnsfilter.com/hc/en-us/articles/1500008111381-Allow-and-Block-Lists
 
 ### Group Policy Objects
 
