@@ -28,3 +28,15 @@ Setting up this integration allows you to
 Create a HaloPSA Integration Link and fill in the **Integration Settings**
 
 ![image](https://user-images.githubusercontent.com/18588314/184726437-c4398dec-1add-48c3-9443-88dc1b384c5b.png)
+
+
+## Embedded Ticket Tab
+HaloPSA version 2.125.5, introduced a new feature called Custom Tabs. You can configure these Custom Tabs to point to a web address, similar to an iframe.
+
+Within HaloPSA, configure the tab as follows:
+
+![image](https://github.com/immense/immybot-documentation/assets/16939160/c851198c-60fb-4eb6-b9c8-36ce4bf6fd6c)
+
+This tab will then show on all tickets in the system, like this:
+
+![image](https://github.com/immense/immybot-documentation/assets/16939160/f4aaf5f2-08bf-4d56-b313-eeea62e21051)
