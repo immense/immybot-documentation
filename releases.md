@@ -6,6 +6,63 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.63.0
+
+Released 04/02/24
+
+### Automatic Agent Update Changes
+
+The preference to enable automatic agent upgrades has been added back.
+
+We no longer rely on MSI installers to automatically update the immy agent. Instead, we copy the ephemeral agent binary into "C:\Program Files (x86)\ImmyBot" whenever we detect that the agent binary is on an older version.  Logic has been put in place to protect agent installations from breaking due to failed upgrades. Overall, the automatic updates should be more resilient.
+
+### Notification Table Improvements
+
+- Severity is now the left-most column.
+- Added icons to the Severity column.
+- The Created column is now hidden by default.
+- The column chooser is now visible.
+- Table is ordered by updated date by default.
+
+### Improvements
+- Added filters to the dynamic integration types page to show "local/global" integration types and to show "developer/alpha/beta/production" release stages.
+- New Integration scripts come prepopulated with a working example
+- Changed the Resolved column in the notification table to an icon instead of a checkbox.
+- Added new notification for deployment migrations.
+- Release notes are now available to all users on the System Update page.
+- The deployment table can now be exported to excel!
+- Added an icon to integration cards on the integration list page to indicate it has a non-production release tag
+- Added a release tag badge to the integration details page
+- The Test-PendingReboot script used in maintenance sessions is now in global.
+- Added release tag selector to the provider link list page
+- Added missing datetime tooltips to computer timeline events and the session created date on the session list page
+- Added the year to all timestamps in the session logs view
+- Agents now get updated in the database when the integration reports a new manufacturer
+- Updated error message when navigating to a computer that does not exist to read: "Computer with id xxx was not found".
+- Updated error message when navigating to a computer that has been replaced by another computer to read: "Computer with id xxx has been replaced by computer with id xxx"
+- Updated error message when navigating to a computer that has been deleted to state: "Computer with id xxx has been deleted."
+- The tenant software page UI has been updated to contain new views for deployments, computers, and persons for each found software.
+
+### Bug Fixes
+- Fixed an issue in the script editor about `The term 'Invoke-ScriptAnalyzer' is not recognized`
+- Fixed an issue where some PSPipeHosts that failed to connect wouldn't provide as much useful data for diagnostics.
+- Forms with Password inputs no longer autofill and replace content in other fields
+- Integrations with no parameters (like the CW Manage Pod) no longer show “Please correct above errors” error message
+- Resolved an issue where some machines were experiencing ephemeral port exhaustion when Ephemeral agent was in a retry loop.
+- The Text on the deployments no longer includes the tenant name for cross-tenant deployments. This gave users the false impression that the deployment was tenant specific when it was not.
+- If an Immy tenant was linked to an Azure customer but accidentally set as Partner, then unlinking it from the Tenant Details Azure tab and linking it again from the Azure Customer Mapper should now correctly reset the tenant to Customer
+- Fixed a bug where tenant consented-at/consented-with details were not updating after consent until the page was refreshed
+- Fixed an issue where uploading global software failed
+- Fixed an error that occurred when targeting CW Automate groups on a deployment
+- Fixed some exceptions that were occurring during inventory
+- Fixes css inconsistencies on tenant software list, devextreme, and ImmyLink
+- Fixed an issue where bits transfer errors were not being shown in the session log output
+- Fixed an issue where the ISO option was now available in the immy agent download modal
+- Fixed a bug where some machines fail to return OS install date due to culture issues resulting in a failure to identify.
+- Removed the Default Hourly Inventory Task from the UI since we only support running inventory on a schedule once per day
+- Fixed an issue where agent integration syncs were unable to bring back agents that were deleted. Most commonly found from CW Control and CW Automate.
+- Fixed an issue where deleted agents were still showing up on the Integration -> Agents tab
+
 ## 0.62.6
 
 Released 03/22/24
