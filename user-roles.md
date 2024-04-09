@@ -17,7 +17,7 @@
 
 ## Customer (Tenant) Admin
 
-* Can view/edit Computers, Schedules, Licenses and Deployments for their Tenant
+* Can view/edit Computers, Licenses and Deployments for their Tenant
 * Can create users in their tenant
 * Software they upload is owned by their tenant and are not visible to other tenants
 * Licenses they create are owned by their tenant and are not visible to other tenants
