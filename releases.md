@@ -6,6 +6,30 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.63.3
+
+Released 04/17/24
+
+### Bug Fixes
+
+- Fixed an issue setting the primary person from the user affinity job
+
+## 0.63.2
+
+Released 04/16/24
+
+### Improvements
+
+- Dynamic Integrations now allow you to implement ISupportsClientGrouping. This is useful when integrating with PSAs as clients can be grouped by what products they pay you for or the types of agreement they have.
+
+### Bug Fixes
+
+- Fixed an issue where rekeyed/soft-deleted agents would throw an error whenever we would update their status to online (due to a unique constraint violation in our database)
+- Fixed an issue where instances may not reliably automatically update when `Days to wait after update is available` was set to an interval longer than our typical release schedule.
+- Fixed an issue that was causing new devices to fail during registration.
+- The primary sidebar now automatically closes and opens when resizing between the desktop and mobile view
+- Resumed sessions will now execute immediately if Offline Behavior is set to Apply On Connect and the execution time has already passed. Before, it would re-schedule execution at the same time the next day.
+
 ## 0.63.1
 
 Released 04/15/24
