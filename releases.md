@@ -6,6 +6,69 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.64.0
+
+Released 05/08/24
+
+### Azure Domain Splitting
+
+Azure customers can now be split into multiple Immy tenants from the Azure Customer Mapper
+
+You can select one or more domains to link to an Immy tenant. Azure users whose UPNs match those domains will then be synced into the domain-linked Immy tenant instead of the default Immy tenant.
+
+Splitting an Azure customer on domain will also automatically set the domain-linked Immy tenant as the "child" of the Azure customer's default Immy tenant, so that deployments targeting the parent can propagate to the domain-linked tenants
+
+### Child Tenants
+
+ImmyBot supports sites/location by allowing you to set a parent/child relation between tenants. You can set the parent tenant as a batch action on the tenant list page or from the edit tab on a tenant's details page.
+
+### User Affinity Table
+
+User Affinity results are now exposed under Reporting -> User Affinity and on the computer's details page.
+
+### Deployment Page Changes
+
+- Deployments for software linked to an integration can no longer specify configuration parameters.
+- For software linked to a provider, the deployment configuration parameters are now inherited from the linked integration.
+- This helps keep sensitive data like API keys and passwords private by not displaying the information in the deployment configuration parameters and instead storing the information in the integration.
+
+### Deployment Migrations
+
+- GLOBAL software linked to an integration can now automatically migrate data out of relevant deployments and into a new or existing integration.
+- All GLOBAL software linked to integrations with the "Production" tag will be migrated.
+- Added a new App Preference, "Allow Beta Integrations to Migrate Deployments".
+
+### Improvements
+
+- Any software can now be selected for install/uninstall in "Installation Prerequisites"
+- Added parent-tenant-assignment batch action to the Tenants list
+- Added parent-tenant column to the Tenants list
+- Removed ability to deploy/preview cross-tenant computers on the deployment details page from MSP non-admin users that don't have the "can manage cross tenant deployments" permission
+- Added an audit log that records when the application starts up
+- Added an excel export button to the computer inventory scripts report table
+- Increased the timeout for Expand-ZipFile from 1500 to 3600 seconds
+- After updating a user, we now invalidate the cache for that user so the changes are propagated immediately
+- Setting the primary user for a computer now shows up in the audit table. This includes the User Affinity Job and PPKGs that have a primary user set on the installer.
+- Added Chassis Types to our initial inventory so newly created computers don't have the "Unknown Computer Type" badge
+- Decreased PowerShell execution time by optimizing module loading
+  UI improvements in line with what's desired by support and most useful to users
+  -Alerts added as seen fit by support to better inform the user submitting a ticket.
+
+### Bug Fixes
+
+- Fixed an issue preventing software from being selected in "Installation Prerequisites"
+- Fixed an issue with the dashboard table headers not loading correctly
+- Fixed an issue where moving a computer that had an immy agent to another tenant would cause the agent to be deleted if you were to delete the original tenant the computer was assigned to
+- Fixed a possible null reference exception that could occur when executing scripts over the CW Automate agent
+- Fixed an issue preventing integration inventory scripts from running.
+- Fixed an issue with CW Control target assignments saving the incorrect value for Control secondary groups
+- Fixed spelling of "invetory"
+- Fixed an issue with the dedupe inventory script failing with "System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation"
+- Added a missing comma in the meta robots attribute
+- Fixed an issue setting the primary person from the user affinity job
+- Fixed ProviderNotFoundException thrown by PSScriptAnalyzer
+- User cannot cause an error by submitting a ticket with the technician access box checked even as a non-admin. They can no longer check the box as it is grayed out.
+
 ## 0.63.3
 
 Released 04/17/24
