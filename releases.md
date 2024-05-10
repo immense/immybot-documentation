@@ -6,6 +6,22 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.64.1
+
+Released 05/10/24
+
+### Improvements
+
+- Increased detected-software uninstall string column size in the database to prevent issues with some software objects not being created
+- Fixed a transient bug with notifications occasionally failing to save
+- Optimized memory and db performance when running scripts by relying on an improved cache of all available function scripts. The cache is busted after any function scripts are modified
+- Computer and Tenant software tab now has a grid view for direct access to software data
+
+### Bug Fixes
+
+- Fixed a bug preventing users from entering new immy instances
+- Fixed a bug preventing the maintenance action duration timer from incrementing.
+
 ## 0.64.0
 
 Released 05/08/24
