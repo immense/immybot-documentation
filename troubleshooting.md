@@ -183,6 +183,9 @@ If Sophos reports that Immy Bot has been blocked, you have the option of going t
 
 BitDefender will intermittently block script execution unless you disable Aggressive scanning mode or add a your instance's [Script Path](#security-software-exclusions) to your policy's exclusion list.
 
+1. Edit the policy->Antimalware->Settings->In-policy Exclusions
+2. Add a folder exclusion for your [Script Path](#security-software-exclusions)
+
 ### CrowdStrike
 
 CrowdStrike uses AI to decide what to allow and disallow. Periodically this AI will mark the ImmyBot Agent or ImmyBot Ephemeral Agent as malicious. This usually happens after we update it. Marking it as a false positive in your CrowdStrike portal will train the global AI to not treat it as malicious.
