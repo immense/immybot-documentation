@@ -1,6 +1,14 @@
-# N-Central Integration
+::: info
+This page is now dedicated to the new N-Central integration, utilizing the new N-Central REST API & ImmyBot Dynamic Integrations.
 
-Setting up this integration allows you to
+This new integration should provide improved stability over our classic (and soon to be deprecated) integration.
+
+Looking for the classic N-Central integration guide?
+We recommend against it, but here is [the classic setup guide](/old-ncentral-integration-setup.html).
+:::
+# N-Central REST API Dynamic Integration
+
+Setting up this integration allows you to:
 1. Import customers from N-Central
 2. Import computers from N-Central
 3. Manage all computers in N-Central without deploying the ImmyBot Agent
@@ -12,49 +20,53 @@ ImmyBot currently requires the following role permissions to operate correctly:
 ### Devices
 - Devices View
   - All Devices -> Read Only
-- Direct Support
-  - Command Prompt -> Manage
-  - File System -> Manage
-- Remote Control
-  - Custom -> Manage
-  - Take Control -> Manage
-- Network Devices
-  - Add/Import Devices -> Manage
-  - Edit Device Settings -> Manage
+- Scheduled Tasks
+  - Scheduled Tasks -> Manage
 
 Create an "ImmyBot" role in your N-Central instance using above roles.
 ![](./.vitepress/images/ncentraldocs/add_userrole_guide_1.png)
 
-![](https://github.com/immense/immybot-documentation/assets/31077619/0e76619f-31af-4869-a9ac-78a221614aa9)
+![](./.vitepress/images/ncentraldocs/new_add_user_guide_1.png)
 
 
-## Create ImmyBot user in N-Central
+## Create an API-Only ImmyBot user in N-Central
 
-Create a new "ImmyBot" user in the instance with the "ImmyBot" role applied.
-![](./.vitepress/images/ncentraldocs/add_user_guide_1.png)
-![](./.vitepress/images/ncentraldocs/add_userrole_guide_2.png)
+N-Able themselves have an [offical short guide for doing this we recommend following](https://documentation.n-able.com/N-central/userguide/Content/User_Management/Role%20Based%20Permissions/role_based_permissions_create_APIuser.htm) for this part, but here is a recap:
 
-## Login to the new ImmyBot user to get MFA code and accept EULA
+1. Create a new "ImmyBot" user in the instance with the "ImmyBot" role applied.
+2. Under "API Access", ensure "Api-Only User" is checked. <u>2FA MUST be disabled for the API User!</u>
+3. Save the new ImmyBot user, and press the "Generate JSON Web Token" button. Copy this value somewhere for later.
 
-Once you have created the new ImmyBot user account, you must attempt to login
-so that you may retrieve the MFA key, and complete any initial setup.
-After entering the accounts email and password, there will be a MFA QR code displayed.
-You MUST press the "CAN'T SCAN IT?" button to get the Base32-encoded MFA key.
-After saving the key, use [a site such as this](https://totp.danhersam.com/?period=30&digits=6) to get the current token from the key, or temporarily scan the QR code on a device to complete sign-in.
-![](./.vitepress/images/ncentraldocs/login_mfa_guide_1.png)
-::: tip
-Make sure you accept the EULA when you login, otherwise the computers will not import!
+
+## Add the necessary 'RunScript' Automation Policy
+
+After completing the new API-Only user setup, it's time time add an Automation Policy to N-Central so Immybot can
+run scripts on the machines.
+
+First, navigate to the "Script/Software Repository" under "Schedules Tasks" beneath the "Configuration" tab in N-Central.
+Once at the Script Repository page, select "Add" -> "Automation Policy".
+![](./.vitepress/images/ncentraldocs/add_automation_policy_1.png)
+
+Second, [download the ImmyBot RunScript Automation Policy](https://immybot.blob.core.windows.net/public-media/new-ncentral-rest-integration-files/ImmyBotRunScript.amp) and upload it to your instance. Fill out the Name and Description how you see fit if required.
+![](./.vitepress/images/ncentraldocs/add_automation_policy_2.png)
+
+Last step is to ensure this new automation policy we have uploaded is able to be invoked by the Immybot API User.
+Find the automation by searching for "Immybot", then flipping the `Enable API` switch. Accept the confirmation modal, then copy the `Repository ID` for later use.
+::: warning Make sure you copy YOUR `Repository ID`, as this identifier for the automation policy will be unique across every N-Central instance!
 :::
+![](./.vitepress/images/ncentraldocs/add_automation_policy_3.png)
 
 ## Add integration for N-Central
 
 After completing setup in N-Central, it's time to add the integration to ImmyBot.
-Navigate to the "Integrations" page in ImmyBot, and create a new "N-Central" integration.
-Input all the N-Central user account data to the fields on the right.
-![](./.vitepress/images/ncentraldocs/add_integration_guide_1.png)
-![](./.vitepress/images/ncentraldocs/add_integration_guide_2.png)
+Navigate to the "Integrations" page in ImmyBot, and create a new `N-Central v2` integration.
+Input a name you'd like for the integration, followed by your N-Central server URL, and the `JWT` you copied in the steps to make an "ImmyBot" API user.
+Then, input the `RepositoryId` gathered from the step before.
+Lastly, flip the `Enable Integration` switch.
 
-Press the "Verify Credentials" button, then, if completed successfully, press the button again to save the integration.
+::: warning If the `Health Check` reports an error after enabling the integration, ensure you have completed the above steps correctly. If you continue to have issues, reachout to the community or support for assistance.
+:::
+![](./.vitepress/images/ncentraldocs/add_integration_guide_new_1.png)
 
 ## Import your customers
 
