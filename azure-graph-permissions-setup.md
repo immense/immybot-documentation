@@ -11,19 +11,19 @@ After creating an ImmyBot tenant, link it to an Azure tenant by navigating to th
 Once your ImmyBot tenant has been linked to Azure, you can set the **Azure Permission Level** from the tenant Azure tab. This allows ImmyBot to:
 
 1. Sync all users from the Azure tenant
-2. Sync all users from your customer's tenants (if your Azure tenant is a Partner tenant)
-3. Install the 365 applications a user is licensed for (Apps for business/Apps for entrprise/Project/Visio)
-4. Deploy software to Teams, On-Premises Security Groups (Ex. Everyone in the Engineering Team gets AutoCAD 2022)
+2. Sync all users from your GDAP customers **(please see [GDAP Customers](#gdap-customers))**
+3. Install the 365 applications a user is licensed for
+   - Apps for business/Apps for entrprise/Project/Visio
+4. Deploy software to Teams, On-Premises Security Groups
+   - Ex. Everyone in the Engineering Team gets AutoCAD 2022
 
 The **Azure Permission Level** has two modes: _Default_ and _Custom_
 
-**NB: In both the _Default_ and _Custom_ modes, you must manually provide consent for each customer you want to sync!**<br />
-**NB: When consenting to an Azure customer, you must authenticate using an administrator account from that customer!**<br />
-Consent can be initiated from within ImmyBot by clicking on the `Consent` (or `Reconsent`) button for the customer on either the Azure Settings page or on the Azure tab of the ImmyBot tenant linked to the customer.
+**NB: In both the _Default_ and _Custom_ modes, consent must be provided for each customer you want to sync. Please see [GDAP Customers](#gdap-customers) for requirements**
 
 ### Default
 
-In this mode, you don't need to create an app registration. You consent as an administrator, allowing ImmyBot access users in your tenant and your customers tenants (if you have established GDAP relationships with your customers and have consented with an admin from that customer).
+In this mode, you don't need to create an app registration. You consent as an administrator, allowing ImmyBot access users in your tenant and your customers tenants. **Please see [GDAP Customers](#gdap-customers) if you want ImmyBot to access your customers' users**.
 
 ### Custom
 
@@ -59,13 +59,45 @@ See the screenshots below for the minimum permissions.
 
 ![](./.vitepress/images/2021-08-16-13-23-26.png)
 
-#### Assign GDAP Permissions to ImmyBot Service Principal
-
-- Create a Security Group in Azure AD called "ImmyBot Security Group"
-- Add the ImmyBot Service Principal to that group
-- For each customer in the Partner Center, add the "ImmyBot Security Group" and add the "Directory Readers" and "Global Reader" role.
+**Please see [GDAP Customers](#gdap-customers) if you want ImmyBot to access your customers' data**.
 
 #### Copy the `Application (client) ID` and `Client Secret Value` into the form in ImmyBot.
+
+## GDAP Customers
+
+To sync users from GDAP customers of your Azure Partner, permission must be granted in the customer
+tenants to Immy's app registration (_Default_ or _Custom_). This can be achieved either by clicking
+on the `Consent` button for each customer individually ("Manual consent") or by using the
+Pre-consent button ("Pre-consent").
+
+### Manual Consent
+
+This can be done by clicking on the `Consent` or `Reconsent` button for the customer on either the
+Azure Settings page or ont he Azure tab of the ImmyBot tenat linked to the customer.
+
+**NB: When manually consenting to an Azure customer, you must authenticate using an administrator account from that customer!**
+
+### Pre-Consent
+
+Immy can automatically grant consent to your GDAP customers using the Partner Center API, removing
+the need to consent to each customer individually. To do this, you must authenticate to the Partner
+Center API with a user in the partner tenant that meets these requirements:
+1. Is a member of the `AdminAgents` security group
+2. Is given the `Application administrator` and `Privileged role administrator` Entra roles at the customer through the GDAP relationship
+
+#### Example: GDAP Role Assignments
+
+Here is an example GDAP relationship configuration that will work with Immy's pre-consent functionality:
+
+1. Create security group in the partner tenant named `Application Administrators`
+2. Create security group in the partner tenant named `Privileged Role Administrators`
+3. Assign the `Application administrator` Entra role to the `Application Administrators` security group on the customer's admin relationship
+4. Assign the `Privileged role administrator` Entra role to the `Privileged Role Administrators` security group on the customer's admin relationship
+5. Add the partner user that you wish to sign-in to the Partner Center API with to  `AdminAgents`, `Application Administrators` and `Privileged Role Administrators` security groups
+
+For more information, see these Azure docs:
+- [Obtain permissions to manage customer](https://learn.microsoft.com/en-us/partner-center/gdap-obtain-admin-permissions-to-manage-customer)
+- [Assign Microsoft Entra roles](https://learn.microsoft.com/en-us/partner-center/gdap-assign-microsoft-entra-roles)
 
 ## Common Issues
 

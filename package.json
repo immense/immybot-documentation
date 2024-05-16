@@ -9,7 +9,7 @@
     "vue": "^3.3.4"
   },
   "scripts": {
-    "docs:dev": "vitepress dev",
+    "docs:dev": "vitepress dev --port 5175",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
   },
