@@ -6,6 +6,192 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.65.0
+
+Released 07/02/24
+
+### Metascript Improvements
+
+#### Fixed a bug where dropdown attributes, e.g. `[Dropdown({@{Option1=1; Option2=2}})]`, were incorrectly stripping the leading and trailing braces `{...}`
+```powershell
+param(
+  [Dropdown({@{Option1=1; Option2=2}})]
+  $DropdownParam
+ )
+```
+would not work but the following would
+```powershell
+param(
+[Dropdown({@{ Option1=1; Option2=2}
+})]$DropdownParam
+)
+```
+
+#### Dynamic Parameters can be declared without `New-ParameterCollection`
+
+```powershell
+[CmdletBinding()]
+param()
+dynamicparam
+{
+    # Before
+    New-ParameterCollection @(
+        New-Parameter -Name FirstName -Mandatory
+        New-Parameter -Name LastName -Mandatory
+    )
+}
+process{}
+```
+
+```powershell
+[CmdletBinding()]
+param()
+dynamicparam
+{
+    # After
+    New-Parameter -Name FirstName -Mandatory
+    New-Parameter -Name LastName -Mandatory
+}
+process{}
+```
+
+#### Introduced `New-DatetimeParameter`
+
+![image](https://immybot.blob.core.windows.net/release-media/a978b293-1b7a-409d-a4fb-7491f3b214cb)
+![image](https://immybot.blob.core.windows.net/release-media/436fb487-afc1-4b25-afe8-76d4e1c2d706)
+
+##### Simple Usage
+```powershell
+[CmdletBinding()]
+param()
+dynamicparam
+{
+    New-Parameter -Name FirstName -Mandatory
+    New-Parameter -Name LastName -Mandatory
+    New-DateTimeParameter -Name StartDate -Mandatory
+}
+process{}
+```
+
+##### Advanced Usage
+```powershell
+[CmdletBinding()]
+param()
+dynamicparam
+{
+    New-Parameter -Name FirstName -Mandatory
+    if($FirstName -like "Darren*"){
+        New-HelpText FirstNameWarning -HelpMessage "This guy is a jerk"
+    }
+    New-Parameter -Name LastName -Mandatory
+    New-DateTimeParameter -Name StartDate -Mandatory -ValidateScript {
+        if($_ -lt (Get-Date))
+        {
+            throw "StartDate must be in the future"
+        }
+        else{
+            $true
+        }
+    }
+}
+process{}
+```
+![image](https://immybot.blob.core.windows.net/release-media/6e7387b7-7e03-43af-b646-73e18a75092b)
+
+#### Throwing from within a ValidateScript block will now correctly associate the message to the parameter in the frontend.
+
+![image](https://immybot.blob.core.windows.net/release-media/8fc780bb-1513-4b13-8bf1-bb341c3a6eb3)
+
+### Script Editor
+
+#### Updated terminal colors for better readability
+
+![image](https://immybot.blob.core.windows.net/release-media/0bfad8da-b7b1-43b3-8e57-ea0598fbaf5f)
+
+![image](https://immybot.blob.core.windows.net/release-media/f0424ca1-0aa9-4ac2-9ecc-924b760b8c30)
+
+#### Fixed an issue where the script editor's search input would not focus after using the shortcut `ctrl+shift+f` or `ctrl+shift+p`
+
+#### The script editor now has the ability to view previous changes to the script.
+
+![image](https://immybot.blob.core.windows.net/release-media/76ead535-a368-466f-9b6c-26040926f344)
+
+### Diff Editor UI
+
+![image](https://immybot.blob.core.windows.net/release-media/62b6d394-9e28-4079-a513-12f9a8f06022)
+
+### Remote Control
+
+- In remote control on mobile devices, the virtual keyboard button is now a toggle.
+  - The virtual keyboard will remain visible until toggled off.
+- Fixed an issue in remote control for some browsers (e.g. Firefox) that was causing a "Paste" button to constantly pop up.
+  - This was due to new security restrictions introduced in some browsers.
+  - These new restrictions prevent automatic background syncing of the clipboard.
+  - Details about API restrictions can be found here: https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API#security_considerations
+  - Chromium-based browsers are (so far) not affected.
+- Fixed an issue where remote control input would stop working after a file transfer.
+- Fixed a bug in remote control that would sometimes cause input events to fire incorrectly.
+
+### Preflight Scripts
+Added the ability for an MSP user to disable specific local or global preflight scripts from executing.  A toggle has been added in the script editor when viewing a preflight script to enable or disable it.
+
+![image](https://immybot.blob.core.windows.net/release-media/89cc5048-bc4c-4bf4-b642-7c17e2d808ca)
+
+### Dynamic Integrations
+
+- Added the capability for Dynamic integrations to specify a custom refresh interval for `GetAgents` job via the new `JobSettings` attribute over default period of 1 hour. ex: `[JobSettings(PeriodMinutes = 5)]`
+- Fixed an issue where `Get-ProviderInfo` would fail to return `Configuration` form data for dynamic integrations.
+
+### N-Central Integration
+- Fixed: This integration has recently started experiencing issues. The requested operation requires an element of type 'Object', but the target element has type 'Array'.
+
+### Registry Search
+On the Registry tab, you can now search for keys, value names, and value data.
+
+![image](https://immybot.blob.core.windows.net/release-media/a2eea6ff-800f-4f1a-8a4a-69a1255ccc38)
+
+### Localization and Branding
+
+#### Added the option to use .NET time formatting strings on Immy emails from the Brandings page
+
+![image](https://immybot.blob.core.windows.net/release-media/a12176ee-fcf1-412b-96ec-781608a7b387)
+
+### Integrations
+
+#### Integrations now allow capabilities to be excluded
+
+![image](https://immybot.blob.core.windows.net/release-media/ba545e6b-5aa0-4c49-aa9b-b7259f56c34d)
+
+### Improvements
+- Minor UI padding improvements to computer list
+- We no longer include the AzureAD module in every metascript's runspace. A script now has to call `Import-Module AzureAD` if it wants to use Azure AD commands. This reduces our memory footprint from 7MB to 4MB per script invocation.
+- Improved the load time of the actions tab on the tenant details page
+- Improved the load time of "This software has been recently used in X actions/deployments" data.
+
+### Bug Fixes
+- Fixed an issue with logs not expanding when toggling the computer details page -\> actions tab row details
+- Fixed an issue where saving a software would sometimes clear the selected configuration task
+- Fixed an issue with deployments targeting tags not displaying the saved tag correctly
+- Fixed an issue where searching in the script editor did not allow for certain special characters
+- Correct the color of invalid input field warning icons
+- Fixed an issue where agents retrieved from some dynamic integrations were never re-attempting identification on failure or when specified to retry
+- Fixed an issue in the software prerequisite builder where you could incorrectly specify "Install Software A if Software A is installed".
+- Fixed an issue where onboarding only tasks could not be rerun
+- Fixed an issue loading the detected software report page
+- Fixed an issue with the new computer software tab not showing
+- Fixed an issue where the function script cache was not invalidating when creating new function scripts
+- CW Automate agents will now properly be reassigned to the successor computer when a machine is deleted
+- Fixed an issue that could lead to app crashes when `Invoke-AtomicCommand` cmdlet attempts to cancel script execution due to requested cancellation.
+- Introduced a new PowerShell cmdlet, `Clear-ImmyPrimaryUser`, to allow clearing the Immy primary user ID from a computer.
+- Fixed an issue where filter scripts could not use `Get-ImmyAzureAuthHeader`
+- Fixed an issue where `Get-ProviderInfo` would fail when targeting static integration types.
+- `Get-ProviderInfo` now doesn't throw terminating errors for Integration types that don't exist to simplify usage patterns.
+- Improved error handling and logging for the `Send-ImmyEmail` cmdlet
+- Added the ability for `Add-UriQueryParameter` to remove existing query arguments that match input names to prevent arrays from being formed via `OverwriteParameters`.
+- Fixed an issue where `Stop-ImmySession` would not stop the session correctly
+- Forms generated from PowerShell parameters now load in 1/3 the time
+- Debugger->Parameters panel updates automatically as changes are made to the script
+
 ## 0.64.1
 
 Released 05/10/24
