@@ -6,6 +6,14 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.65.2
+
+Released 007/08/24
+
+### Bug Fixes
+
+- Fixed an issue with utilizing the Azure cmdlets from within a dynamic param block where it would fail with the error message "No tenant was specified for this script".
+
 ## 0.65.1
 
 Released 07/05/24
