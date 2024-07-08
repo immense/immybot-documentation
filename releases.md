@@ -6,6 +6,15 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.65.1
+
+Released 07/05/24
+
+### Bug Fixes
+
+- Fixed an issue with some onboarding tasks not showing all of the parameters on the onboarding form unless you manually hit the refresh button
+- Fixed an issue with CW Automate where agents were not being synced
+
 ## 0.65.0
 
 Released 07/02/24
