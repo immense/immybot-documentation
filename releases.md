@@ -6,9 +6,21 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.65.3
+
+Released 07/15/24
+
+### Bug Fixes
+
+- Fixed an issue where variables such as `$TenantId` were not available from within a dynamicparam block
+- Fixed an issue where calls to `Connect-ImmyAzureAD` would fail because the base command `Connect-AzureAD` was not recognized
+- Fixed an issue where dropdown parameters that used `Hashtable` or `PSObject` values would not work correctly from within a session
+- Fixed an issue where clicking "Clear Output" in the script editor would not always clear the first line of output
+- Fixed an issue with the Configure Directory and Directory Migration tasks where they would get stuck parsing the parameters at runtime.
+
 ## 0.65.2
 
-Released 007/08/24
+Released 07/08/24
 
 ### Bug Fixes
 
