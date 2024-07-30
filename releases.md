@@ -6,6 +6,26 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.65.4
+
+Released 07/30/24
+
+### Improvements
+
+- You can now change the User Override for all parameters of an onboarding Deployment with a single click
+- More excludable capabilities have been added to the integration details page
+- The properties "Manufacturer" and "Model" have been added to the Computers Report
+- OAuth tokens are now refreshed every 24 hours instead of 89 days.
+- The function script cache is now busted automatically when you interactively run a script from the debugger. The cache is also busted when you interactively run a maintenance session.
+
+### Bug Fixes
+
+- Fixed an issue where software install prerequisites would fail because the parent's parameters were incorrectly being passed to its prerequisites.
+- Fixed an issue with ConnectWise ScreenConnect 24.2 not being able to open remote sessions.
+- Fixed an issue where some devices arriving in Immy with no `Win32_ComputerSystemProduct` in the registry will fail to identify, resulting in an `JsonReaderException: Unexpected character encountered while parsing value: {. Path 'DeviceId'` error.
+- Fixed some potential slow memory leaks that cause high memory after several days of uptime
+- Fixed an issue where debugging scripts for software linked to an integration would throw the error "An integration is not linked to this script..."
+
 ## 0.65.3
 
 Released 07/15/24
