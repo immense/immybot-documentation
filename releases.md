@@ -6,6 +6,14 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.65.5
+
+Released 07/21/24
+
+### Bug Fixes
+
+- Fixed an issue where recommended deployments were not resolving for maintenance sessions
+
 ## 0.65.4
 
 Released 07/30/24
