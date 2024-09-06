@@ -4,8 +4,8 @@
     "mermaid": "^10.4.0",
     "path": "^0.12.7",
     "vite": "^5.0.11",
-    "vitepress": "^1.0.0-rc.13",
-    "vitepress-plugin-mermaid": "^2.0.14",
+    "vitepress": "^1.0.0-rc.31",
+    "vitepress-plugin-mermaid": "^2.0.16",
     "vue": "^3.3.4"
   },
   "scripts": {
