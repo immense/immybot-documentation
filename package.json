@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@ulu/vitepress-auto-menus": "^0.0.3",
-    "mermaid": "^10.4.0",
+    "mermaid": "^10.5.0",
     "path": "^0.12.7",
     "vite": "^5.0.11",
     "vitepress": "^1.0.0-rc.31",
