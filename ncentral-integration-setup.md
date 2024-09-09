@@ -47,7 +47,7 @@ First, navigate to the "Script/Software Repository" under "Schedules Tasks" bene
 Once at the Script Repository page, select "Add" -> "Automation Policy".
 ![](./.vitepress/images/ncentraldocs/add_automation_policy_1.png)
 
-Second, [download the ImmyBot RunScript Automation Policy](https://immybot.blob.core.windows.net/public-media/new-ncentral-rest-integration-files/ImmyBotRunScript.amp) and upload it to your instance. Fill out the Name and Description how you see fit if required.
+Second, [download the ImmyBot RunScript Automation Policy](./public/ImmyBotRunScript.amp) and upload it to your instance. Fill out the Name and Description how you see fit if required.
 ![](./.vitepress/images/ncentraldocs/add_automation_policy_2.png)
 
 Last step is to ensure this new automation policy we have uploaded is able to be invoked by the Immybot API User.
