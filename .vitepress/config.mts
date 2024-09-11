@@ -74,5 +74,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         appId: 'SU6GB55GXI',
       }
     }
-  }
+  },
+ignoreDeadLinks: [
+    // ignore all links include "https://schemas"
+    /http://schemas/,
+  ]
 });
