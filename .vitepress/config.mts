@@ -77,6 +77,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   },
 ignoreDeadLinks: [
     // ignore all links include "https://schemas"
-    /http://schemas/,
+    /http:\/\/schemas/,
   ]
 });
