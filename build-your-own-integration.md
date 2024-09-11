@@ -1,8 +1,138 @@
 ## Build Your Own Integrations
 
+### Inbound vs Outbound Integrations
+
+An inbound integration uses the ImmyBot REST API from an external service.
+
+An outbound integration is defined in PowerShell within ImmyBot and typically consumes another service's API.
+
+## Inbound Integrations
+
+### Example - Install Software on a Computer
+
+The following example will prompt you to select a piece of software, then select one or more computers to install that software on
+
+1. Create a brand new App Registration in https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/CreateApplicationBlade/quickStartType~/null/isMSAApp~/false, leave it completely unmodified, don’t change any defaults.
+1. Copy the Client (Application) ID into the $ClientID variable below
+1. Create a secret under Certificates and Secrets and copy the secret VALUE (NOT THE ID!!!!!!!1) into the $Secret variable below
+1. Plug one of your domains into the $AzureDomain variable below
+1. Navigate to the Enterprise App that was created in your Azure AD (You can do this by clicking the Managed Application link on the bottom right of the App Registration) and copy the *object id* of the Enterprise App
+1. Go into Immy->Show More->People->New and paste the Enterprise App's *object id* into the AD External ID field
+1. Make that person a user by navigating back to the People list and clicking Create User on the user you just created
+1. Make the user an admin by going to Show More->Users, clicking Edit, and checking the Admin box and clicking Update
+1. Run The code below
+1. Find the API endpoints by going to <yourinstance.immy.bot/swagger/index.html or by using the network tab in your browser as our frontend consumes those APIs.
+1. Modify the code below to suit your needs
+
+
+```powershell
+$AzureDomain = '' # contoso.com
+$ClientID = '' # From the steps above
+$Secret = '' # From the steps above
+$InstanceSubdomain = '' # myinstance (don't include .immy.bot)
+
+#####################
+$TokenEndpointUri = [uri](Invoke-RestMethod "https://login.windows.net/$AzureDomain/.well-known/openid-configuration").token_endpoint
+$TenantID = ($TokenEndpointUri.Segments | Select-Object -Skip 1 -First 1).Replace("/", "")
+$Script:BaseURL = "https://$($InstanceSubdomain).immy.bot"
+
+Function Get-ImmyBotApiAuthToken {
+    Param ($TenantId, $ApplicationId, $Secret, $ApiEndpointUri)
+    $RequestAccessTokenUri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
+    $body = "grant_type=client_credentials&client_id=$applicationId&client_secret=$Secret&scope=$($Script:BaseURL)/.default"
+    $contentType = 'application/x-www-form-urlencoded'
+    try {
+        $Token = Invoke-RestMethod -Method Post -Uri $RequestAccessTokenUri -Body $body -ContentType $contentType
+        return $Token
+    }
+    catch { throw }
+}
+$Token = Get-ImmyBotApiAuthToken -ApplicationId $ClientId -TenantId $TenantID -Secret $Secret -ApiEndpointUri $BaseURL
+$Script:ImmyBotApiAuthHeader = @{
+    "authorization" = "Bearer $($Token.access_token)"
+}
+
+Function Invoke-ImmyBotRestMethod {
+    param([string]$Endpoint, [string]$Method, $Body)
+    if($body -is [Hashtable])
+    {
+        $Body = $Body | ConvertTo-Json -Depth 100
+    }
+    $Endpoint = $Endpoint.TrimStart('/')
+    $params = @{}
+    if ($Method) {
+        $params.method = $Method
+    }
+    if ($Body) {
+        $params.body = $body
+    }
+    Invoke-RestMethod -Uri "$($Script:BaseURL)/$Endpoint" -Headers $Script:ImmyBotApiAuthHeader -ContentType "application/json" @params
+}
+$Software = Invoke-ImmyBotRestMethod -Endpoint "/api/v1/software/global"
+$SelectedSoftware = $Software | select Id, Name | Out-GridView -OutputMode Single -Title "Select a Software"
+
+# Specify an email to limit the list of computers to computers whose primary user's email matches the email specified.
+$email = ''
+if($email){
+    $SelectedComputers = Invoke-ImmyBotRestMethod -Endpoint "/api/v1/computers/dx?filter=['primaryUserEmail','=','$Email']" | % data
+}else{
+    $Computers = Invoke-ImmyBotRestMethod -Endpoint "/api/v1/computers"
+    $SelectedComputers = $Computers | Out-GridView -OutputMode Multiple -Title "Select Computer(s) to install $($SelectedSoftware.Name)"
+}
+
+
+# Note: Many of these fields can likely be omitted but are included for completeness
+Invoke-ImmyBotRestMethod -Endpoint "/api/v1/run-immy-service" `
+-Method "POST" `
+-Body @{
+    fullMaintenance = $false # When true, the triggered session will have all software/tasks applied to the machine. If false, it will be limited to one. You must provide a maintenanceParams property to specify the one you want
+    resolutionOnly = $false # When this is true, we "resolve" the desired state of the software against the deployments. This is is useful for determining if the user/computer should have the software installed. The computer does not need to be online for resolution to run.
+    detectionOnly = $false # Detection just detects what version of the software exists on the machine, if any. Both resolution and detection are required to determine what action is necessary to acheive the desired state. The computer must be online for detection to run.
+    inventoryOnly = $false # Session will end after the inventory scripts run
+    runInventoryInDetection = $false # When this is true, all inventory scripts will be run during detection. When this is false, only the Software Inventory script is run
+    cacheOnly = $false # Skips Software Inventory script and uses the most recent software inventory to determine the currently installed version
+    useWinningDeployment = $false # When true, the desiredSoftwareState in the maintenanceParams below is ignored
+    deploymentId = $null # If useWinningDeployment is false, you can specify a deployment here. When null,use maintenanceParams below, or if maintenanceParams are not specified resolution will determine the "winning" deployment
+    deploymentType = $null # The deploymentId is in what database? 0 - Global Database (Recommended deployments), 1 - Local (Typical)
+    maintenanceParams = @{
+        maintenanceIdentifier = "$($SelectedSoftware.Id)"
+        maintenanceType = 0
+        repair = $false
+        desiredSoftwareState = 5
+        <#
+            DesiredSoftwareState.NoAction => 0,
+            DesiredSoftwareState.NotPresent => 1,
+            DesiredSoftwareState.ThisVersion => 2,
+            DesiredSoftwareState.OlderOrEqualVersion => 3,
+            DesiredSoftwareState.LatestVersion => 4,
+            DesiredSoftwareState.NewerOrEqualVersion => 5, # This is the default. It should be called "Newer or Equal to the _expected_ version". Sure you would think LatestVersion would be the default but LatestVersion refers to the latest version in our database (before dynamic versions) and NewerOrEqual was added to prevent the action from being marked as failed if the software self-updates during installation to a version newer than we expected.
+            DesiredSoftwareState.AnyVersion => 6,
+        #>
+        maintenanceTaskMode = 0
+    }
+    skipBackgroundJob = $true # true bypasses the concurrent session limit. Careful, you can quickly overload your instance if you abuse this
+    rebootPreference = 1 # Force = -1, Normal = 0, Suppress = 1
+    scheduleExecutionAfterActiveHours = $false
+    useComputersTimezoneForExecution = $false
+    offlineBehavior = 2 #  Skip = 1, ApplyOnConnect = 2
+    suppressRebootsDuringBusinessHours = $false
+    sendDetectionEmail = $false
+    sendDetectionEmailWhenAllActionsAreCompliant = $false
+    sendFollowUpEmail = $false
+    sendFollowUpOnlyIfActionNeeded = $false
+    showRunNowButton = $false
+    showPostponeButton = $false
+    showMaintenanceActions = $false
+    computers = @($SelectedComputers | %{ @{ computerId = $_.id } })
+    tenants = @() # If the specified maintenanceItem is a Cloud Task you would specify this instead of computers
+}
+```
+
+
+
+## Outbound Integrations
+
 The goal of this feature is primarily for our own use to more rapidly implement integrations with other RMMs and PSA, but we have opened it up for you to create your own integrations as well.
-
-
 
 ### Concepts
 
@@ -25,14 +155,14 @@ When loading your integration, the ImmyBot engine will recognize that `integrati
 * Provide Tenant level install tokens automatically scoped based on the Customer mapping above
 * Disable/Enable Maintenance Mode/Learning Mode in remote systems during maintenance
 * Respond to HttpRequests in PowerShell (like an Azure PowerShell function) but utilizing the Metascript engine
-  
+
 ---
 ### **Basic Implementation**
 ```powershell
 New-DynamicIntegration -Init {
     [OpResult]::Ok()
 } -HealthCheck {
-    New-HealthyResult 
+    New-HealthyResult
 }
 ```
 ---
@@ -51,7 +181,7 @@ $Integration = New-DynamicIntegration -Init {
 
     [OpResult]::Ok()
 } -HealthCheck {
-    New-HealthyResult 
+    New-HealthyResult
 }
 ```
 
@@ -72,13 +202,13 @@ $Integration = New-DynamicIntegration -Init {
         [Password(StripValue = $true)]
         $S1ApiKey
     )
-    
+
     $IntegrationContext.S1Uri = $S1Uri
     $IntegrationContext.S1ApiKey = $S1ApiKey
 
     [OpResult]::Ok()
 } -HealthCheck {
-    New-HealthyResult 
+    New-HealthyResult
 }
 ```
 
@@ -96,7 +226,7 @@ $Integration = New-DynamicIntegration -Init {
         $S1ApiKey
     )
 } -HealthCheck {
-    New-HealthyResult 
+    New-HealthyResult
 }
 
 $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingClients -GetClients {
@@ -119,7 +249,7 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingClien
 $Integration = New-DynamicIntegration -Init {
     # ... *same as above* ...
 } -HealthCheck {
-    New-HealthyResult 
+    New-HealthyResult
 }
 $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingClients -GetClients {
     [CmdletBinding()]
@@ -161,7 +291,7 @@ $Integration = New-DynamicIntegration -Init {
         $S1ApiKey
     )
 } -HealthCheck {
-    New-HealthyResult 
+    New-HealthyResult
 }
 
 $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingClients -GetClients {
@@ -184,9 +314,9 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingAgent
 
 #### Integration Context
 
-`$IntegrationContext` is a Hashtable used to share data between the ScriptBlocks *within the integration only*. 
+`$IntegrationContext` is a Hashtable used to share data between the ScriptBlocks *within the integration only*.
 
-By design, the data in `$IntegrationContext` is where you put sensitive data like Access Tokens. 
+By design, the data in `$IntegrationContext` is where you put sensitive data like Access Tokens.
 
 It is not available in scripts outside of the integration as this could expose those tokens via the Debugger.
 
@@ -225,8 +355,8 @@ $Integration = New-DynamicIntegration -Init {
         $S1ApiKey
     )
     $providerTypeFormData | Write-Variable
-    # Note: The SentinelOne module is a Module script in Global 
-    Import-Module SentinelOne    
+    # Note: The SentinelOne module is a Module script in Global
+    Import-Module SentinelOne
     Get-Command -Module SentinelOne | Out-String | Write-Host
     $S1AuthHeader = Connect-S1API -S1Uri $S1Uri -S1APIToken $S1ApiKey
 
@@ -234,13 +364,13 @@ $Integration = New-DynamicIntegration -Init {
     $IntegrationContext.S1Uri = $S1Uri
     $IntegrationContext.S1ApiKey = $S1ApiKey
     $IntegrationContext.AuthHeader = $S1AuthHeader
-    
+
     [OpResult]::Ok()
 } -HealthCheck {
     [CmdletBinding()]
     [OutputType([HealthCheckResult])]
     param(
-        
+
     )
     # todo: implement health check
     return New-HealthyResult
@@ -269,7 +399,7 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingAgent
     )
     # ClientIds will contain the clientids you mapped to ImmyBot tenants under the Integration->Clients tab
     # The agents you return here will go into the Computers->Pending Identification area until they are linked to Computers via the AgentId provided by ISupportsInventoryIdentification
-    
+
     Import-Module SentinelOne
     foreach($ClientId in $ClientIds)
     {
@@ -363,7 +493,7 @@ function Connect-S1API {
     $script:S1AuthHeader = $S1AuthHeader
     $script:S1Uri = $S1Uri
     [Uri]$script:S1Uri = $S1Uri
-    
+
     try {
         $SystemInfo = Invoke-S1RestMethod -Endpoint 'system/info'
         if ($SystemInfo.latestAgentVersion -like "*.*") {
@@ -406,7 +536,7 @@ function Invoke-S1RestMethod {
     $AuthHeader = $IntegrationContext.AuthHeader ?? $script:S1AuthHeader
     $BaseUri = $IntegrationContext.S1Uri ?? $script:S1Uri
     $Uri = "$($BaseUri)web/api/v2.1/$($Endpoint)"
-    
+
     try {
         do {
             if ($QueryParameters) {
@@ -416,9 +546,9 @@ function Invoke-S1RestMethod {
             }
             Write-Verbose $UriWithQuery
             $Results = $null
-            Invoke-RestMethod -Uri $UriWithQuery -Headers $AuthHeader @params -ErrorAction Stop | Tee-Object -Variable Results | Select-Object -Expand data 
+            Invoke-RestMethod -Uri $UriWithQuery -Headers $AuthHeader @params -ErrorAction Stop | Tee-Object -Variable Results | Select-Object -Expand data
             $Results | Format-List * | Out-String | Write-Verbose
-            
+
             if ($Results.pagination -and $Results.pagination.nextcursor) {
                 $QueryParameters.cursor = $Results.pagination.nextcursor
             }
@@ -439,9 +569,9 @@ function Get-S1Site {
         [string]$Name,
         [string]$Id
     )
-    
+
     $Endpoint = "sites"
-    
+
     if ($Id) {
         $Endpoint += "/$id"
         Invoke-S1RestMethod -Endpoint $Endpoint
@@ -481,7 +611,7 @@ function Get-S1Agent {
     )
 
     $Endpoint = "agents"
-    
+
     $QueryParameters = @{}
     $LimitParameter = @{ limit = 100 }
 
@@ -492,7 +622,7 @@ function Get-S1Agent {
     $CombinedParameters = $QueryParameters + $LimitParameter
 
     if (-not $Name) {
-        Invoke-S1RestMethod -Endpoint $Endpoint -QueryParameters $LimitParameter | Sort-Object computerName             
+        Invoke-S1RestMethod -Endpoint $Endpoint -QueryParameters $LimitParameter | Sort-Object computerName
     } else {
         $QueryParameters.name = $Name
         $Agents = Invoke-S1RestMethod -Endpoint $Endpoint -QueryParameters $CombinedParameters
@@ -525,8 +655,8 @@ $Integration = New-DynamicIntegration -Init {
     param()
     [OpResult]::Ok()
 } -HealthCheck {
-    New-HealthyResult 
-} 
+    New-HealthyResult
+}
 $Integration | Add-DynamicIntegrationCapability -Interface ISupportsHttpRequest -HandleHttpRequest {
     [CmdletBinding()]
     [OutputType([Microsoft.AspNetCore.Mvc.IActionResult])]
