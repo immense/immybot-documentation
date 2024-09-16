@@ -47,7 +47,7 @@ First, navigate to the "Script/Software Repository" under "Schedules Tasks" bene
 Once at the Script Repository page, select "Add" -> "Automation Policy".
 ![](./.vitepress/images/ncentraldocs/add_automation_policy_1.png)
 
-Second, [download the ImmyBot RunScript Automation Policy](./ImmyBotRunScript.amp) and upload it to your instance. Fill out the Name and Description how you see fit if required.
+Second, <a href="https://docs.immy.bot/ImmyBotRunScript.amp" target="_self">download the ImmyBot RunScript Automation Policy</a> and upload it to your instance. Fill out the Name and Description how you see fit if required.
 ![](./.vitepress/images/ncentraldocs/add_automation_policy_2.png)
 
 Last step is to ensure this new automation policy we have uploaded is able to be invoked by the Immybot API User.
