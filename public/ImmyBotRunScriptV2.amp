@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><Policy ID="b772d029-f892-42fd-9770-fa9c3ea3fad4" Name="ImmyBotRunScript" Description="VXNlZCBieSBJbW15Qm90IEludGVncmF0aW9u" Version="2.10.0.19" RemoteCategory="0" ExecutionType="Local" MinimumPSVersionRequired="0.0.0">
+  <Object ID="{ad2ac0bc-77fa-467a-be3e-b4ca200b96ac}" Type="{B6FA6D8B-EEAA-47A6-8463-7F9A4F5BBB6E}" Data="&lt;xml&gt;&lt;Parameters&gt;&lt;Parameter ParameterName=&quot;BatchScript&quot; Label=&quot;BatchScript&quot; ParameterType=&quot;string&quot; Value=&quot;&quot; /&gt;&lt;Parameter ParameterName=&quot;ScriptPath&quot; Label=&quot;ScriptPath&quot; ParameterType=&quot;string&quot; Value=&quot;&quot; /&gt;&lt;Parameter ParameterName=&quot;FileName&quot; Label=&quot;FileName&quot; ParameterType=&quot;string&quot; Value=&quot;&quot; /&gt;&lt;/Parameters&gt;&lt;OutputParameters&gt;&lt;Parameter ParameterName=&quot;StdOut&quot; Label=&quot;StdOut&quot; ParameterType=&quot;string&quot; Value=&quot;Run PowerShell Script.StdOut&quot; /&gt;&lt;Parameter ParameterName=&quot;ExitCode&quot; Label=&quot;ExitCode&quot; ParameterType=&quot;number&quot; Value=&quot;Run PowerShell Script.ExitCode&quot; /&gt;&lt;Parameter ParameterName=&quot;Exception&quot; Label=&quot;Exception&quot; ParameterType=&quot;string&quot; Value=&quot;Run PowerShell Script.Exception&quot; /&gt;&lt;/OutputParameters&gt;&lt;/xml&gt;" />
+  <LinkManager xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PolicyExecutor">
+    <hashset xmlns:d2p1="http://schemas.datacontract.org/2004/07/System">
+      <d2p1:TupleOfstringstringstringstring>
+        <d2p1:m_Item1>94a2aa35-ef52-44e3-8422-2b611db86408.StdOut</d2p1:m_Item1>
+        <d2p1:m_Item2>OutputObject</d2p1:m_Item2>
+        <d2p1:m_Item3></d2p1:m_Item3>
+        <d2p1:m_Item4>StdOut</d2p1:m_Item4>
+      </d2p1:TupleOfstringstringstringstring>
+      <d2p1:TupleOfstringstringstringstring>
+        <d2p1:m_Item1>94a2aa35-ef52-44e3-8422-2b611db86408.ExitCode</d2p1:m_Item1>
+        <d2p1:m_Item2>OutputObject</d2p1:m_Item2>
+        <d2p1:m_Item3></d2p1:m_Item3>
+        <d2p1:m_Item4>ExitCode</d2p1:m_Item4>
+      </d2p1:TupleOfstringstringstringstring>
+      <d2p1:TupleOfstringstringstringstring>
+        <d2p1:m_Item1>94a2aa35-ef52-44e3-8422-2b611db86408.Exception</d2p1:m_Item1>
+        <d2p1:m_Item2>OutputObject</d2p1:m_Item2>
+        <d2p1:m_Item3></d2p1:m_Item3>
+        <d2p1:m_Item4>Exception</d2p1:m_Item4>
+      </d2p1:TupleOfstringstringstringstring>
+    </hashset>
+  </LinkManager>
+  <Diagnostics OriginalVersion="2.96.0.1" />
+  <Activity mc:Ignorable="sads sap" x:Class="Policy Builder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="clr-namespace:PolicyExecutor;assembly=PolicyExecutionEngine" xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <x:Members>
+      <x:Property Name="PolicyGUID" Type="InArgument(x:String)" />
+    </x:Members>
+    <sap:VirtualizedContainerService.HintSize>490,571</sap:VirtualizedContainerService.HintSize>
+    <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+    <p:PolicySequence DisplayName="Policy Builder" sap:VirtualizedContainerService.HintSize="490,571" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+      <p:PolicySequence.Activities>
+        <p:RunPowerShellScript AssemblyName="PolicyExecutionEngine, Version=2.95.0.2, Culture=neutral, PublicKeyToken=null" DisplayName="Run PowerShell Script" sap:VirtualizedContainerService.HintSize="454,348" Moniker="94a2aa35-ef52-44e3-8422-2b611db86408" OutPut_64="[RunPowerShellScript_OutPut_64]" Result="[RunPowerShellScript_Result]" ResultString="[RunPowerShellScript_ResultString]" Results_x64="[RunPowerShellScript_Results_x64]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="RunPowerShellScript" genArgEvent="e596c5c8-b0f7-4789-bda4-f1e7c31fff8e" m_bTextLinkChange="False" script="dAByAHkAIAB7AA0ACgAgACQAVwBvAHIAawBpAG4AZwBEAGkAcgAgAD0AIAAgACgAWwBTAHkAcwB0AGUAbQAuAEUAbgB2AGkAcgBvAG4AbQBlAG4AdABdADoAOgBFAHgAcABhAG4AZABFAG4AdgBpAHIAbwBuAG0AZQBuAHQAVgBhAHIAaQBhAGIAbABlAHMAKAAkAFMAYwByAGkAcAB0AFAAYQB0AGgAKQApAA0ACgAgACAATgBlAHcALQBJAHQAZQBtACAALQBJAHQAZQBtAFQAeQBwAGUAIABEAGkAcgBlAGMAdABvAHIAeQAgAC0ARgBvAHIAYwBlACAALQBQAGEAdABoACAAJABXAG8AcgBrAGkAbgBnAEQAaQByACAAIAB8ACAATwB1AHQALQBOAHUAbABsAA0ACgAgACAAJABDAG8AbQBwAGwAZQB0AGUAUABhAHQAaAAgAD0AIABKAG8AaQBuAC0AUABhAHQAaAAgACQAVwBvAHIAawBpAG4AZwBEAGkAcgAgACQARgBpAGwAZQBOAGEAbQBlAA0ACgAgACAAUwBlAHQALQBDAG8AbgB0AGUAbgB0ACAALQBQAGEAdABoACAAJABDAG8AbQBwAGwAZQB0AGUAUABhAHQAaAAgAC0AVgBhAGwAdQBlACAAIgBAAGUAYwBoAG8AIABvAGYAZgBgAHIAYABuACQAQwBvAG0AbQBhAG4AZABMAGkAbgBlAFMAYwByAGkAcAB0ACIADQAKAA0ACgAgACAAJABwAHIAbwBjAEkAbgBmAG8AIAA9ACAAWwBTAHkAcwB0AGUAbQAuAEQAaQBhAGcAbgBvAHMAdABpAGMAcwAuAFAAcgBvAGMAZQBzAHMAUwB0AGEAcgB0AEkAbgBmAG8AXQA6ADoAbgBlAHcAKAApAA0ACgAgACAAJABwAHIAbwBjAEkAbgBmAG8ALgBGAGkAbABlAE4AYQBtAGUAIAA9ACAAJABDAG8AbQBwAGwAZQB0AGUAUABhAHQAaAANAAoAIAAgACQAcAByAG8AYwBJAG4AZgBvAC4AUgBlAGQAaQByAGUAYwB0AFMAdABhAG4AZABhAHIAZABPAHUAdABwAHUAdAAgAD0AIAAkAHQAcgB1AGUADQAKACAAIAAkAHAAcgBvAGMASQBuAGYAbwAuAFUAcwBlAFMAaABlAGwAbABFAHgAZQBjAHUAdABlACAAPQAgACQAZgBhAGwAcwBlAA0ACgANAAoAIAAgACQAcAByAG8AYwBlAHMAcwAgAD0AIABbAFMAeQBzAHQAZQBtAC4ARABpAGEAZwBuAG8AcwB0AGkAYwBzAC4AUAByAG8AYwBlAHMAcwBdADoAOgBuAGUAdwAoACkADQAKACAAIAAkAHAAcgBvAGMAZQBzAHMALgBTAHQAYQByAHQASQBuAGYAbwAgAD0AIAAkAHAAcgBvAGMASQBuAGYAbwAgAA0ACgANAAoAIAAgAFsAdgBvAGkAZABdACQAcAByAG8AYwBlAHMAcwAuAFMAdABhAHIAdAAoACkADQAKAA0ACgAgACAAJABTAHQAZABPAHUAdAAgAD0AIAAkAHAAcgBvAGMAZQBzAHMALgBTAHQAYQBuAGQAYQByAGQATwB1AHQAcAB1AHQALgBSAGUAYQBkAFQAbwBFAG4AZAAoACkADQAKACAAIAAkAEUAeABpAHQAQwBvAGQAZQAgAD0AIAAkAHAAcgBvAGMAZQBzAHMALgBFAHgAaQB0AEMAbwBkAGUADQAKAA0ACgAgACAAUgBlAG0AbwB2AGUALQBJAHQAZQBtACAAJABDAG8AbQBwAGwAZQB0AGUAUABhAHQAaAANAAoAfQANAAoAYwBhAHQAYwBoAA0ACgB7AA0ACgAgACAAJABFAHgAYwBlAHAAdABpAG8AbgAgAD0AIAAiACQAKAAkAF8AIAB8ACAATwB1AHQALQBTAHQAcgBpAG4AZwApACAAfgAgACQAKAAkAF8ALgBJAG4AdgBvAGMAYQB0AGkAbwBuAEkAbgBmAG8ALgBQAG8AcwBpAHQAaQBvAG4ATQBlAHMAcwBhAGcAZQApACIADQAKAH0ADQAKAA==">
+          <p:RunPowerShellScript.InArgs>
+            <p:InArg Item="{x:Null}" ItemProp="{x:Null}" x:Key="CommandLineScript" ArgType="string" DisplayArg="Input Parameters.BatchScript" DisplayName="BatchScript" Name="CommandLineScript" isRequired="False">
+              <p:InArg.Arg>
+                <InArgument x:TypeArguments="x:Object">[BatchScript]</InArgument>
+              </p:InArg.Arg>
+            </p:InArg>
+            <p:InArg Item="{x:Null}" ItemProp="{x:Null}" x:Key="ScriptPath" ArgType="string" DisplayArg="Input Parameters.ScriptPath" DisplayName="ScriptPath" Name="ScriptPath" isRequired="False">
+              <p:InArg.Arg>
+                <InArgument x:TypeArguments="x:Object">[ScriptPath]</InArgument>
+              </p:InArg.Arg>
+            </p:InArg>
+            <p:InArg Item="{x:Null}" ItemProp="{x:Null}" x:Key="FileName" ArgType="string" DisplayArg="Input Parameters.FileName" DisplayName="FileName" Name="FileName" isRequired="False">
+              <p:InArg.Arg>
+                <InArgument x:TypeArguments="x:Object">[FileName]</InArgument>
+              </p:InArg.Arg>
+            </p:InArg>
+          </p:RunPowerShellScript.InArgs>
+          <p:RunPowerShellScript.OutArgs>
+            <p:OutArg x:Key="StdOut" ArgType="string" DisplayName="StdOut" Name="StdOut">
+              <p:OutArg.Arg>
+                <OutArgument x:TypeArguments="x:String">[RunPowerShellScript_StdOut]</OutArgument>
+              </p:OutArg.Arg>
+            </p:OutArg>
+            <p:OutArg x:Key="ExitCode" ArgType="number" DisplayName="ExitCode" Name="ExitCode">
+              <p:OutArg.Arg>
+                <OutArgument x:TypeArguments="x:Double">[RunPowerShellScript_ExitCode]</OutArgument>
+              </p:OutArg.Arg>
+            </p:OutArg>
+            <p:OutArg x:Key="Exception" ArgType="string" DisplayName="Exception" Name="Exception">
+              <p:OutArg.Arg>
+                <OutArgument x:TypeArguments="x:String">[RunPowerShellScript_Exception]</OutArgument>
+              </p:OutArg.Arg>
+            </p:OutArg>
+          </p:RunPowerShellScript.OutArgs>
+        </p:RunPowerShellScript>
+      </p:PolicySequence.Activities>
+      <p:PolicySequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_OutPut_64" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_ResultString" />
+        <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="RunPowerShellScript_Results_x64" />
+        <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_Result" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_StdOut" />
+        <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_ExitCode" />
+        <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_Exception" />
+        <Variable x:TypeArguments="x:String" Default="echo &quot;Hello&quot;" Name="BatchScript" />
+        <Variable x:TypeArguments="x:String" Default="%ProgramData%\ImmyBot\Scripts" Name="ScriptPath" />
+        <Variable x:TypeArguments="x:String" Default="test.bat" Name="FileName" />
+      </p:PolicySequence.Variables>
+    </p:PolicySequence>
+  </Activity>
+</Policy>
