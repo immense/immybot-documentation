@@ -45,9 +45,17 @@ $DecodedCommand = [System.Text.Encoding]::UTF8.GetString($bytes)
 
 # Execute Script Content
 iex $DecodedCommand
+Write-Host "Ephemeral Agent started"
 ```
 
-Make a note of the script Id in the URL https://{region}.ninjarmm.com/#/editor/script/71 -> 71. It will be needed as one of the parameters in the integration setup to run scripts.
+Before leaving the script, also create a `Script Variable`.
+1. Hit `+ Add` next to `Script Variables`.
+2. Select the `String/Text` type.
+3. Enter `Code` as the variable name.
+4. Hit `Add` to save it.
+
+Note the script Id in the URL `https://{region}.ninjarmm.com/#/editor/script/71` -> `71`.  
+It will be needed as one of the parameters in the integration setup to run scripts.
 
 ## In ImmyBot, create a new dynamic integration with the NinjaRMM integration type:
 (Show More -> Integrations -> Add Integration -> NinjaRMM)
