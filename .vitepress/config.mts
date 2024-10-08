@@ -48,6 +48,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'ConnectWise Control', link: '/connectwise-control-integration-setup' },
                     { text: 'ConnectWise Manage', link: '/connectwise-manage-integration-setup' },
                     { text: 'N-Central', link: '/ncentral-integration-setup' },
+                    { text: 'NinjaRMM', link: '/ninjarmm-integration-setup' },
                     { text: 'HaloPSA', link: '/halo-integration-setup' },
                     { text: 'Azure', link: '/azure-graph-permissions-setup' },
                 ],
