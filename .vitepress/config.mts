@@ -44,6 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 collapsed: false,
                 items: [
                     { text: 'Build Your Own', link: '/build-your-own-integration' },
+                    { text: 'ConnectSecure', link: '/connectsecure-integration-setup' },
                     { text: 'ConnectWise Automate', link: '/connectwise-automate-integration-setup' },
                     { text: 'ConnectWise Control', link: '/connectwise-control-integration-setup' },
                     { text: 'ConnectWise Manage', link: '/connectwise-manage-integration-setup' },
