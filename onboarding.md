@@ -27,16 +27,14 @@ ImmyBot needs:
 
 You only have one customer and one person right now, and it’s your MSP and you. That’s fine, we’ll pretend we’re setting up a computer for you and your MSP.
 
-::: tip
-Customers can be imported from your RMM or PSA, or by setting up the Azure integration
-:::
+> [!TIP]
+> Customers can be imported from your RMM or PSA, or by setting up the Azure integration
 
-::: tip
-People are imported from your customers' Azure AD via the Azure integration
-:::
+> [!TIP]
+> People are imported from your customers' Azure AD via the Azure integration
 
 An "Onboarding" session will be created for this computer, and ImmyBot will apply the "Recommended Deployments"
 
-::: tip
-You can add your own Deployments and re-run this session as many times as you like until everything is to your liking.
-:::
+> [!TIP]
+> You can add your own Deployments and re-run this session as many times as you like until everything is to your liking.
+
