@@ -24,14 +24,14 @@
 - Refresh Token
 
 ## Create a client app in your NinjaRMM instance using above permissions:
-(Administration -> Apps -> Api -> Add)
+(`Administration` -> `Apps` -> `Api` -> `Add`)
 
 ![image](https://github.com/user-attachments/assets/5a27d217-a574-4a34-b42a-dd9a984e2ce1)
 > [!WARNING]
 > Note: Change the "instance" in the redirect uri to your ImmyBot subdomain
 
 ## Copy the below script to NinjaRMM Automation library and name it ImmyBot:
-(Administration -> Library -> Automation -> Add -> New Script)
+(`Administration` -> `Library` -> `Automation` -> `Add` -> `New Script`)
 
 ```powershell
 Param(
@@ -46,16 +46,21 @@ $DecodedCommand = [System.Text.Encoding]::UTF8.GetString($bytes)
 iex $DecodedCommand
 ```
 
-Make a note of the script Id in the URL https://{region}.ninjarmm.com/#/editor/script/71 -> 71. It will be needed as one of the parameters in the integration setup to run scripts.
+Make a note of the script Id in the URL `https://{region}.ninjarmm.com/#/editor/script/71` -> 71. It will be needed as one of the parameters in the integration setup to run scripts.
 
 ## In ImmyBot, create a new dynamic integration with the NinjaRMM integration type:
-(Show More -> Integrations -> Add Integration -> NinjaRMM)
+(`Show More` -> `Integrations` -> `Add Integration` -> `NinjaRMM`)
 
 Add the required parameters and authenticate the OAuthInfo parameter with a NinjaRMM user with sufficient privileges:
 ![image](https://github.com/user-attachments/assets/78b760fd-b0f9-4230-9b3e-389d487dfea3)
-::: warning
-Note: Currently the OAuthInfo parameter button will not stay when you refresh the browser window.
-This will not kill your integration, so just leave it as is.
-:::
+> [!WARNING]
+> At this time Client IDs do not support special characters. 
+> Please create a new client app if one is generated for you.
+
+
+> [!WARNING]
+> Currently the UI element for the OAuthInfo parameter button will not persist when you refresh the browser window.
+> This will not kill your integration, so just leave it as is.
+
 
 At this point, you should be able to map clients. Once clients are mapped, agents will start getting identified.
