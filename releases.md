@@ -10,8 +10,6 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 Released 11/07/24
 
-Here are the concise release notes based on the provided changelog:
-
 ### 🚀 Features
 
 #### User Reboot Prompts and Enhanced Reboot Logic
