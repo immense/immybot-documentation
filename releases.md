@@ -6,6 +6,64 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.66.0
+
+Released 11/07/24
+
+Here are the concise release notes based on the provided changelog:
+
+### 🚀 Features
+
+#### User Reboot Prompts and Enhanced Reboot Logic
+
+- Added new "Prompt" option for pending reboots
+- Administrators can now prompt end-users when a pending reboot is detected
+- New properties added:
+  - `Prompt Timeout Action`: Specifies action if user doesn't respond in time
+  - `Prompt Timeout (minutes)`: Sets timeout duration before default action
+- Enhanced reboot handling logic to incorporate user prompts
+- Updated UI with new radio button option and additional settings
+
+![image](https://immybot.blob.core.windows.net/release-media/8052a2b1-bb17-4f1d-a911-76bb3140627a)
+
+**Dark Mode:**
+
+![image](https://immybot.blob.core.windows.net/release-media/8b3aea62-772c-4369-aaeb-416f7ed33092)
+
+**Light Mode:**
+
+![image](https://immybot.blob.core.windows.net/release-media/c2672f71-c63f-45a7-a7ec-a5ca86cf8dda)
+
+#### PowerShell Editor Services Improvements
+
+- Implemented session idle detection and disconnection prompts
+- Added resource management features to improve stability
+- New prompt to inform users of impending Editor Services termination due to inactivity
+- Added option to disconnect least-active terminal session when process limit is reached
+
+### 🐛 Bug Fixes
+
+- Fixed an issue where CW Control Agents were showing up as deleted multiple times in the timeline
+- Resolved problem with OAuth consent input button continuing to show "Provide Consent" after authentication
+- Fixed bug causing reporting pages to fail when exporting to Excel spreadsheet
+- Corrected issue with extremely old versions of Immy Agent permanently showing online
+- Resolved swagger API documentation loading problem
+- Fixed provisioning package creation in Getting Started Wizard to include necessary scripts
+- Corrected input handling in ImmyInput test configuration for proper saving of changes
+
+### 🛠 Improvements
+
+- Enhanced HaloPSA API routes to use SQL report API for better performance
+- Improved readability of Preferences page descriptions
+- Added form change detection and confirmation dialog to Edit Deployment screen
+- Updated PSES resource management for better stability and error handling
+
+### 🧰 Maintenance
+
+- Removed Serilog and related components
+- Refactored logging system and configuration
+- Updated agent to .NET 8
+
 ## 0.65.5
 
 Released 07/21/24
