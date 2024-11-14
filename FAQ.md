@@ -225,7 +225,7 @@ start C:\Windows\Setup\Scripts\ImmyAgentInstallerBundle.exe /qn
 
 A member of the ImmyBot community also likes to use the below method to embedded a PPKG into an image:
 ```
-DISM.exe /Image:D:\mount /Add-ProvisionedAppxPackage /PackagePath:C:\Users\Moi\Downloads\ImmyBotAgentInstaller.ppkg
+DISM.exe /Image:D:\mount /Add-ProvisioningPackage /PackagePath:C:\Users\Moi\Downloads\ImmyBotAgentInstaller.ppkg
 ```
 
 ## Do you take requests for features/software/tasks/scripts?
