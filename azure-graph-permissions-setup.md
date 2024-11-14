@@ -51,6 +51,9 @@ See the screenshots below for the minimum permissions.
 
 ![image](https://github.com/immense/immybot-documentation/assets/1424395/f5c4ec0f-35f2-49ad-a690-7e940c187d0a)
 
+> [!NOTE]
+> Since they are commonly used, please note that the `DeviceManagementManagedDevices.ReadWrite.All` permission is required for MDM enrollment with the **"Join AzureAD"** and **"Configure Directory"** tasks. 
+
 #### Create Client Secret
 
 ![](./.vitepress/images/2021-08-16-13-19-15.png)
