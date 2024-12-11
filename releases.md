@@ -6,6 +6,26 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.66.1
+
+Released 12/11/24
+
+### 🔧 Improvements
+- Added ability to access parent tenant domain controllers using `UseParentTenant` switch in Get-ImmyComputer command
+- Added form change detection and confirmation dialog to Edit Deployment screen
+- Enhanced user impersonation to show name and email of impersonated user
+- Added missing task category in deployment list
+- Improved performance of loading target assignments
+
+### 🐛 Bug Fixes
+- Fixed remote control launch failures
+- Fixed issue with repair actions not detecting integration parameters from saved deployments
+- Fixed 500 error in computer inventory export when filter is null
+- Fixed scrollbar background visibility issue
+- Fixed issue where self-hosted HaloPSA integration health checks were marked as unhealthy
+- Fixed issue with cancelled session events not propagating for person/tenant sessions
+- Fixed exclude integration capabilities not taking effect
+
 ## 0.66.0
 
 Released 11/07/24
