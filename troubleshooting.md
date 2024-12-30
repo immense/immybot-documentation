@@ -1,6 +1,8 @@
-::: danger *ImmyBot will no longer support Windows 7, Server 2008 (or Server 2012 w/o [ESUs](https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates-overview)) machines after May 14th, 2024*
-.NET 7 support is ending May 14th, and as a result we will be transitioning the Agent to .NET 8 at that time period. We will not be offering support for these machines after May 14th.
+::: warning *ImmyBot's EV code-signing certificate is changing on Feb. 11th, 2025*
+Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-should-i-do-about-immybot-s-upcoming-code-signing-certificate-change) on updating security exclusions.
+:::
 
+::: danger *ImmyBot no longer supports Windows 7, Server 2008 (or Server 2012 w/o [ESUs](https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates-overview)) machines.*
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
@@ -119,9 +121,27 @@ Here is a suggestion on a cause and possible fix for that one <https://www.reddi
 
 Ideally you would instruct your security software would support excluding code signed by
 
+::: warning
+ImmyBot's current code-signing certificate is set to change on Feb. 11th, 2025.
+Please add both our upcoming and existing certificate exlusions to ensure no issues.
+
+Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-should-i-do-about-immybot-s-upcoming-code-signing-certificate-change)
+:::
+This certificate is used to sign our Agent binaries & installers delivered to machines.
+
+Unfortunately, our new certificate's `Organization(O)` and `Common Name(CN)` fields are changing from `Immense Networks` to `ImmyBot LLC`.
+
+New Certificate on Feb. 11th, 2025:
 ```
-CN=Immense Networks LLC, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
+CN=ImmyBot LLC, O=ImmyBot LLC, L=Baton Rouge, S=Louisiana, C=US
 ```
+
+Existing Certificate:
+```
+CN=Immense Networks, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
+```
+
+Add ***both*** certificates to avoid issues if following before Feb. 11th, 2025 ***OR*** your instance has existing machines installed (which may have agents installed with older certificate)!
 
 Exclusions based on code signing certificate are an industry standard feature and should be a standard feature in any best-in-class security software. However, if your security software is unable to exclude based on code signing certificate, create an exclusion for your instance's Script Path.
 
@@ -130,14 +150,20 @@ Your script path can be found under Settings->Preferences->Script Path
 ![image](https://user-images.githubusercontent.com/1424395/173610304-50bab775-c7c8-40b3-944e-fab1dde862ee.png)
 
 
-* [ThreatLocker](#threatlocker)
-* [Sophos Central](#sophoscentral)
-* [BitDefender](#bitdefender)
-* [CrowdStrike](#crowdstrike)
-* [Microsoft Defender for Endpoint](#microsoft-defender-for-endpoint)
-* [Cylance](#cylance)
-* [SentinelOne](#sentinelone)
-* [DNSFilter](#dnsfilter)
+- [Troubleshooting](#troubleshooting)
+  - [Identification Failures](#identification-failures)
+    - [Needs a Manual Decision](#needs-a-manual-decision)
+  - [Pending Computers](#pending-computers)
+  - [Security Software Exclusions](#security-software-exclusions)
+    - [ThreatLocker](#threatlocker)
+    - [Sophos Central](#sophos-central)
+    - [BitDefender](#bitdefender)
+    - [CrowdStrike](#crowdstrike)
+    - [Microsoft Defender for Endpoint](#microsoft-defender-for-endpoint)
+    - [Cylance](#cylance)
+    - [SentinelOne](#sentinelone)
+    - [DNSFilter](#dnsfilter)
+    - [Group Policy Objects](#group-policy-objects)
 
 ### ThreatLocker
 
@@ -145,15 +171,33 @@ Your script path can be found under Settings->Preferences->Script Path
 2. Create New Application
 3. Put the following value into Certificate and click Add
 
+::: warning
+ImmyBot's current code-signing certificate is set to change on Feb. 11th, 2025.
+Please add both our upcoming and existing certificate exlusions to ensure no issues.
+
+Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-should-i-do-about-immybot-s-upcoming-code-signing-certificate-change)
+:::
+This certificate is used to sign our Agent binaries & installers delivered to machines.
+
+Unfortunately, our new certificate's `Organization(O)` and `Common Name(CN)` fields are changing from `Immense Networks` to `ImmyBot LLC`.
+
+New Certificate on Feb. 11th, 2025:
 ```
-CN=Immense Networks LLC, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
+CN=ImmyBot LLC, O=ImmyBot LLC, L=Baton Rouge, S=Louisiana, C=US
 ```
 
-4. Add your instance’s [script path](#script-path-exclusion)
+Existing Certificate:
+```
+CN=Immense Networks, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
+```
+
+Add ***both*** certificates to avoid issues if following before Feb. 11th, 2025 ***OR*** your instance has existing machines installed (which may have agents installed with older certificate)!
+
+1. Add your instance’s [script path](#script-path-exclusion)
 ![image](https://user-images.githubusercontent.com/1424395/173602708-b8e239f8-efaa-4e16-a29c-9fb66f72e616.png)
 Ultimately it should look like this:
 ![image](https://user-images.githubusercontent.com/1424395/173602739-2b60922f-5ac8-4d4c-bc93-d52a390e129e.png)
-5. Create a New Application Policy
+1. Create a New Application Policy
  ![image](https://user-images.githubusercontent.com/1424395/173602798-7042c0ea-1406-476c-a291-0deee6e843c5.png)
 
 ### Sophos Central
@@ -221,11 +265,11 @@ You can also set your Exclusion Mode to "Interoperability - Extended".
 
 ### DNSFilter
 
-There have been reports indicating that DNSFilter, along with potentially other DNS filtering tools, is not directly blocking subdomain.immy.bot but has failed to resolve some DNS queries. 
+There have been reports indicating that DNSFilter, along with potentially other DNS filtering tools, is not directly blocking subdomain.immy.bot but has failed to resolve some DNS queries.
 
-Specifically, in the case of DNSFilter, it was confirmed that ImmyBot was not being blocked. However, the failure in DNS resolution meant that connection attempts to the backend were unsuccessful. 
+Specifically, in the case of DNSFilter, it was confirmed that ImmyBot was not being blocked. However, the failure in DNS resolution meant that connection attempts to the backend were unsuccessful.
 
-Explicitly allowing the DNS for subdomain.immy.bot (replacing "subdomain" with your specific ImmyBot instance subdomain) was verified to resolve the issue of failed DNS resolutions. 
+Explicitly allowing the DNS for subdomain.immy.bot (replacing "subdomain" with your specific ImmyBot instance subdomain) was verified to resolve the issue of failed DNS resolutions.
 
 For guidance on managing allow and block lists, please refer to: https://help.dnsfilter.com/hc/en-us/articles/1500008111381-Allow-and-Block-Lists
 

@@ -1,6 +1,8 @@
-::: danger *ImmyBot will no longer support Windows 7, Sever 2008 (or Server 2012 w/o [ESUs](https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates-overview)) machines after May 14th, 2024*
-.NET 7 support is ending May 14th, and as a result we will be transitioning the Agent to .NET 8 at that time period. We will not be offering support for these machines after May 14th.
+::: warning *ImmyBot's EV code-signing certificate is changing on Feb. 11th, 2025*
+Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-should-i-do-about-immybot-s-upcoming-code-signing-certificate-change) on updating security exclusions.
+:::
 
+::: danger *ImmyBot no longer supports Windows 7, Server 2008 (or Server 2012 w/o [ESUs](https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates-overview)) machines.*
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 # Frequently Asked Questions
@@ -71,6 +73,30 @@ Yes. Create a deployment for the Join AzureAD task. We use the bulk enrollment t
 Check if MFA Requirement for Joining is enabled via [Conditional Access](https://portal.azure.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies) or [Azure Device Settings](https://portal.azure.com/#view/Microsoft_AAD_Devices/DevicesMenuBlade/~/DeviceSettings/menuId~/null).
 MFA requirement for all users in [Conditional Access](https://portal.azure.com/#view/Microsoft_AAD_ConditionalAccess/ConditionalAccessBlade/~/Policies) will also block the execution, as the package_XXX user will encounter a MFA prompt.
 Most other situations are noted during execution failure.
+
+## What should I do about ImmyBot's upcoming code-signing certificate change?
+
+ImmyBot's current code-signing certificate is set to expire Feb. 12th, 2025. We plan to switch over to our new certificate a day early on Feb. 11th, 2025 to ensure a smooth transition.
+
+This certificate is used to sign our Agent binaries & installers delivered to machines.
+
+Unfortunately, our new certificate's `Organization(O)` and `Common Name(CN)` fields are changing from `Immense Networks` to `ImmyBot LLC`.
+
+New Certificate on Feb. 11th, 2025:
+```
+CN=ImmyBot LLC, O=ImmyBot LLC, L=Baton Rouge, S=Louisiana, C=US
+```
+
+Existing Certificate:
+```
+CN=Immense Networks, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
+```
+This means if you have followed either the [Security Software Exclusions](https://docs.immy.bot/troubleshooting.html#security-software-exclusions) or [ThreatLocker](https://docs.immy.bot/troubleshooting.html#threatlocker) Setup guides in the past,
+you must go through the guides again, adding our new certificate ***in addition*** to the existing certificate exclusion.
+
+### *Will this certificate change mean I need to generate all new agent installers? Do I need to re-install the ImmyBot Agent on all my machines?*
+No. Binaries and installers signed with the existing certificate ***are valid and will continue to work past Feb. 12th, 2025 indefinitely*** as they were signed before the certificate expiry.
+Only new agents releases and installers generated after our transition period will be signed with our new certificate. This is why it is important to keep the prior certificate exclusions for instances with pre-exisiting machines.
 
 ## What Windows versions does ImmyAgent support?
 
