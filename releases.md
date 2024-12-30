@@ -6,6 +6,14 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.66.2
+
+Released 12/30/24
+
+### Bug Fixes
+- Fixed an issue with support technicians receiving a 500 on certain api requests
+- Enhanced support debugging capabilities by providing more details in failed http requests
+
 ## 0.66.1
 
 Released 12/11/24
