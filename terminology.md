@@ -59,9 +59,9 @@ This is particularly useful for security software, help desk portals, or anythin
 
 ### Offboarding
 
-Conversely, you could create Deployments that remove your stack for customers you are offboarding. 
+Conversely, you could create Deployments that remove your stack for customers you are offboarding.
 - Create an "Offboarding" product in your PSA
-- Create a deployment for each of the pieces of software you would like removed setting the desired state to Uninstalled 
+- Create a deployment for each of the pieces of software you would like removed setting the desired state to Uninstalled
 - Target all customers with the "Offboarding" product on their agreement
 
 Note: ImmyBot even honors the date range on additions, making scheduled offboarding easier if say the customer wants your software removed on the last day of the month.
@@ -266,3 +266,35 @@ If it is a machine ImmyBot has seen before, it will be associated to the existin
 Computers can have one or more RmmComputers(Agents). You can think of these as logical "pathways" to the computer. We only need one to be online to function.
 
 ![](./.vitepress/images/2021-02-23-06-45-47.png)
+
+## Target Visibility
+
+The Target Visibility feature helps control where and how software deployments, task deployments, and other actions can be accessed in ImmyBot. There is currently one option:
+
+[Technician Tools](#technician-tools): When enabled, this makes the deployment visible and accessible through the technician tools interface. This is useful for actions that can assist IT staff when working on support tickets.
+
+This option is located at the bottom of the deployment details page.
+
+![alt text](image-3.png)
+
+## Technician Tools
+
+Technician Tools is a specialized interface designed for IT technicians working within PSA (Professional Services Automation) tickets.
+
+Think of it as a streamlined "command center" that gives technicians quick access to the tools and information they need while working on a support ticket, without having to switch between different systems or search for the relevant computers and software details.
+
+### What it looks like
+
+When a technician opens a ticket from their PSA system (like HaloPSA), this page shows relevant deployments from ImmyBot that resolved to that ticket.
+
+![alt text](image-7.png)
+
+![alt text](image-6.png)
+
+### Deciding which deployments show up
+
+Deployment [target visibility](#target-visibility) determines if it is enabled for a particular page.  Technician Tools is one of the available visibility options. When this option is selected and the deployment resolves to a person, tenant, or computer associated with the opened PSA ticket, it will show up in the list.
+
+### Supported Integrations
+
+- [HaloPSA](/halo-integration-setup.md#technician-tools)
