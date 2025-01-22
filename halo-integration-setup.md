@@ -17,6 +17,7 @@ Setting up this integration allows you to
 - read:customers -> Yes
 - read:contracts -> Yes
 - read:items -> Yes
+- edit:reporting -> Yes
 - edit:items -> Yes (*should not be needed > 2.99, API bug will not allow listing items without edit rights)
 - read:invoices -> Yes
 - read:software -> Yes
