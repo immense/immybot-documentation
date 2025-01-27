@@ -298,3 +298,4 @@ Deployment [target visibility](#target-visibility) determines if it is enabled f
 ### Supported Integrations
 
 - [HaloPSA](/halo-integration-setup.md#technician-tools)
+- [CW Manage](/connectwise-manage-integration-setup)

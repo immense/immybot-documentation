@@ -15,9 +15,10 @@ Setting up this integration allows you to
 - *Procurement -> Product Catalog -> Inquire Level (All)*
 - *Procurement -> Product -> Inquire Level (All)*
 - *Service Desk -> Service Tickets -> Inquire -> (All)*
+  - Optional - Required for the technician tools feature
 - *System -> API Reports -> Inquire Level (All)*
 
-![](./.vitepress/images/2021-03-23-14-26-14.png)
+![alt text](./.vitepress/images/image-1.png)
 
 ![](./.vitepress/images/2022-02-23_15-00-31.png)
 
@@ -51,4 +52,33 @@ Add CW Manage Pod
 Go to ConnectWise -> Setup Tables -> Manage Hosted API -> +
 
 ![image](https://github.com/immense/immybot-documentation/assets/1424395/88fade4c-0ee7-4b88-971e-34138929e4e3)
+
+
+## Technician Tools
+
+[What is Technician Tools?](./terminology.md#technician-tools)
+
+**This feature only works for the `Service Ticket` screen.*
+
+### Required Permissions
+
+Modify your immy.bot security role to include `Service Desk -> Service Tickets -> Inquire Level -> All`
+
+![alt text](image-5.png)
+
+### Setup
+
+In ConnectWise Manage, you can use "Manage Hosted API Setup" to embed content on certain pages in the UI. You can set one up by navigating to `System -> Setup Tables -> Manage Hosted API Setup`
+
+![alt text](image-1.png)
+
+Copy the url template:
+
+```https://<your-domain>.immy.bot/technician-pod/cw-manage/<cw-manage-integration-id>```
+
+The URL is specific to your instance.  You'll need to replace `<your-domain>` with your domain and `<cw-manage-integration-id>` with your CW Manage integration id. This id can be found here:
+
+![alt text](image-4.png)
+
+After you setup the pod, navigate to a ticket, and it shoud load the technician tools pod for immy.bot.
 
