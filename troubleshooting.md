@@ -280,3 +280,23 @@ Computer Configuration | Policies | Administrative Templates | Windows Component
 User Configuration | Policies | Administrative Templates | Windows Components | Windows PowerShell | Turn on Script Execution (Enabled)
 
 These GPOs have been known to cause issues with running scripts.
+
+### Gather an Endpoint Trace Log
+
+Windows Performance Recorder can generate a detailed log of an endpoint's activity, which can be used to see most environmental causes for issues running the Immybot Agent.
+
+These can be resource intensive and can require 2-4 GB available RAM, depending on how active an endpoint is and how long a trace is running for.
+
+1. From an elevated CMD prompt, run:
+```
+wpr -start CPU -start Minifilter -start FileIO -start Registry
+```
+2. Recreate the issue.
+3. Wait 3-5 minutes, depending on the available RAM, and run:
+```
+wpr -stop c:\PerfLogs\examplefilename.etl -compress
+```
+If the wpr -stop command fails, try running without "-compress"
+
+This ETL can be reviewd in Windows Performance Analyzer from the Windows Performance Toolkit SDK.
+
