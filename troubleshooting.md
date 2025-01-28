@@ -289,7 +289,7 @@ These can be resource intensive and can require 2-4 GB available RAM, depending 
 
 1. From an elevated CMD prompt, run:
 ```
-wpr -start CPU -start Minifilter -start FileIO -start Registry -start Network
+wpr -start CPU -start Minifilter -start FileIO -start Registry
 ```
 2. Recreate the issue.
 3. Wait 3-5 minutes, depending on the available RAM, and run:
