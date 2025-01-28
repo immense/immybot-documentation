@@ -34,8 +34,11 @@ Create an "ImmyBot" role in your N-Central instance using above roles.
 N-Able themselves have an [offical short guide for doing this we recommend following](https://documentation.n-able.com/N-central/userguide/Content/User_Management/Role%20Based%20Permissions/role_based_permissions_create_APIuser.htm) for this part, but here is a recap:
 
 1. Create a new "ImmyBot" user in the instance with the "ImmyBot" role applied.
+2. Set a password (it is required for now but the api team is working on removing this)
 2. Under "API Access", ensure "Api-Only User" is checked. <u>2FA MUST be disabled for the API User!</u>
 3. Save the new ImmyBot user, and press the "Generate JSON Web Token" button. Copy this value somewhere for later.
+
+**IMPORTANT** - Right now, the password for the api user needs to be reset every 90 days. Your integration will stop working if you do not reset the password. The api team has also mentioned they are looking to remove this functionality for api users.
 
 
 ## Add the necessary 'RunScript' Automation Policy
@@ -66,6 +69,9 @@ Lastly, flip the `Enable Integration` switch.
 
 ::: warning If the `Health Check` reports an error after enabling the integration, ensure you have completed the above steps correctly. If you continue to have issues, reachout to the community or support for assistance.
 :::
+
+**If your error message contains "Unable to validate UI session: javax.validation.ValidationException: Unable to validate UI session.", then reset the password on your api user and generate a new JWT. This is a limitation imposed by N-Central**
+
 ![](./.vitepress/images/ncentraldocs/add_integration_guide_new_1.png)
 
 ## Import your customers
@@ -88,3 +94,7 @@ When you map a customer from an RMM, the computers will undergo Identification
 
 ### My customers are showing up but no computers
 Login to N-Central as the ImmyBot User and accept the EULA
+
+### Unable to validate UI session
+
+If your error message contains "Unable to validate UI session: javax.validation.ValidationException: Unable to validate UI session.", then reset the password on your api user and generate a new JWT. This is a limitation imposed by N-Central that will hopefully address in a future release.  Passwords are required to be reset every 90 days, even for api users - https://github.com/ToschAutomatisering/PS-NCentral/issues/5
