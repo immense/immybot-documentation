@@ -97,4 +97,4 @@ Login to N-Central as the ImmyBot User and accept the EULA
 
 ### Unable to validate UI session
 
-If your error message contains "Unable to validate UI session: javax.validation.ValidationException: Unable to validate UI session.", then reset the password on your api user and generate a new JWT. This is a limitation imposed by N-Central that will hopefully be addressed in a future release.  Passwords are required to be reset every 90 days, even for api users - https://github.com/ToschAutomatisering/PS-NCentral/issues/5
+If your error message contains "Unable to validate UI session: javax.validation.ValidationException: Unable to validate UI session.", then reset the password on your api user and generate a new JWT. Passwords are required to be reset every 90 days, even for api users - https://github.com/ToschAutomatisering/PS-NCentral/issues/5. This is a limitation imposed by N-Central that will hopefully be addressed in a future release.
