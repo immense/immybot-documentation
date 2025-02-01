@@ -5,12 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch Edge against localhost",
             "type": "msedge",
             "request": "launch",
-            "name": "Launch Edge against localhost",
             "url": "http://localhost:5173",
             "webRoot": "${workspaceFolder}",
             "preLaunchTask": "serve",
+        },
+        {
+            "name": "Dev Docs - Live Server",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "yarn docs:dev",
+            "timeout": 3000,
+            "serverReadyAction": {
+                "pattern": ".*Local:.*:([0-9]{1,5}).*",
+                "action": "debugWithEdge",
+                "uriFormat": "http://localhost:%s",
+                "webRoot": "${workspaceFolder}",
+                "killOnServerStop": true
+            }
         }
     ]
 }

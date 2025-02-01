@@ -1,6 +1,6 @@
-::: warning *ImmyBot's EV code-signing certificate is changing on Feb. 11th, 2025*
-Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-should-i-do-about-immybot-s-upcoming-code-signing-certificate-change) on updating security exclusions.
-:::
+
+> [!WARNING] *ImmyBot's EV code-signing certificate is changing on Feb. 11th, 2025*
+> Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-should-i-do-about-immybot-s-upcoming-code-signing-certificate-change) on updating security exclusions.
 
 ::: danger *ImmyBot no longer supports Windows 7, Server 2008 (or Server 2012 w/o [ESUs](https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates-overview)) machines.*
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
@@ -164,6 +164,9 @@ Your script path can be found under Settings->Preferences->Script Path
     - [SentinelOne](#sentinelone)
     - [DNSFilter](#dnsfilter)
     - [Group Policy Objects](#group-policy-objects)
+  - [Working With Support](#working-with-support)
+    - [Gather an Endpoint Trace Log](#gather-an-endpoint-trace-log)
+    - [MDMDiagnostics Logs](#mdmdiagnostics-logs)
 
 ### ThreatLocker
 
@@ -281,22 +284,53 @@ User Configuration | Policies | Administrative Templates | Windows Components | 
 
 These GPOs have been known to cause issues with running scripts.
 
+
+
+## Working With Support
+
+Support Email:
+
+`support@immy.bot`
+
+
+Sometimes things go wrong and you just need to send in a support ticket. Here is some of the information they may need to help you out.
+
+
 ### Gather an Endpoint Trace Log
+
 
 Windows Performance Recorder can generate a detailed log of an endpoint's activity, which can be used to see most environmental causes for issues running the Immybot Agent.
 
-These can be resource intensive and can require 2-4 GB available RAM, depending on how active an endpoint is and how long a trace is running for.
+
+> [!NOTE]
+> These can be resource intensive and can require 2-4 GB available RAM, depending on how active an endpoint is and how long a trace is running for.
 
 1. From an elevated CMD prompt, run:
-```
-wpr -start CPU -start Minifilter -start FileIO -start Registry
+```bat
+wpr.exe -start CPU -start Minifilter -start FileIO -start Registry
 ```
 2. Recreate the issue.
 3. Wait 3-5 minutes, depending on the available RAM, and run:
+```bat
+wpr.exe -stop "C:\PerfLogs\examplefilename.etl" -compress
 ```
-wpr -stop c:\PerfLogs\examplefilename.etl -compress
-```
-If the wpr -stop command fails, try running without "-compress"
 
-This ETL can be reviewd in Windows Performance Analyzer from the Windows Performance Toolkit SDK.
+
+If the `wpr -stop` command fails, try running without "-compress"
+
+This ETL can be reviewed in Windows Performance Analyzer from the Windows Performance Toolkit SDK.
+
+### MDMDiagnostics Logs
+
+
+Issues with device enrollment occur often, and the possible reasons behind them are numerous. Logs from the MDMDiagnostics tool can help identify the root cause.
+
+1. From an elevated CMD Prompt, run:
+
+
+```bat
+MDMdiagnosticstool.exe -area "DeviceProvisioning;DeviceEnrollment" -cab "C:\Temp\MDMDiag_Log.cab"
+```
+
+2. The cab file may be too large to email, so you can create a cloud share and send the link to `support@immy.bot`.
 
