@@ -321,7 +321,7 @@ Avoid setting these variables yourself or having variables with similar names.
 Yes. Add parameters to the Task your script is associated to. If this is a software install script, associate the task to the software as a "Configuration Task", and all parameters are passed into the Install scripts
 
 ### Can I deploy files along with my scripts?
-Yes. Tasks have a “File” parameter type. Immy will download the file and provide the path to the file in variable.
+Yes. Tasks have a “File” parameter type. Immy will download the file and provide the path to the file in variable.  If a zip file is provided, the zip file will be extracted and the path to the extracted zip folder will have Folder appended to the provided parameter name and be available to the task script.  Ex. Providing a file parameter name $ZipFile, there will be an additional parameter created call $ZipFileFolder.  $ZipFile will contain the path to the original zip file and $ZipFileFolder will contain the extracted contents of the zip file.
 
 ### Can I deploy a script to all of my computers?
 Yes, you do this by creating a Task. We strongly recommend your task includes a ‘Test’ so Immy can check its work and provide reporting on the effectiveness of your script.
