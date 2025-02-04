@@ -9,7 +9,7 @@
 
 ### Configure the following in general settings (Administration -> General -> Settings):
 
-- Ninja Agent uninstall prevention -> OFF
+- Ninja Agent uninstall prevention -> OFF (Optional: This permission is only needed so ImmyBot can also uninstall the Ninja agent)
 - Advanced Installer Options -> ON
 
 ### ImmyBot currently requires the following client app scopes to operate correctly:
