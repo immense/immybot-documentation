@@ -63,7 +63,7 @@ graph LR
 
 The most common cause of identification failure is security software.
 
-To know if this is the case, pull the logs from C:\ProgramData\ImmyBotAgentService\*.log
+To know if this is the case, pull the logs from C:\ProgramData\ImmyBot\Logs and C:\ProgramData\ImmyBot\Scripts\*\*.logs
 
 ![image](https://user-images.githubusercontent.com/1424395/173621779-51bd5d6d-e877-41a3-9b68-c1724747db21.png)
 
