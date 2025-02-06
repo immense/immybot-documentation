@@ -257,3 +257,8 @@ DISM.exe /Image:D:\mount /Add-ProvisioningPackage /PackagePath:C:\Users\Moi\Down
 ## Do you take requests for features/software/tasks/scripts?
 
 Yes, please feel welcome to submit a request on the [ImmyBot Community](https://community.immy.bot)
+
+
+## Where do I find a file that was uploaded to a computer through ImmyBot Remote Control?
+
+Files uploaded through ImmyBot Remote Control can be found at %ProgramData%\RemoteControl\Shared
