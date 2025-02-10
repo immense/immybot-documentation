@@ -21,10 +21,11 @@
 * Can create users in their tenant
 * Software they upload is owned by their tenant and are not visible to other tenants
 * Licenses they create are owned by their tenant and are not visible to other tenants
+* Cannot View/Create/Edit Schedules
 
 ## Customer (Tenant) Non-Admin
 
-* Cannot create Schedules
+* Cannot View/Create/Edit Schedules
 * Cannot create Cross Tenant Deployments
 * Cannot create Users
 * Can create Deployments scoped to individual Computers and People
