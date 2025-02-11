@@ -262,3 +262,10 @@ Yes, please feel welcome to submit a request on the [ImmyBot Community](https://
 ## Where do I find a file that was uploaded to a computer through ImmyBot Remote Control?
 
 Files uploaded through ImmyBot Remote Control can be found at %ProgramData%\RemoteControl\Shared
+
+## Why am I getting this system update notification?
+
+We have something new and cool, be it a feature or bug fix!
+The system updates usually take 5-10 minutes to apply and restart your instance.  During this time your instance will not be accessible.
+There are no sessions triggered on any endpoints as a result of the update, and if there are any sessions running when the update starts they will be restarted after the update completes.
+If you prefer not to think about doing updates, you can also schedule a time for automatic system updates to happen under Show More > Preferences.
