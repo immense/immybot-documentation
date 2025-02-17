@@ -6,6 +6,32 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.67.0
+
+Released 2/17/25
+
+### Bug Fixes
+- Fixed an issue where the Immy agent could disconnect during auto-updates due to locked files
+- Fixed issues where some scheduled cloud sessions were failing
+- Fixed an issue preventing some Immy agents from connecting
+- Fixed an issue where impersonating a user would still show the real user's email address in the header
+- Fixed date formatting issues
+- Fixed issues with task parameter handling in the script editor
+- Fixed an issue with change requests where the page would fail to load and new parameters were not included
+- Fixed an issue where "Start execution after active hours" setting would persist when switching a schedule to immediate execution mode.
+- Fixed a bug where configuration task parameters were not visible when creating deployments for software or tasks with integrations.
+- Fixed an issue with the Software/Task dropdown on the Dashboard page where the dropdown would get stuck showing a small subset of options.
+
+### Performance Improvements
+- Improved efficiency of tenant deletions with background processing and progress notifications
+- Enhanced script recovery and agent connection stability on intermittent network issues
+- Optimized database operations around maintenance sessions
+
+### Agent Improvements
+- Fixed an issue where network problems could cause persistent agents to maintain dead connections
+- Improved connection handling and recovery for ephemeral agents
+- Enhanced logging and error handling for agent operations
+
 ## 0.66.2
 
 Released 12/30/24
