@@ -6,6 +6,24 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.67.1
+
+Released 2/26/25
+
+### Improvements
+- Added file upload capability to the support sidebar, allowing users to attach files directly to support tickets
+- Optimized database performance for agent connection events
+- Enhanced security by masking password fields in the `Get-ProviderInfo` cmdlet output
+
+### Bug Fixes
+- Fixed ConnectWise Automate maintenance mode state preservation after session completion. If the agent was already in maintenance mode before the session, then it will remain in maintenance mode after.
+- On schedules, fixed "Start execution after active hours" flag incorrectly persisting when switching to immediate execution mode
+- Fixed issues with cloud session links not navigating to the cloud session details page
+- Fixed issues with previous state persisting when reopening the agent installer modal
+- Fixed an uncommon database issue where some agent installers were breaking some foreign-key constraints
+- Fixed an issue preventing function syntax from displaying correctly in script editor sidebar
+
+
 ## 0.67.0
 
 Released 2/17/25
