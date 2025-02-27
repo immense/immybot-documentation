@@ -6,6 +6,14 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.67.2
+
+Released 2/27/25
+
+### Bug Fixes
+
+- Fixed an issue where CW Automate and CW Control would stop executing scripts. A common error for this would appear as "CancellationTokenSource has been disposed".
+
 ## 0.67.1
 
 Released 2/26/25
