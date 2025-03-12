@@ -6,6 +6,24 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.67.3
+
+Released 3/12/25
+
+### Bug Fixes
+
+- Fixed an issue with the CW Automate provider and CW Control provider not handling script execution correctly,
+- Fixed an issue with key/value pair parameters where clearing all values would still use the default values instead of respecting the user's intention to have no values.
+- Fixed an issue where "more actions" dropdowns will now properly be hidden when no options are available,
+- Fixed an issue that prevented the swagger api endpoint from loading.
+- Fixed an issue with max running sessions exceeding the limit in the UI.
+- Fixed an issue with missing global software scripts on the software details page.
+
+### Improvements
+
+- Modified `Get-ProviderInfo` to return the provider linked to the script. Fixes an issue where the wrong provider could have been chosen if multiple providers of the same type existed.
+- Added `-IgnoreLinkedProvider` switch to `Get-ProviderInfo` to allow retrieving of all providers of the specified type.
+
 ## 0.67.2
 
 Released 2/27/25
