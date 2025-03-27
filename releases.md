@@ -6,6 +6,14 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.67.5
+
+Released 3/27/25
+
+### Bug Fixes
+
+- Fixed an issue introduced in 0.67.4 where editor services failed to load
+
 ## 0.67.4
 
 Released 3/27/25
