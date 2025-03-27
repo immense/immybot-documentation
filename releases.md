@@ -6,6 +6,27 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.67.4
+
+Released 3/27/25
+
+### 🐛 Bug Fixes
+
+- Fixed an issue that prevented the swagger api endpoint from loading
+- Fixed an issue with running `Get-ProviderInfo` from a script in the script editor where it could return all providers instead of the correct one.
+- Fixed an issue with missing global software scripts on the software details page.
+- Fixed an issue where navigating to the /login page would fail to redirect you to the correct page if you were already authenticated.
+- Fixed an issue where MSP non-admins could duplicate a cross-tenant deployment even though they are not allowed to create or edit them
+- Fixed a long-standing issue where the scheduled agent sync jobs would stop running in the event a disconnect occurred to the Redis cache we use for job scheduling
+- Fixed an issue with recently uploaded global software files failing to download
+
+### 🔧 Improvements
+
+- Exposed a new script variable called `$CanAccessParentTenant` that indicates whether you get use `Get-Immycomputer -UseParentTenant` to retrieve computers from the parent tenant.
+- A computer timeline event has been added to indicate when an immy agent self updates to a newer version.
+- Computer timeline events now utilize an infinite scroll with better load time and are now limited to the last 30 days.
+- The new computers tab now includes offline computers by default to represent an accurate count of all computers in the onboarding state.
+
 ## 0.67.3
 
 Released 3/12/25
