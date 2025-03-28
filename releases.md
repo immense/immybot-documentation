@@ -13,6 +13,7 @@ Released 3/27/25
 ### Bug Fixes
 
 - Fixed an issue introduced in 0.67.4 where editor services failed to load
+- Reverted a fix introduced in 0.67.4 where expired OAuth tokens were supposed to be removed, but the problem was made worse by incorrectly removing valid tokens when we failed to perform a refresh
 
 ## 0.67.4
 
