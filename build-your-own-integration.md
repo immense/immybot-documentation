@@ -1,310 +1,458 @@
-## Build Your Own Integrations
+# Building Custom Integrations with ImmyBot
+
+ImmyBot provides powerful integration capabilities that allow you to connect with external systems and extend its functionality. This guide explains how to build both inbound and outbound integrations to meet your specific needs.
+
+## Table of Contents
+
+- [Understanding Integration Types](#understanding-integration-types)
+- [Inbound Integrations](#inbound-integrations)
+- [Outbound Integrations](#outbound-integrations)
+- [Integration Capabilities](#integration-capabilities)
+- [Integration Context](#integration-context)
+- [Complete Examples](#complete-examples)
+
+## Understanding Integration Types
 
 ### Inbound vs Outbound Integrations
 
-An inbound integration uses the ImmyBot REST API from an external service.
+**Inbound Integrations**: Use the ImmyBot REST API from an external service to trigger actions within ImmyBot.
 
-An outbound integration is defined in PowerShell within ImmyBot and typically consumes another service's API.
+**Outbound Integrations**: Defined in PowerShell within ImmyBot and typically consume another service's API to extend ImmyBot's capabilities.
 
 ## Inbound Integrations
 
-### Example - Install Software on a Computer
+Inbound integrations allow external systems to interact with ImmyBot through its REST API. This approach is useful for triggering maintenance sessions, installing software, or retrieving information from ImmyBot.
 
-The following example will prompt you to select a piece of software, then select one or more computers to install that software on
+### Setting Up Authentication
 
-1. Create a brand new App Registration in https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/CreateApplicationBlade/quickStartType~/null/isMSAApp~/false, leave it completely unmodified, don’t change any defaults.
-1. Copy the Client (Application) ID into the $ClientID variable below
-1. Create a secret under Certificates and Secrets and copy the secret VALUE (NOT THE ID!!!!!!!1) into the $Secret variable below
-1. Plug one of your domains into the $AzureDomain variable below
-1. Navigate to the Enterprise App that was created in your Azure AD (You can do this by clicking the Managed Application link on the bottom right of the App Registration) and copy the *object id* of the Enterprise App
-1. Go into Immy->Show More->People->New and paste the Enterprise App's *object id* into the AD External ID field
-1. Make that person a user by navigating back to the People list and clicking Create User on the user you just created
-1. Make the user an admin by going to Show More->Users, clicking Edit, and checking the Admin box and clicking Update
-1. Run The code below
-1. Find the API endpoints by going to <yourinstance.immy.bot/swagger/index.html or by using the network tab in your browser as our frontend consumes those APIs.
-1. Modify the code below to suit your needs
+Before creating an inbound integration, you need to set up authentication:
+
+1. **Create an App Registration in Microsoft Entra ID (Azure AD)**:
+   - Navigate to [Microsoft Entra ID App Registrations](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/CreateApplicationBlade/quickStartType~/null/isMSAApp~/false)
+   - Create a new registration with default settings
+   - Copy the Client (Application) ID for later use
+
+2. **Create a Client Secret**:
+   - In your App Registration, go to "Certificates & Secrets"
+   - Create a new client secret and copy its VALUE (not the ID)
+
+3. **Configure ImmyBot Access**:
+   - Navigate to the Enterprise App (click the "Managed Application" link in the App Registration)
+   - Copy the object ID of the Enterprise App
+   - In ImmyBot, go to Show More → People → New
+   - Paste the Enterprise App's object ID into the "AD External ID" field
+   - Create a user from this person and grant admin privileges
+
+### Example: Installing Software on Computers
+
+This example demonstrates how to create a script that:
+1. Authenticates with ImmyBot's API
+2. Retrieves a list of available software
+3. Allows selection of software to install
+4. Retrieves and selects target computers
+5. Triggers a maintenance session to install the software
 
 
 ```powershell
-$AzureDomain = '' # contoso.com
-$ClientID = '' # From the steps above
-$Secret = '' # From the steps above
-$InstanceSubdomain = '' # myinstance (don't include .immy.bot)
+# Configuration Variables
+$AzureDomain = ''          # Your domain, e.g., contoso.com
+$ClientID = ''             # Application (Client) ID from App Registration
+$Secret = ''               # Client Secret value from App Registration
+$InstanceSubdomain = ''    # Your ImmyBot instance name (without .immy.bot)
 
-#####################
+# Authentication Setup
 $TokenEndpointUri = [uri](Invoke-RestMethod "https://login.windows.net/$AzureDomain/.well-known/openid-configuration").token_endpoint
 $TenantID = ($TokenEndpointUri.Segments | Select-Object -Skip 1 -First 1).Replace("/", "")
 $Script:BaseURL = "https://$($InstanceSubdomain).immy.bot"
 
 Function Get-ImmyBotApiAuthToken {
-    Param ($TenantId, $ApplicationId, $Secret, $ApiEndpointUri)
+    [CmdletBinding()]
+    Param (
+        [Parameter(Mandatory)]
+        [string]$TenantId,
+        [Parameter(Mandatory)]
+        [string]$ApplicationId,
+        [Parameter(Mandatory)]
+        [string]$Secret,
+        [Parameter(Mandatory)]
+        [string]$ApiEndpointUri
+    )
+    
     $RequestAccessTokenUri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
-    $body = "grant_type=client_credentials&client_id=$applicationId&client_secret=$Secret&scope=$($Script:BaseURL)/.default"
+    $body = "grant_type=client_credentials&client_id=$applicationId&client_secret=$Secret&scope=$($ApiEndpointUri)/.default"
     $contentType = 'application/x-www-form-urlencoded'
+    
     try {
         $Token = Invoke-RestMethod -Method Post -Uri $RequestAccessTokenUri -Body $body -ContentType $contentType
         return $Token
     }
-    catch { throw }
+    catch { 
+        Write-Error "Failed to obtain authentication token: $_"
+        throw 
+    }
 }
+
+# Get authentication token
 $Token = Get-ImmyBotApiAuthToken -ApplicationId $ClientId -TenantId $TenantID -Secret $Secret -ApiEndpointUri $BaseURL
 $Script:ImmyBotApiAuthHeader = @{
     "authorization" = "Bearer $($Token.access_token)"
 }
 
+# Helper function for API calls
 Function Invoke-ImmyBotRestMethod {
-    param([string]$Endpoint, [string]$Method, $Body)
-    if($body -is [Hashtable])
-    {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)]
+        [string]$Endpoint,
+        
+        [Parameter()]
+        [string]$Method = "GET",
+        
+        [Parameter()]
+        $Body
+    )
+    
+    if($body -is [Hashtable]) {
         $Body = $Body | ConvertTo-Json -Depth 100
     }
+    
     $Endpoint = $Endpoint.TrimStart('/')
-    $params = @{}
-    if ($Method) {
-        $params.method = $Method
+    $params = @{
+        Method = $Method
+        ContentType = "application/json"
     }
+    
     if ($Body) {
-        $params.body = $body
+        $params.Body = $body
     }
-    Invoke-RestMethod -Uri "$($Script:BaseURL)/$Endpoint" -Headers $Script:ImmyBotApiAuthHeader -ContentType "application/json" @params
+    
+    try {
+        Invoke-RestMethod -Uri "$($Script:BaseURL)/$Endpoint" -Headers $Script:ImmyBotApiAuthHeader @params
+    }
+    catch {
+        Write-Error "API call to $Endpoint failed: $_"
+        throw
+    }
 }
+
+# Step 1: Get available software
+Write-Host "Retrieving available software..." -ForegroundColor Cyan
 $Software = Invoke-ImmyBotRestMethod -Endpoint "/api/v1/software/global"
-$SelectedSoftware = $Software | select Id, Name | Out-GridView -OutputMode Single -Title "Select a Software"
+$SelectedSoftware = $Software | Select-Object Id, Name | Out-GridView -OutputMode Single -Title "Select Software to Install"
 
-# Specify an email to limit the list of computers to computers whose primary user's email matches the email specified.
-$email = ''
-if($email){
-    $SelectedComputers = Invoke-ImmyBotRestMethod -Endpoint "/api/v1/computers/dx?filter=['primaryUserEmail','=','$Email']" | % data
-}else{
-    $Computers = Invoke-ImmyBotRestMethod -Endpoint "/api/v1/computers"
-    $SelectedComputers = $Computers | Out-GridView -OutputMode Multiple -Title "Select Computer(s) to install $($SelectedSoftware.Name)"
+if (-not $SelectedSoftware) {
+    Write-Error "No software selected. Exiting."
+    return
 }
 
+Write-Host "Selected software: $($SelectedSoftware.Name)" -ForegroundColor Green
 
-# Note: Many of these fields can likely be omitted but are included for completeness
-Invoke-ImmyBotRestMethod -Endpoint "/api/v1/run-immy-service" `
--Method "POST" `
--Body @{
-    fullMaintenance = $false # When true, the triggered session will have all software/tasks applied to the machine. If false, it will be limited to one. You must provide a maintenanceParams property to specify the one you want
-    resolutionOnly = $false # When this is true, we "resolve" the desired state of the software against the deployments. This is is useful for determining if the user/computer should have the software installed. The computer does not need to be online for resolution to run.
-    detectionOnly = $false # Detection just detects what version of the software exists on the machine, if any. Both resolution and detection are required to determine what action is necessary to acheive the desired state. The computer must be online for detection to run.
-    inventoryOnly = $false # Session will end after the inventory scripts run
-    runInventoryInDetection = $false # When this is true, all inventory scripts will be run during detection. When this is false, only the Software Inventory script is run
-    cacheOnly = $false # Skips Software Inventory script and uses the most recent software inventory to determine the currently installed version
-    useWinningDeployment = $false # When true, the desiredSoftwareState in the maintenanceParams below is ignored
-    deploymentId = $null # If useWinningDeployment is false, you can specify a deployment here. When null,use maintenanceParams below, or if maintenanceParams are not specified resolution will determine the "winning" deployment
-    deploymentType = $null # The deploymentId is in what database? 0 - Global Database (Recommended deployments), 1 - Local (Typical)
+# Step 2: Get target computers
+Write-Host "Retrieving computers..." -ForegroundColor Cyan
+
+# Optional: Filter computers by primary user email
+$email = ''
+if ($email) {
+    $SelectedComputers = Invoke-ImmyBotRestMethod -Endpoint "/api/v1/computers/dx?filter=['primaryUserEmail','=','$Email']" | ForEach-Object { $_.data }
+}
+else {
+    $Computers = Invoke-ImmyBotRestMethod -Endpoint "/api/v1/computers"
+    $SelectedComputers = $Computers | Out-GridView -OutputMode Multiple -Title "Select Computer(s) to Install $($SelectedSoftware.Name)"
+}
+
+if (-not $SelectedComputers -or $SelectedComputers.Count -eq 0) {
+    Write-Error "No computers selected. Exiting."
+    return
+}
+
+Write-Host "Selected $($SelectedComputers.Count) computer(s)" -ForegroundColor Green
+
+# Step 3: Trigger maintenance session to install software
+Write-Host "Triggering maintenance session..." -ForegroundColor Cyan
+
+$MaintenanceParams = @{
+    fullMaintenance = $false  # When true, applies all deployments to the machine
     maintenanceParams = @{
         maintenanceIdentifier = "$($SelectedSoftware.Id)"
-        maintenanceType = 0
+        maintenanceType = 0    # 0 = Software
         repair = $false
-        desiredSoftwareState = 5
-        <#
-            DesiredSoftwareState.NoAction => 0,
-            DesiredSoftwareState.NotPresent => 1,
-            DesiredSoftwareState.ThisVersion => 2,
-            DesiredSoftwareState.OlderOrEqualVersion => 3,
-            DesiredSoftwareState.LatestVersion => 4,
-            DesiredSoftwareState.NewerOrEqualVersion => 5, # This is the default. It should be called "Newer or Equal to the _expected_ version". Sure you would think LatestVersion would be the default but LatestVersion refers to the latest version in our database (before dynamic versions) and NewerOrEqual was added to prevent the action from being marked as failed if the software self-updates during installation to a version newer than we expected.
-            DesiredSoftwareState.AnyVersion => 6,
-        #>
-        maintenanceTaskMode = 0
+        desiredSoftwareState = 5  # 5 = NewerOrEqualVersion
     }
-    skipBackgroundJob = $true # true bypasses the concurrent session limit. Careful, you can quickly overload your instance if you abuse this
-    rebootPreference = 1 # Force = -1, Normal = 0, Suppress = 1
-    scheduleExecutionAfterActiveHours = $false
-    useComputersTimezoneForExecution = $false
-    offlineBehavior = 2 #  Skip = 1, ApplyOnConnect = 2
-    suppressRebootsDuringBusinessHours = $false
-    sendDetectionEmail = $false
-    sendDetectionEmailWhenAllActionsAreCompliant = $false
-    sendFollowUpEmail = $false
-    sendFollowUpOnlyIfActionNeeded = $false
-    showRunNowButton = $false
-    showPostponeButton = $false
-    showMaintenanceActions = $false
-    computers = @($SelectedComputers | %{ @{ computerId = $_.id } })
-    tenants = @() # If the specified maintenanceItem is a Cloud Task you would specify this instead of computers
+    skipBackgroundJob = $true  # Bypasses concurrent session limit
+    rebootPreference = 1       # 1 = Suppress
+    offlineBehavior = 2        # 2 = ApplyOnConnect
+    computers = @($SelectedComputers | ForEach-Object { @{ computerId = $_.id } })
 }
+
+# Trigger the maintenance session
+$Result = Invoke-ImmyBotRestMethod -Endpoint "/api/v1/run-immy-service" -Method "POST" -Body $MaintenanceParams
+
+Write-Host "Maintenance session created successfully!" -ForegroundColor Green
+Write-Host "Session ID: $($Result.id)" -ForegroundColor Cyan
+
+# Optional: Detailed parameter explanation
+<#
+Maintenance Parameters Reference:
+--------------------------------
+fullMaintenance: When true, applies all deployments to the machine
+resolutionOnly: Determines if software should be installed based on deployments (computer can be offline)
+detectionOnly: Detects current software version (computer must be online)
+inventoryOnly: Session ends after inventory scripts run
+useWinningDeployment: When true, ignores desiredSoftwareState in maintenanceParams
+deploymentId: Specify a deployment (when useWinningDeployment is false)
+deploymentType: 0 = Global Database, 1 = Local
+
+Desired Software States:
+----------------------
+0 = NoAction
+1 = NotPresent (uninstall)
+2 = ThisVersion (specific version)
+3 = OlderOrEqualVersion
+4 = LatestVersion (from database)
+5 = NewerOrEqualVersion (default)
+6 = AnyVersion
+
+Reboot Preferences:
+-----------------
+-1 = Force
+0 = Normal
+1 = Suppress
+#>
 ```
 
 
 
 ## Outbound Integrations
 
-The goal of this feature is primarily for our own use to more rapidly implement integrations with other RMMs and PSA, but we have opened it up for you to create your own integrations as well.
+Outbound integrations allow ImmyBot to connect with external systems like RMMs, PSAs, and security tools. While initially developed for internal use, this feature is now available for you to create custom integrations with your preferred tools.
 
-### Concepts
+### Core Concepts
 
-Behind the scenes, an integration is any class that inherits from the `IProvider` interface.
+At its core, an outbound integration is a PowerShell-based implementation of the `IProvider` interface. ImmyBot provides cmdlets that make it easy to create these integrations without needing to write C# code:
 
-We have created a new `Integration` script type with `New-DynamicIntegration` and `Add-DynamicIntegrationCapability` Cmdlets that allow you to construct your own `IProvider` and give it capabilities, all within PowerShell.
+- `New-DynamicIntegration`: Creates the base integration
+- `Add-DynamicIntegrationCapability`: Adds specific capabilities to your integration
 
-Integrations capabilities are defined in interfaces typically prefixed with `ISupports...`
+### Integration Capabilities
 
-Let's say you want your integration to have a Client mapping UI in ImmyBot. You would implement `ISupportsListingClients` which has a `GetClients` method.
+Capabilities are defined through interfaces that typically start with `ISupports...`. Each capability adds specific functionality to your integration:
 
-When loading your integration, the ImmyBot engine will recognize that `integration is ISupportsListingClients` and will show the Clients tab on the Integration page.
+| Capability Interface | Description |
+|----------------------|-------------|
+| `ISupportsListingClients` | Lists customers/clients from the external system |
+| `ISupportsListingAgents` | Lists agents/computers from the external system |
+| `ISupportsInventoryIdentification` | Provides scripts to identify agents on computers |
+| `ISupportsTenantInstallToken` | Retrieves installation tokens for specific tenants |
+| `ISupportsTenantUninstallToken` | Retrieves uninstallation tokens for specific tenants |
+| `ISupportsHttpRequest` | Handles incoming HTTP requests (webhooks) |
 
-![image](https://github.com/immense/immybot-documentation/assets/31077619/67ea8b15-0ae9-44e6-b3e0-9de250b15010)
+When you implement a capability, ImmyBot automatically adds the corresponding UI elements and functionality. For example, implementing `ISupportsListingClients` adds a Clients tab to your integration's page:
 
-#### Dynamic Integration Capabilities
-* List Customers from the remote system so they can be mapped in the ImmyBot UI
-* List Computers/Agents (Think RMM Agent, AV agent etc) from a remote system
-* Provide an inventory script that returns the agent id (that gets mapped to the id from the API)
-* Provide Tenant level install tokens automatically scoped based on the Customer mapping above
-* Disable/Enable Maintenance Mode/Learning Mode in remote systems during maintenance
-* Respond to HttpRequests in PowerShell (like an Azure PowerShell function) but utilizing the Metascript engine
+![Client Mapping UI](https://github.com/immense/immybot-documentation/assets/31077619/67ea8b15-0ae9-44e6-b3e0-9de250b15010)
 
----
-### **Basic Implementation**
+### Key Integration Features
+
+With outbound integrations, you can:
+
+- **Map Customers**: Connect ImmyBot tenants to clients in external systems
+- **Track Agents**: Monitor computers/agents from RMMs, AVs, and other tools
+- **Automate Agent Installation**: Use tenant-specific tokens for automated deployments
+- **Manage Maintenance Mode**: Toggle maintenance/learning modes in external systems
+- **Handle Webhooks**: Process incoming HTTP requests with PowerShell scripts
+- **Extend ImmyBot**: Add custom functionality through the Metascript engine
+
+## Building Your Integration
+
+### Basic Implementation
+
+Every integration starts with a basic implementation using `New-DynamicIntegration`. At minimum, you need to provide:
+
+1. An initialization script block (`-Init`)
+2. A health check script block (`-HealthCheck`)
+
 ```powershell
-New-DynamicIntegration -Init {
-    [OpResult]::Ok()
+# Simplest possible integration
+$Integration = New-DynamicIntegration -Init {
+    # Initialization code runs when the integration is created or updated
+    [OpResult]::Ok()  # Return success
 } -HealthCheck {
-    New-HealthyResult
+    # Health check runs periodically to verify the integration is working
+    New-HealthyResult  # Return a healthy status
 }
 ```
----
 
-### **Initialization with Parameters**
+### Adding Configuration Parameters
+
+Most integrations need configuration parameters like API endpoints, credentials, or other settings. You can add these as parameters to your initialization script:
 
 ```powershell
 $Integration = New-DynamicIntegration -Init {
     param(
         [Parameter(Mandatory)]
-        [Uri]$S1Uri,
+        [Uri]$ApiEndpoint,
+        
         [Parameter(Mandatory)]
-        [Password(StripValue = $true)]
-        $S1ApiKey
+        [Password(StripValue = $true)]  # Securely stores the password
+        $ApiKey
     )
 
+    # Validate parameters or establish connection here
+    
     [OpResult]::Ok()
 } -HealthCheck {
     New-HealthyResult
 }
 ```
 
-![image](https://github.com/immense/immybot-documentation/assets/1424395/4f8ba329-f57f-4504-875d-c6ee3a53816c)
+These parameters automatically generate a configuration form in the ImmyBot UI:
 
----
+![Configuration Form](https://github.com/immense/immybot-documentation/assets/1424395/4f8ba329-f57f-4504-875d-c6ee3a53816c)
 
-### **Initialization with Parameters & `$IntegrationContext`**
+### Using the Integration Context
 
-Building on the previous example, the integration parameters are stored in the `$IntegrationContext`:
+The `$IntegrationContext` is a special variable that persists between different script blocks within your integration. Use it to store configuration, connection objects, or any other data that needs to be shared:
 
 ```powershell
 $Integration = New-DynamicIntegration -Init {
     param(
         [Parameter(Mandatory)]
-        [Uri]$S1Uri,
+        [Uri]$ApiEndpoint,
+        
         [Parameter(Mandatory)]
         [Password(StripValue = $true)]
-        $S1ApiKey
+        $ApiKey
     )
-
-    $IntegrationContext.S1Uri = $S1Uri
-    $IntegrationContext.S1ApiKey = $S1ApiKey
-
+    
+    # Store parameters in the integration context
+    $IntegrationContext.ApiEndpoint = $ApiEndpoint
+    $IntegrationContext.ApiKey = $ApiKey
+    
+    # You can also store connection objects or other data
+    $IntegrationContext.LastConnectionTime = Get-Date
+    
     [OpResult]::Ok()
 } -HealthCheck {
+    # Access the stored values in other script blocks
+    $endpoint = $IntegrationContext.ApiEndpoint
+    $lastConnection = $IntegrationContext.LastConnectionTime
+    
+    Write-Verbose "Checking health of connection to $endpoint (last connected: $lastConnection)"
     New-HealthyResult
 }
 ```
 
 ---
 
-### **Adding `ISupportsListingClients`**
+### Adding Capabilities to Your Integration
+
+Once you've created your base integration, you can add capabilities using the `Add-DynamicIntegrationCapability` cmdlet. Each capability requires implementing specific methods.
+
+#### Listing Clients from External Systems
+
+The `ISupportsListingClients` capability allows your integration to retrieve and display clients from an external system:
 
 ```powershell
-$Integration = New-DynamicIntegration -Init {
-    param(
-        [Parameter(Mandatory)]
-        [Uri]$S1Uri,
-        [Parameter(Mandatory)]
-        [Password(StripValue = $true)]
-        $S1ApiKey
-    )
-} -HealthCheck {
-    New-HealthyResult
-}
-
 $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingClients -GetClients {
     [CmdletBinding()]
     [OutputType([Immybot.Backend.Domain.Providers.IProviderClientDetails[]])]
     param()
-    # Implement logic to get clients directly in this script
-    # Mockup code for example purposes
+    
+    # Retrieve clients from your external system
+    # This example uses mock data
     @("Client1", "Client2") | ForEach-Object {
+        # Create a client object for each client
         New-IntegrationClient -ClientId $_ -ClientName $_
     }
 }
 ```
 
----
+#### Listing Agents from External Systems
 
-### **Adding `ISupportsListingAgents`**
+The `ISupportsListingAgents` capability allows your integration to retrieve and display agents (computers) from an external system:
 
 ```powershell
-$Integration = New-DynamicIntegration -Init {
-    # ... *same as above* ...
-} -HealthCheck {
-    New-HealthyResult
-}
-$Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingClients -GetClients {
-    [CmdletBinding()]
-    [OutputType([Immybot.Backend.Domain.Providers.IProviderClientDetails[]])]
-    param()
-    # Implement logic to get clients directly in this script
-    # Mockup code for example purposes
-    @("Client1", "Client2") | ForEach-Object {
-        New-IntegrationClient -ClientId $_ -ClientName $_
-    }
-}
-
 $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingAgents -GetAgents {
     [CmdletBinding()]
     [OutputType([Immybot.Backend.Domain.Providers.IProviderAgentDetails[]])]
     param(
         [Parameter()]
-        [string[]]$ClientIds = $null
+        [string[]]$ClientIds = $null  # IDs of clients mapped in the UI
     )
-    # Implement logic to get agents directly in this script
-    # Mockup code for example purposes
-    @("Agent1", "Agent2") | ForEach-Object {
-        New-IntegrationAgent -AgentId $_ -Name $_
+    
+    # Retrieve agents from your external system
+    # This example uses mock data
+    foreach ($clientId in $ClientIds) {
+        Write-Verbose "Retrieving agents for client: $clientId"
+        
+        @("Agent1", "Agent2") | ForEach-Object {
+            # Create an agent object for each agent
+            New-IntegrationAgent -AgentId $_ -Name $_ -ClientId $clientId
+        }
     }
 }
 ```
 
----
+### Using Modules for Code Organization
 
-###  **Move duplicate code to a Module**
+For complex integrations, it's often better to move common code into a PowerShell module:
 
 ```powershell
-$Integration = New-DynamicIntegration -Init {
+# Create a module for your integration
+# Save this as a Module script in ImmyBot
+
+function Connect-ExternalAPI {
+    [CmdletBinding()]
     param(
         [Parameter(Mandatory)]
-        [Uri]$S1Uri,
+        [Uri]$ApiEndpoint,
         [Parameter(Mandatory)]
-        [Password(StripValue = $true)]
-        $S1ApiKey
+        [string]$ApiKey
     )
-} -HealthCheck {
-    New-HealthyResult
+    
+    # Implementation details...
 }
 
+function Get-ExternalClients {
+    [CmdletBinding()]
+    param()
+    
+    # Implementation details...
+}
+
+function Get-ExternalAgents {
+    [CmdletBinding()]
+    param([string]$ClientId)
+    
+    # Implementation details...
+}
+
+Export-ModuleMember -Function @(
+    'Connect-ExternalAPI',
+    'Get-ExternalClients',
+    'Get-ExternalAgents'
+)
+```
+
+Then use the module in your integration:
+
+```powershell
 $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingClients -GetClients {
-    Import-Module SentinelOne
-    Get-S1Site | ForEach-Object {
+    # Import your module
+    Import-Module YourIntegrationModule
+    
+    # Use the module functions
+    Get-ExternalClients | ForEach-Object {
         New-IntegrationClient -ClientId $_.Id -ClientName $_.Name
     }
 }
 
 $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingAgents -GetAgents {
-    Import-Module SentinelOne
-    Get-S1Agent | ForEach-Object {
-        New-IntegrationAgent -AgentId $_.Id -Name $_.Name
+    Import-Module YourIntegrationModule
+    
+    foreach ($clientId in $ClientIds) {
+        Get-ExternalAgents -ClientId $clientId | ForEach-Object {
+            New-IntegrationAgent -AgentId $_.Id -Name $_.Name -ClientId $clientId
+        }
     }
 }
 ```
@@ -312,35 +460,48 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingAgent
 ---
 
 
-#### Integration Context
+## Integration Context and Security
 
-`$IntegrationContext` is a Hashtable used to share data between the ScriptBlocks *within the integration only*.
+### Understanding the Integration Context
 
-By design, the data in `$IntegrationContext` is where you put sensitive data like Access Tokens.
+The `$IntegrationContext` is a special hashtable that serves as a secure storage mechanism for your integration:
 
-It is not available in scripts outside of the integration as this could expose those tokens via the Debugger.
+- **Scope**: Only available within the integration's script blocks
+- **Purpose**: Securely store sensitive data like API tokens and connection objects
+- **Security**: Not accessible from outside the integration, even in the debugger
+- **Persistence**: Data persists between different script blocks and method calls
 
-Instead, we provide the following Cmdlets to access integration data from the Metascript context:
+### Accessing Integration Data from Scripts
 
-- Get-IntegrationAgentInstallToken
-- Get-IntegrationTenantUninstallTokenCmdlet
-- Get-IntegrationAgentUninstallTokenCmdlet
+Since the `$IntegrationContext` is not directly accessible from maintenance scripts, ImmyBot provides special cmdlets to securely access integration data:
 
-These Cmdlets do not require any parameters as everything they need is available in the Action's context.
+| Cmdlet | Description |
+|--------|-------------|
+| `Get-IntegrationAgentInstallToken` | Retrieves installation tokens for agents |
+| `Get-IntegrationTenantUninstallToken` | Retrieves uninstallation tokens for tenants |
+| `Get-IntegrationAgentUninstallToken` | Retrieves uninstallation tokens for agents |
 
-Let's say you create an integration that has an agent that requires an install token.
+These cmdlets automatically determine the correct integration and tenant context based on the current maintenance action, so you don't need to provide any parameters.
 
-You would create a piece of Software and link it to that Integration Type, essentially saying "This software is the agent for SentinelOne".
+### Integration Workflow Example
 
-When you create a Deployment for that Software, if there are multiple integrations of that type, you will be required to select one. (Maybe you are migrating SentinelOne from one server to another)
+Here's how the integration context works in practice:
 
-That Deployment will create an Action on the session linked back to that Deployment, that is linked to that specific SentinelOne instance.
+1. **Create an Integration**: Define an integration for a security tool like SentinelOne
+2. **Create Agent Software**: Create a software entry in ImmyBot for the agent
+3. **Link Software to Integration**: Associate the software with your integration type
+4. **Create Deployment**: When creating a deployment, select the specific integration instance
+5. **Install Script**: In the installation script, use `Get-IntegrationAgentInstallToken` to retrieve the token
 
-When you call Get-IntegrationAgentInstallToken from within the SentinelOne install script, the backend calls GetTenantInstallToken(string clientId) on the SentinelOne integration provided by the Deployment. ClientId is provided automatically by looking up the Computer's ImmyBot tenantId in the integration's Client mapping.
+When the installation script runs:
+1. ImmyBot identifies which integration instance is linked to the deployment
+2. It looks up the computer's tenant in the integration's client mapping
+3. It calls the appropriate method on the integration to get the token
+4. The token is securely passed to your script
 
-![image](https://github.com/immense/immybot-documentation/assets/31077619/ebdbfab0-a149-4d0d-8e56-cad8291df879)
+![Integration Selection](https://github.com/immense/immybot-documentation/assets/31077619/ebdbfab0-a149-4d0d-8e56-cad8291df879)
 
-![image](https://github.com/immense/immybot-documentation/assets/31077619/f5a9d865-2a7d-4843-9a58-298557dd674d)
+![Integration Mapping](https://github.com/immense/immybot-documentation/assets/31077619/f5a9d865-2a7d-4843-9a58-298557dd674d)
 
 ### Example: SentinelOne
 ```powershell
@@ -678,3 +839,31 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsHttpRequest 
 $Integration
 ```
 <img width="688" alt="image" src="https://github.com/immense/immybot-documentation/assets/1424395/6bf7dd8b-3700-4414-aa57-ad6d8151245f">
+
+## Conclusion and Next Steps
+
+Building custom integrations with ImmyBot allows you to extend its capabilities and connect with your preferred external systems. By following the guidelines in this document, you can create powerful integrations that enhance your IT management workflow.
+
+### Key Takeaways
+
+- **Inbound Integrations**: Allow external systems to interact with ImmyBot through its REST API
+- **Outbound Integrations**: Allow ImmyBot to interact with external systems through PowerShell-based implementations
+- **Integration Capabilities**: Add specific functionality to your integration through interfaces like `ISupportsListingClients` and `ISupportsHttpRequest`
+- **Security**: Use the `$IntegrationContext` to securely store sensitive data and access it through dedicated cmdlets
+
+### Where to Go From Here
+
+1. **Explore Example Integrations**: Study the SentinelOne example provided in this guide
+2. **Start Simple**: Begin with a basic integration that implements one or two capabilities
+3. **Test Thoroughly**: Ensure your integration works correctly with real-world data
+4. **Expand Gradually**: Add more capabilities as your needs evolve
+
+For more information on working with ImmyBot's API and integrations, see:
+
+- [API Documentation](./api-documentation.md)
+- [Custom Integrations](./custom-integrations.md)
+- [Integration Overview](./integration-overview.md)
+
+---
+
+**Next Steps:** [API Documentation →](./api-documentation.md) | [Custom Integrations →](./custom-integrations.md)
