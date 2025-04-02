@@ -2,6 +2,12 @@
 
 This guide will help you get up and running with ImmyBot in under 30 minutes. Follow these steps to set up your account, connect your first computer, and create your first deployment.
 
+## Understanding the ImmyBot Approach
+
+**The goal of ImmyBot is to set up a computer knowing only the customer and the end user.**
+
+ImmyBot uses a declarative approach focused on desired state configuration. Instead of thinking about the steps to make something happen, you define how things "should be" and ImmyBot handles the rest. This paradigm shift allows you to focus on the end result rather than the process.
+
 ## Prerequisites
 
 Before you begin, make sure you have:
@@ -73,6 +79,34 @@ Now let's create a simple deployment to install a software package:
 
 Your deployment is now created and will be applied to all computers in the selected target.
 
+### Understanding Deployments
+
+Deployments are the core building blocks of ImmyBot. They define what should be installed or configured on which computers:
+
+```mermaid
+graph LR
+subgraph "Deployment"
+    Input["Software or Task"] -->|"Should Be"| DesiredState["Desired State"] -->|on| Group["One or More Computers"]
+end
+```
+
+For example, your Chrome deployment specifies that Chrome should be installed on all computers:
+
+```mermaid
+graph LR
+subgraph "Chrome Deployment"
+    Input1["Google Chrome"] -->|"Should Be"| DesiredState1["Installed"] -->|on| Group1["All Computers"]
+end
+```
+
+#### Conditional Deployments
+
+You can also create deployments that only apply under certain conditions. For example:
+- Install Microsoft Visio only for users who have a license
+- Deploy SentinelOne only for customers who pay for it
+
+These conditions are defined using filter scripts that can check external systems or conditions.
+
 ## Step 6: Run a Maintenance Session
 
 To apply your new deployment immediately:
@@ -84,6 +118,20 @@ To apply your new deployment immediately:
 5. Click **Start**
 
 You can monitor the progress of the maintenance session in real-time.
+
+### Verification and Testing
+
+ImmyBot tests everything it does before and after it does it, ensuring that changes are applied correctly and consistently:
+
+- **Before Installation**: ImmyBot checks if the software is already installed and what version is present
+- **During Installation**: The system monitors the installation process for errors
+- **After Installation**: ImmyBot verifies that the software was installed correctly and is the expected version
+
+For example, when installing Adobe Reader, ImmyBot will:
+1. Find the latest available version using a dynamic version script
+2. Determine the installed version (if any) by checking Add/Remove Programs
+3. Queue an Install or Upgrade task based on the current state
+4. Set Adobe Reader to be the default PDF handler by running a configuration task
 
 ## Next Steps
 

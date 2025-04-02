@@ -88,6 +88,27 @@ During the onboarding process, ImmyBot:
 4. Updates drivers and BIOS (for supported manufacturers)
 5. Applies Windows updates
 
+### User Profile Creation
+
+One important aspect of the onboarding process is creating a user profile for the primary user. This allows ImmyBot to:
+
+- Set default browser and PDF editor preferences
+- Configure user-specific settings without requiring the user's password
+- Apply user-level settings that are stored in the user's registry
+
+For users synced from Azure AD, ImmyBot fetches their SID (Security Identifier) and creates their profile automatically. This works for both cloud-only users and those synced from Active Directory.
+
+## Recommended Deployments
+
+During onboarding, ImmyBot applies several recommended deployments that provide a solid foundation for managing your endpoints:
+
+- **Create Profile for Primary User**: Allows ImmyBot to set default browser and PDF editors
+- **Microsoft 365 Apps**: Installs the apps the selected user is licensed for
+- **Manufacturer Updates**: Installs the latest updates from Dell, HP, and Lenovo
+- **Adobe Reader**: Installs and configures the latest version of Adobe Reader
+
+You can customize these deployments or create exceptions for specific clients. For more information, see [Recommended Deployments](recommended-deployments.md).
+
 ## Next Steps
 
 After successful onboarding:
