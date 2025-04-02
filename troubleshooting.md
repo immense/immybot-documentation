@@ -1,4 +1,6 @@
 
+# Troubleshooting Guide
+
 > [!WARNING] *ImmyBot's EV code-signing certificate is changing on Feb. 11th, 2025*
 > Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-should-i-do-about-immybot-s-upcoming-code-signing-certificate-change) on updating security exclusions.
 
@@ -6,7 +8,15 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
-# Troubleshooting
+This comprehensive guide will help you troubleshoot common issues with ImmyBot, including agent connectivity problems, identification failures, security software conflicts, and more. Follow the step-by-step instructions to diagnose and resolve issues quickly.
+
+## Table of Contents
+
+- [Identification Failures](#identification-failures)
+- [Pending Computers](#pending-computers)
+- [Security Software Exclusions](#security-software-exclusions)
+- [Working With Support](#working-with-support)
+
 
 ## Identification Failures
 
@@ -276,59 +286,88 @@ For guidance on managing allow and block lists, please refer to: https://help.dn
 
 ### Group Policy Objects
 
-Computer Configuration | Policies | Administrative Templates | Windows Components | Windows PowerShell | Turn on Script Execution (Enabled)
+PowerShell execution policies set through Group Policy can affect ImmyBot's ability to run scripts. Ensure the following GPO settings are configured correctly:
 
-User Configuration | Policies | Administrative Templates | Windows Components | Windows PowerShell | Turn on Script Execution (Enabled)
+**Required GPO Settings:**
+- Computer Configuration | Policies | Administrative Templates | Windows Components | Windows PowerShell | Turn on Script Execution (Enabled)
+- User Configuration | Policies | Administrative Templates | Windows Components | Windows PowerShell | Turn on Script Execution (Enabled)
 
-These GPOs have been known to cause issues with running scripts.
-
-
+These GPOs have been known to cause issues with running scripts if not properly configured. We recommend setting the execution policy to "RemoteSigned" or "Unrestricted" for ImmyBot to function properly.
 
 ## Working With Support
 
-Support Email:
+When you've tried all the troubleshooting steps and still need assistance, our support team is ready to help.
 
-`support@immy.bot`
+**Support Contact Information:**
+- Email: `support@immy.bot`
+- Support Portal: [https://support.immy.bot](https://support.immy.bot)
 
+### Preparing for Support
 
-Sometimes things go wrong and you just need to send in a support ticket. Here is some of the information they may need to help you out.
+To help our support team resolve your issue quickly, please provide the following information:
 
+1. **Detailed Description:**
+   - What you were trying to do
+   - What happened instead
+   - Any error messages you received
+   - When the issue started occurring
+
+2. **Environment Information:**
+   - ImmyBot version
+   - Agent version
+   - Operating system version
+   - Security software in use
+
+3. **Logs and Diagnostics:**
+   - Agent logs from C:\ProgramData\ImmyBot\Logs
+   - Script logs from C:\ProgramData\ImmyBot\Scripts\*\*.logs
+   - Any additional diagnostic information as described below
 
 ### Gather an Endpoint Trace Log
 
-
-Windows Performance Recorder can generate a detailed log of an endpoint's activity, which can be used to see most environmental causes for issues running the Immybot Agent.
-
+Windows Performance Recorder can generate a detailed log of an endpoint's activity, which can be used to identify environmental causes for issues running the ImmyBot Agent.
 
 > [!NOTE]
-> These can be resource intensive and can require 2-4 GB available RAM, depending on how active an endpoint is and how long a trace is running for.
+> These traces can be resource intensive and may require 2-4 GB available RAM, depending on how active an endpoint is and how long a trace is running.
+
+**Steps to Collect a Trace:**
 
 1. From an elevated CMD prompt, run:
 ```bat
 wpr.exe -start CPU -start Minifilter -start FileIO -start Registry
 ```
-2. Recreate the issue.
+2. Recreate the issue that you're experiencing.
 3. Wait 3-5 minutes, depending on the available RAM, and run:
 ```bat
 wpr.exe -stop "C:\PerfLogs\examplefilename.etl" -compress
 ```
 
+If the `wpr -stop` command fails, try running without the "-compress" parameter.
 
-If the `wpr -stop` command fails, try running without "-compress"
-
-This ETL can be reviewed in Windows Performance Analyzer from the Windows Performance Toolkit SDK.
+This ETL file can be reviewed in Windows Performance Analyzer from the Windows Performance Toolkit SDK.
 
 ### MDMDiagnostics Logs
 
+For issues with device enrollment, MDMDiagnostics logs can help identify the root cause.
 
-Issues with device enrollment occur often, and the possible reasons behind them are numerous. Logs from the MDMDiagnostics tool can help identify the root cause.
+**Steps to Collect MDM Diagnostics:**
 
 1. From an elevated CMD Prompt, run:
-
-
 ```bat
 MDMdiagnosticstool.exe -area "DeviceProvisioning;DeviceEnrollment" -cab "C:\Temp\MDMDiag_Log.cab"
 ```
 
 2. The cab file may be too large to email, so you can create a cloud share and send the link to `support@immy.bot`.
+
+## Next Steps
+
+After resolving your issue, consider reviewing these related resources:
+
+- [Common Issues](./common-issues.md) - Solutions to frequently encountered problems
+- [Security Software Configuration](./security-software.md) - Configure security software to work with ImmyBot
+- [FAQ](./FAQ.md) - Answers to common questions about ImmyBot
+
+---
+
+**Next Steps:** [Common Issues →](./common-issues.md) | [Security Software Configuration →](./security-software.md)
 

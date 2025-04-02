@@ -1,10 +1,22 @@
-# Getting Started / Thinking with Immy
+# Getting Started with ImmyBot
+
+This guide will help you understand the core concepts of ImmyBot and get started with automating your IT management tasks.
+
+## Introduction to ImmyBot
 
 **The goal of ImmyBot is to setup a computer knowing only the customer and the end user.**
 
-Thinking with Immy means thinking in terms of how things "Should" be.
+ImmyBot is a powerful automation platform designed to simplify IT management by automating software deployment, configuration, and maintenance across your entire fleet of devices. Unlike traditional RMM tools, ImmyBot uses a declarative approach focused on desired state configuration.
 
-You teach Immy how things "should" be by creating Deployments.
+## Thinking with Immy
+
+Thinking with Immy means thinking in terms of how things "should be" rather than the steps to make them that way. This paradigm shift allows you to focus on the end result rather than the process.
+
+You teach ImmyBot how things "should be" by creating Deployments that define the desired state for your managed devices.
+
+## Understanding Deployments
+
+Deployments are the core building blocks of ImmyBot. They define what should be installed or configured on which computers.
 
 ```mermaid
 graph LR
@@ -12,6 +24,9 @@ subgraph "Deployment"
     Input["Software or Task"] -->|"Should Be"| DesiredState["Desired State"] -->|on| Group["One or More Computers"]
 end
 ```
+
+For example, a basic deployment might specify that Adobe Reader should be installed on all workstations:
+
 ```mermaid
 graph LR
 subgraph "Adobe Reader"
@@ -19,67 +34,97 @@ subgraph "Adobe Reader"
 end
 ```
 
-How things "Should" be is often dependent on external factors. For example
+### Conditional Deployments
+
+How things "should be" is often dependent on external factors. For example:
 
 - Customer A should have SentinelOne because they pay for it
-- Person A should have Visio 365 because he has a license for it
+- Person A should have Visio 365 because they have a license for it
 
-Luckily, deployments can be conditionally applied based on the result of scripts that reach out to external sources
+ImmyBot allows deployments to be conditionally applied based on the result of scripts that can check external systems or conditions:
 
 ```mermaid
 graph LR
 subgraph "Should Deployment Apply?"
-    Input --> Metascript
-    Metascript --> True
-    Metascript --> False
+    Input --> Metascript["Script checks condition"]
+    Metascript --> True["Apply deployment"]
+    Metascript --> False["Skip deployment"]
 end
 ```
+
+For example, you can create a deployment that installs Visio only for users who have a license:
 
 ```mermaid
 graph LR
 subgraph "Should Visio Install?"
     EndUser["Input: End User"] --> Script["Graph API Script: Does End User have Visio License?"]
-    Script --> True1[True]
-    Script --> False1[False]
+    Script --> True1["Yes: Install Visio"]
+    Script --> False1["No: Skip installation"]
 end
 ```
 
-This is out of the box functionality in ImmyBot. I'm just showing you how it works to illustrate the power of the rules engine.
+This powerful conditional logic is built into ImmyBot, allowing you to create sophisticated, dynamic deployment rules that adapt to your environment.
 
-## Overview
-ImmyBot deploys 2 things:
-1. Software
-1. Tasks
+## Core Components of ImmyBot
 
-Tasks are for anything that isn’t software, think Bitlocker, Power Options, etc.
+ImmyBot deploys and manages two primary types of items:
 
-- You can use Tasks to configure software  by selecting a "Configuration Task" for the software
-- Configuration Tasks are useful for configuring the application (even if the application wasn't installed by ImmyBot)
-- Configuration Tasks run after Immy determines the software is installed
+1. **Software** - Applications and utilities installed on computers
+2. **Tasks** - Configuration settings, policies, and other non-software items
+
+### Understanding Tasks
+
+Tasks are used for anything that isn't software installation, such as:
+- Configuring Bitlocker encryption
+- Setting power options
+- Configuring Windows settings
+- Managing registry entries
+- Setting up user profiles
+
+**Key Task Features:**
+- You can use Tasks to configure software by selecting a "Configuration Task" for the software
+- Configuration Tasks are useful for configuring applications (even if they weren't installed by ImmyBot)
+- Configuration Tasks run after ImmyBot determines the software is installed
 - Configuration Task parameters are available in all scripts related to the software
 
-ImmyBot tests everything it does before and after it does it.
-- Software
-   - Version Detection - Runs before install to determine if installation is necessary, and after to verify the desired version is installed
-     - DisplayName
-       - Contains
-       - Regex
-       - Traditional (Wildcard \*)
-     - UpgradeCode (For MSI based installs)
-     - Script
-       - Must return a version or null
-   - Test Script - If software is installed, the failure of this test (the test script returning $false) will trigger a "Repair" action (default Uninstall/Install) of the application
-      - Example: Check to verify Foxit PDF Editor is the Preview handler extension is working in Windows Explorer, reinstalling the PDF Editor usually corrects this scenario
-- Tasks
-  - Test script (When using separate scripts)
-  - Combined script returns $false when $method is 'test'
+## Verification and Testing
 
-### Example: Adobe Reader
-We find that most MSPs install Adobe Reader by default so ImmyBot includes a Recommended Deployment that states
-- "the latest version of Adobe Reader should be installed for all Workstations and Portable Devices"
+ImmyBot tests everything it does before and after it does it, ensuring that changes are applied correctly and consistently.
 
-When this rule applies (i.e. it isn't disabled or overridden by a more specific rule) ImmyBot will do the following:
-1. Find the latest available version of Adobe Reader by running the Adobe Reader "dynamic version" script that uses a public API to return the latest full version number of Adobe Reader, as well as the URL to download it, the latest patch version of Adobe Reader, and the URL to download it.
-2. Determine the installed version (if any) by looking for Adobe Reader in Add/Remove Programs on the machine
-3. Queue an Install or Upgrade task (depending on the previous step)
-4. Set Adobe Reader to be the default PDF handler by running the "configuration task" that verifies that Reader is the default handler for .PDF files for each user on the machine.
+### Software Verification
+
+**Version Detection** - Runs before installation to determine if installation is necessary, and after to verify the desired version is installed:
+- **DisplayName** detection methods:
+  - Contains - Checks if the display name contains a specific string
+  - Regex - Uses regular expressions for more complex matching
+  - Traditional (Wildcard \*) - Uses wildcard patterns for matching
+- **UpgradeCode** - For MSI-based installations
+- **Script** - Custom detection scripts that must return a version or null
+
+**Test Script** - If software is installed, the failure of this test (the test script returning `$false`) will trigger a "Repair" action (default Uninstall/Install) of the application:
+- Example: Check to verify Foxit PDF Editor's preview handler extension is working in Windows Explorer; reinstalling the PDF Editor usually corrects this scenario
+
+### Task Verification
+
+- **Test script** - When using separate scripts to verify configuration
+- **Combined script** - Returns `$false` when `$method` is 'test' if the configuration is not correct
+
+## Real-World Example: Adobe Reader Deployment
+
+We find that most MSPs install Adobe Reader by default, so ImmyBot includes a Recommended Deployment that states:
+- "The latest version of Adobe Reader should be installed for all Workstations and Portable Devices"
+
+When this rule applies (i.e., it isn't disabled or overridden by a more specific rule), ImmyBot will do the following:
+
+1. **Find the latest version** - Run the Adobe Reader "dynamic version" script that uses a public API to return the latest full version number and download URL
+2. **Check current installation** - Determine the installed version (if any) by looking for Adobe Reader in Add/Remove Programs
+3. **Queue appropriate action** - Schedule an Install or Upgrade task based on the current state
+4. **Configure default settings** - Set Adobe Reader to be the default PDF handler by running the "configuration task"
+
+## Next Steps
+
+Now that you understand the basics of ImmyBot, you might want to explore:
+
+- [Core Concepts](./core-concepts.md) - Learn more about ImmyBot's architecture and principles
+- [Quick Start Guide](./quick-start-guide.md) - Get up and running quickly with ImmyBot
+- [Common Workflows](./common-workflows.md) - See how to accomplish common IT tasks with ImmyBot

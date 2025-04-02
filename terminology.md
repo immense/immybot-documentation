@@ -1,50 +1,92 @@
-# Terminology
+# ImmyBot Terminology Guide
+
+This comprehensive guide explains the key concepts and terminology used throughout ImmyBot. Understanding these terms will help you navigate the platform more effectively and make the most of its powerful automation capabilities.
+
+## Table of Contents
+
+- [Tenants](#tenants)
+- [User Computer Affinity](#user-computer-affinity)
+- [Deployments](#deployment)
+- [Targets](#target)
+- [Maintenance Sessions](#maintenance-session)
+- [Maintenance Actions](#maintenance-action)
+- [Software](#software)
+- [Tasks](#task)
+- [Scripts](#scripts)
+- [Schedules](#schedules)
+- [Integrations](#integrations)
+- [Identification](#identification)
+- [Target Visibility](#target-visibility)
+- [Technician Tools](#technician-tools)
 
 ## Tenants
 
-These are your Customers. We recommend syncing Tenants from CW Automate or Azure.
+Tenants represent your customers or client organizations in ImmyBot. Each tenant is a separate entity with its own computers, users, and configurations.
+
+**Key Points:**
+- Tenants can be created manually or synced automatically from external systems
+- We recommend syncing Tenants from ConnectWise Automate, Microsoft Azure, or other supported integrations
+- Tenants can be organized in a hierarchical structure with parent-child relationships
+- Each tenant can have its own specific settings, deployments, and maintenance windows
 
 ## User Computer Affinity
-ImmyBot periodically runs whoami /upn on all computers and keeps a rolling list of the last 10 UPNs. It assigns the Primary User of the computer to the "Person" (Synced from Azure) with the matching UPN.
 
-For environments without AzureAD, ImmyBot will lookup the UPN of the Person from a Domain Controller in the computer's Tenant
+User Computer Affinity is how ImmyBot associates users with their computers, enabling user-specific deployments and configurations.
+
+**How It Works:**
+- ImmyBot periodically runs `whoami /upn` on all computers and keeps a rolling list of the last 10 UPNs (User Principal Names)
+- It assigns the Primary User of the computer to the "Person" (synced from Azure) with the matching UPN
+- For environments without AzureAD, ImmyBot will lookup the UPN of the Person from a Domain Controller in the computer's Tenant
+- This association enables targeting deployments to specific users' computers
 
 ## Deployment
 
-Deployments were originally called "Assignments" and are still called Assignments under the hood.
+A deployment is a rule that assigns [Software](#software) or [Tasks](#task) (collectively known as "Maintenance Items") to a [Target](#target). Deployments define what should be installed, configured, or maintained on specific computers or for specific users.
 
-Note: You won't see the word "Assignment" in the user interface anywhere, but we plan to re-rename "Deployment" back to "Assignment" it in a future release.
+```mermaid
+graph TD
+    A[Deployment] --> B[Software or Task]
+    A --> C[Target]
+    C --> D[Computers]
+    C --> E[Users]
+    C --> F[Tenants]
+```
 
-A deployment is a rule that assigns [Software](#software) or [Tasks](#task) (Collectively known as "Maintenance Items") to a [Target](#target).
+**Key Concepts:**
+- Deployments were originally called "Assignments" and are still called Assignments in the underlying system
+- Deployments are conceptually similar to Group Policies in that they assign settings to a group of users or computers
+- A deployment defines the desired state (e.g., installed, uninstalled, specific version) for software or tasks
 
 ![](./.vitepress/images/2021-03-01-08-42-41.png)
 
-Deployments are conceptually similar to Group Policies in that they assign settings to a group of users or computers.
+**Important Note:** DO NOT BE AFRAID TO SAVE YOUR DEPLOYMENTS. THEY DO NOT APPLY AUTOMATICALLY.
 
-DO NOT BE AFRAID TO SAVE YOUR DEPLOYMENTS. THEY DO NOT APPLY AUTOMATICALLY.
-
-If you DO want your Deployments to be applied automatically, you need to create a [Schedule](#schedules).
+If you want your Deployments to be applied automatically, you need to create a [Schedule](#schedules). Otherwise, deployments only take effect when maintenance is manually run or triggered by another event.
 
 ## Deployment Resolution
 
-Also known as
+Deployment Resolution is the process by which ImmyBot determines which deployment "wins" when multiple deployments could apply to the same computer or user. This is essential for handling exceptions and special cases.
 
+**Also known as:**
 * Creating Exceptions
 * "Winning" Deployments
 * Dealing with Snowflakes
 
+Like Group Policies have a "Winning Policy", ImmyBot must have a "Winning Deployment" for a given Maintenance Item on a computer. When multiple deployments target the same computer with conflicting settings, ImmyBot uses specific rules to determine which one takes precedence.
 
-Like Group Policies have a "Winning Policy", ImmyBot must have a "Winning Deployment" for a given Maintenance Item on a computer.
+### Example Scenario
 
 Let's say you have a customer "Contoso" that uses Adobe Acrobat instead of Adobe Reader, and you would like that to be installed instead.
 
-First, create a Deployment that sets the desired state of Adobe Reader to Uninstalled for Contoso
+**Step 1:** Create a Deployment that sets the desired state of Adobe Reader to Uninstalled for Contoso
 
 ![](./.vitepress/images/2021-03-01-08-44-19.png)
 
-Then, create a Deployment that Installs Adobe Acrobat for their computers
+**Step 2:** Create a Deployment that Installs Adobe Acrobat for their computers
 
 ![](./.vitepress/images/2021-03-01-08-51-38.png)
+
+**Result:** When maintenance runs on Contoso computers, Adobe Reader will be uninstalled and Adobe Acrobat will be installed, even if you have a global deployment that normally installs Adobe Reader on all computers.
 
 ## [Target](#target)
 A "[Target](#target)" is a grouping of computers (or Tenants in the case of "Cloud Tasks")
