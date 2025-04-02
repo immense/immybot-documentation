@@ -25,24 +25,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         // https://vitepress.dev/reference/default-theme-config
         sidebar: [
             {
-                text: 'Introduction',
+                text: 'Getting Started',
                 collapsed: false,
                 items: [
-                    { text: 'Getting Started', link: '/getting-started' },
-                    { text: 'What\'s New', link: '/releases' },
-                    { text: 'Add Users', link: './add-users' },
-                    { text: 'Onboarding', link: './onboarding' },
-                    { text: 'Recommended Deployments', link: './recommended-deployments' },
-                    { text: 'Terminology', link: './terminology' },
-                    { text: 'Troubleshooting', link: './troubleshooting' },
-                    { text: 'User Roles', link: './user-roles' },
-                    { text: 'Windows Sandbox', link: './windows-sandbox' },
+                    { text: 'ImmyBot Overview', link: '/immybot-overview' },
+                    { text: 'Quick Start Guide', link: '/quick-start-guide' },
+                    { text: 'First Computer Setup', link: '/first-computer-setup' },
+                    { text: 'Core Concepts', link: '/core-concepts' },
+                    { text: 'Common Workflows', link: '/common-workflows' },
+                ],
+            },
+            {
+                text: 'User Guides',
+                collapsed: false,
+                items: [
+                    { text: 'Managing Computers', link: '/managing-computers' },
+                    { text: 'Managing Software', link: '/managing-software' },
+                    { text: 'Creating Deployments', link: '/creating-deployments' },
+                    { text: 'Working with Tasks', link: '/working-with-tasks' },
+                    { text: 'User Management', link: '/add-users' },
+                    { text: 'Recommended Configurations', link: '/recommended-deployments' },
                 ],
             },
             {
                 text: 'Integrations',
                 collapsed: false,
                 items: [
+                    { text: 'Integration Overview', link: '/integration-overview' },
                     { text: 'Build Your Own', link: '/build-your-own-integration' },
                     { text: 'ConnectSecure', link: '/connectsecure-integration-setup' },
                     { text: 'ConnectWise Automate', link: '/connectwise-automate-integration-setup' },
@@ -55,11 +64,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 ],
             },
             {
-                text: 'Advanced',
+                text: 'Administration',
+                collapsed: false,
+                items: [
+                    { text: 'User Roles and Security', link: '/user-roles' },
+                    { text: 'Tenant Management', link: '/tenant-management' },
+                    { text: 'Maintenance and Updates', link: '/maintenance-updates' },
+                    { text: 'Windows Sandbox', link: '/windows-sandbox' },
+                ],
+            },
+            {
+                text: 'Troubleshooting',
+                collapsed: false,
+                items: [
+                    { text: 'Common Issues', link: '/common-issues' },
+                    { text: 'Security Software Configuration', link: '/security-software' },
+                    { text: 'Agent Troubleshooting', link: '/troubleshooting' },
+                ],
+            },
+            {
+                text: 'Advanced Topics',
                 collapsed: false,
                 items: [
                     { text: 'Scripting Guide', link: '/scripts' },
                     { text: 'Metascripts / Cloud Scripts', link: '/immy-commands' },
+                    { text: 'Custom Integrations', link: '/custom-integrations' },
+                ],
+            },
+            {
+                text: 'Reference',
+                collapsed: false,
+                items: [
+                    { text: 'Terminology', link: '/terminology' },
+                    { text: 'API Documentation', link: '/api-documentation' },
+                    { text: 'Release Notes', link: '/releases' },
                 ],
             },
             { text: 'Frequently Asked Questions', link: '/FAQ' },
