@@ -1,0 +1,99 @@
+# Quick Start Guide
+
+This guide will help you get up and running with ImmyBot in under 30 minutes. Follow these steps to set up your account, connect your first computer, and create your first deployment.
+
+## Prerequisites
+
+Before you begin, make sure you have:
+- An active ImmyBot account (sign up at [immy.bot](https://immy.bot) if you don't have one)
+- Administrator access to a test computer (physical or virtual)
+- A USB drive (for physical computers)
+
+## Step 1: Log in to ImmyBot
+
+1. Navigate to your ImmyBot instance URL (typically `https://yourdomain.immy.bot`)
+2. Enter your email and password
+3. Click **Sign In**
+
+You'll be greeted with the ImmyBot dashboard, which provides an overview of your environment.
+
+## Step 2: Create an ImmyBot USB Drive
+
+To connect your first computer to ImmyBot:
+
+1. Insert a USB drive into your computer
+2. From the ImmyBot dashboard, click on **Download ImmyAgent** in the left navigation
+3. Select **Create USB Drive**
+4. Choose your USB drive from the dropdown menu
+5. Click **Create**
+
+> **Note:** You only need to create this USB drive once. The same drive can be used for all clients and computers.
+
+## Step 3: Connect Your First Computer
+
+### For Physical Computers
+
+1. Power on the computer and boot to Windows
+2. When you reach the Windows setup screen (region selection), insert your ImmyBot USB drive
+3. The computer will automatically detect the ImmyBot provisioning package
+4. Follow any on-screen prompts to apply the package
+
+### For Virtual Machines
+
+1. From the ImmyBot dashboard, click on **Download ImmyAgent**
+2. Select **Create ISO**
+3. Mount the ISO to your virtual machine
+4. At the Windows region selection screen, press the Windows key 5 times
+5. Alternatively, double-click the PPKG file from the mounted disk
+
+## Step 4: Identify and Assign the Computer
+
+Once connected, your computer will appear in the **New Computers** section:
+
+1. Go to **New Computers** in the ImmyBot dashboard
+2. Locate your newly connected computer in the list
+3. Click on the computer to begin the onboarding process
+4. Assign a **Customer** (required) and **Primary User** (recommended)
+5. Click **Start Onboarding**
+
+ImmyBot will automatically apply all recommended deployments to the computer.
+
+## Step 5: Create Your First Deployment
+
+Now let's create a simple deployment to install a software package:
+
+1. Navigate to **Deployments** in the left sidebar
+2. Click **Create Deployment**
+3. Enter a name for your deployment (e.g., "Install Chrome")
+4. Select **Software** as the deployment type
+5. Search for and select "Google Chrome" from the software list
+6. Under **Targets**, click **Add Target**
+7. Select a target type (e.g., "All Computers")
+8. Click **Save**
+
+Your deployment is now created and will be applied to all computers in the selected target.
+
+## Step 6: Run a Maintenance Session
+
+To apply your new deployment immediately:
+
+1. Navigate to **Computers** in the left sidebar
+2. Find and select your test computer
+3. Click **Maintenance** in the top action bar
+4. Select **Run Maintenance**
+5. Click **Start**
+
+You can monitor the progress of the maintenance session in real-time.
+
+## Next Steps
+
+Congratulations! You've successfully set up ImmyBot, connected your first computer, and created your first deployment. Here are some next steps to explore:
+
+- [First Computer Setup](./first-computer-setup.md) - Learn more about the onboarding process
+- [Core Concepts](./core-concepts.md) - Understand the fundamental concepts of ImmyBot
+- [Creating Deployments](./creating-deployments.md) - Explore advanced deployment options
+- [Integration Overview](./integration-overview.md) - Connect ImmyBot to your existing tools
+
+---
+
+**Next Steps:** [Core Concepts →](./core-concepts.md) | [First Computer Setup →](./first-computer-setup.md)
