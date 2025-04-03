@@ -160,3 +160,7 @@ ImmyBot implements a circuit breaker pattern for agent connections:
 - Leverage batch actions for efficient maintenance
 - Resolve pending identification issues promptly
 - Document custom configurations in the computer notes
+
+## In-App Documentation
+
+For quick reference while using ImmyBot, each Computer Management page includes contextual help documentation that provides essential information about the current view and its features.
