@@ -39,6 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Windows Sandbox', link: './windows-sandbox' },
                     { text: 'Computer Management', link: './computer-management' },
                     { text: 'Deployments', link: './deployments' },
+                    { text: 'Maintenance Sessions', link: './maintenance-sessions' },
                 ],
             },
             {
