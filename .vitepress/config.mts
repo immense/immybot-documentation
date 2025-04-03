@@ -38,6 +38,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'User Roles', link: './user-roles' },
                     { text: 'Windows Sandbox', link: './windows-sandbox' },
                     { text: 'Computer Management', link: './computer-management' },
+                    { text: 'Deployments', link: './deployments' },
                 ],
             },
             {
