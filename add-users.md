@@ -4,10 +4,10 @@ This guide explains how to add and manage users in ImmyBot, including different 
 
 ## User Authentication Methods
 
-ImmyBot supports several authentication methods:
+ImmyBot mandates authentication against Azure AD/Entra ID:
 
-1. **Azure AD Integration**: Recommended for organizations using Microsoft 365
-2. **Email Invitation**: Manual invitation process for individual users
+1. **Azure AD/Entra ID Integration**: Required for all ImmyBot installations
+2. **Email Invitation**: Available for inviting users already in your Azure AD/Entra directory
 3. **Self-Registration**: Allow users to request access (with admin approval)
 
 ## Adding Users via Self-Registration
@@ -39,15 +39,20 @@ For more controlled user addition:
 6. Click **Send Invitation**
 7. The user will receive an email with instructions to complete registration
 
-## Adding Users via Azure AD
+## Adding Users via Azure AD/Entra ID
 
-If you've configured Azure AD integration:
+Azure AD/Entra ID integration is mandatory for ImmyBot authentication:
 
-1. Navigate to **Settings** > **Authentication**
-2. Ensure Azure AD integration is configured
-3. Users can now sign in with their Microsoft credentials
-4. New users will be automatically created when they first sign in
-5. Assign appropriate roles to new users
+1. Navigate to **Settings** > **Authentication** to configure your Azure AD/Entra integration
+2. There are two ways to add users from Azure AD/Entra:
+   - **Basic Consent Level**: You'll need to know the user's ID (GUID) to add them
+   - **Recommended Consent Level**: Users can be added directly from the Persons page without knowing their GUID
+3. To increase the consent level to recommended settings:
+   - Navigate to **Settings** > **Authentication** > **Azure AD**
+   - Click on **Increase Consent Level**
+   - Follow the prompts to grant additional permissions
+4. Users can now sign in with their Microsoft credentials
+5. Assign appropriate roles to new users after they sign in
 
 ## Managing Existing Users
 
@@ -77,7 +82,7 @@ After adding users, you might want to explore:
 
 - [User Roles and Security](./user-roles.md) - Learn about user permissions and security
 - [Tenant Management](./tenant-management.md) - Configure tenant access for users
-- [Azure AD Integration](./azure.md) - Set up Azure AD for seamless authentication
+- [Azure AD/Entra ID Integration](./azure-graph-permissions-setup.md) - Configure Azure AD/Entra permissions
 
 ---
 
