@@ -66,16 +66,14 @@ Query parameters:
 - `tenant_id`: Filter by tenant ID
 - `status`: Filter by status (Online, Offline)
 - `os`: Filter by operating system
-- `limit`: Maximum number of results (default: 100)
-- `offset`: Pagination offset
+
+> **Note:** The current API version does not support pagination.
 
 Example response:
 
 ```json
 {
   "total": 256,
-  "limit": 10,
-  "offset": 0,
   "computers": [
     {
       "id": "c12345",
@@ -166,16 +164,14 @@ GET /deployments
 Query parameters:
 - `type`: Filter by type (Software, Task, Configuration)
 - `tenant_id`: Filter by tenant ID
-- `limit`: Maximum number of results (default: 100)
-- `offset`: Pagination offset
+
+> **Note:** The current API version does not support pagination.
 
 Example response:
 
 ```json
 {
   "total": 45,
-  "limit": 10,
-  "offset": 0,
   "deployments": [
     {
       "id": "d123",
@@ -245,16 +241,14 @@ Query parameters:
 - `status`: Filter by status (Pending, Running, Completed, Failed)
 - `computer_id`: Filter by computer ID
 - `tenant_id`: Filter by tenant ID
-- `limit`: Maximum number of results (default: 100)
-- `offset`: Pagination offset
+
+> **Note:** The current API version does not support pagination.
 
 Example response:
 
 ```json
 {
   "total": 1256,
-  "limit": 10,
-  "offset": 0,
   "sessions": [
     {
       "id": "s123",
