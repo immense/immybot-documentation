@@ -24,6 +24,12 @@ features:
   - title: Add Users
     details: How to add users
     link: /add-users
+  - title: Computers
+    details: Manage and monitor computers
+    link: /computers
+  - title: Deployments
+    details: Configure software and task deployments
+    link: /deployments
   - title: Computer Onboarding
     details: Setup a New Computer using ImmyBot
     link: /onboarding
