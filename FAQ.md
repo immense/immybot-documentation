@@ -1,11 +1,25 @@
+# Frequently Asked Questions
+
 ::: warning *ImmyBot's EV code-signing certificate is changing on Feb. 11th, 2025*
-Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-should-i-do-about-immybot-s-upcoming-code-signing-certificate-change) on updating security exclusions.
+Please see the [section below](#what-should-i-do-about-immybots-upcoming-code-signing-certificate-change) for more details on updating security exclusions.
 :::
 
 ::: danger *ImmyBot no longer supports Windows 7, Server 2008 (or Server 2012 w/o [ESUs](https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates-overview)) machines.*
-Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
+Please see the [section below](#what-windows-versions-does-immyagent-support) for more details.
 :::
-# Frequently Asked Questions
+
+This comprehensive FAQ addresses common questions about ImmyBot, including licensing, deployment, configuration, and troubleshooting. If you don't find the answer to your question here, please check our [Common Issues](./common-issues.md) guide or contact our [support team](mailto:support@immy.bot).
+
+## Table of Contents
+
+- [Licensing and Plans](#what-is-the-difference-between-the-starter-and-standard-plan)
+- [Deployment and Configuration](#do-i-need-a-separate-usbinstaller-per-tenant)
+- [Security and Certificates](#what-should-i-do-about-immybots-upcoming-code-signing-certificate-change)
+- [Operating System Support](#what-windows-versions-does-immyagent-support)
+- [Integration with Other Tools](#can-immy-join-azuread)
+- [Agent Management](#how-do-i-uninstall-the-immyagent)
+- [Troubleshooting](#why-are-my-computers-stuck-in-identification)
+
 
 ## What is the difference between the Starter and Standard plan?
 
@@ -256,16 +270,37 @@ DISM.exe /Image:D:\mount /Add-ProvisioningPackage /PackagePath:C:\Users\Moi\Down
 
 ## Do you take requests for features/software/tasks/scripts?
 
-Yes, please feel welcome to submit a request on the [ImmyBot Community](https://community.immy.bot)
-
+Yes, we welcome feature requests and contributions from our community! Please submit your requests on the [ImmyBot Community](https://community.immy.bot) portal. Our team regularly reviews these requests and prioritizes them based on user demand and alignment with our product roadmap.
 
 ## Where do I find a file that was uploaded to a computer through ImmyBot Remote Control?
 
-Files uploaded through ImmyBot Remote Control can be found at %ProgramData%\RemoteControl\Shared
+Files uploaded through ImmyBot Remote Control are stored in a specific location on the target computer:
+
+```
+%ProgramData%\RemoteControl\Shared
+```
+
+This folder contains all files transferred during remote control sessions. You can access this location directly through File Explorer or by running a command prompt and navigating to the directory.
 
 ## Why am I getting this system update notification?
 
-We have something new and cool, be it a feature or bug fix!
-The system updates usually take 5-10 minutes to apply and restart your instance.  During this time your instance will not be accessible.
-There are no sessions triggered on any endpoints as a result of the update, and if there are any sessions running when the update starts they will be restarted after the update completes.
-If you prefer not to think about doing updates, you can also schedule a time for automatic system updates to happen under Show More > Preferences.
+System update notifications indicate that we've released new features or bug fixes for your ImmyBot instance. Here's what you need to know:
+
+- Updates typically take 5-10 minutes to apply and restart your instance
+- During the update, your instance will not be accessible
+- No maintenance sessions are triggered on endpoints as a result of the update
+- Any running sessions will be restarted after the update completes
+
+If you prefer to automate updates, you can schedule a time for automatic system updates under **Show More** > **Preferences**. This allows you to set updates to occur during non-business hours to minimize disruption.
+
+## Next Steps
+
+After reviewing these FAQs, you might want to explore:
+
+- [Common Issues](./common-issues.md) - Solutions to frequently encountered problems
+- [Troubleshooting Guide](./troubleshooting.md) - Detailed troubleshooting steps
+- [ImmyBot Overview](./immybot-overview.md) - Learn more about ImmyBot's capabilities
+
+---
+
+**Next Steps:** [Common Issues →](./common-issues.md) | [Troubleshooting Guide →](./troubleshooting.md)
