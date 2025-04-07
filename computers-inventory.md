@@ -14,14 +14,15 @@ When you install the ImmyBot agent on a computer, it automatically registers wit
 
 If you've set up an RMM integration, ImmyBot can discover computers from your RMM platform. This allows you to manage computers without installing the ImmyBot agent.
 
-### Manual Addition
+### Agent Installation
 
-You can manually add computers to your inventory:
+The primary way to add computers to ImmyBot is by installing the ImmyBot agent:
 
-1. Navigate to **Computers**
-2. Click **Add Computer**
-3. Enter the computer details
-4. Click **Save**
+1. Download the agent installer from ImmyBot
+2. Run the installer on the target computer
+3. The computer will automatically register with ImmyBot
+
+For detailed instructions, see [Agent Installation](./agent-installation).
 
 ## Computer Information
 
@@ -57,15 +58,16 @@ ImmyBot maintains a list of installed software on each computer:
 
 ## Computer Management
 
-### Computer Groups
+### Computer Tags
 
-Organize computers into groups for easier management:
+Organize computers using tags for easier management:
 
-1. Navigate to **Computers** > **Computer Groups**
-2. Click **Add Group**
-3. Enter a name and description
-4. Select computers to include
-5. Click **Save**
+1. Navigate to a computer's details page
+2. Click **Edit Tags**
+3. Add or remove tags
+4. Click **Save**
+
+Tags can then be used for targeting deployments and filtering computers in the inventory view.
 
 ### Computer Filters
 
