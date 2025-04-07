@@ -30,6 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 items: [
                     { text: 'Getting Started', link: '/getting-started' },
                     { text: 'What\'s New', link: '/releases' },
+                    { text: 'Deployments', link: '/deployments' },
                     { text: 'Add Users', link: './add-users' },
                     { text: 'Onboarding', link: './onboarding' },
                     { text: 'Recommended Deployments', link: './recommended-deployments' },
