@@ -1,8 +1,8 @@
-# Deployments
+# Deployments Overview
 
 Deployments are rules that assign software or tasks to targets (computers, tenants, or users). They determine what gets installed or configured during maintenance sessions.
 
-## Overview
+## What is a Deployment?
 
 A deployment consists of:
 - A **maintenance item** (software or task)
@@ -11,6 +11,8 @@ A deployment consists of:
 - Optional **visibility settings** (self-service portal, technician tools)
 
 When ImmyBot runs a maintenance session, it evaluates all deployments that apply to the target and executes them according to their settings.
+
+Deployments are conceptually similar to Group Policies in that they assign settings to a group of users or computers. The key difference is that ImmyBot deployments can manage software installation and complex configuration tasks beyond what Group Policy can handle.
 
 ## Deployment Types
 
@@ -26,16 +28,6 @@ Adhoc deployments are only enforced when manually triggered. Use these for one-t
 ### Onboarding Deployments
 Onboarding deployments only run during the computer onboarding process. Use these for initial setup tasks that should only happen once.
 
-## Creating a Deployment
-
-1. Navigate to **Deployments** and click **New**
-2. Select the software or task to deploy
-3. Configure any parameters or settings for the maintenance item
-4. Select the target enforcement type
-5. Choose the target (computers, tenants, or users)
-6. Set visibility options if desired
-7. Click **Create**
-
 ## Deployment Resolution
 
 When multiple deployments target the same software or task, ImmyBot follows these resolution rules:
@@ -44,25 +36,29 @@ When multiple deployments target the same software or task, ImmyBot follows thes
 2. **More specific targets** take precedence over less specific ones
 3. **Required enforcement** takes precedence over optional or adhoc
 
+Like Group Policies have a "Winning Policy", ImmyBot must have a "Winning Deployment" for a given Maintenance Item on a computer.
+
+### Example: Creating Exceptions
+
+Let's say you have a customer "Contoso" that uses Adobe Acrobat instead of Adobe Reader, and you would like that to be installed instead.
+
+First, create a Deployment that sets the desired state of Adobe Reader to Uninstalled for Contoso. Then, create a Deployment that Installs Adobe Acrobat for their computers.
+
 ## Recommended Deployments
 
 Recommended deployments are pre-configured deployments that can be approved or dismissed. When approved, they function like regular deployments but with lower priority than local deployments.
 
+Deployments that have not been approved or dismissed are considered dismissed by default.
+
+When approved, a recommended deployment will be considered for maintenance. If there is a local deployment that targets the same software or task, then the local deployment will always have a higher priority and will be used instead.
+
 For more detailed information about recommended deployments, see the [Recommended Deployments](./recommended-deployments) documentation.
 
-## Managing Deployments
+## Target Visibility
 
-### Editing a Deployment
-To modify an existing deployment, click on it in the deployments list and make your changes.
+The Target Visibility feature helps control where and how deployments can be accessed in ImmyBot. Current options include:
 
-### Duplicating a Deployment
-To create a similar deployment, use the **Duplicate** option from the more actions menu.
-
-### Disabling a Deployment
-Disabling a deployment will exclude it from being considered during maintenance sessions without deleting it.
-
-### Deleting a Deployment
-Permanently removes the deployment rule from the system.
+**Technician Tools**: When enabled, this makes the deployment visible and accessible through the technician tools interface. This is useful for actions that can assist IT staff when working on support tickets.
 
 ## Best Practices
 
@@ -72,22 +68,12 @@ Permanently removes the deployment rule from the system.
 - Use **onboarding enforcement** for initial setup tasks
 - Add descriptive notes to deployments for future reference
 - Review deployments regularly to ensure they're still needed
-
-## Troubleshooting
-
-### Deployment Not Running
-- Verify the target matches the intended computers/tenants
-- Check if the deployment is disabled
-- Ensure the enforcement type is appropriate
-- Review maintenance session logs for errors
-
-### Conflicting Deployments
-- Remember that local deployments override recommended ones
-- More specific targets override less specific ones
-- Check for deployments that might be conflicting
+- Create logical exceptions using deployment resolution rules
 
 ## Related Topics
+- [Creating & Managing Deployments](./creating-managing-deployments)
+- [Deployment Resolution](./deployment-resolution)
+- [Recommended Deployments](./recommended-deployments)
 - [Maintenance Sessions](./maintenance-sessions)
-- [Software Management](./software-library)
+- [Software Library](./software-library)
 - [Maintenance Tasks](./maintenance-tasks)
-- [Terminology](./terminology)

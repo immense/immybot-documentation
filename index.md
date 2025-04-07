@@ -11,35 +11,38 @@ hero:
     alt: ImmyBot
   actions:
     - theme: brand
-      text: Getting Started
-      link: /getting-started
+      text: Introduction
+      link: /introduction
+    - theme: alt
+      text: Quick Start
+      link: /quick-start
     - theme: alt
       text: What's New
       link: /releases
 
 features:
-  - title: FAQ
-    details: Frequently Asked questions
-    link: /FAQ
-  - title: Add Users
-    details: How to add users
-    link: /add-users
-  - title: Computer Onboarding
-    details: Setup a New Computer using ImmyBot
-    link: /onboarding
+  - title: Core Concepts
+    details: Learn about tenants, computers, users, and other fundamental concepts
+    link: /tenants-organizations
+  - title: Deployments
+    details: Understand how to create and manage software and task deployments
+    link: /deployments
+  - title: Software Library
+    details: Manage your software catalog and configurations
+    link: /software-library
+  - title: Maintenance Tasks
+    details: Create and run scripts to configure and maintain systems
+    link: /maintenance-tasks
+  - title: Maintenance Sessions
+    details: Schedule and monitor automated maintenance
+    link: /maintenance-sessions
   - title: Integrations
-    details: Integrations that ImmyBot supports
+    details: Connect ImmyBot with other systems and services
     link: /build-your-own-integration
-  - title: User Roles and Security
-    details: Restrict access to ImmyBot features
-    link: /user-roles
   - title: Scripting
-    details: Understand the Metascript engine
+    details: Understand the Metascript engine and automation capabilities
     link: /scripts
-  - title: Terminology
-    details: ImmyBot Jargon
-    link: /terminology
   - title: Troubleshooting
-    details: What do?
+    details: Solve common issues and find solutions
     link: /troubleshooting
 ---
