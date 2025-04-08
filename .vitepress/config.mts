@@ -25,23 +25,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         // https://vitepress.dev/reference/default-theme-config
         sidebar: [
             {
-                text: 'Introduction',
+                text: 'Getting Started',
                 collapsed: false,
                 items: [
-                    { text: 'Getting Started', link: '/getting-started' },
+                    { text: 'Introduction', link: '/introduction' },
+                    { text: 'Quick Start', link: '/quick-start' },
+                    { text: 'System Requirements', link: '/system-requirements' },
                     { text: 'What\'s New', link: '/releases' },
-                    { text: 'Add Users', link: './add-users' },
-                    { text: 'Onboarding', link: './onboarding' },
-                    { text: 'Recommended Deployments', link: './recommended-deployments' },
-                    { text: 'Terminology', link: './terminology' },
-                    { text: 'Troubleshooting', link: './troubleshooting' },
-                    { text: 'User Roles', link: './user-roles' },
-                    { text: 'Windows Sandbox', link: './windows-sandbox' },
+                ],
+            },
+            {
+                text: 'Core Concepts',
+                collapsed: false,
+                items: [
+                    { text: 'Tenants & Organizations', link: '/tenants-organizations' },
+                    { text: 'Deployments', link: '/deployments' },
+                    { text: 'Creating & Managing Deployments', link: '/creating-managing-deployments' },
+                    { text: 'Deployment Resolution', link: '/deployment-resolution' },
+                    { text: 'Maintenance Sessions', link: '/maintenance-sessions' },
+                    { text: 'Software Library', link: '/software-library' },
+                    { text: 'Maintenance Tasks', link: '/maintenance-tasks' },
+                    { text: 'User Affinity', link: '/user-affinity' },
+                    { text: 'Targets & Targeting', link: '/targets-targeting' },
+                    { text: 'Terminology', link: '/terminology' },
+                ],
+            },
+            {
+                text: 'Computer Management',
+                collapsed: false,
+                items: [
+                    { text: 'Managing Computers', link: '/managing-computers' },
+                    { text: 'Computer Onboarding', link: '/computer-onboarding' },
+                    { text: 'Agent Installation', link: '/agent-installation' },
+                    { text: 'Recommended Deployments', link: '/recommended-deployments' },
+                ],
+            },
+            {
+                text: 'User Management',
+                collapsed: false,
+                items: [
+                    { text: 'Users & Permissions', link: '/users-permissions' },
+                    { text: 'Adding Users', link: '/add-users' },
+                    { text: 'User Roles', link: '/user-roles' },
                 ],
             },
             {
                 text: 'Integrations',
-                collapsed: false,
+                collapsed: true,
                 items: [
                     { text: 'Build Your Own', link: '/build-your-own-integration' },
                     { text: 'ConnectSecure', link: '/connectsecure-integration-setup' },
@@ -56,13 +86,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             },
             {
                 text: 'Advanced',
-                collapsed: false,
+                collapsed: true,
                 items: [
                     { text: 'Scripting Guide', link: '/scripts' },
                     { text: 'Metascripts / Cloud Scripts', link: '/immy-commands' },
+                    { text: 'Windows Sandbox', link: '/windows-sandbox' },
                 ],
             },
-            { text: 'Frequently Asked Questions', link: '/FAQ' },
+            {
+                text: 'Help & Support',
+                collapsed: true,
+                items: [
+                    { text: 'Troubleshooting', link: '/troubleshooting' },
+                    { text: 'Frequently Asked Questions', link: '/FAQ' },
+                ],
+            },
         ],
 
         socialLinks: [
