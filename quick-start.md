@@ -11,15 +11,32 @@ This guide will help you get up and running with ImmyBot quickly. Follow these s
 
 ## 2. Connect Your First Computer
 
-### Option A: Install the ImmyBot Agent Directly
+### Create an ImmyBot USB Drive
 
-1. Navigate to **Computers** in the ImmyBot dashboard
-2. Click **Add Computer**
-3. Select **Generate Agent Installer**
-4. Download the installer and run it on your target computer
-5. The computer will appear in your ImmyBot dashboard once the agent connects
+1. Insert a USB drive into your computer
+2. From the ImmyBot dashboard, click on **Download ImmyAgent** in the left navigation
+3. Select **Create USB Drive**
+4. Choose your USB drive from the dropdown menu
+5. Click **Create**
 
-### Option B: Connect Through an RMM Integration
+> **Note:** You only need to create this USB drive once. The same drive can be used for all clients and computers.
+
+### For Physical Computers
+
+1. Power on the computer and boot to Windows
+2. When you reach the Windows setup screen (region selection), insert your ImmyBot USB drive
+3. The computer will automatically detect the ImmyBot provisioning package
+4. Follow any on-screen prompts to apply the package
+
+### For Virtual Machines
+
+1. From the ImmyBot dashboard, click on **Download ImmyAgent**
+2. Select **Create ISO**
+3. Mount the ISO to your virtual machine
+4. At the Windows region selection screen, press the Windows key 5 times
+5. Alternatively, double-click the PPKG file from the mounted disk
+
+### Connect Through an RMM Integration (Alternative)
 
 1. Navigate to **Settings** > **Integrations**
 2. Select your RMM provider from the list
@@ -34,7 +51,19 @@ This guide will help you get up and running with ImmyBot quickly. Follow these s
 4. Select your target computer(s)
 5. Click **Create**
 
-## 4. Run Your First Maintenance Session
+## 4. Identify and Assign the Computer
+
+Once connected, your computer will appear in the **New Computers** section:
+
+1. Go to **New Computers** in the ImmyBot dashboard
+2. Locate your newly connected computer in the list
+3. Click on the computer to begin the onboarding process
+4. Assign a **Customer** (required) and **Primary User** (recommended)
+5. Click **Start Onboarding**
+
+ImmyBot will automatically apply all recommended deployments to the computer.
+
+## 5. Run Your First Maintenance Session
 
 1. Navigate to **Computers**
 2. Select the computer you want to maintain
