@@ -57,6 +57,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Managing Computers', link: '/managing-computers' },
                     { text: 'Computer Onboarding', link: '/computer-onboarding' },
                     { text: 'Agent Installation', link: '/agent-installation' },
+                    { text: 'Computers & Inventory', link: '/computers-inventory' },
+                    { text: 'Inventory Tasks', link: '/inventory-tasks' },
                     { text: 'Recommended Deployments', link: '/recommended-deployments' },
                 ],
             },
@@ -97,6 +99,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 text: 'Help & Support',
                 collapsed: true,
                 items: [
+                    { text: 'System Status', link: '/system-status' },
                     { text: 'Troubleshooting', link: '/troubleshooting' },
                     { text: 'Frequently Asked Questions', link: '/FAQ' },
                 ],
