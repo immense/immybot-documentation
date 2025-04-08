@@ -60,99 +60,84 @@ Click on any computer to view detailed information:
 
 ImmyBot provides several actions you can perform on computers:
 
-### Maintenance
+### Batch Actions
 
-To run maintenance on a computer:
+To perform actions on one or more computers:
 
-1. Select the computer from the list
-2. Click **Maintenance** in the action bar
-3. Choose **Run Maintenance**
-4. Select options for the maintenance session
-5. Click **Start**
+1. Select one or more computers from the list
+2. Click **Batch Actions** button
+3. Choose from available actions in the sidebar:
+   - Run Maintenance
+   - Remote Control
+   - Power Actions (Restart, Shutdown, Wake)
+   - Reassign to different tenant or user
+   - Delete Computer
+   - Add/Remove Tags
 
-### Remote Control
+### Individual Computer Actions
 
-To connect to a computer remotely:
+You can also perform actions on individual computers:
 
-1. Select the computer from the list
-2. Click **Remote Control** in the action bar
-3. Choose your preferred remote control method
-4. The remote session will open in a new tab
+1. Click on a computer to view its details
+2. Use the action buttons in the computer details view
+3. Available actions include:
+   - Run Maintenance
+   - Remote Control
+   - Edit Computer Details
+   - View Maintenance History
 
-### Power Actions
+## Computer Tags and Filtering
 
-To perform power actions:
+ImmyBot allows you to organize computers using tags and filters:
 
-1. Select the computer from the list
-2. Click **Power** in the action bar
-3. Choose from:
-   - Restart
-   - Shutdown
-   - Wake (requires Wake-on-LAN support)
+### Using Tags
 
-### Reassign
+Tags help categorize and filter computers:
 
-To change a computer's customer or primary user:
+1. Select one or more computers from the list
+2. Click **Batch Actions**
+3. Select **Add/Remove Tags**
+4. Add appropriate tags to categorize computers
+5. Use the filter bar to filter computers by tag
 
-1. Select the computer from the list
-2. Click **Reassign** in the action bar
-3. Select the new customer and/or primary user
-4. Click **Save**
+### Advanced Filtering
 
-## Computer Groups
+The Computers list offers powerful filtering capabilities:
 
-Computer groups help organize computers and target deployments:
+1. Click the filter icon in the column headers
+2. Select from predefined filters or create custom filters
+3. Combine multiple filters for precise computer selection
+4. Save frequently used filters for quick access
 
-### Creating Computer Groups
+## Computer Information and Reporting
 
-1. Navigate to **Computer Groups** in the left sidebar
-2. Click **Create Group**
-3. Enter a name and description
-4. Choose the group type:
-   - **Static**: Manually add computers
-   - **Dynamic**: Use a filter script to determine membership
-5. Add computers or configure the filter script
-6. Click **Save**
-
-### Using Computer Groups
-
-Computer groups can be used to:
-
-- Target deployments to specific sets of computers
-- Organize computers by function, department, or location
-- Create reports on specific computer sets
-- Apply bulk actions to multiple computers
-
-## Computer Reporting
-
-ImmyBot provides several ways to report on computer status:
+ImmyBot provides detailed information about your managed computers:
 
 ### Software Inventory
 
-To view software across your environment:
+To view software installed on a computer:
 
-1. Navigate to **Reports** > **Software Inventory**
-2. Filter by software name, version, or status
-3. Group by customer, operating system, or other attributes
-4. Export the report if needed
+1. Click on a computer in the Computers list
+2. Navigate to the **Software** tab
+3. View all installed software with version information
+4. Filter by software name or status
 
-### Hardware Inventory
+### Hardware Information
 
-To view hardware information:
+To view hardware details:
 
-1. Navigate to **Reports** > **Hardware Inventory**
-2. Filter by hardware specifications
-3. Identify computers that need upgrades
-4. Export the report if needed
+1. Click on a computer in the Computers list
+2. Navigate to the **Hardware** tab
+3. View processor, memory, disk, and other hardware specifications
 
-### Compliance Reporting
+### Maintenance History
 
-To check deployment compliance:
+To view maintenance history:
 
-1. Navigate to **Reports** > **Compliance**
-2. View which computers are missing required deployments
-3. Filter by deployment or customer
-4. Take action on non-compliant computers
+1. Click on a computer in the Computers list
+2. Navigate to the **Sessions** tab
+3. View all maintenance sessions that have run on the computer
+4. Click on a session to view detailed results
 
 ## Best Practices
 
