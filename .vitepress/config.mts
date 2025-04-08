@@ -28,44 +28,79 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 text: 'Getting Started',
                 collapsed: false,
                 items: [
-                    { text: 'ImmyBot Overview', link: '/immybot-overview' },
+                    { text: 'Introduction to ImmyBot', link: '/introduction' },
                     { text: 'Quick Start Guide', link: '/quick-start-guide' },
                     { text: 'First Computer Setup', link: '/first-computer-setup' },
                     { text: 'Core Concepts', link: '/core-concepts' },
                     { text: 'Common Workflows', link: '/common-workflows' },
+                    { text: 'System Requirements', link: '/system-requirements' },
                 ],
             },
             {
-                text: 'User Guides',
+                text: 'Core Features',
                 collapsed: false,
                 items: [
-                    { text: 'Managing Computers', link: '/managing-computers' },
+                    { text: 'Tenants & Organizations', link: '/tenants-organizations' },
+                    { text: 'Computers & Inventory', link: '/computers-inventory' },
+                    { text: 'Users & Permissions', link: '/users-permissions' },
+                    { text: 'Software Library', link: '/software-library' },
+                    { text: 'Maintenance Tasks', link: '/maintenance-tasks' },
+                    { text: 'Maintenance Sessions', link: '/maintenance-sessions' },
+                    { text: 'Deployments', link: '/deployments' },
+                    { text: 'User Affinity', link: '/user-affinity' },
+                    { text: 'Targets & Targeting', link: '/targets-targeting' },
+                ],
+            },
+            {
+                text: 'How-To Guides',
+                collapsed: false,
+                items: [
+                    { text: 'Creating & Managing Deployments', link: '/creating-managing-deployments' },
                     { text: 'Managing Software', link: '/managing-software' },
-                    { text: 'Creating Deployments', link: '/creating-deployments' },
                     { text: 'Working with Tasks', link: '/working-with-tasks' },
+                    { text: 'Computer Onboarding', link: '/computer-onboarding' },
+                    { text: 'Agent Installation', link: '/agent-installation' },
                     { text: 'User Management', link: '/add-users' },
-                    { text: 'Recommended Configurations', link: '/recommended-deployments' },
+                    { text: 'Recommended Deployments', link: '/recommended-deployments' },
                 ],
             },
             {
                 text: 'Integrations',
-                collapsed: false,
+                collapsed: true,
                 items: [
                     { text: 'Integration Overview', link: '/integration-overview' },
                     { text: 'Build Your Own', link: '/build-your-own-integration' },
-                    { text: 'ConnectSecure', link: '/connectsecure-integration-setup' },
-                    { text: 'ConnectWise Automate', link: '/connectwise-automate-integration-setup' },
-                    { text: 'ConnectWise Control', link: '/connectwise-control-integration-setup' },
-                    { text: 'ConnectWise Manage', link: '/connectwise-manage-integration-setup' },
-                    { text: 'N-Central', link: '/ncentral-integration-setup' },
-                    { text: 'NinjaRMM', link: '/ninjarmm-integration-setup' },
-                    { text: 'HaloPSA', link: '/halo-integration-setup' },
-                    { text: 'Azure', link: '/azure-graph-permissions-setup' },
+                    {
+                        text: 'RMM Integrations',
+                        collapsed: true,
+                        items: [
+                            { text: 'ConnectWise Automate', link: '/connectwise-automate-integration-setup' },
+                            { text: 'ConnectWise Control', link: '/connectwise-control-integration-setup' },
+                            { text: 'N-Central', link: '/ncentral-integration-setup' },
+                            { text: 'NinjaRMM', link: '/ninjarmm-integration-setup' },
+                        ]
+                    },
+                    {
+                        text: 'PSA Integrations',
+                        collapsed: true,
+                        items: [
+                            { text: 'ConnectWise Manage', link: '/connectwise-manage-integration-setup' },
+                            { text: 'HaloPSA', link: '/halo-integration-setup' },
+                        ]
+                    },
+                    {
+                        text: 'Other Integrations',
+                        collapsed: true,
+                        items: [
+                            { text: 'Azure', link: '/azure-graph-permissions-setup' },
+                            { text: 'ConnectSecure', link: '/connectsecure-integration-setup' },
+                        ]
+                    },
                 ],
             },
             {
                 text: 'Administration',
-                collapsed: false,
+                collapsed: true,
                 items: [
                     { text: 'User Roles and Security', link: '/user-roles' },
                     { text: 'Tenant Management', link: '/tenant-management' },
@@ -74,8 +109,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 ],
             },
             {
+                text: 'Advanced Topics',
+                collapsed: true,
+                items: [
+                    { text: 'Scripting Guide', link: '/scripts' },
+                    { text: 'Metascripts / Cloud Scripts', link: '/immy-commands' },
+                    { text: 'Deployment Resolution', link: '/deployment-resolution' },
+                ],
+            },
+            {
                 text: 'Troubleshooting',
-                collapsed: false,
+                collapsed: true,
                 items: [
                     { text: 'Common Issues', link: '/common-issues' },
                     { text: 'Security Software Configuration', link: '/security-software' },
@@ -83,17 +127,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 ],
             },
             {
-                text: 'Advanced Topics',
-                collapsed: false,
-                items: [
-                    { text: 'Scripting Guide', link: '/scripts' },
-                    { text: 'Metascripts / Cloud Scripts', link: '/immy-commands' },
-                    { text: 'Custom Integrations', link: '/custom-integrations' },
-                ],
-            },
-            {
                 text: 'Reference',
-                collapsed: false,
+                collapsed: true,
                 items: [
                     { text: 'Terminology', link: '/terminology' },
                     { text: 'API Documentation', link: '/api-documentation' },
