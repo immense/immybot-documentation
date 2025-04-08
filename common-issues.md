@@ -49,7 +49,7 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
    - Ensure it doesn't contain special characters
 
 2. **Review Identification Methods**
-   - Navigate to **Settings** > **Agent Settings**
+   - Navigate to **Show more** > **Preferences** > **Agent Settings**
    - Review the identification methods and order
    - Ensure appropriate methods are enabled
 

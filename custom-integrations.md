@@ -30,7 +30,7 @@ The most common approach to custom integration is using the ImmyBot API.
 
 First, create an API key in ImmyBot:
 
-1. Navigate to **Settings** > **API Keys**
+1. Navigate to **Show more** > **OAuth Tokens**
 2. Click **Create API Key**
 3. Enter a name and description
 4. Select the appropriate permissions
@@ -60,7 +60,7 @@ Webhooks allow ImmyBot to send notifications to your system when events occur.
 
 ### Configuring Webhooks
 
-1. Navigate to **Settings** > **Webhooks**
+1. Navigate to **Show more** > **Integrations** > **Webhooks**
 2. Click **Create Webhook**
 3. Enter a name and description
 4. Enter the destination URL (your system's endpoint)

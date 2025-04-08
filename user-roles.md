@@ -83,7 +83,7 @@ You can customize certain aspects of role permissions through system preferences
 
 To control who can manage deployments:
 
-1. Navigate to **Settings** > **Preferences**
+1. Navigate to **Show more** > **Preferences**
 2. Find the "Allow Non-Admin Users to Manage Deployments" setting
 3. Toggle it on or off based on your requirements
 4. Click **Save**
@@ -92,7 +92,7 @@ To control who can manage deployments:
 
 To control who can use terminal access and edit scripts:
 
-1. Navigate to **Settings** > **Preferences**
+1. Navigate to **Show more** > **Preferences**
 2. Find the "Allow Non-Admins and Non-MSP Users to Use Terminal and Edit Scripts" setting
 3. Toggle it on or off based on your requirements
 4. Click **Save**
@@ -101,7 +101,7 @@ To control who can use terminal access and edit scripts:
 
 To assign a role to a user:
 
-1. Navigate to **Settings** > **Users**
+1. Navigate to **Show more** > **Users**
 2. Click on the user you want to modify (or create a new user)
 3. In the user details, select the appropriate role from the dropdown
 4. (Optional) Configure tenant access for the user
