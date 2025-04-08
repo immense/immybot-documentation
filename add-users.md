@@ -31,7 +31,7 @@ The simplest way to add users is through self-registration:
 
 For more controlled user addition:
 
-1. Navigate to **Settings** > **Users**
+1. Navigate to **Show more** > **Users**
 2. Click **Invite User**
 3. Enter the user's email address
 4. Select the appropriate role
@@ -43,12 +43,12 @@ For more controlled user addition:
 
 Azure AD/Entra ID integration is mandatory for ImmyBot authentication:
 
-1. Navigate to **Settings** > **Authentication** to configure your Azure AD/Entra integration
+1. Navigate to **Show more** > **Azure** to configure your Azure AD/Entra integration
 2. There are two ways to add users from Azure AD/Entra:
    - **Basic Consent Level**: You'll need to know the user's ID (GUID) to add them
    - **Recommended Consent Level**: Users can be added directly from the Persons page without knowing their GUID
 3. To increase the consent level to recommended settings:
-   - Navigate to **Settings** > **Authentication** > **Azure AD**
+   - Navigate to **Show more** > **Azure** > **Azure AD**
    - Click on **Increase Consent Level**
    - Follow the prompts to grant additional permissions
 4. Users can now sign in with their Microsoft credentials
@@ -58,7 +58,7 @@ Azure AD/Entra ID integration is mandatory for ImmyBot authentication:
 
 To manage existing users:
 
-1. Navigate to **Settings** > **Users**
+1. Navigate to **Show more** > **Users**
 2. View the list of all users in your ImmyBot instance
 3. Click on a user to edit their details:
    - Change their role

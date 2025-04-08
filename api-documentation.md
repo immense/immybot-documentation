@@ -20,7 +20,7 @@ All API requests require authentication using an API key.
 ### Obtaining an API Key
 
 1. Log in to ImmyBot as an administrator
-2. Navigate to **Settings** > **API Keys**
+2. Navigate to **Show more** > **OAuth Tokens**
 3. Click **Create API Key**
 4. Enter a name and description for the key
 5. Select the appropriate permissions
@@ -304,7 +304,7 @@ ImmyBot can send webhook notifications for various events.
 
 ### Configuring Webhooks
 
-1. Navigate to **Settings** > **Webhooks**
+1. Navigate to **Show more** > **Integrations** > **Webhooks**
 2. Click **Create Webhook**
 3. Enter a name and description
 4. Enter the destination URL
