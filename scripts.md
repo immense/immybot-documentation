@@ -1,43 +1,74 @@
 # Scripting Guide
 
+This comprehensive guide explains how to create and manage scripts in ImmyBot, including best practices, script types, execution contexts, and helper functions.
+
+## Table of Contents
+
+- [Best Practices](#best-practices)
+- [Script Types](#script-types)
+- [Script Execution Contexts](#script-execution-contexts)
+- [Variables](#variables)
+- [Scripting FAQ](#scripting-frequently-asked-questions)
+- [Helper Functions](#configuration-task-helper-functions)
+- [Parameters](#parameters)
+
 ## Best Practices
-* Use Ctrl+Shift+F or Ctrl+P in our script editor to find scripts that already do what you want. There is a lot of good logic in the built in function scripts
-* Have a machine you can test on
-* Have a _separate_ machine to test your sanity if you bork your first machine
-* Test by clicking Open Debugger in the logs
+
+Follow these best practices to create effective, maintainable scripts in ImmyBot:
+
+### Code Organization and Reuse
+
+* **Search Existing Scripts**: Use Ctrl+Shift+F or Ctrl+P in our script editor to find scripts that already do what you want. There's a lot of good logic in the built-in function scripts.
+* **Don't Repeat Yourself**: Leverage function scripts to reuse code across multiple scripts.
+* **Modular Design**: Break complex scripts into smaller, reusable functions.
+
+### Testing and Debugging
+
+* **Test Environment**: Have a dedicated machine you can test on.
+* **Backup Test Machine**: Have a _separate_ machine to test your sanity if you accidentally break your first test machine.
+* **Use the Debugger**: Test by clicking Open Debugger in the logs:
   * This gives you all available parameters on the left so you can test the script in its natural context
   * You can quickly revise the script here until it works as expected
   * Saving the script here saves it permanently
-* Don’t hardcode paths to installer or license files, instead rely on $InstallerFile and $LicenseFilePath
-* Don’t hardcode license values or other sensitive information, instead utilize $LicenseValue or a custom parameter
-* Avoid (where possible) installers that have client specfic licenses or customizations built in
-  * If a generic installer isn't available (BitDefender) use Dynamic Versions (and potentially a URL parameter) to specify the download URL per customer or perhaps use an API to find the URL for the given customer
-  * If the URL requires authentication, use a custom Download script to perform the authenticated download (CrowdStrike/SentinelOne)
-* Don’t repeat yourself. Leverage function scripts to reuse code
-* Include code to verify that the script did what it intended to do
-    * For Tasks, implement a “test” script
-    * For Software, make sure your Detection method works, and optionally implement a Test script to verify things are in working order
-        * When a software Test script returns $false, ImmyBot will re-install the software.
-* Use Metascripts, especially if your script needs to restart the machine or access APIs like IT Glue and therefore will contain sensitive data like API keys
-* Use throw “The bad thing that happened, what user should do” to prevent cascading failure. That message will be shown to the user in a prominent location so they can take corrective action
-* Tasks have a “test” mechanism that should return $true or $false to indicate compliance
 
-**While it may be cumbersome to write additional logic to verify your work, the reward of knowing exactly how many machines are or are not compliant with your desired state is worth it. Without it, you are flying blind. With it, you know exactly how many machines require additional attention, giving you the opportunity to write better code that handles more edge cases. See the Helper Function section to see how we make your life easier.**
+### Security and Best Practices
+
+* **Avoid Hardcoding Paths**: Don't hardcode paths to installer or license files; instead rely on `$InstallerFile` and `$LicenseFilePath`.
+* **Secure Sensitive Information**: Don't hardcode license values or other sensitive information; instead utilize `$LicenseValue` or a custom parameter.
+* **Generic Installers**: Avoid (where possible) installers that have client-specific licenses or customizations built in:
+  * If a generic installer isn't available (e.g., BitDefender), use Dynamic Versions (and potentially a URL parameter) to specify the download URL per customer or use an API to find the URL for the given customer.
+  * If the URL requires authentication, use a custom Download script to perform the authenticated download (e.g., CrowdStrike/SentinelOne).
+
+### Verification and Error Handling
+
+* **Verify Script Actions**: Include code to verify that the script did what it intended to do:
+  * For Tasks, implement a "test" script
+  * For Software, make sure your Detection method works, and optionally implement a Test script to verify things are in working order
+  * When a software Test script returns `$false`, ImmyBot will re-install the software
+* **Use Metascripts**: Especially if your script needs to restart the machine or access APIs like IT Glue and therefore will contain sensitive data like API keys.
+* **Proper Error Handling**: Use `throw "The bad thing that happened, what user should do"` to prevent cascading failure. That message will be shown to the user in a prominent location so they can take corrective action.
+* **Task Compliance**: Tasks have a "test" mechanism that should return `$true` or `$false` to indicate compliance.
+
+> **Important**: While it may be cumbersome to write additional logic to verify your work, the reward of knowing exactly how many machines are or are not compliant with your desired state is worth it. Without it, you are flying blind. With it, you know exactly how many machines require additional attention, giving you the opportunity to write better code that handles more edge cases. See the [Helper Function](#configuration-task-helper-functions) section to see how we make your life easier.
 
 ## Script Types
 
-* Software Detection
-* Software Action (Install/Uninstall/Update)
-* Maintenance Task Setter
-* Metascript (Deployment Target)
-* Filter Script (Deployment Target)
-* Device Inventory
-* Function
-* Dynamic Version
-* Download Installer
-* Module
-* Preflight
-* Integration
+ImmyBot supports various script types, each serving a specific purpose in the automation workflow:
+
+| Script Type | Description |
+|-------------|-------------|
+| Software Detection | Determines if software is installed and its version |
+| Software Action | Handles installation, uninstallation, and updates |
+| Maintenance Task | Configures and tests system settings |
+| Metascript (Deployment Target) | Runs on the server to determine deployment applicability |
+| Filter Script (Deployment Target) | Returns specific computers for targeted deployments |
+| Device Inventory | Collects information about managed devices |
+| Function | Reusable code blocks for other scripts |
+| Dynamic Version | Retrieves latest software version information |
+| Download Installer | Custom logic for downloading software installers |
+| Module | PowerShell modules for extended functionality |
+| Preflight | Runs before maintenance to check prerequisites |
+| Integration | Connects ImmyBot to external systems |
 
 ### Software Detection
 
