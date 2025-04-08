@@ -26,7 +26,7 @@ Maintenance windows define when automated maintenance can run on computers. This
 
 ### Creating Maintenance Windows
 
-1. Navigate to **Settings** > **Maintenance Windows**
+1. Navigate to **Show more** > **Preferences** > **Maintenance Windows**
 2. Click **Create Maintenance Window**
 3. Enter a name for the window
 4. Configure the schedule:
@@ -58,7 +58,7 @@ ImmyBot can automatically run maintenance sessions based on your configured main
 
 ### Configuring Automated Maintenance
 
-1. Navigate to **Settings** > **System Settings**
+1. Navigate to **Show more** > **Preferences** > **System Settings**
 2. Under **Automated Maintenance**, toggle the setting to enabled
 3. Configure global settings:
    - Maximum concurrent sessions
@@ -70,7 +70,7 @@ ImmyBot can automatically run maintenance sessions based on your configured main
 
 You can control how often maintenance runs:
 
-1. Navigate to **Settings** > **Maintenance Settings**
+1. Navigate to **Show more** > **Preferences** > **Maintenance Settings**
 2. Configure the maintenance frequency:
    - Daily: Runs every day during the maintenance window
    - Weekly: Runs once per week during the maintenance window
@@ -108,7 +108,7 @@ ImmyBot can manage Windows updates as part of maintenance sessions.
 
 ### Configuring Windows Update Settings
 
-1. Navigate to **Settings** > **Windows Updates**
+1. Navigate to **Show more** > **Preferences** > **Windows Updates**
 2. Configure update behavior:
    - Update categories (security, feature, driver)
    - Deferral periods
@@ -191,7 +191,7 @@ ImmyBot can send notifications about maintenance activities.
 
 ### Configuring Email Notifications
 
-1. Navigate to **Settings** > **Notifications**
+1. Navigate to **Show more** > **Notifications**
 2. Configure email settings:
    - SMTP server
    - From address
@@ -200,7 +200,7 @@ ImmyBot can send notifications about maintenance activities.
 
 ### Setting Up Notification Rules
 
-1. Navigate to **Settings** > **Notification Rules**
+1. Navigate to **Show more** > **Notifications** > **Notification Rules**
 2. Click **Create Rule**
 3. Configure trigger events:
    - Session completion
