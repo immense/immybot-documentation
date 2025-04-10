@@ -54,7 +54,7 @@ You will change the tenant of the computer on the Onboarding area of the compute
 
 ## Will ImmyBot start doing anything without my consent? Like when I save a deployment, will it automatically deploy?
 
-ImmyBot does not deploy anything automatically. You can feel safe saving your Deployments. Think of them like documenting how things SHOULD be. If you want Immy to automatically enforce deployments, you would need the Immy Deploy plan which allows you to create schedules.
+ImmyBot does not deploy anything automatically. You can feel safe saving your Deployments. Think of them like documenting how things SHOULD be. If you want Immy to automatically enforce deployments, you would need the ImmyBot Standard plan which allows you to create schedules.
 
 Think of it like if Group Policy only updated if you manually ran gpupdate /force or otherwise specified a schedule for the gpupdates to happen. We understand that updating and installing software on existing computers can be intrusive to the user which is why we schedule these actions out and give the user the ability to postpone via interactive emails.
 
