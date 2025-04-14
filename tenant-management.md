@@ -49,12 +49,11 @@ Sub-tenants are child tenants of client tenants. They can represent:
 ### Creating Tenants Manually
 
 1. Navigate to **Tenants** in the left sidebar
-2. Click **Create Tenant**
+2. Click the **New** button in the top-right corner
 3. Enter the tenant information:
-   - Name
-   - Description (optional)
-   - Contact information (optional)
-   - Parent tenant (if applicable)
+   - Name (required)
+   - Slug (optional, used for URL identification)
+   - Parent Tenant (optional, for hierarchical organization)
 4. Click **Save**
 
 ### Importing Tenants from Integrations
