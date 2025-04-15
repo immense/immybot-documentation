@@ -49,11 +49,10 @@ Sub-tenants are child tenants of client tenants. They can represent:
 ### Creating Tenants Manually
 
 1. Navigate to **Tenants** in the left sidebar
-2. Click **Create Tenant**
+2. Click **New** on the Tenants list page
 3. Enter the tenant information:
    - Name
    - Description (optional)
-   - Contact information (optional)
    - Parent tenant (if applicable)
 4. Click **Save**
 
