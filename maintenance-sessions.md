@@ -26,8 +26,8 @@ Maintenance windows define when automated maintenance can run on computers. This
 
 ### Creating Maintenance Windows
 
-1. Navigate to **Show more** > **Preferences** > **Maintenance Windows**
-2. Click **Create Maintenance Window**
+1. Navigate to **Show more** > **Settings** > **Maintenance Windows**
+2. Click **New Window**
 3. Enter a name for the window
 4. Configure the schedule:
    - Days of the week
@@ -38,19 +38,14 @@ Maintenance windows define when automated maintenance can run on computers. This
 
 ### Assigning Maintenance Windows
 
-1. Navigate to **Tenants**
-2. Select a tenant
-3. Click **Settings**
-4. Under **Maintenance Windows**, select the appropriate window
-5. Click **Save**
+Maintenance windows can be assigned at the system level:
 
-You can also assign different maintenance windows to specific computer groups:
+1. Navigate to **Show more** > **Settings** > **Maintenance Windows**
+2. Select the maintenance window you want to set as default
+3. Toggle the "Default" option
+4. Click **Save**
 
-1. Navigate to **Computer Groups**
-2. Select a group
-3. Click **Settings**
-4. Under **Maintenance Windows**, select the appropriate window
-5. Click **Save**
+You can also override maintenance windows at the tenant level or for individual computers through their respective settings.
 
 ## Automated Maintenance
 

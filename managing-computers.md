@@ -66,13 +66,7 @@ To perform actions on one or more computers:
 
 1. Select one or more computers from the list
 2. Click **Batch Actions** button
-3. Choose from available actions in the sidebar:
-   - Run Maintenance
-   - Remote Control
-   - Power Actions (Restart, Shutdown, Wake)
-   - Reassign to different tenant or user
-   - Delete Computer
-   - Add/Remove Tags
+3. Choose from available actions in the sidebar
 
 ### Individual Computer Actions
 
@@ -80,11 +74,6 @@ You can also perform actions on individual computers:
 
 1. Click on a computer to view its details
 2. Use the action buttons in the computer details view
-3. Available actions include:
-   - Run Maintenance
-   - Remote Control
-   - Edit Computer Details
-   - View Maintenance History
 
 ## Computer Tags and Filtering
 
@@ -111,33 +100,15 @@ The Computers list offers powerful filtering capabilities:
 
 ## Computer Information and Reporting
 
-ImmyBot provides detailed information about your managed computers:
-
-### Software Inventory
-
-To view software installed on a computer:
+ImmyBot provides detailed information about your managed computers. To view this information:
 
 1. Click on a computer in the Computers list
-2. Navigate to the **Software** tab
-3. View all installed software with version information
-4. Filter by software name or status
-
-### Hardware Information
-
-To view hardware details:
-
-1. Click on a computer in the Computers list
-2. Navigate to the **Hardware** tab
-3. View processor, memory, disk, and other hardware specifications
-
-### Maintenance History
-
-To view maintenance history:
-
-1. Click on a computer in the Computers list
-2. Navigate to the **Sessions** tab
-3. View all maintenance sessions that have run on the computer
-4. Click on a session to view detailed results
+2. Use the tabs to navigate between different types of information:
+   - **Overview**: General information and status
+   - **Software**: Installed software inventory
+   - **Hardware**: Hardware specifications
+   - **Sessions**: Maintenance history
+   - **Logs**: System and maintenance logs
 
 ## Best Practices
 

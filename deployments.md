@@ -188,13 +188,11 @@ Examples:
 
 ## Related Topics
 
-- [Creating and Managing Deployments](./creating-managing-deployments.md)
-- [Deployment Resolution](./deployment-resolution.md)
-- [Targets & Targeting](./targets-targeting.md)
-- [Maintenance Sessions](./maintenance-sessions.md)
-- [Software Library](./software-library.md)
-- [Maintenance Tasks](./maintenance-tasks.md)
+- Creating and Managing Deployments
+- Maintenance Sessions
+- Software Library
+- Maintenance Tasks
 
 ---
 
-**Next Steps:** [Creating and Managing Deployments →](./creating-managing-deployments.md) | [Deployment Resolution →](./deployment-resolution.md)
+**Next Steps:** [Creating and Managing Deployments](./creating-managing-deployments.md) | [Maintenance Sessions](./maintenance-sessions.md)
