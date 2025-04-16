@@ -190,7 +190,7 @@ Examples:
 
 - [Creating and Managing Deployments](./creating-managing-deployments.md)
 - [Deployment Resolution](./terminology.md#deployment-resolution)
-- [Targets & Targeting](./terminology.md#targets)
+- [Targets & Targeting](./targets-targeting.md)
 - [Maintenance Sessions](./maintenance-sessions.md)
 - [Software Library](./software-library.md)
 - [Maintenance Tasks](./maintenance-tasks.md)
