@@ -38,18 +38,20 @@ Maintenance windows define when automated maintenance can run on computers. This
 
 ### Assigning Maintenance Windows
 
-1. Navigate to **Tenants**
+To assign a maintenance window to a tenant:
+
+1. Navigate to **Tenants** in the left sidebar
 2. Select a tenant
-3. Click **Settings**
-4. Under **Maintenance Windows**, select the appropriate window
+3. In the tenant details page, find the **Maintenance Window** dropdown
+4. Select the appropriate window from the dropdown
 5. Click **Save**
 
 You can also assign different maintenance windows to specific computer groups:
 
-1. Navigate to **Computer Groups**
+1. Navigate to **Computer Groups** in the left sidebar
 2. Select a group
-3. Click **Settings**
-4. Under **Maintenance Windows**, select the appropriate window
+3. In the group details page, find the **Maintenance Window** dropdown
+4. Select the appropriate window from the dropdown
 5. Click **Save**
 
 ## Automated Maintenance
