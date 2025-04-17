@@ -235,12 +235,11 @@ If software installations are failing:
 
 ## Related Topics
 
-- [Deployment Resolution](./deployment-resolution.md)
-- [Targets & Targeting](./targets-targeting.md)
+- [Deployments](./deployments.md)
 - [Maintenance Sessions](./maintenance-sessions.md)
 - [Software Library](./software-library.md)
 - [Maintenance Tasks](./maintenance-tasks.md)
 
 ---
 
-**Next Steps:** [Deployment Resolution →](./deployment-resolution.md) | [Targets & Targeting →](./targets-targeting.md)
+**Next Steps:** [Deployments →](./deployments.md) | [Maintenance Sessions →](./maintenance-sessions.md)
