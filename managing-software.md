@@ -97,17 +97,15 @@ Once you've defined software, you can deploy it to your computers:
 ### Creating Software Deployments
 
 1. Navigate to **Deployments** in the left sidebar
-2. Click **Create Deployment**
-3. Enter a name for the deployment
-4. Select **Software** as the deployment type
-5. Search for and select your software
-6. Choose the version to deploy
-7. Configure deployment options:
-   - **Deployment Mode**: Enforced, Available, or Removed
+2. Click **New** in the action bar
+3. Search for and select your software
+4. Choose the version to deploy
+5. Configure deployment options:
+   - **Enforcement Type**: Required, Optional, Onboarding, or Ad Hoc
    - **Installation Context**: System or User
-   - **Upgrade Behavior**: How to handle upgrades
-8. Define targets (computers, users, or groups)
-9. Click **Save**
+   - **Desired State**: Installed, Latest Version, or Not Present
+6. Define targets (computers, tenants, or groups)
+7. Click **Save**
 
 ### Testing Software Deployments
 
