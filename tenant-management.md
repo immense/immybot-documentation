@@ -169,13 +169,14 @@ ImmyBot provides several reports for tenant management:
    - Deployment compliance
    - Software inventory
 
-### Tenant Compliance
+### Deployment Compliance Reports
 
-1. Navigate to **Reports** > **Compliance**
-2. Filter by tenant
-3. View compliance status for all deployments
-4. Identify non-compliant computers
-5. Take action as needed
+1. Navigate to **Reporting** in the left sidebar
+2. Select the appropriate report type
+3. Filter by tenant
+4. View compliance status for deployments
+5. Identify computers that need attention
+6. Take action as needed
 
 ## Tenant Migration
 
