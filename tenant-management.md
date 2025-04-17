@@ -62,10 +62,12 @@ If you have configured integrations, you can import tenants:
 
 1. Navigate to **Show More** > **Integrations** in the left sidebar
 2. Select your integration (RMM, PSA, or Azure)
-3. Click **Sync**
-4. Review the imported tenants
-5. Configure any additional settings
-6. Click **Save**
+3. Click **Edit** on your integration
+4. Navigate to the **Clients** tab
+5. Click **Sync agents for selected clients**
+6. Review the imported tenants
+7. Configure any additional settings
+8. Click **Save**
 
 ## Tenant Hierarchy
 
@@ -74,7 +76,7 @@ ImmyBot allows you to create a hierarchical structure of tenants:
 ### Creating Parent-Child Relationships
 
 1. Navigate to **Tenants**
-2. Select the child tenant
+2. Select the tenant you would like to make a child tenant
 3. Click **Edit**
 4. Select the parent tenant from the dropdown
 5. Click **Save**
