@@ -134,13 +134,14 @@ Each tenant can have its own set of users:
 
 ### Adding Users to Tenants
 
-1. Navigate to **Tenants**
-2. Select the tenant
-3. Click **Users**
-4. Click **Add User**
-5. Enter user information or select from existing users
-6. Assign appropriate roles
-7. Click **Save**
+1. Navigate to **Show More** > **People** in the left sidebar
+2. Click **New** button
+3. Enter user information:
+   - Name
+   - Email
+   - Role
+   - Tenant assignment
+4. Click **Create** to add the user
 
 ### Importing Users from Azure AD
 
