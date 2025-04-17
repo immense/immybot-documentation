@@ -71,22 +71,21 @@ ImmyBot comes with many pre-defined software packages, but you can also create y
 Detection methods determine if software is already installed:
 
 1. Open the software definition
-2. Navigate to the **Detection** tab
-3. Click **Add Detection Method**
-4. Choose a detection type:
+2. Scroll to the **Detection** section on the software details page
+3. Choose a detection type:
    - **Registry**: Check for registry keys or values
    - **File**: Check for file existence or version
    - **Script**: Use a custom PowerShell script
-5. Configure the detection parameters
-6. Click **Save**
+4. Configure the detection parameters
+5. Click **Save**
 
 ### Creating Installation Scripts
 
 Installation scripts handle the software installation process:
 
 1. Open the software definition
-2. Navigate to the **Installation** tab
-3. Click **Edit Installation Script**
+2. Navigate to the **Installation** section
+3. Click **Edit**
 4. Write or paste your PowerShell script
 5. Use ImmyBot helper functions as needed
 6. Click **Save**
