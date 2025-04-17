@@ -125,7 +125,7 @@ When multiple deployments apply to the same computer, ImmyBot uses a resolution 
 - Tenant hierarchy
 - Supersedence relationships
 
-For detailed information on how deployments are resolved, see [Deployment Resolution](./deployment-resolution.md).
+For detailed information on how deployments are resolved, see [Deployment Resolution](./terminology.md#deployment-resolution).
 
 ## Creating Deployments
 
@@ -189,7 +189,7 @@ Examples:
 ## Related Topics
 
 - [Creating and Managing Deployments](./creating-managing-deployments.md)
-- [Deployment Resolution](./deployment-resolution.md)
+- [Deployment Resolution](./terminology.md#deployment-resolution)
 - [Targets & Targeting](./targets-targeting.md)
 - [Maintenance Sessions](./maintenance-sessions.md)
 - [Software Library](./software-library.md)
@@ -197,4 +197,4 @@ Examples:
 
 ---
 
-**Next Steps:** [Creating and Managing Deployments →](./creating-managing-deployments.md) | [Deployment Resolution →](./deployment-resolution.md)
+**Next Steps:** [Creating and Managing Deployments →](./creating-managing-deployments.md) | [Deployment Resolution →](./terminology.md#deployment-resolution)

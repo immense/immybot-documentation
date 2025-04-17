@@ -18,7 +18,7 @@ The Software Library is your central repository for all software definitions:
 
 ### Browsing the Software Library
 
-1. Navigate to **Software Library** in the left sidebar
+1. Navigate to **Library** > **Software** in the left sidebar
 2. Browse the list of available software
 3. Use filters to narrow down the list:
    - Category
@@ -41,8 +41,8 @@ ImmyBot comes with many pre-defined software packages, but you can also create y
 
 ### Creating Basic Software
 
-1. Navigate to **Software Library**
-2. Click **Create Software**
+1. Navigate to **Library** > **Software**
+2. Click **New**
 3. Enter basic information:
    - Name
    - Publisher
@@ -54,38 +54,38 @@ ImmyBot comes with many pre-defined software packages, but you can also create y
 ### Adding Software Versions
 
 1. Open the software definition
-2. Click **Add Version**
-3. Enter version information:
+2. Scroll to the bottom of the page to the **Versions** section
+3. Click **New** in the Versions section
+4. Enter version information:
    - Version number
    - Release date
    - Notes
-4. Configure installation options:
+5. Configure installation options:
    - Installation file or command
    - Silent installation switches
    - Success codes
-5. Click **Save** to add the version
+6. Click **Save** to add the version
 
 ### Creating Detection Methods
 
 Detection methods determine if software is already installed:
 
 1. Open the software definition
-2. Navigate to the **Detection** tab
-3. Click **Add Detection Method**
-4. Choose a detection type:
+2. Scroll to the **Detection** section on the software details page
+3. Choose a detection type:
    - **Registry**: Check for registry keys or values
    - **File**: Check for file existence or version
    - **Script**: Use a custom PowerShell script
-5. Configure the detection parameters
-6. Click **Save**
+4. Configure the detection parameters
+5. Click **Save**
 
 ### Creating Installation Scripts
 
 Installation scripts handle the software installation process:
 
 1. Open the software definition
-2. Navigate to the **Installation** tab
-3. Click **Edit Installation Script**
+2. Navigate to the **Installation** section
+3. Click **Edit**
 4. Write or paste your PowerShell script
 5. Use ImmyBot helper functions as needed
 6. Click **Save**
@@ -97,17 +97,15 @@ Once you've defined software, you can deploy it to your computers:
 ### Creating Software Deployments
 
 1. Navigate to **Deployments** in the left sidebar
-2. Click **Create Deployment**
-3. Enter a name for the deployment
-4. Select **Software** as the deployment type
-5. Search for and select your software
-6. Choose the version to deploy
-7. Configure deployment options:
-   - **Deployment Mode**: Enforced, Available, or Removed
+2. Click **New** in the action bar
+3. Search for and select your software
+4. Choose the version to deploy
+5. Configure deployment options:
+   - **Enforcement Type**: Required, Optional, Onboarding, or Ad Hoc
    - **Installation Context**: System or User
-   - **Upgrade Behavior**: How to handle upgrades
-8. Define targets (computers, users, or groups)
-9. Click **Save**
+   - **Desired State**: Installed, Latest Version, or Not Present
+6. Define targets (computers, tenants, or groups)
+7. Click **Save**
 
 ### Testing Software Deployments
 
@@ -126,10 +124,17 @@ ImmyBot makes it easy to manage software updates:
 ### Adding New Versions
 
 1. Open the software definition
-2. Click **Add Version**
-3. Enter information for the new version
-4. Configure installation options
-5. Click **Save**
+2. Scroll to the bottom of the page to the **Versions** section
+3. Click **New** in the Versions section
+4. Enter version information:
+   - Version number
+   - Release date
+   - Notes
+5. Configure installation options:
+   - Installation file or command
+   - Silent installation switches
+   - Success codes
+6. Click **Save** to add the version
 
 ### Updating Deployments
 
@@ -153,7 +158,7 @@ ImmyBot maintains a detailed inventory of installed software:
 
 ### Viewing Software Inventory
 
-1. Navigate to **Reports** > **Software Inventory**
+1. Navigate to **Reporting** > **Computer Software**
 2. View all software across your environment
 3. Filter by:
    - Software name
@@ -163,7 +168,7 @@ ImmyBot maintains a detailed inventory of installed software:
 
 ### Identifying Outdated Software
 
-1. Navigate to **Reports** > **Software Inventory**
+1. Navigate to **Reporting** > **Computer Software**
 2. Filter for specific software
 3. Group by version
 4. Identify computers with outdated versions
