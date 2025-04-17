@@ -60,7 +60,7 @@ Sub-tenants are child tenants of client tenants. They can represent:
 
 If you have configured integrations, you can import tenants:
 
-1. Navigate to **Integrations** in the left sidebar
+1. Navigate to **Show More** > **Integrations** in the left sidebar
 2. Select your integration (RMM, PSA, or Azure)
 3. Click **Sync**
 4. Review the imported tenants
