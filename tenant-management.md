@@ -189,7 +189,7 @@ Sometimes you may need to move computers between tenants:
 3. Click **Batch Actions**
 4. Select **Reassign**
 5. Select the new tenant
-6. Click **Save**
+6. Click **Update**
 7. Confirm the action
 
 ### Merging Tenants
