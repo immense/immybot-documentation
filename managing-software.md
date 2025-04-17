@@ -54,16 +54,17 @@ ImmyBot comes with many pre-defined software packages, but you can also create y
 ### Adding Software Versions
 
 1. Open the software definition
-2. Click **Add Version**
-3. Enter version information:
+2. Scroll to the bottom of the page to the **Versions** section
+3. Click **New** in the Versions section
+4. Enter version information:
    - Version number
    - Release date
    - Notes
-4. Configure installation options:
+5. Configure installation options:
    - Installation file or command
    - Silent installation switches
    - Success codes
-5. Click **Save** to add the version
+6. Click **Save** to add the version
 
 ### Creating Detection Methods
 
