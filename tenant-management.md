@@ -77,9 +77,9 @@ ImmyBot allows you to create a hierarchical structure of tenants:
 
 1. Navigate to **Tenants**
 2. Select the tenant you would like to make a child tenant
-3. Click **Edit**
+3. Go to the **Edit** tab
 4. Select the parent tenant from the dropdown
-5. Click **Save**
+5. Click **Update**
 
 ### Inheritance in Tenant Hierarchy
 
