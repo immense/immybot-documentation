@@ -124,10 +124,17 @@ ImmyBot makes it easy to manage software updates:
 ### Adding New Versions
 
 1. Open the software definition
-2. Click **Add Version**
-3. Enter information for the new version
-4. Configure installation options
-5. Click **Save**
+2. Scroll to the bottom of the page to the **Versions** section
+3. Click **New** in the Versions section
+4. Enter version information:
+   - Version number
+   - Release date
+   - Notes
+5. Configure installation options:
+   - Installation file or command
+   - Silent installation switches
+   - Success codes
+6. Click **Save** to add the version
 
 ### Updating Deployments
 
@@ -151,7 +158,7 @@ ImmyBot maintains a detailed inventory of installed software:
 
 ### Viewing Software Inventory
 
-1. Navigate to **Reports** > **Software Inventory**
+1. Navigate to **Reporting** > **Computer Software**
 2. View all software across your environment
 3. Filter by:
    - Software name
@@ -161,7 +168,7 @@ ImmyBot maintains a detailed inventory of installed software:
 
 ### Identifying Outdated Software
 
-1. Navigate to **Reports** > **Software Inventory**
+1. Navigate to **Reporting** > **Computer Software**
 2. Filter for specific software
 3. Group by version
 4. Identify computers with outdated versions
