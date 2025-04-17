@@ -3,43 +3,46 @@
 layout: home
 
 hero:
-  name: "immy.bot"
-  text: ""
-  tagline: "Documentation"
+  name: "ImmyBot"
+  text: "IT Automation Platform"
+  tagline: "Comprehensive Documentation"
   image:
     src: /logo-256x256.png
     alt: ImmyBot
   actions:
     - theme: brand
-      text: Getting Started
-      link: /getting-started
+      text: Quick Start Guide
+      link: /quick-start-guide
     - theme: alt
       text: What's New
       link: /releases
 
 features:
-  - title: FAQ
-    details: Frequently Asked questions
-    link: /FAQ
-  - title: Add Users
-    details: How to add users
-    link: /add-users
-  - title: Computer Onboarding
-    details: Setup a New Computer using ImmyBot
-    link: /onboarding
+  - title: ImmyBot Overview
+    details: Learn about ImmyBot's core capabilities and benefits
+    link: /immybot-overview
+  - title: Core Concepts
+    details: Understand the fundamental concepts of ImmyBot
+    link: /core-concepts
+  - title: Computer Management
+    details: Onboard and manage computers effectively
+    link: /managing-computers
+  - title: Software Deployment
+    details: Deploy and maintain software across your organization
+    link: /managing-software
+  - title: Creating Deployments
+    details: Configure targeted software and task deployments
+    link: /creating-deployments
   - title: Integrations
-    details: Integrations that ImmyBot supports
-    link: /build-your-own-integration
-  - title: User Roles and Security
-    details: Restrict access to ImmyBot features
-    link: /user-roles
-  - title: Scripting
-    details: Understand the Metascript engine
-    link: /scripts
-  - title: Terminology
-    details: ImmyBot Jargon
-    link: /terminology
+    details: Connect ImmyBot with your existing tools and services
+    link: /integration-overview
+  - title: User Management
+    details: Add users and configure access permissions
+    link: /add-users
   - title: Troubleshooting
-    details: What do?
+    details: Resolve common issues and find solutions
     link: /troubleshooting
+  - title: API & Custom Development
+    details: Extend ImmyBot with custom integrations and API access
+    link: /api-documentation
 ---
