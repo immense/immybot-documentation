@@ -49,7 +49,7 @@ ImmyBot comes with many pre-defined software packages, but you can also create y
    - Description
    - Category
    - Icon (optional)
-4. Click **Save** to create the basic definition
+4. Click **Create** to create the basic definition
 
 ### Adding Software Versions
 
