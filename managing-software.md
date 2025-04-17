@@ -72,12 +72,13 @@ Detection methods determine if software is already installed:
 
 1. Open the software definition
 2. Scroll to the **Detection** section on the software details page
-3. Choose a detection type:
+3. Click **New** to add a detection method
+4. Choose a detection type:
    - **Registry**: Check for registry keys or values
    - **File**: Check for file existence or version
    - **Script**: Use a custom PowerShell script
-4. Configure the detection parameters
-5. Click **Save**
+5. Configure the detection parameters based on the selected type
+6. Click **Save**
 
 ### Creating Installation Scripts
 
