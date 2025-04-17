@@ -147,12 +147,13 @@ Each tenant can have its own set of users:
 
 If you have configured Azure AD integration:
 
-1. Navigate to **Integrations** > **Azure**
-2. Select the tenant
-3. Click **Sync Users**
-4. Review the imported users
-5. Configure any additional settings
-6. Click **Save**
+1. Navigate to **Show More** > **Integrations** in the left sidebar
+2. Select your Azure integration
+3. Click **Edit** on your integration
+4. Navigate to the **Users** tab
+5. Click **Sync users**
+6. Review the imported users
+7. Click **Save** to apply changes
 
 ## Tenant Reporting
 
