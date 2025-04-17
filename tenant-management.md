@@ -92,21 +92,31 @@ Child tenants inherit certain settings from their parents:
 
 You can override inherited settings at the child tenant level when needed.
 
-## Tenant Settings
+## Tenant Configuration
 
-Each tenant can have its own settings:
+Each tenant can have its own configuration options:
 
-### Configuring Tenant Settings
+### Configuring Tenant Schedules
 
 1. Navigate to **Tenants**
 2. Select the tenant
-3. Click **Settings**
-4. Configure the available settings:
-   - Maintenance windows
-   - Default deployment options
-   - Notification preferences
-   - Custom fields
-5. Click **Save**
+3. Click the **Schedules** tab
+4. Configure maintenance windows:
+   - Click **New** to create a new schedule
+   - Set schedule name, frequency, and time window
+   - Select targets (computers or groups)
+   - Click **Create** to save the schedule
+
+### Configuring Tenant Preferences
+
+1. Navigate to **Tenants**
+2. Select the tenant
+3. Click the **Preferences** tab
+4. Configure available preferences:
+   - Default maintenance options
+   - Agent settings
+   - Deployment defaults
+5. Click **Update** to save changes
 
 ### Tenant-Specific Deployments
 
