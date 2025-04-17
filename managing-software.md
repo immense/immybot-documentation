@@ -18,7 +18,7 @@ The Software Library is your central repository for all software definitions:
 
 ### Browsing the Software Library
 
-1. Navigate to **Software Library** in the left sidebar
+1. Navigate to **Library** > **Software** in the left sidebar
 2. Browse the list of available software
 3. Use filters to narrow down the list:
    - Category
@@ -41,8 +41,8 @@ ImmyBot comes with many pre-defined software packages, but you can also create y
 
 ### Creating Basic Software
 
-1. Navigate to **Software Library**
-2. Click **Create Software**
+1. Navigate to **Library** > **Software**
+2. Click **New**
 3. Enter basic information:
    - Name
    - Publisher
