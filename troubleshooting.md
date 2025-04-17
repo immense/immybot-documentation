@@ -11,11 +11,7 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 This comprehensive guide will help you troubleshoot common issues with ImmyBot, including agent connectivity problems, identification failures, security software conflicts, and more. Follow the step-by-step instructions to diagnose and resolve issues quickly.
 
 ## Table of Contents
-
-- [Identification Failures](#identification-failures)
-- [Pending Computers](#pending-computers)
-- [Security Software Exclusions](#security-software-exclusions)
-- [Working With Support](#working-with-support)
+  [[toc]]
 
 
 ## Identification Failures
@@ -158,7 +154,8 @@ Your script path can be found under Settings->Preferences->Script Path
 ![image](https://user-images.githubusercontent.com/1424395/173610304-50bab775-c7c8-40b3-944e-fab1dde862ee.png)
 
 
-- [Troubleshooting](#troubleshooting)
+- [Troubleshooting Guide](#troubleshooting-guide)
+  - [Table of Contents](#table-of-contents)
   - [Identification Failures](#identification-failures)
     - [Needs a Manual Decision](#needs-a-manual-decision)
   - [Pending Computers](#pending-computers)
@@ -173,8 +170,10 @@ Your script path can be found under Settings->Preferences->Script Path
     - [DNSFilter](#dnsfilter)
     - [Group Policy Objects](#group-policy-objects)
   - [Working With Support](#working-with-support)
+    - [Preparing for Support](#preparing-for-support)
     - [Gather an Endpoint Trace Log](#gather-an-endpoint-trace-log)
     - [MDMDiagnostics Logs](#mdmdiagnostics-logs)
+  - [Next Steps](#next-steps)
 
 ### ThreatLocker
 
