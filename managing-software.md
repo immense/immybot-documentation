@@ -121,20 +121,20 @@ Before deploying to your entire environment:
 
 ImmyBot makes it easy to manage software updates:
 
-### Adding New Versions
+### Managing Version Updates
+
+When a new version of software is released:
 
 1. Open the software definition
-2. Scroll to the bottom of the page to the **Versions** section
-3. Click **New** in the Versions section
-4. Enter version information:
-   - Version number
+2. Review existing versions in the **Versions** section
+3. Click **New** to add the latest version
+4. Enter the new version details, including:
+   - Version number (following consistent versioning)
    - Release date
-   - Notes
-5. Configure installation options:
-   - Installation file or command
-   - Silent installation switches
-   - Success codes
-6. Click **Save** to add the version
+   - Release notes highlighting key changes
+5. Configure installation options specific to this version
+6. Consider updating detection methods if needed
+7. Test the new version on a limited deployment before rolling out widely
 
 ### Updating Deployments
 
