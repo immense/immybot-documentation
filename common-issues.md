@@ -49,8 +49,9 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
    - Ensure it doesn't contain special characters
 
 2. **Review Identification Methods**
-   - Navigate to **Show more** > **Preferences** > **Agent Settings**
-   - Review the identification methods and order
+   - Navigate to **Show more** > **Preferences**
+   - In the Preferences page, find the Computer-related settings
+   - Review the agent identification methods and order
    - Ensure appropriate methods are enabled
 
 3. **Check Hardware Changes**
