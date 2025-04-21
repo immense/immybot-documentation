@@ -1,18 +1,17 @@
 # Adding Users
 
-This guide explains how to add and manage users in ImmyBot, including different authentication methods and role assignments.
+This guide explains how to add and manage users in ImmyBot.
 
 ## User Authentication Methods
 
-ImmyBot mandates authentication against Azure AD/Entra ID:
+ImmyBot uses Azure AD/Entra ID for authentication:
 
 1. **Azure AD/Entra ID Integration**: Required for all ImmyBot installations
-2. **Email Invitation**: Available for inviting users already in your Azure AD/Entra directory
-3. **Self-Registration**: Allow users to request access (with admin approval)
+2. **Self-Registration**: Allow users to request access (with admin approval)
 
 ## Adding Users via Self-Registration
 
-The simplest way to add users is through self-registration:
+The only way to add users is through self-registration:
 
 1. Have the person navigate to your ImmyBot instance (e.g., `https://yourdomain.immy.bot`)
 2. They will see a login screen where they can request access:
@@ -26,33 +25,6 @@ The simplest way to add users is through self-registration:
 
 5. Select the appropriate role for the user (see [User Roles and Security](./user-roles.md) for details)
 6. Click **Approve** to grant access
-
-## Adding Users via Email Invitation
-
-For more controlled user addition:
-
-1. Navigate to **Show more** > **Users**
-2. Click **Invite User**
-3. Enter the user's email address
-4. Select the appropriate role
-5. (Optional) Assign the user to specific tenants
-6. Click **Send Invitation**
-7. The user will receive an email with instructions to complete registration
-
-## Adding Users via Azure AD/Entra ID
-
-Azure AD/Entra ID integration is mandatory for ImmyBot authentication:
-
-1. Navigate to **Show more** > **Azure** to configure your Azure AD/Entra integration
-2. There are two ways to add users from Azure AD/Entra:
-   - **Basic Consent Level**: You'll need to know the user's ID (GUID) to add them
-   - **Recommended Consent Level**: Users can be added directly from the Persons page without knowing their GUID
-3. To increase the consent level to recommended settings:
-   - Navigate to **Show more** > **Azure** > **Azure AD**
-   - Click on **Increase Consent Level**
-   - Follow the prompts to grant additional permissions
-4. Users can now sign in with their Microsoft credentials
-5. Assign appropriate roles to new users after they sign in
 
 ## Managing Existing Users
 
