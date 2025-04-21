@@ -13,6 +13,15 @@ The ImmyBot API is a RESTful API that uses standard HTTP methods and returns JSO
 - Automate workflows
 - Integrate with other systems
 
+### API Documentation with Swagger
+
+ImmyBot provides interactive API documentation through Swagger UI, which allows you to explore and test all available endpoints directly in your browser:
+
+1. Navigate to `https://yourdomain.immy.bot/swagger` (replace "yourdomain" with your ImmyBot instance name)
+2. Browse the available endpoints organized by category
+3. Expand any endpoint to see details about parameters, request body format, and response schemas
+4. Test endpoints directly from the Swagger UI by providing required parameters and your API key
+
 ## Authentication
 
 All API requests require authentication using an API key.
