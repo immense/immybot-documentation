@@ -26,17 +26,20 @@ The only way to add users is through self-registration:
 5. Select the appropriate role for the user (see [User Roles and Security](./user-roles.md) for details)
 6. Click **Approve** to grant access
 
-## Managing Existing Users
+## Managing People and Users
 
-To manage existing users:
+In ImmyBot, there's an important distinction:
+- **People** are added to the system first (either through self-registration or Azure AD)
+- These people are then assigned as **users** with specific roles and permissions
 
-1. Navigate to **Show more** > **Users**
-2. View the list of all users in your ImmyBot instance
-3. Click on a user to edit their details:
+To manage people and their user accounts:
+
+1. Navigate to **Show more** > **People**
+2. View the list of all people in your ImmyBot instance
+3. Click on a person to edit their details:
    - Change their role
    - Adjust tenant access
    - Enable/disable account
-   - Reset password
 
 ## Best Practices
 
