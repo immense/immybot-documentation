@@ -50,8 +50,7 @@ This guide provides step-by-step instructions for the most common tasks you'll p
 
 1. **Create the Deployment**
    - Navigate to **Deployments** in the left sidebar
-   - Click **Create Deployment**
-   - Enter a descriptive name for the deployment
+   - Click **New** to create a new deployment
 
 2. **Select Deployment Type**
    - Choose **Software**, **Task**, or **Configuration**
