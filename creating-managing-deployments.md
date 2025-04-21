@@ -106,24 +106,24 @@ Depending on the content type, you may have additional settings to configure:
 ### Editing Deployments
 
 1. Navigate to the deployment you want to edit
-2. Click **Edit** in the top right corner
-3. Make your changes
-4. Click **Save** to update the deployment
+2. Make your changes directly in the deployment details page
+3. Click **Update** to save your changes
 
 ### Disabling Deployments
 
 To temporarily disable a deployment without deleting it:
 
 1. Navigate to the deployment
-2. Click **Edit**
-3. Toggle the **Enabled** switch to Off
-4. Click **Save**
+2. Click the **More Actions** dropdown next to the page title
+3. Select **Disable**
+4. Confirm the action if prompted
 
 ### Deleting Deployments
 
 1. Navigate to the deployment you want to delete
-2. Click **Delete** in the top right corner
-3. Confirm the deletion
+2. Click the **More Actions** dropdown next to the page title
+3. Select **Delete**
+4. Confirm the deletion when prompted
 
 ## Advanced Deployment Configurations
 
