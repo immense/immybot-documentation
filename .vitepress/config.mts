@@ -3,7 +3,7 @@ import { withMermaid } from "vitepress-plugin-mermaid";
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid({
-    title: "ImmyBot Documentation",
+    title: "ImmyBot Technical Documentation",
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }],
         [

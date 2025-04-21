@@ -3,9 +3,8 @@
 layout: home
 
 hero:
-  name: "ImmyBot"
-  text: "IT Automation Platform"
-  tagline: "Comprehensive Documentation"
+  name: "ImmyBot Documentation"
+  tagline: "How to use the ImmyBot IT Automation Platform"
   image:
     src: /logo-256x256.png
     alt: ImmyBot
