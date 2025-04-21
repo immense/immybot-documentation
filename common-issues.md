@@ -60,8 +60,8 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
 
 4. **Manual Identification**
    - Locate the computer in New Computers
-   - Use "Identify As" to manually identify it
-   - Select the correct existing computer
+   - Select the computer and use the appropriate action from the action menu
+   - Choose the correct existing computer to associate with this agent
 
 ## Maintenance Session Issues
 
