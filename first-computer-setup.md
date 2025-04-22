@@ -117,7 +117,7 @@ After successful onboarding:
 - **Add Custom Deployments**: Create your own deployments for additional software or configurations
 - **Re-run the Session**: You can re-run the onboarding session as many times as needed until everything is configured to your liking
 
-> **Tip:** To create custom deployments, go to **Deployments** in the left navigation and click **Create Deployment**.
+> **Tip:** To create custom deployments, go to **Deployments** in the left navigation and click **New**.
 
 ## Troubleshooting
 
