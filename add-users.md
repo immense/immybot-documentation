@@ -11,7 +11,7 @@ ImmyBot uses Azure AD/Entra ID for authentication:
 
 ## Adding Users via Self-Registration
 
-The only way to add users is through self-registration:
+Self-registration is one way to add users to ImmyBot:
 
 1. Have the person navigate to your ImmyBot instance (e.g., `https://yourdomain.immy.bot`)
 2. They will see a login screen where they can request access:
@@ -25,6 +25,21 @@ The only way to add users is through self-registration:
 
 5. Select the appropriate role for the user (see [User Roles and Security](./user-roles.md) for details)
 6. Click **Approve** to grant access
+
+## Adding Users via Azure AD/Entra ID
+
+Azure AD/Entra ID integration is recommended for organizations using Microsoft 365:
+
+1. Navigate to **Show more** > **Preferences** > **Authentication** to configure your Azure AD/Entra integration
+2. There are two ways to add users from Azure AD/Entra:
+   - **Basic Consent Level**: You'll need to know the user's ID (GUID) to add them
+   - **Recommended Consent Level**: Users can be added directly from the Persons page without knowing their GUID
+3. To increase the consent level to recommended settings:
+   - Navigate to **Show more** > **Preferences** > **Authentication** > **Azure AD**
+   - Click on **Increase Consent Level**
+   - Follow the prompts to grant additional permissions
+4. Users can now sign in with their Microsoft credentials
+5. Assign appropriate roles to new users after they sign in
 
 ## Managing People and Users
 
