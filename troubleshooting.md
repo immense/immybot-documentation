@@ -299,7 +299,7 @@ When you've tried all the troubleshooting steps and still need assistance, our s
 
 **Support Contact Information:**
 - Email: `support@immy.bot`
-- Support Portal: [https://support.immy.bot](https://support.immy.bot)
+- Support Portal: [https://www.immy.bot/support/](https://www.immy.bot/support/)
 
 ### Preparing for Support
 
