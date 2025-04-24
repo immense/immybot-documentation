@@ -304,7 +304,7 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
 
 If you're still experiencing issues after following these troubleshooting steps:
 
-- [Contact Support](https://support.immy.bot) for additional assistance
+- [Contact Support](https://www.immy.bot/support/) for additional assistance
 - Check the [Community Forums](https://community.immy.bot) for similar issues
 - Review the [Agent Troubleshooting](./troubleshooting.md) guide for more detailed agent troubleshooting
 - See [Security Software Configuration](./security-software.md) for security software-specific issues
