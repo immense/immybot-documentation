@@ -21,6 +21,7 @@ Setting up this integration allows you to
 - edit:items -> Yes (*should not be needed > 2.99, API bug will not allow listing items without edit rights)
 - read:invoices -> Yes
 - read:software -> Yes
+- read:tickets -> Yes (required for the Technician Tools feature)
 - read:assets -> Yes (*future feature of the integration will include asset population, not currently necessary)
 - edit:assets -> Yes (*future feature of the integration will include asset population, not currently necessary)
 
