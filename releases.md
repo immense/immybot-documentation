@@ -26,6 +26,23 @@ Released 04/28/25
 - Fixed an issue with the software configuration task selector not showing up on the software details page
 - Fixed an issue with duplicate error messages from scripts showing up on the maintenance session details page
 
+## 0.67.6
+
+## Features and Improvements
+- Added parent tenant information to computer details overview page (only shown for child tenants)
+- Added creating, updating, and deleting users to the audit log
+- Starting remote control sessions are now recorded in the audit table
+- Added object name to audit entries for software, tasks, scripts and several other object types
+- Added People option to the user filter selection
+- Made Agent and Computer tables more responsive by improving load times
+
+## Bug Fixes
+- Fixed an issue where required KeyValuePair parameters were not properly saved or validated
+- Fixed token refresh logic to properly handle expired refresh tokens
+- Fixed "More Actions" button visibility on software page
+- Fixed an issue with the feature usage email containing extra text and malformed URI
+- Fixed an issue where authenticating to Immybot from service principals was failing with 'No principal id was provided with the request'
+
 ## 0.67.5
 
 Released 3/27/25
