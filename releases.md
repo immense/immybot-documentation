@@ -6,6 +6,26 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.67.7
+
+Released 04/28/25
+
+### Improvements
+
+- Improved telemetry to help identify bugs and performance issues within the application
+
+
+### Bug Fixes
+
+- Fixed an issue with some loading spinners repeatedly showing on auto-refreshes
+- Fixed an issue with the default page size on the notifications list page
+- Fixed a typo in the tooltip text when hovering over MSP tenants in the tenants list.
+- Fixed an error being thrown when attempting to retry agent identification
+- Fixed an issue with the azure customer mapper where the sort would revert whenever a customer is selected
+- Fixed an issue with setting the timezone in tenant preferences where it would not allow you to select a value if one wasn't already selected
+- Fixed an issue with the software configuration task selector not showing up on the software details page
+- Fixed an issue with duplicate error messages from scripts showing up on the maintenance session details page
+
 ## 0.67.5
 
 Released 3/27/25
