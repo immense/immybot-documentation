@@ -22,6 +22,8 @@ ImmyBot currently requires the following role permissions to operate correctly:
   - All Devices -> Read Only
 - Scheduled Tasks
   - Scheduled Tasks -> Manage
+- Downloads
+  - N-central Installers Download
 
 Create an "ImmyBot" role in your N-Central instance using above roles.
 ![](./.vitepress/images/ncentraldocs/add_userrole_guide_1.png)
@@ -35,8 +37,9 @@ N-Able themselves have an [offical short guide for doing this we recommend follo
 
 1. Create a new "ImmyBot" user in the instance with the "ImmyBot" role applied.
 2. Set a password (it is required for now but the api team is working on removing this)
-2. Under "API Access", ensure "Api-Only User" is checked. <u>2FA MUST be disabled for the API User!</u>
-3. Save the new ImmyBot user, and press the "Generate JSON Web Token" button. Copy this value somewhere for later.
+3. Under "Access Groups", add an Access Group that covers all of your tenants (or at least an access group that covers the tenants you want to have access to in ImmyBot)
+4. Under "API Access", ensure "Api-Only User" is checked. <u>2FA MUST be disabled for the API User!</u>
+5. Save the new ImmyBot user, and press the "Generate JSON Web Token" button. Copy this value somewhere for later.
 
 **IMPORTANT** - Right now, the password for the api user needs to be reset every 90 days. Your integration will stop working if you do not reset the password. The api team has also mentioned they are looking to remove this functionality for api users.
 
