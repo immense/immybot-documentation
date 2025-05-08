@@ -6,6 +6,40 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0 67.8
+
+Released 05/08/25
+
+### Zip File Script Parameter Changes
+
+Fixed an issue where the zip file parameter value never actually pointed to the zip file.
+
+For example (using $Drivers as the uploaded file):
+
+#### Original behavior
+
+- Drivers pointed to: $($env:SystemRoot)\Temp\ImmyBot\bd09dc93-5ece-74dc-9c72-29ed855e643a\Drivers.zip (this never existed)
+- DriversFolder pointed to: $($env:SystemRoot)\Temp\ImmyBot\bd09dc93-5ece-74dc-9c72-29ed855e643a
+
+#### New behavior
+
+- Drivers will point to: $($env:SystemRoot)\Temp\ImmyBot\bd09dc93-5ece-74dc-9c72-29ed855e643a.zip
+- DriversFolder still points to: $($env:SystemRoot)\Temp\ImmyBot\bd09dc93-5ece-74dc-9c72-29ed855e643a
+
+### Other Improvements
+
+- Added the `TargetGroupFilter` parameter to the `Get-ImmyComputer` command when used in a filter script.
+- An audit log is now added after a schedule executes. In the event of a failure to execute a schedule, a notification will be created with exception details.
+- Improved the load time of the maintenance session details page
+
+### Bug Fixes
+
+- Fixed user access check on local script execution route
+- Fixed some broken maintenance item links in the actions tab of tenants and computers
+- Fixed an issue that was preventing the deployment list from loading
+- Fixed an issue where the Dashboard page filter blanks option was not always filtering out rows correctly
+- Fixed an issue where the server could restart due to an uncaught exception while deleting tenants
+
 ## 0.67.7
 
 Released 04/28/25
