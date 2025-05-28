@@ -6,6 +6,52 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.67.9
+
+Released 05/28/25
+
+### Authentication Improvements
+
+- Enabled sliding expiration for authentication cookies to automatically renew the session while the user remains active which provides a better user experience.
+
+### Agent Log Improvements
+
+- Previously, the agent would put logs all over the place in subdirectories inside `/ProgramData/ImmyBot`. We've consolidated the agent's logs to all go into just a few different files in `/ProgramData/ImmyBot/Logs`.
+
+- A fix has also been applied that prevents clobbering of ephemeral logs by multiple concurrent ephemeral agents.
+
+### General Improvements
+
+- The Azure group dropdown on deployments no longer returns all Azure groups by default. It now supports searching and only returns groups found within the search. This has a potentially significant performance impact for customers who have hundreds or thousands of Azure groups.
+- Maintenance sessions now accurately report "time running" on the list page by accumulating the duration during which the session is actively running.  For example, if a computer goes offline during a maintenance session and comes back online 3 days later, the "time running" value will not include the 3 days the computer was offline.
+- On the software page, when using a custom detection script, we now show the detection string inputs since this data is available inside of a custom detection script.
+- Improved the performance of loading logs for a maintenance session which reduces the overall load time for the page.
+- The computer list's pending tab now allows searching by OS name.
+- On the software page, a "Depends On" column has been added to the versions grid so you can see dependencies without having to edit each version.
+- We now also show canceled for any maintenance action or phase that was actively running when the session was cancelled. This will help prevent confusion about whether an action is still running when the session has been cancelled.
+- The "Triggered By" filter on the sessions page now allows selecting of the "System Automatic Onboarding" or "Schedule" options when attempting to filter maintenance sessions which previously limited users' ability to filter sessions by their trigger source.
+
+### Bug Fixes
+
+- Fixed an issue where the getting started checklist and subscription details API routes were returning a 403 for non-MSP users. These routes are no longer called for non-MSP users.
+- Fixed a caching issue with user impersonation where it would use stale permissions on the frontend before the cache expired a minute later.
+- Fixed a caching issue with application preferences where toggling a preference related to user permissions did not take effect immediately.
+- Fixed an issue where the computer overview page's "Last Boot Time" was displaying "in X hours" instead of "x hours ago".
+- Fixed an issue with tenant deletion that could result in the application restarting due to an unhandled exception.
+- Fixed a permission issue with script execution through the script editor.
+- Fixed an issue on the landing page where the logged in user's name could show up as null.
+- Fixed an issue that allowed for deletion of MSP tenants. As a safety-check, a tenant must manually first be marked as non-MSP in order to be deleted.
+- Fixed an issue with the notification table not showing all notifications
+- Fixed an issue on the software version page where the "Depends On" dropdown would not show all versions when creating a new version.
+- Fixed an issue affecting MSP users where exporting software data to Excel from a specific tenant's view would contain data for all tenants instead of just the selected tenant.
+- Fixed an issue where the navbar dropdown on mobile would incorrectly stay open when toggling the sidebar or clicking outside the dropdown.
+- Fixed an issue in the technician pod where technicians could not change the selected computer
+- Fixed an issue where deleted computers were still showing up in the "Computers Excluded From Maintenance" tenant preference
+- Fixed an issue where the repair button of the computer software did nothing when clicked.
+- Fixed an issue on the billing page where it was showing "undefined" for concurrent sessions when a user had the concurrent sessions add-on.
+- Fixed an issue where computer timeline events would never load due to a poor performing sql query
+- Fixed an issue where tenant admins could not create new maintenance tasks
+
 ## 0 67.8
 
 Released 05/08/25
