@@ -6,6 +6,30 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.68.0
+
+Released 06/05/25
+
+### Improvements
+- Improved exception logging for scripts that fail preflight
+- Updated the "references in deployments" section on the software, software version, and task pages to display more information
+- Added back the ability to permanently delete computers. On the computer list page's deleted tab, you can now permanently delete computers through batch actions.
+- Improved the styling of the software prerequisite builder
+
+### Bug Fixes
+- Fixed an issue where software deployments with a desired state of "not present" would prompt for a license. "Not present" deployments do not require a license to be specified.
+- Fixed an issue with sending test emails on the SMTP form always requiring authentication
+- Fixed an issue where maintenance action activities would fail to save if the activity name was over 150 characters
+- Fixed an issue where the Immy agent integration was able to be deleted, causing unexpected behavior since this is not allowed
+- Fixed an issue where the software prerequisite selector was too narrow
+- Fixed an issue where the application could get stuck in a login loop if it was rendered inside of an iframe
+- Fixed an issue with client name column filtering on the integration clients tab
+- Fixed an issue with the text in the alert using the wrong color in light mode when on the integration clients tab
+- Fixed an issue with an undefined exception being thrown when filtering on the Types column from the integration clients tab
+- Fixed an issue where dynamic integrations supporting listing agents would overwrite the integration's preference for whether online status support was enabled. Online status support is now tied directly to running scripts which can also be disabled on the integrations page in the capabilities section.
+- Fixed an issue where license files would not be found due to inconsistent download paths
+- Fixed an issue where some scripts in onboarding sessions would incorrectly fail due to missing permissions if the session was triggered by a non-msp user
+
 ## 0.67.9
 
 Released 05/28/25
