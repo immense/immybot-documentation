@@ -6,6 +6,15 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.68.1
+
+Released 06/09/25
+
+### Bug Fixes
+
+- Fixed an issue where an integration cmdlet had a parameter removed that would cause some integrations to fail to initialize.
+- Fixed an issue where ImmyBot Agent deployments could sometimes still fail with "Provider ImmyBot Agent does not have a client linked to tenant xxx"
+
 ## 0.68.0
 
 Released 06/05/25
