@@ -142,7 +142,7 @@ Released 04/28/25
 
 ## 0.67.6
 
-## Features and Improvements
+### Features and Improvements
 - Added parent tenant information to computer details overview page (only shown for child tenants)
 - Added creating, updating, and deleting users to the audit log
 - Starting remote control sessions are now recorded in the audit table
@@ -150,7 +150,7 @@ Released 04/28/25
 - Added People option to the user filter selection
 - Made Agent and Computer tables more responsive by improving load times
 
-## Bug Fixes
+### Bug Fixes
 - Fixed an issue where required KeyValuePair parameters were not properly saved or validated
 - Fixed token refresh logic to properly handle expired refresh tokens
 - Fixed "More Actions" button visibility on software page
