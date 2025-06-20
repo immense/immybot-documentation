@@ -194,7 +194,3 @@ Examples:
 - [Maintenance Sessions](./maintenance-sessions.md)
 - [Software Library](./software-library.md)
 - [Maintenance Tasks](./maintenance-tasks.md)
-
----
-
-**Next Steps:** [Creating and Managing Deployments →](./creating-managing-deployments.md) | [Deployment Resolution →](./terminology.md#deployment-resolution)

@@ -64,7 +64,7 @@ This paradigm shift allows you to focus on the end result rather than the proces
 
 ImmyBot consists of several key components that work together to provide a comprehensive automation solution:
 
-### ImmyBot Server
+### ImmyBot Instance
 
 The central management platform that:
 - Orchestrates all automation activities
@@ -113,7 +113,3 @@ ImmyBot is designed to work with:
 - **Browser Requirements**: Chrome, Edge, Firefox, Safari (latest versions)
 
 For detailed system requirements, see the [System Requirements](./system-requirements) page.
-
----
-
-**Next Steps:** [Quick Start Guide →](./quick-start-guide) | [Core Concepts →](./core-concepts)

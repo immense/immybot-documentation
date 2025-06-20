@@ -16,6 +16,7 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
 1. **Verify Network Connectivity**
    - Ensure the computer has internet access
    - Check that it can reach the ImmyBot server
+     - This information is unique per ImmyBot instnace and can be found in **Show More** > **SMTP** > **"Fetch IP Addresses and Hostnames"**
    - Verify firewall rules allow the connection
 
 2. **Check Agent Service**
@@ -51,8 +52,23 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
 2. **Review Identification Methods**
    - Navigate to **Show more** > **Preferences**
    - In the Preferences page, find the Computer-related settings
-   - Review the agent identification methods and order
+   - Review the agent identification methods
    - Ensure appropriate methods are enabled
+     - **Auto resolve new computers with recent OS install dates**
+        Enabling this feature will treat all computers with recently installed OS (less than 24 hours old) as repurposed / wiped,
+        (e.g., A computer already known to immy.bot is wiped clean and setup for a new person. The old reference to this computer will automatically be deleted).
+
+     - **Enable historical computer inventory tracking**
+        Enable this to keep all computer inventory script results instead of only the latest results.
+
+     - **Enable Non-Essential Device Inventorying**
+        Enabling this feature will cause immy.bot to automatically schedule all device inventory jobs when inventory details become outdated. (Recommended)
+        Disabling it will limit immy.bot to scheduling only the inventory tasks required for it to function properly.
+     - **Onboarding**
+        Enabling this feature will allow tenants to choose whether to automatically run maintenance against newly synced computers.
+
+     - **Stale Computer Age**
+        This defines the number of days since an offline computer's last agent connection, after which the computer is considered "stale." Stale computers are displayed on the  tab of the computers list page.
 
 3. **Check Hardware Changes**
    - Significant hardware changes can affect identification
@@ -79,8 +95,8 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
    - Verify the agent is online
    - Restart the agent service if needed
 
-2. **Check Server Load**
-   - High server load can delay session starts
+2. **Check Endpoint Resource Utilization**
+   - High resource utilization can delay session starts
    - Check active sessions count
    - Consider rescheduling during off-peak hours
 
@@ -167,6 +183,9 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
 
 1. **Identify Conflicting Deployments**
    - Search for deployments targeting the same software
+     - ImmyBot will only run 1 Deployment for the same software or task. If you need to run the same software or task multiple times you must create a copy of that task and deploy that.
+       - Example: You need to deploy several security certificiates. You need to make a copy of the global task "Import Certificate"  for each certificate and deploy those once, instead of deploying the global task 4 times in the same scope.
+       - Example: You need to deploy several printers through Immy. You need to make a copy of the global task "Deploy Printer Template Task", rename it ideally to the printer name, and deploy that copied task. You would need to do this for each printer you have.
    - Check for version conflicts
    - Look for different deployment modes
 
@@ -175,8 +194,9 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
    - Consolidate deployments where possible
    - Ensure consistent versioning
 
-3. **Use Deployment Precedence**
-   - Configure deployment precedence settings
+3. **Use Deployment Ordering**
+   - Deployment ordering can be found in **Library** > **Deployment Ordering**
+   - Configure deployment ordering settings
    - Ensure higher-priority deployments take precedence
    - Test to verify correct behavior
 
@@ -214,9 +234,8 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
 ### PSA Integration Ticket Issues
 
 **Symptoms:**
-- Tickets not being created
-- Missing information in tickets
-- Incorrect ticket assignment
+- Integration is unhealthy
+- Missing or out of date agreement information
 
 **Troubleshooting Steps:**
 
@@ -225,20 +244,8 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
    - Test the connection to the PSA
    - Check for API errors
 
-2. **Review Ticket Templates**
-   - Check ticket template configuration
-   - Verify variable substitution is working
-   - Test with a manual ticket creation
-
-3. **Check User Mapping**
-   - Verify user mapping between systems
-   - Ensure technicians are properly mapped
-   - Check default assignments
-
-4. **Review Notification Settings**
-   - Check which events trigger tickets
-   - Verify notification settings
-   - Test with a manual trigger event
+2. **Check User Permissions**
+   - Ensure that the permissions for the API Security group is correct per the documentation of the PSA you're using
 
 ## Performance Issues
 
@@ -309,6 +316,3 @@ If you're still experiencing issues after following these troubleshooting steps:
 - Review the [Agent Troubleshooting](./troubleshooting.md) guide for more detailed agent troubleshooting
 - See [Security Software Configuration](./security-software.md) for security software-specific issues
 
----
-
-**Next Steps:** [Agent Troubleshooting →](./troubleshooting.md) | [Security Software Configuration →](./security-software.md)

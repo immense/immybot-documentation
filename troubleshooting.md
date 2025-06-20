@@ -365,8 +365,3 @@ After resolving your issue, consider reviewing these related resources:
 - [Common Issues](./common-issues.md) - Solutions to frequently encountered problems
 - [Security Software Configuration](./security-software.md) - Configure security software to work with ImmyBot
 - [FAQ](./FAQ.md) - Answers to common questions about ImmyBot
-
----
-
-**Next Steps:** [Common Issues →](./common-issues.md) | [Security Software Configuration →](./security-software.md)
-

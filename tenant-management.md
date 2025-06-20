@@ -219,6 +219,3 @@ Now that you understand how to manage tenants in ImmyBot, you might want to expl
 - [Integration Overview](./integration-overview.md) - Connect ImmyBot to your existing tools
 - [Maintenance and Updates](./maintenance-updates.md) - Configure maintenance for your tenants
 
----
-
-**Next Steps:** [User Roles and Security →](./user-roles.md) | [Integration Overview →](./integration-overview.md)

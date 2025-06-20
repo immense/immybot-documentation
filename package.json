@@ -4,7 +4,7 @@
     "mermaid": "^10.5.0",
     "path": "^0.12.7",
     "vite": "^5.0.11",
-    "vitepress": "^1.0.0-rc.31",
+    "vitepress": "^1.4.0",
     "vitepress-plugin-mermaid": "^2.0.16",
     "vue": "^3.3.4"
   },
@@ -12,6 +12,5 @@
     "docs:dev": "vitepress dev --port 5175",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
-  },
-  "dependencies": {}
+  }
 }

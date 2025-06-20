@@ -3,7 +3,7 @@ import { withMermaid } from "vitepress-plugin-mermaid";
 
 // https://vitepress.dev/reference/site-config
 export default withMermaid({
-    title: "ImmyBot Technical Documentation",
+    title: "ImmyBot Documentation",
     head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }],
         [
@@ -40,15 +40,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 text: 'Core Features',
                 collapsed: false,
                 items: [
-                    { text: 'Tenants & Organizations', link: '/tenants-organizations' },
-                    { text: 'Computers & Inventory', link: '/computers-inventory' },
-                    { text: 'Users & Permissions', link: '/users-permissions' },
+                    { text: 'Tenants', link: '/tenants-organizations' },
+                    { text: 'Computers', link: '/computers-inventory' },
+                    //{ text: 'Users & Permissions', link: '/users-permissions' },
                     { text: 'Software Library', link: '/software-library' },
-                    { text: 'Maintenance Tasks', link: '/maintenance-tasks' },
+                    //{ text: 'Maintenance Tasks', link: '/maintenance-tasks' },
                     { text: 'Maintenance Sessions', link: '/maintenance-sessions' },
                     { text: 'Deployments', link: '/deployments' },
-                    { text: 'User Affinity', link: '/user-affinity' },
+                    //{ text: 'User Affinity', link: '/user-affinity' },
                     { text: 'Targets & Targeting', link: '/targets-targeting' },
+                    { text: 'Script Editor', link: '/script-editor' },
                 ],
             },
             {
@@ -58,7 +59,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Creating & Managing Deployments', link: '/creating-managing-deployments' },
                     { text: 'Managing Software', link: '/managing-software' },
                     { text: 'Working with Tasks', link: '/working-with-tasks' },
-                    { text: 'Computer Onboarding', link: '/computer-onboarding' },
+                    //{ text: 'Computer Onboarding', link: '/computer-onboarding' },
                     { text: 'Agent Installation', link: '/agent-installation' },
                     { text: 'User Management', link: '/add-users' },
                     { text: 'Recommended Deployments', link: '/recommended-deployments' },

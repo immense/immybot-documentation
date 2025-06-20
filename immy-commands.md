@@ -4,20 +4,41 @@ This comprehensive guide explains the powerful scripting capabilities available 
 
 ## Table of Contents
 
-- [Understanding Server-Side Scripts](#understanding-server-side-scripts)
-  - [Metascripts](#metascripts)
-  - [Cloud Scripts](#cloud-scripts)
-- [Common Commands](#common-commands)
-  - [Azure Integration Commands](#azure-integration-commands)
-  - [RMM Integration Commands](#rmm-integration-commands)
-- [Metascript Commands](#metascript-commands)
-  - [Remote Execution](#remote-execution)
-  - [Email Notifications](#email-notifications)
-  - [Computer Management](#computer-management)
-- [Filterscript Commands](#filterscript-commands)
-- [Software Auto Update Commands](#software-auto-update-commands)
-- [ConnectWise Automate Commands](#connectwise-automate-commands)
-- [Best Practices](#best-practices)
+- [ImmyBot Command Reference](#immybot-command-reference)
+  - [Table of Contents](#table-of-contents)
+  - [Understanding Server-Side Scripts](#understanding-server-side-scripts)
+    - [Metascripts](#metascripts)
+      - [Example: Comparing PowerShell Versions](#example-comparing-powershell-versions)
+      - [Output](#output)
+    - [Cloud Scripts](#cloud-scripts)
+  - [Common Commands](#common-commands)
+    - [Azure Integration Commands](#azure-integration-commands)
+      - [Connect-ImmyAzureAD](#connect-immyazuread)
+      - [Get-ImmyAzureAuthHeader](#get-immyazureauthheader)
+    - [RMM Integration Commands](#rmm-integration-commands)
+      - [Get-ProviderInfo](#get-providerinfo)
+  - [Metascript Commands](#metascript-commands)
+    - [Remote Execution](#remote-execution)
+      - [Invoke-ImmyCommand](#invoke-immycommand)
+    - [Email Notifications](#email-notifications)
+      - [Send-ImmyEmail](#send-immyemail)
+    - [Computer Management](#computer-management)
+      - [Refresh-ComputerSystemInfo](#refresh-computersysteminfo)
+      - [Get-RmmComputer](#get-rmmcomputer)
+      - [Get-ImmyComputer](#get-immycomputer)
+  - [Filterscript Commands](#filterscript-commands)
+    - [Get-ImmyComputer](#get-immycomputer-1)
+  - [Software Auto Update Commands](#software-auto-update-commands)
+    - [Add-Script](#add-script)
+    - [Get-Script](#get-script)
+    - [Add-SoftwareVersion](#add-softwareversion)
+    - [Get-AllLocalScripts](#get-alllocalscripts)
+    - [Get-AllGlobalScripts](#get-allglobalscripts)
+  - [ConnectWise Automate Commands](#connectwise-automate-commands)
+    - [Invoke-CWAQuery](#invoke-cwaquery)
+    - [Invoke-CWARestMethod](#invoke-cwarestmethod)
+    - [Get-CWARestPages](#get-cwarestpages)
+  - [Best Practices](#best-practices)
 
 ## Understanding Server-Side Scripts
 
@@ -72,7 +93,7 @@ Provides a wrapper around `Connect-AzureAD` to authenticate with Azure AD.
 
 ```powershell
 # Authenticate with Azure AD and retrieve all users
-Connect-ImmyAzureAD 
+Connect-ImmyAzureAD
 $users = Get-AzureADUser -All $true
 Write-Host "Found $($users.Count) users in Azure AD"
 ```
@@ -416,11 +437,8 @@ When working with ImmyBot commands, consider these best practices:
    ```powershell
    # Run in system context (default)
    Invoke-ImmyCommand { Get-Service } -Context System
-   
+
    # Run in user context
    Invoke-ImmyCommand { Get-Process } -Context User
    ```
 
----
-
-**Next Steps:** [Working with Scripts →](./scripts.md) | [Creating Deployments →](./creating-deployments.md)

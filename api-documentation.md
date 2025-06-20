@@ -441,7 +441,3 @@ Now that you understand the basics of the ImmyBot API, you might want to explore
 - [Scripting Guide](./scripts.md) - Learn how to use the API in scripts
 - [Integration Overview](./integration-overview.md) - Connect ImmyBot to your existing tools
 - [Build Your Own Integration](./build-your-own-integration.md) - Create custom integrations using the API
-
----
-
-**Next Steps:** [Scripting Guide →](./scripts.md) | [Integration Overview →](./integration-overview.md)

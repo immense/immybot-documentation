@@ -9,7 +9,7 @@ Before you begin, make sure you have:
 - Administrator access to the computer you want to set up
 - A USB drive (for physical computers)
 
-## Step 1: Create an ImmyBot USB Drive
+## Step 1: Create an ImmyBot USB Drive for Physical Machines or ISO for Virtual Machines
 
 When you first log in to ImmyBot, the Getting Started Wizard will prompt you to create an ImmyBot flash drive.
 
@@ -17,11 +17,15 @@ When you first log in to ImmyBot, the Getting Started Wizard will prompt you to 
 
 1. Insert a USB drive into your computer
 2. From the ImmyBot dashboard, click on **Download ImmyAgent** in the left navigation
-3. Select **Create USB Drive**
-4. Choose your USB drive from the dropdown menu
-5. Click **Create**
+3. Select the **Onboarding** tenant
+4. Choose **New Computer Flash Drive**
+5. Check **Enable Automatic Onboarding**
+6. Check and set **Set Primary User**
+7. Click **Download PPKG to Flash Drive**
+   1. Note: If you're testing with a virtual machine, please select **Downlaod ISO to Flash Drive** and proceed to Step 2.
+8. Place file on the root of your flashdrive
 
-![USB Drive Creation](https://user-images.githubusercontent.com/1424395/173570369-b7a69a46-95b8-4a85-a4f9-9a4dda57b7e7.png)
+![USB Drive Creation](/FirstComputerSetup.png)
 
 ## Step 2: Connect the Computer
 
@@ -38,13 +42,9 @@ We recommend using a physical computer (Dell, HP, or Lenovo) for your first setu
 
 If you're testing with a virtual machine:
 
-1. From the ImmyBot dashboard, click on **Download ImmyAgent**
-2. Select **Create ISO**
-3. Mount the ISO to your virtual machine
-4. At the Windows region selection screen, press the Windows key 5 times
-5. Alternatively, double-click the PPKG file from the mounted disk
-
-![ISO Creation](https://user-images.githubusercontent.com/1424395/173570635-c50681ea-5612-4326-8203-c0de62e2c154.png)
+1. Mount the ISO from Step 1 to your virtual machine
+2. At the Windows region selection screen, press the Windows key 5 times
+3. Alternatively, double-click the PPKG file from the mounted disk
 
 ## Step 3: Identify the Computer in ImmyBot
 
@@ -54,8 +54,6 @@ Once the provisioning package is applied, the computer will connect to ImmyBot a
 2. Locate your newly connected computer in the list
 3. Click on the computer to begin the onboarding process
 
-![Computer Identification](https://user-images.githubusercontent.com/1424395/173592966-cb7d3ccd-098c-4940-bfa0-a435ca68d513.png)
-
 ## Step 4: Assign Customer and User
 
 For ImmyBot to properly configure the computer, you need to specify:
@@ -63,7 +61,7 @@ For ImmyBot to properly configure the computer, you need to specify:
 1. **Customer (Required)**: The organization that owns the computer
 2. **Primary User (Recommended)**: The person who will primarily use this computer
 
-![Assign Customer and User](https://user-images.githubusercontent.com/1424395/173594097-f975123b-217f-42ef-aa47-2b816a5593b6.png)
+![Assign Customer and User](/OnboardingForm.png)
 
 > **Tip:** If this is your first time using ImmyBot, you'll only have your MSP as a customer and yourself as a user. That's fine for testing - just select these options.
 
@@ -73,7 +71,7 @@ For ImmyBot to properly configure the computer, you need to specify:
 
 After assigning the customer and user:
 
-1. Click **Start Onboarding**
+1. Click **Save and onboard now**
 2. ImmyBot will create an "Onboarding" maintenance session
 3. The system will automatically apply all "Recommended Deployments" to the computer
 4. You can monitor the progress in real-time from the Sessions tab
@@ -128,6 +126,3 @@ If you encounter issues during the onboarding process:
 - Verify that any security software isn't blocking the ImmyBot agent
 - See our [Troubleshooting Guide](troubleshooting.md) for more detailed help
 
----
-
-**Next Steps:** [Core Concepts →](core-concepts.md) | [Creating Your First Deployment →](first-deployment.md)

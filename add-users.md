@@ -73,7 +73,3 @@ After adding users, you might want to explore:
 - [User Roles and Security](./user-roles.md) - Learn about user permissions and security
 - [Tenant Management](./tenant-management.md) - Configure tenant access for users
 - [Azure AD/Entra ID Integration](./azure-graph-permissions-setup.md) - Configure Azure AD/Entra permissions
-
----
-
-**Next Steps:** [User Roles and Security →](./user-roles.md) | [Tenant Management →](./tenant-management.md)

@@ -77,18 +77,18 @@ Function Get-ImmyBotApiAuthToken {
         [Parameter(Mandatory)]
         [string]$ApiEndpointUri
     )
-    
+
     $RequestAccessTokenUri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
     $body = "grant_type=client_credentials&client_id=$applicationId&client_secret=$Secret&scope=$($ApiEndpointUri)/.default"
     $contentType = 'application/x-www-form-urlencoded'
-    
+
     try {
         $Token = Invoke-RestMethod -Method Post -Uri $RequestAccessTokenUri -Body $body -ContentType $contentType
         return $Token
     }
-    catch { 
+    catch {
         Write-Error "Failed to obtain authentication token: $_"
-        throw 
+        throw
     }
 }
 
@@ -104,28 +104,28 @@ Function Invoke-ImmyBotRestMethod {
     param(
         [Parameter(Mandatory)]
         [string]$Endpoint,
-        
+
         [Parameter()]
         [string]$Method = "GET",
-        
+
         [Parameter()]
         $Body
     )
-    
+
     if($body -is [Hashtable]) {
         $Body = $Body | ConvertTo-Json -Depth 100
     }
-    
+
     $Endpoint = $Endpoint.TrimStart('/')
     $params = @{
         Method = $Method
         ContentType = "application/json"
     }
-    
+
     if ($Body) {
         $params.Body = $body
     }
-    
+
     try {
         Invoke-RestMethod -Uri "$($Script:BaseURL)/$Endpoint" -Headers $Script:ImmyBotApiAuthHeader @params
     }
@@ -237,14 +237,14 @@ At its core, an outbound integration is a PowerShell-based implementation of the
 
 Capabilities are defined through interfaces that typically start with `ISupports...`. Each capability adds specific functionality to your integration:
 
-| Capability Interface | Description |
-|----------------------|-------------|
-| `ISupportsListingClients` | Lists customers/clients from the external system |
-| `ISupportsListingAgents` | Lists agents/computers from the external system |
-| `ISupportsInventoryIdentification` | Provides scripts to identify agents on computers |
-| `ISupportsTenantInstallToken` | Retrieves installation tokens for specific tenants |
-| `ISupportsTenantUninstallToken` | Retrieves uninstallation tokens for specific tenants |
-| `ISupportsHttpRequest` | Handles incoming HTTP requests (webhooks) |
+| Capability Interface               | Description                                          |
+| ---------------------------------- | ---------------------------------------------------- |
+| `ISupportsListingClients`          | Lists customers/clients from the external system     |
+| `ISupportsListingAgents`           | Lists agents/computers from the external system      |
+| `ISupportsInventoryIdentification` | Provides scripts to identify agents on computers     |
+| `ISupportsTenantInstallToken`      | Retrieves installation tokens for specific tenants   |
+| `ISupportsTenantUninstallToken`    | Retrieves uninstallation tokens for specific tenants |
+| `ISupportsHttpRequest`             | Handles incoming HTTP requests (webhooks)            |
 
 When you implement a capability, ImmyBot automatically adds the corresponding UI elements and functionality. For example, implementing `ISupportsListingClients` adds a Clients tab to your integration's page:
 
@@ -290,14 +290,14 @@ $Integration = New-DynamicIntegration -Init {
     param(
         [Parameter(Mandatory)]
         [Uri]$ApiEndpoint,
-        
+
         [Parameter(Mandatory)]
         [Password(StripValue = $true)]  # Securely stores the password
         $ApiKey
     )
 
     # Validate parameters or establish connection here
-    
+
     [OpResult]::Ok()
 } -HealthCheck {
     New-HealthyResult
@@ -317,25 +317,25 @@ $Integration = New-DynamicIntegration -Init {
     param(
         [Parameter(Mandatory)]
         [Uri]$ApiEndpoint,
-        
+
         [Parameter(Mandatory)]
         [Password(StripValue = $true)]
         $ApiKey
     )
-    
+
     # Store parameters in the integration context
     $IntegrationContext.ApiEndpoint = $ApiEndpoint
     $IntegrationContext.ApiKey = $ApiKey
-    
+
     # You can also store connection objects or other data
     $IntegrationContext.LastConnectionTime = Get-Date
-    
+
     [OpResult]::Ok()
 } -HealthCheck {
     # Access the stored values in other script blocks
     $endpoint = $IntegrationContext.ApiEndpoint
     $lastConnection = $IntegrationContext.LastConnectionTime
-    
+
     Write-Verbose "Checking health of connection to $endpoint (last connected: $lastConnection)"
     New-HealthyResult
 }
@@ -356,7 +356,7 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingClien
     [CmdletBinding()]
     [OutputType([Immybot.Backend.Domain.Providers.IProviderClientDetails[]])]
     param()
-    
+
     # Retrieve clients from your external system
     # This example uses mock data
     @("Client1", "Client2") | ForEach-Object {
@@ -378,12 +378,12 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingAgent
         [Parameter()]
         [string[]]$ClientIds = $null  # IDs of clients mapped in the UI
     )
-    
+
     # Retrieve agents from your external system
     # This example uses mock data
     foreach ($clientId in $ClientIds) {
         Write-Verbose "Retrieving agents for client: $clientId"
-        
+
         @("Agent1", "Agent2") | ForEach-Object {
             # Create an agent object for each agent
             New-IntegrationAgent -AgentId $_ -Name $_ -ClientId $clientId
@@ -408,21 +408,21 @@ function Connect-ExternalAPI {
         [Parameter(Mandatory)]
         [string]$ApiKey
     )
-    
+
     # Implementation details...
 }
 
 function Get-ExternalClients {
     [CmdletBinding()]
     param()
-    
+
     # Implementation details...
 }
 
 function Get-ExternalAgents {
     [CmdletBinding()]
     param([string]$ClientId)
-    
+
     # Implementation details...
 }
 
@@ -439,7 +439,7 @@ Then use the module in your integration:
 $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingClients -GetClients {
     # Import your module
     Import-Module YourIntegrationModule
-    
+
     # Use the module functions
     Get-ExternalClients | ForEach-Object {
         New-IntegrationClient -ClientId $_.Id -ClientName $_.Name
@@ -448,7 +448,7 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingClien
 
 $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingAgents -GetAgents {
     Import-Module YourIntegrationModule
-    
+
     foreach ($clientId in $ClientIds) {
         Get-ExternalAgents -ClientId $clientId | ForEach-Object {
             New-IntegrationAgent -AgentId $_.Id -Name $_.Name -ClientId $clientId
@@ -475,11 +475,11 @@ The `$IntegrationContext` is a special hashtable that serves as a secure storage
 
 Since the `$IntegrationContext` is not directly accessible from maintenance scripts, ImmyBot provides special cmdlets to securely access integration data:
 
-| Cmdlet | Description |
-|--------|-------------|
-| `Get-IntegrationAgentInstallToken` | Retrieves installation tokens for agents |
+| Cmdlet                                | Description                                 |
+| ------------------------------------- | ------------------------------------------- |
+| `Get-IntegrationAgentInstallToken`    | Retrieves installation tokens for agents    |
 | `Get-IntegrationTenantUninstallToken` | Retrieves uninstallation tokens for tenants |
-| `Get-IntegrationAgentUninstallToken` | Retrieves uninstallation tokens for agents |
+| `Get-IntegrationAgentUninstallToken`  | Retrieves uninstallation tokens for agents  |
 
 These cmdlets automatically determine the correct integration and tenant context based on the current maintenance action, so you don't need to provide any parameters.
 
@@ -863,7 +863,3 @@ For more information on working with ImmyBot's API and integrations, see:
 - [API Documentation](./api-documentation.md)
 - [Custom Integrations](./custom-integrations.md)
 - [Integration Overview](./integration-overview.md)
-
----
-
-**Next Steps:** [API Documentation →](./api-documentation.md) | [Custom Integrations →](./custom-integrations.md)

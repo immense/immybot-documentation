@@ -102,6 +102,3 @@ After testing in Windows Sandbox, you might want to:
 - [Configure maintenance schedules](./maintenance-updates.md) for your production environment
 - [Review common issues](./common-issues.md) that might affect your deployments
 
----
-
-**Next Steps:** [Creating Deployments →](./creating-deployments.md) | [Troubleshooting →](./troubleshooting.md)

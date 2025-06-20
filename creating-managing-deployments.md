@@ -240,6 +240,3 @@ If software installations are failing:
 - [Software Library](./software-library.md)
 - [Maintenance Tasks](./maintenance-tasks.md)
 
----
-
-**Next Steps:** [Deployments →](./deployments.md) | [Maintenance Sessions →](./maintenance-sessions.md)

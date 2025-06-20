@@ -4,12 +4,21 @@ ImmyBot comes with several pre-configured "Recommended Deployments" that provide
 
 ## Table of Contents
 
-- [Create Profile for Primary User](#create-profile-for-primary-user)
-- [Microsoft 365 Apps](#microsoft-365-apps)
-- [Manufacturer Updates](#delllenovo-hp-updates)
-- [Adobe Reader](#adobe-reader)
-- [Set Computer Name and Domain Join](#set-computer-name-and-domain-join)
-- [Customizing Recommended Deployments](#customizing-recommended-deployments)
+- [Recommended Deployments](#recommended-deployments)
+  - [Table of Contents](#table-of-contents)
+  - [Create Profile for Primary User](#create-profile-for-primary-user)
+    - [How It Works](#how-it-works)
+  - [Microsoft 365 Apps](#microsoft-365-apps)
+    - [Included Applications](#included-applications)
+    - [Smart License Detection](#smart-license-detection)
+  - [Dell/Lenovo/HP Updates](#delllenovohp-updates)
+    - [Manufacturer-Specific Targeting](#manufacturer-specific-targeting)
+  - [Adobe Reader](#adobe-reader)
+    - [Handling Exceptions](#handling-exceptions)
+  - [Set Computer Name and Domain Join](#set-computer-name-and-domain-join)
+    - [Customization Recommended](#customization-recommended)
+  - [Customizing Recommended Deployments](#customizing-recommended-deployments)
+  - [Next Steps](#next-steps)
 
 ## Create Profile for Primary User
 
@@ -119,6 +128,3 @@ After reviewing the recommended deployments:
 - Learn about [deployment resolution](./terminology.md#deployment-resolution) to handle exceptions
 - Explore [maintenance sessions](./terminology.md#maintenance-session) to apply your deployments
 
----
-
-**Next Steps:** [Creating Deployments →](./creating-deployments.md) | [Deployment Resolution →](./terminology.md#deployment-resolution)
