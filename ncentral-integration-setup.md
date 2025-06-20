@@ -79,19 +79,15 @@ Lastly, flip the `Enable Integration` switch.
 
 ## Import your customers
 
-![](./.vitepress/images/2021-03-23-18-57-19.png)
-
-![](./.vitepress/images/2021-03-23-19-01-36.png)
+1. From the CW Automate Integration screen click on Clients
+2. Link your MSP tenant manually first
+3. You can bulk Create tenants or manually link tenants between ImmyBot and CW Automate
+   1. Alternativly, ImmyBot will suggest tenants that it thinks are the correct ones to link
 
 Alternatively, you can create/map only certain customers.
-
 When you map a customer from an RMM, the computers will undergo Identification
 
-![](./.vitepress/images/2021-03-23-19-03-33.png)
-
-![](./.vitepress/images/2021-03-23-19-06-55.png)
-
-![](./.vitepress/images/2021-03-23-19-08-30.png)
+![](./LinkingClientsInIntegration.png)
 
 ## Troubleshooting
 
