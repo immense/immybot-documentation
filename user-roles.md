@@ -134,7 +134,3 @@ After understanding user roles, you might want to explore:
 - [Tenant Management](./tenant-management.md) - Configure tenant access and settings
 - [Security Best Practices](./security-software.md) - Enhance overall system security
 
----
-
-**Next Steps:** [Adding Users →](./add-users.md) | [Tenant Management →](./tenant-management.md)
-

@@ -251,7 +251,3 @@ Now that you understand how to manage maintenance and updates in ImmyBot, you mi
 - [Common Issues](./common-issues.md) - Troubleshoot common maintenance problems
 - [Creating Deployments](./creating-deployments.md) - Create effective deployments for your environment
 - [Working with Tasks](./working-with-tasks.md) - Use tasks to enhance your maintenance capabilities
-
----
-
-**Next Steps:** [Common Issues →](./common-issues.md) | [Creating Deployments →](./creating-deployments.md)

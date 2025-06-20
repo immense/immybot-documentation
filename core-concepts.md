@@ -137,6 +137,3 @@ Now that you understand the core concepts of ImmyBot, you're ready to explore:
 - [Creating Deployments](./creating-deployments.md) - Learn how to create effective deployments
 - [Scripting Guide](./scripts.md) - Master the art of scripting in ImmyBot
 
----
-
-**Next Steps:** [Common Workflows →](./common-workflows.md) | [Creating Deployments →](./creating-deployments.md)

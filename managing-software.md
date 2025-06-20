@@ -192,7 +192,3 @@ Now that you understand how to manage software in ImmyBot, you might want to exp
 - [Creating Deployments](./creating-deployments.md) - Learn advanced deployment techniques
 - [Working with Tasks](./working-with-tasks.md) - Use tasks to configure and maintain software
 - [Scripting Guide](./scripts.md) - Master the art of scripting for software management
-
----
-
-**Next Steps:** [Creating Deployments →](./creating-deployments.md) | [Working with Tasks →](./working-with-tasks.md)

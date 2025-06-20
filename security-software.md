@@ -317,7 +317,3 @@ After configuring your security software:
 - [Agent Troubleshooting](./troubleshooting.md) - For more detailed agent troubleshooting
 - [Common Issues](./common-issues.md) - For other common ImmyBot issues
 - [Integration Overview](./integration-overview.md) - To integrate ImmyBot with your security tools
-
----
-
-**Next Steps:** [Agent Troubleshooting →](./troubleshooting.md) | [Common Issues →](./common-issues.md)

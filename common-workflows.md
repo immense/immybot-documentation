@@ -212,7 +212,3 @@ Now that you're familiar with common workflows in ImmyBot, you might want to exp
 - [Creating Deployments](./creating-deployments.md) - Learn advanced deployment techniques
 - [Managing Computers](./managing-computers.md) - Discover more ways to manage your computer inventory
 - [Scripting Guide](./scripts.md) - Master the art of scripting in ImmyBot
-
----
-
-**Next Steps:** [Creating Deployments →](./creating-deployments.md) | [Managing Computers →](./managing-computers.md)

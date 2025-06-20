@@ -54,16 +54,16 @@ Cloud integrations connect ImmyBot to cloud platforms. These integrations:
 
 ImmyBot currently supports the following integrations:
 
-| Integration | Type | Key Features |
-|-------------|------|--------------|
-| ConnectWise Automate | RMM | Computer discovery, remote control |
-| ConnectWise Control | RMM | Remote control, session recording |
-| N-Central | RMM | Computer discovery, customer mapping |
-| NinjaRMM | RMM | Computer discovery, customer mapping |
-| ConnectSecure | RMM | Remote control, session recording |
-| ConnectWise Manage | PSA | Customer sync, ticket integration |
-| HaloPSA | PSA | Customer sync, ticket integration |
-| Azure | Identity | User/group import, authentication |
+| Integration          | Type     | Key Features                         |
+| -------------------- | -------- | ------------------------------------ |
+| ConnectWise Automate | RMM      | Computer discovery, remote control   |
+| ConnectWise Control  | RMM      | Remote control, session recording    |
+| N-Central            | RMM      | Computer discovery, customer mapping |
+| NinjaRMM             | RMM      | Computer discovery, customer mapping |
+| ConnectSecure        | RMM      | Remote control, session recording    |
+| ConnectWise Manage   | PSA      | Customer sync, ticket integration    |
+| HaloPSA              | PSA      | Customer sync, ticket integration    |
+| Azure                | Identity | User/group import, authentication    |
 
 ## Choosing the Right Integrations
 
@@ -129,7 +129,3 @@ Ready to set up your integrations? Choose from the following guides:
 - [HaloPSA Setup](./halo-integration-setup.md)
 - [Azure Setup](./azure-graph-permissions-setup.md)
 - [Build Your Own Integration](./build-your-own-integration.md)
-
----
-
-**Next Steps:** [RMM Integrations →](./connectwise-control-integration-setup.md) | [PSA Integrations →](./halo-integration-setup.md) | [Azure Integration →](./azure-graph-permissions-setup.md)

@@ -152,9 +152,9 @@ foreach ($computer in $onlineComputers) {
     $scriptBlock = {
         Get-PSDrive -PSProvider FileSystem | Where-Object { $_.Free -lt 10GB -and $_.Used -gt 0 }
     }
-    
+
     $result = Invoke-ImmyCommand -ComputerID $computer.ID -ScriptBlock $scriptBlock
-    
+
     if ($result) {
         foreach ($drive in $result) {
             $results += [PSCustomObject]@{
@@ -235,7 +235,3 @@ Now that you understand how to work with tasks in ImmyBot, you might want to exp
 - [Scripting Guide](./scripts.md) - Master the art of scripting in ImmyBot
 - [Metascripts / Cloud Scripts](./immy-commands.md) - Learn about advanced scripting capabilities
 - [Common Workflows](./common-workflows.md) - See examples of common task scenarios
-
----
-
-**Next Steps:** [Scripting Guide →](./scripts.md) | [Metascripts / Cloud Scripts →](./immy-commands.md)

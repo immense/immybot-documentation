@@ -11,7 +11,7 @@ ImmyBot uses a declarative approach focused on desired state configuration. Inst
 ## Prerequisites
 
 Before you begin, make sure you have:
-- An active ImmyBot account (sign up at [immy.bot](https://immy.bot) if you don't have one)
+- An active ImmyBot account (sign up at [immy.bot](https://www.immy.bot/pricing/) if you don't have one)
 - Administrator access to a test computer (physical or virtual)
 - A USB drive (for physical computers)
 
@@ -142,6 +142,3 @@ Congratulations! You've successfully set up ImmyBot, connected your first comput
 - [Creating Deployments](./creating-deployments.md) - Explore advanced deployment options
 - [Integration Overview](./integration-overview.md) - Connect ImmyBot to your existing tools
 
----
-
-**Next Steps:** [Core Concepts →](./core-concepts.md) | [First Computer Setup →](./first-computer-setup.md)
