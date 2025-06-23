@@ -5,13 +5,16 @@ permissions:
   contents: write
   pull-requests: write
 
+# on:
+#   pull_request:
+#     types:
+#       - opened
+#       - reopened
+#       - synchronize
+#       - closed
+
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - closed
+  workflow_dispatch:
 
 concurrency: preview-${{ github.ref }}
 
