@@ -6,6 +6,141 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.69.0
+
+Released 06/23/25
+
+### Support Ticket Integration Capability
+
+- A new integration capability, `ISupportsSupportTicketDetails` has been added that allows you to change where support requests are sent.
+- In addition to controlling where support requests are sent, you can modify some of the branding on the support request sidebar.
+
+The following is an example integration script:
+
+```powershell
+$Integration = New-DynamicIntegration -Init {
+    param(
+
+    )
+    [OpResult]::Ok()
+} -HealthCheck {
+    New-HealthyResult
+}
+
+$Integration | Add-DynamicIntegrationCapability -Interface ISupportsSupportTicketDetailOverride -CreateTicket {
+    [CmdletBinding()]
+    [OutputType([SupportTicketCreationResult])]
+    param(
+        [Parameter(Mandatory)]
+        [string]$requesterEmail,
+        [Parameter(Mandatory)]
+        [string]$subject,
+        [Parameter(Mandatory)]
+        [string]$notes,
+        [string[]]$blobUrls,
+        [string]$sessionUrl,
+        [Parameter(Mandatory)]
+        [Immybot.Backend.Domain.Models.User]$user
+    )
+    try {
+        Write-Verbose "Creating support ticket with subject: $subject"
+        Write-Verbose "Requester email: $requesterEmail"
+
+        $ticketData = @{
+            email = $requesterEmail
+            subject = $subject
+            description = $notes
+            attachments = $attachmentUrls
+            userId = $user.Id
+            userName = "$($user.FirstName) $($user.LastName)"
+            # Add any other fields required by your ticketing system
+        }
+        Write-Output $ticketData
+        # Make the API call to your ticketing system
+        # This is just an example - replace with your actual API endpoint and authentication
+        # $headers = @{
+        #     'Authorization' = 'Bearer your-api-token'
+        #     'Content-Type' = 'application/json'
+        # }
+        # $response = Invoke-RestMethod -Uri 'https://your-psa-system.com/api/tickets' `
+        #                              -Method Post `
+        #                              -Headers $headers `
+        #                              -Body ($ticketData | ConvertTo-Json) `
+        #                              -ErrorAction Stop
+
+        # For this example, we'll simulate a successful ticket creation
+        # In a real implementation, you would extract the ticket ID and URL from the API response
+        $ticketId = [Guid]::NewGuid().ToString()
+        $ticketUrl = "https://your-psa-system.com/tickets/$ticketId"
+
+        Write-Verbose "Ticket created successfully with ID: $ticketId"
+
+        # Create and return the result object
+        $result = [SupportTicketCreationResult]::new()
+        $result.Success = $true
+        $result.Message = "Support ticket created successfully"
+        return $result
+    }
+    catch {
+        # Handle any errors that occur during ticket creation
+        Write-Error "Error creating support ticket: $($_.Exception.Message)"
+
+        $result = [SupportTicketCreationResult]::new()
+        $result.Success = $false
+        $result.Message = "Failed to create support ticket: $($_.Exception.Message)"
+
+        return $result
+    }
+
+} -NewSupportFormBranding {
+    [CmdletBinding()]
+    [OutputType([DotNext.Optional[Immybot.Backend.Providers.Interfaces.ProviderSupportFormBranding]])]
+    param(
+
+    )
+
+    # Replace the default Immybot Support Sidebar and Session Support Modal UI details with your own branding
+
+    # Available parameters:
+    # - $supportSidebarTitle: The title of the support sidebar panel
+    # - $headerAlertMessage: The text residing in the alert at the top of the support sidebar panel
+    # - $descriptionPlaceholderText: The placeholder text for the description field in the support form
+    # - $descriptionAlertMessage: The text residing in the alert under the description field
+    # - $showConfirmationCheckbox: Boolean indicating whether to show the 'I've read FAQ' confirmation checkbox
+    # - $footerMessage: The text residing in the footer of the support sidebar panel
+    # - $sessionSupportButtonTitle: The title of the button for the session support modal
+    # - $showSessionSupportConfirmCheckbox: Boolean indicating whether to show the 'I've read the Security Software Exclusions' confirmation checkbox in the session support modal
+
+    New-SupportFormBranding -SupportSidebarTitle 'Your Branding Request Title' `
+                            -HeaderAlertMessage 'Welcome to [Brand] Customer Care!' `
+                            -DescriptionPlaceholderText 'Describe your experience or issue here' `
+                            -DescriptionAlertMessage 'Please provide specific details about your order, location, and time of visit to help us serve you better!' `
+                            -ShowConfirmationCheckbox $false `
+                            -FooterMessage 'Thank you for contacting [Brand]. We are committed to making things right!' `
+                            -SessionSupportButtonTitle 'Request Help' `
+                            -ShowSessionSupportConfirmCheckbox $false `
+}
+
+return $Integration
+```
+This would result in the the following support request sidebar:
+
+![Image](https://camo.githubusercontent.com/400ac37e3fdfe9c4e7b4a39fae7daf5ef7dc71d5c96416901de7396b9decba5b/68747470733a2f2f696d6d79626f742e626c6f622e636f72652e77696e646f77732e6e65742f72656c656173652d6d656469612f31383466303733302d313739662d343433372d383366652d303838393461356433666531)
+
+### Improvements
+
+- Added a notes field to the computer details overview tab. The notes also show up in the main computer list page.
+- Added a "Computers" column to the tenant list page that displays the total number of computers for each tenant.
+- Updated the Immy Agent integration page to no longer show the form since it can't be updated
+- Continued work on implementing role-based access control on the server
+
+### Bug Fixes
+
+- Fixed an issue where assigning a tenant's parent could create a circular reference
+- Fixed an issue where MSP non-admin users were unable to create tenants.
+- Fixed an issue with cloud sessions where it would incorrectly not start the session if a computer session for that tenant was running
+- Fixed an issue where onboarding sessions would occasionally show the wrong user that triggered it. This issue was related to caching and did not affect security.
+
 ## 0.68.1
 
 Released 06/09/25
