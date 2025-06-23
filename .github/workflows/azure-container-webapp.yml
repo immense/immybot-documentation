@@ -30,7 +30,7 @@ jobs:
 
 
       - name: Zip artifact for deployment
-        run: zip release.zip .vitepress/dist -r
+        run: zip release.zip .vitepress/dist/* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
