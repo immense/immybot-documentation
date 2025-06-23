@@ -1,0 +1,1 @@
+import{_ as e,c as t,o}from"./chunks/framework.CF3HqmxZ.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"deployment-resolution.md","filePath":"deployment-resolution.md"}'),n={name:"deployment-resolution.md"};function r(a,s,c,l,p,d){return o(),t("div")}const _=e(n,[["render",r]]);export{m as __pageData,_ as default};
