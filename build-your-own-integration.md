@@ -29,8 +29,9 @@ Before creating an inbound integration, you need to set up authentication:
 
 1. **Create an App Registration in Microsoft Entra ID (Azure AD)**:
    - Navigate to [Microsoft Entra ID App Registrations](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/CreateApplicationBlade/quickStartType~/null/isMSAApp~/false)
-   - Create a new registration with default settings
-   - Copy the Client (Application) ID for later use
+   - Create a new registration with default settings, do not change anything except what is required
+   - Click Register
+   - Copy the Client (Application) ID for later use.
 
 2. **Create a Client Secret**:
    - In your App Registration, go to "Certificates & Secrets"
@@ -54,11 +55,12 @@ This example demonstrates how to create a script that:
 
 
 ```powershell
+
 # Configuration Variables
 $AzureDomain = ''          # Your domain, e.g., contoso.com
 $ClientID = ''             # Application (Client) ID from App Registration
 $Secret = ''               # Client Secret value from App Registration
-$InstanceSubdomain = ''    # Your ImmyBot instance name (without .immy.bot)
+$InstanceSubdomain = ''    # Your ImmyBot instance subdomain name (without .immy.bot)
 
 # Authentication Setup
 $TokenEndpointUri = [uri](Invoke-RestMethod "https://login.windows.net/$AzureDomain/.well-known/openid-configuration").token_endpoint

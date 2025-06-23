@@ -156,18 +156,6 @@ For more information, see [Recommended Deployments](./recommended-deployments.md
 
 ## Best Practices
 
-### Naming Conventions
-
-Use clear, descriptive names for your deployments:
-
-- Include the software name and version
-- Indicate the target audience if specific
-- Use prefixes for organization (e.g., "SW:" for software, "TASK:" for tasks)
-
-Examples:
-- "SW: Google Chrome - All Users"
-- "TASK: Configure Windows Settings - Accounting"
-
 ### Targeting Strategy
 
 - Start with smaller, specific targets before expanding to larger groups
@@ -182,7 +170,7 @@ Examples:
 
 ### Testing and Validation
 
-- Test deployments on a small group before applying to all computers
+- Test deployments in a Windows Sandbox where available
 - Monitor maintenance logs for deployment issues
 - Regularly review and update deployments as needed
 

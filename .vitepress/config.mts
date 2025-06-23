@@ -63,6 +63,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Agent Installation', link: '/agent-installation' },
                     { text: 'User Management', link: '/add-users' },
                     { text: 'Recommended Deployments', link: '/recommended-deployments' },
+                    { text: 'SMTP', link: '/smtp' },
+                    { text: 'Branding', link: '/branding' },
                 ],
             },
             {
