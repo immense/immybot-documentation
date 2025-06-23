@@ -3,6 +3,7 @@ name: Deploy PR previews
 
 permissions:
   contents: write
+  pull-requests: write
 
 on:
   pull_request:
