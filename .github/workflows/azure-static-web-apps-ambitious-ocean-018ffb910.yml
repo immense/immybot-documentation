@@ -36,6 +36,10 @@ jobs:
         run: |
           yarn install
           yarn docs:build
+          cd .vitepress/dist
+          touch robots.txt
+          echo "User-agent: *" > robots.txt
+          echo "Disallow: /" >> robots.txt
 
       - name: Build And Deploy
         id: builddeploy
