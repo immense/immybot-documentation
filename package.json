@@ -13,5 +13,7 @@
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@actions/http-client": "^2.2.3"
+  }
 }
