@@ -1,6 +1,9 @@
 # .github/workflows/preview.yml
 name: Deploy PR previews
 
+permissions:
+  contents: write
+
 on:
   pull_request:
     types:
