@@ -61,7 +61,7 @@ For ImmyBot to properly configure the computer, you need to specify:
 1. **Customer (Required)**: The organization that owns the computer
 2. **Primary User (Recommended)**: The person who will primarily use this computer
 
-![Assign Customer and User](OnboardingForm.png)
+![Assign Customer and User](/Documentation/GettingStarted/OnboardingForm.png)
 
 > **Tip:** If this is your first time using ImmyBot, you'll only have your MSP as a customer and yourself as a user. That's fine for testing - just select these options.
 

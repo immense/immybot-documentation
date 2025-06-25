@@ -4,7 +4,7 @@
 All columns have a search and filter function, as well as the ability to sort said columns. You can also create new tenants manually here, and run batch actions against a selection of tenants.
 
 - New tenants can be created manually, however we do recommend you manage tenant creation through an integration. Please see
-[Tenant Management](./tenant-management.md)
+[Tenant Management](/Documentation/Administration/tenant-management.md)
 
 - Bulk actions allow you to make mass changes to tenant preferences to streamline your tenant managment where necessary.
 
