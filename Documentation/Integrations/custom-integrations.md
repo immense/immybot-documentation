@@ -52,7 +52,7 @@ $headers = @{
 $response = Invoke-RestMethod -Uri "$baseUrl/computers" -Headers $headers -Method Get
 ```
 
-See the [API Documentation](./api-documentation.md) for a complete reference of available endpoints.
+See the [API Documentation](/Documentation/Reference/api-documentation.md) for a complete reference of available endpoints.
 
 ## Webhook Integration
 
@@ -92,7 +92,7 @@ public class ImmyBotWebhookController : ControllerBase
                 break;
             // Handle other event types
         }
-        
+
         return Ok();
     }
 }
@@ -139,7 +139,7 @@ $rmmCustomers = Invoke-RestMethod -Uri "$rmmBaseUrl/customers" -Headers $rmmHead
 foreach ($customer in $rmmCustomers) {
     # Check if tenant exists
     $tenantResponse = Invoke-RestMethod -Uri "$immyBaseUrl/tenants?name=$($customer.name)" -Headers $immyHeaders -Method Get
-    
+
     if ($tenantResponse.total -eq 0) {
         # Create tenant
         $tenantData = @{
@@ -147,16 +147,16 @@ foreach ($customer in $rmmCustomers) {
             external_id = $customer.id
             integration_source = "Custom RMM"
         } | ConvertTo-Json
-        
+
         $newTenant = Invoke-RestMethod -Uri "$immyBaseUrl/tenants" -Headers $immyHeaders -Method Post -Body $tenantData
         $tenantId = $newTenant.id
     } else {
         $tenantId = $tenantResponse.tenants[0].id
     }
-    
+
     # Get computers for this customer
     $rmmComputers = Invoke-RestMethod -Uri "$rmmBaseUrl/customers/$($customer.id)/computers" -Headers $rmmHeaders -Method Get
-    
+
     # Import computers to ImmyBot
     foreach ($computer in $rmmComputers) {
         $computerData = @{
@@ -173,10 +173,10 @@ foreach ($customer in $rmmCustomers) {
                 model = $computer.model
             }
         } | ConvertTo-Json
-        
+
         # Check if computer exists
         $computerResponse = Invoke-RestMethod -Uri "$immyBaseUrl/computers?external_id=$($computer.id)" -Headers $immyHeaders -Method Get
-        
+
         if ($computerResponse.total -eq 0) {
             # Create computer
             Invoke-RestMethod -Uri "$immyBaseUrl/computers" -Headers $immyHeaders -Method Post -Body $computerData
@@ -231,7 +231,7 @@ function Create-PsaTicket {
         [string]$Description,
         [string]$Priority = "Medium"
     )
-    
+
     $ticketData = @{
         customer_id = $CustomerId
         summary = $Summary
@@ -239,7 +239,7 @@ function Create-PsaTicket {
         priority = $Priority
         status = "New"
     } | ConvertTo-Json
-    
+
     $response = Invoke-RestMethod -Uri "$psaBaseUrl/tickets" -Headers $psaHeaders -Method Post -Body $ticketData
     return $response
 }
@@ -251,13 +251,13 @@ $failedSessions = Invoke-RestMethod -Uri "$immyBaseUrl/sessions?status=Failed" -
 foreach ($session in $failedSessions.sessions) {
     # Get computer details
     $computer = Invoke-RestMethod -Uri "$immyBaseUrl/computers/$($session.computer_id)" -Headers $immyHeaders -Method Get
-    
+
     # Get tenant details
     $tenant = Invoke-RestMethod -Uri "$immyBaseUrl/tenants/$($computer.tenant_id)" -Headers $immyHeaders -Method Get
-    
+
     # Get PSA customer ID from tenant external_id
     $psaCustomerId = $tenant.external_id
-    
+
     # Create ticket summary and description
     $summary = "ImmyBot Maintenance Failed: $($computer.name)"
     $description = @"
@@ -269,15 +269,15 @@ End Time: $($session.end_time)
 
 Failed Actions:
 "@
-    
+
     # Get session details
     $sessionDetails = Invoke-RestMethod -Uri "$immyBaseUrl/sessions/$($session.id)" -Headers $immyHeaders -Method Get
-    
+
     # Add failed actions to description
     foreach ($action in $sessionDetails.actions | Where-Object { $_.status -eq "Failed" }) {
         $description += "`n- $($action.deployment_name): $($action.details)"
     }
-    
+
     # Create ticket in PSA
     Create-PsaTicket -CustomerId $psaCustomerId -Summary $summary -Description $description -Priority "High"
 }
@@ -308,11 +308,11 @@ $tenants = Get-ImmyTenants
 foreach ($tenant in $tenants) {
     # Filter users for this tenant
     $tenantUsers = $externalUsers | Where-Object { $_.CompanyId -eq $tenant.external_id }
-    
+
     foreach ($user in $tenantUsers) {
         # Check if user exists in ImmyBot
         $existingUser = Get-ImmyUser -Email $user.Email
-        
+
         if ($existingUser) {
             # Update user
             Update-ImmyUser -UserId $existingUser.Id -Properties @{
@@ -361,14 +361,3 @@ If you encounter issues with your custom integration:
 5. **Validate Data**: Ensure data formats match expectations
 6. **Check Rate Limits**: Verify you're not hitting API rate limits
 
-## Next Steps
-
-Now that you understand how to build custom integrations with ImmyBot, you might want to explore:
-
-- [API Documentation](./api-documentation.md) - Complete reference for the ImmyBot API
-- [Scripting Guide](./scripts.md) - Master the art of scripting in ImmyBot
-- [Metascripts / Cloud Scripts](./immy-commands.md) - Learn about advanced scripting capabilities
-
----
-
-**Next Steps:** [API Documentation →](./api-documentation.md) | [Scripting Guide →](./scripts.md)

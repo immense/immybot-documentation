@@ -92,7 +92,7 @@ Some organizations may use alternative PDF readers (like Foxit or PDF-XChange) i
 2. Create exception deployments for specific customers or computers
 3. Set the alternative PDF reader to install and Adobe Reader to uninstall for those targets
 
-For more details on handling exceptions, see the [Deployment Resolution](./terminology.md#deployment-resolution) section.
+For more details on handling exceptions, see the [Deployment Resolution](/Documentation/Reference/terminology.md#deployment-resolution) section.
 
 ## Set Computer Name and Domain Join
 
@@ -124,7 +124,7 @@ Remember that deployments only take effect when maintenance is run, so you can s
 
 After reviewing the recommended deployments:
 
-- [Create your own deployments](./creating-deployments.md) for additional software and configurations
-- Learn about [deployment resolution](./terminology.md#deployment-resolution) to handle exceptions
-- Explore [maintenance sessions](./terminology.md#maintenance-session) to apply your deployments
+- [Create your own deployments](/Documentation/HowToGuides/creating-managing-deployments.md) for additional software and configurations
+- Learn about [deployment resolution](/Documentation/Reference/terminology.md#deployment-resolution) to handle exceptions
+- Explore [maintenance sessions](/Documentation/Reference/terminology.md#maintenance-session) to apply your deployments
 

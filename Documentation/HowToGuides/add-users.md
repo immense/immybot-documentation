@@ -23,7 +23,7 @@ Self-registration is one way to add users to ImmyBot:
 
 ![Approving access request](https://immybot.blob.core.windows.net/release-media/bb34184f-c7c3-41cf-9fa3-f6489e6c3600)
 
-5. Select the appropriate role for the user (see [User Roles and Security](./user-roles.md) for details)
+5. Select the appropriate role for the user (see [User Roles and Security](/Documentation/Administration/user-roles.md) for details)
 6. Click **Approve** to grant access
 
 ## Adding Users via Azure AD/Entra ID
@@ -70,6 +70,6 @@ Follow these best practices for user management:
 
 After adding users, you might want to explore:
 
-- [User Roles and Security](./user-roles.md) - Learn about user permissions and security
-- [Tenant Management](./tenant-management.md) - Configure tenant access for users
-- [Azure AD/Entra ID Integration](./azure-graph-permissions-setup.md) - Configure Azure AD/Entra permissions
+- [User Roles and Security](/Documentation/Administration/user-roles.md) - Learn about user permissions and security
+- [Tenant Management](/Documentation/Administration/tenant-management.md) - Configure tenant access for users
+- [Azure AD/Entra ID Integration](/Documentation/Integrations/azure-graph-permissions-setup.md) - Configure Azure AD/Entra permissions

@@ -189,6 +189,6 @@ Follow these best practices for effective software management:
 
 Now that you understand how to manage software in ImmyBot, you might want to explore:
 
-- [Creating Deployments](./creating-deployments.md) - Learn advanced deployment techniques
-- [Working with Tasks](./working-with-tasks.md) - Use tasks to configure and maintain software
-- [Scripting Guide](./scripts.md) - Master the art of scripting for software management
+- [Creating Deployments](/Documentation/HowToGuides/creating-managing-deployments.md) - Learn advanced deployment techniques
+- [Working with Tasks](/Documentation/HowToGuides/working-with-tasks.md) - Use tasks to configure and maintain software
+- [Scripting Guide](/Documentation/AdvancedTopics/scripts.md) - Master the art of scripting for software management

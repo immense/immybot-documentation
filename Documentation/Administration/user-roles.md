@@ -130,7 +130,7 @@ When managing multiple tenants:
 
 After understanding user roles, you might want to explore:
 
-- [Adding Users](./add-users.md) - Learn how to add and manage users
-- [Tenant Management](./tenant-management.md) - Configure tenant access and settings
-- [Security Best Practices](./security-software.md) - Enhance overall system security
+- [Adding Users](/Documentation/HowToGuides/add-users.md) - Learn how to add and manage users
+- [Tenant Management](/Documentation/Administration/tenant-management.md) - Configure tenant access and settings
+- [Security Best Practices](/Documentation/Troubleshooting/security-software.md) - Enhance overall system security
 

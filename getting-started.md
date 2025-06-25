@@ -125,6 +125,6 @@ When this rule applies (i.e., it isn't disabled or overridden by a more specific
 
 Now that you understand the basics of ImmyBot, you might want to explore:
 
-- [Core Concepts](./core-concepts.md) - Learn more about ImmyBot's architecture and principles
-- [Quick Start Guide](./quick-start-guide.md) - Get up and running quickly with ImmyBot
-- [Common Workflows](./common-workflows.md) - See how to accomplish common IT tasks with ImmyBot
+- [Core Concepts](/Documentation/GettingStarted/core-concepts.md) - Learn more about ImmyBot's architecture and principles
+- [Quick Start Guide](/Documentation/GettingStarted/quick-start-guide.md) - Get up and running quickly with ImmyBot
+- [Common Workflows](/Documentation/GettingStarted/common-workflows.md) - See how to accomplish common IT tasks with ImmyBot

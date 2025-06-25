@@ -1,5 +1,5 @@
 # Installation Options
-**Please see [System Requirements](./system-requirements.md) before proceeding**
+**Please see [System Requirements](/Documentation/GettingStarted/system-requirements.md) before proceeding**
 
 ## Provisioning Package (New Computer Flash Drive)
 This option is perfect for brand new computers, or computers that have been newly wiped and reloaded. Once you configure your settings for the deployment, you will be given a file to download. Once downloaded, and placed on a flash drive like a regular file, you will need to insert the flash drive into the computer and turn it on. From there, Windows will see the Provisioning Package, and take it from there. ImmyBot will be installed, and if Automatic Onboarding was selected, the computer will begin onboarding.
@@ -25,4 +25,4 @@ The executable file is good option to deploy the ImmyBot agent when you do not h
 ## Sandbox
 The best option for testing deployments on the fly. Do not use this option for testing Automatic Onboarding, Sandbox instances get reverted by [Windows on instance reboot](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/).
 
-See [Windows Sandbox](./windows-sandbox.md) for more information
+See [Windows Sandbox](/Documentation/Administration/windows-sandbox.md) for more information

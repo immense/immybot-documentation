@@ -133,7 +133,7 @@ Targets allow for precise control over which computers receive which deployments
 
 Now that you understand the core concepts of ImmyBot, you're ready to explore:
 
-- [Common Workflows](./common-workflows.md) - Step-by-step guides for everyday tasks
-- [Creating Deployments](./creating-deployments.md) - Learn how to create effective deployments
-- [Scripting Guide](./scripts.md) - Master the art of scripting in ImmyBot
+- [Common Workflows](/Documentation/GettingStarted/common-workflows.md) - Step-by-step guides for everyday tasks
+- [Creating Deployments](/Documentation/HowToGuides/creating-managing-deployments.md) - Learn how to create effective deployments
+- [Scripting Guide](/Documentation/AdvancedTopics/scripts.md) - Master the art of scripting in ImmyBot
 

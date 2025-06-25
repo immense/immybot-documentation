@@ -34,7 +34,7 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
 4. **Check for Security Software Interference**
    - Temporarily disable security software
    - See if the agent connects
-   - If it does, configure exclusions (see [Security Software Configuration](./security-software.md))
+   - If it does, configure exclusions (see [Security Software Configuration](/Documentation/Troubleshooting/security-software.md))
 
 ### Agent Identification Failures
 
@@ -313,6 +313,6 @@ If you're still experiencing issues after following these troubleshooting steps:
 
 - [Contact Support](https://www.immy.bot/support/) for additional assistance
 - Check the [Community Forums](https://community.immy.bot) for similar issues
-- Review the [Agent Troubleshooting](./troubleshooting.md) guide for more detailed agent troubleshooting
-- See [Security Software Configuration](./security-software.md) for security software-specific issues
+- Review the [Agent Troubleshooting](/Documentation/Troubleshooting/troubleshooting.md) guide for more detailed agent troubleshooting
+- See [Security Software Configuration](/Documentation/Troubleshooting/security-software.md) for security software-specific issues
 

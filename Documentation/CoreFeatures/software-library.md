@@ -53,4 +53,4 @@ Access the Software Library and Task Library by navigating to **Library** > **So
 - Sync Primary User In Intune
 
 ## Creating your own software for deployments
-Please see [Managing Software](./managing-software.md) for intructions on creating software for deployments
+Please see [Managing Software](/Documentation/HowToGuides/managing-software.md) for intructions on creating software for deployments

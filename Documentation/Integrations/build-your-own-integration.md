@@ -862,6 +862,6 @@ Building custom integrations with ImmyBot allows you to extend its capabilities 
 
 For more information on working with ImmyBot's API and integrations, see:
 
-- [API Documentation](./api-documentation.md)
-- [Custom Integrations](./custom-integrations.md)
-- [Integration Overview](./integration-overview.md)
+- [API Documentation](/Documentation/AdvancedTopics/api-documentation.md)
+- [Custom Integrations](/Documentation/Integrations//custom-integrations.md)
+- [Integration Overview](/Documentation/Integrations/integration-overview.md)

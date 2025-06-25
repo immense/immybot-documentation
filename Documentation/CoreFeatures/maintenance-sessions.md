@@ -248,6 +248,6 @@ If you encounter issues with maintenance sessions:
 
 Now that you understand how to manage maintenance and updates in ImmyBot, you might want to explore:
 
-- [Common Issues](./common-issues.md) - Troubleshoot common maintenance problems
-- [Creating Deployments](./creating-deployments.md) - Create effective deployments for your environment
-- [Working with Tasks](./working-with-tasks.md) - Use tasks to enhance your maintenance capabilities
+- [Common Issues](/Documentation/Troubleshooting/common-issues.md) - Troubleshoot common maintenance problems
+- [Creating Deployments](/Documentation/HowToGuides/creating-managing-deployments.md) - Create effective deployments for your environment
+- [Working with Tasks](/Documentation/HowToGuides/working-with-tasks.md) - Use tasks to enhance your maintenance capabilities

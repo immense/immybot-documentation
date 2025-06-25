@@ -232,6 +232,6 @@ If a task isn't working as expected:
 
 Now that you understand how to work with tasks in ImmyBot, you might want to explore:
 
-- [Scripting Guide](./scripts.md) - Master the art of scripting in ImmyBot
-- [Metascripts / Cloud Scripts](./immy-commands.md) - Learn about advanced scripting capabilities
-- [Common Workflows](./common-workflows.md) - See examples of common task scenarios
+- [Scripting Guide](/Documentation/AdvancedTopics/scripts.md) - Master the art of scripting in ImmyBot
+- [Metascripts / Cloud Scripts](/Documentation/AdvancedTopics/immy-commands.md) - Learn about advanced scripting capabilities
+- [Common Workflows](/Documentation/GettingStarted/common-workflows.md) - See examples of common task scenarios

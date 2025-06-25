@@ -265,8 +265,8 @@ If software installations are failing:
 
 ## Related Topics
 
-- [Deployments](./deployments.md)
-- [Maintenance Sessions](./maintenance-sessions.md)
-- [Software Library](./software-library.md)
-- [Maintenance Tasks](./maintenance-tasks.md)
+- [Deployments](/Documentation/CoreFeatures/deployments.md)
+- [Maintenance Sessions](/Documentation/CoreFeatures/maintenance-sessions.md)
+- [Software Library](/Documentation/CoreFeatures/software-library.md)
+- [Maintenance Tasks](/Documentation/Administration/maintenance-updates.md)
 

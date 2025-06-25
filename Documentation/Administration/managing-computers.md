@@ -10,7 +10,7 @@ ImmyBot can discover computers through several methods:
 
 The most common method is through an RMM integration:
 
-1. Configure your [RMM integration](./integration-overview.md)
+1. Configure your [RMM integration](/Documentation/Integrations/integration-overview.md)
 2. ImmyBot automatically imports computers from your RMM
 3. Computers are mapped to the appropriate tenants
 
@@ -153,7 +153,7 @@ Follow these best practices for effective computer management:
 
 Now that you understand how to manage computers in ImmyBot, you might want to explore:
 
-- [Managing Software](./managing-software.md) - Learn how to manage software across your environment
-- [Creating Deployments](./creating-deployments.md) - Create effective deployments for your computers
-- [Troubleshooting](./troubleshooting.md) - Resolve common issues with computer management
+- [Managing Software](/Documentation/HowToGuides/managing-software.md) - Learn how to manage software across your environment
+- [Creating Deployments](/Documentation/HowToGuides/creating-managing-deployments.md) - Create effective deployments for your computers
+- [Troubleshooting](/Documentation/Troubleshooting/troubleshooting.md) - Resolve common issues with computer management
 

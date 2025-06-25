@@ -215,7 +215,7 @@ Follow these best practices for effective tenant management:
 
 Now that you understand how to manage tenants in ImmyBot, you might want to explore:
 
-- [User Roles and Security](./user-roles.md) - Learn about user permissions and security
-- [Integration Overview](./integration-overview.md) - Connect ImmyBot to your existing tools
-- [Maintenance and Updates](./maintenance-updates.md) - Configure maintenance for your tenants
+- [User Roles and Security](/Documentation/Administration/user-roles.md) - Learn about user permissions and security
+- [Integration Overview](/Documentation//integration-overview.md) - Connect ImmyBot to your existing tools
+- [Maintenance and Updates](/Documentation/Administration/maintenance-updates.md) - Configure maintenance for your tenants
 

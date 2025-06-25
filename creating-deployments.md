@@ -209,15 +209,3 @@ Follow these best practices for effective deployments:
 5. **Regular Review**: Periodically review deployments for relevance
 6. **Test Changes**: Always test changes before applying widely
 7. **Monitor Compliance**: Regularly check deployment compliance
-
-## Next Steps
-
-Now that you understand how to create deployments in ImmyBot, you might want to explore:
-
-- [Working with Tasks](./working-with-tasks.md) - Learn more about creating and using tasks
-- [Common Workflows](./common-workflows.md) - See examples of common deployment scenarios
-- [Scripting Guide](./scripts.md) - Master the art of scripting for deployments
-
----
-
-**Next Steps:** [Working with Tasks →](./working-with-tasks.md) | [Common Workflows →](./common-workflows.md)

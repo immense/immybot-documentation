@@ -121,11 +121,11 @@ Most integrations follow a similar setup process:
 
 Ready to set up your integrations? Choose from the following guides:
 
-- [ConnectWise Automate Setup](./connectwise-automate-integration-setup.md)
-- [ConnectWise Control Setup](./connectwise-control-integration-setup.md)
-- [ConnectWise Manage Setup](./connectwise-manage-integration-setup.md)
-- [N-Central Setup](./ncentral-integration-setup.md)
-- [NinjaRMM Setup](./ninjarmm-integration-setup.md)
-- [HaloPSA Setup](./halo-integration-setup.md)
-- [Azure Setup](./azure-graph-permissions-setup.md)
-- [Build Your Own Integration](./build-your-own-integration.md)
+- [ConnectWise Automate Setup](/Documentation/Integrations/connectwise-automate-integration-setup.md)
+- [ConnectWise Control Setup](/Documentation/Integrationsconnectwise-control-integration-setup.md)
+- [ConnectWise Manage Setup](/Documentation/Integrationsconnectwise-manage-integration-setup.md)
+- [N-Central Setup](/Documentation/Integrationsncentral-integration-setup.md)
+- [NinjaRMM Setup](/Documentation/Integrationsninjarmm-integration-setup.md)
+- [HaloPSA Setup](/Documentation/Integrationshalo-integration-setup.md)
+- [Azure Setup](/Documentation/Integrationsazure-graph-permissions-setup.md)
+- [Build Your Own Integration](/Documentation/Integrationsbuild-your-own-integration.md)

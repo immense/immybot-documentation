@@ -8,7 +8,7 @@ Please see the [section below](#what-should-i-do-about-immybots-upcoming-code-si
 Please see the [section below](#what-windows-versions-does-immyagent-support) for more details.
 :::
 
-This comprehensive FAQ addresses common questions about ImmyBot, including licensing, deployment, configuration, and troubleshooting. If you don't find the answer to your question here, please check our [Common Issues](./common-issues.md) guide or contact our [support team](mailto:support@immy.bot).
+This comprehensive FAQ addresses common questions about ImmyBot, including licensing, deployment, configuration, and troubleshooting. If you don't find the answer to your question here, please check our [Common Issues](/Documentation/Troubleshooting/common-issues.md) guide or contact our [support team](mailto:support@immy.bot).
 
 ## Table of Contents
 - [Frequently Asked Questions](#frequently-asked-questions)
@@ -330,11 +330,7 @@ This will occur if the device's system time is incorrect.  Ensure that the syste
 
 After reviewing these FAQs, you might want to explore:
 
-- [Common Issues](./common-issues.md) - Solutions to frequently encountered problems
-- [Troubleshooting Guide](./troubleshooting.md) - Detailed troubleshooting steps
-- [ImmyBot Overview](./immybot-overview.md) - Learn more about ImmyBot's capabilities
+- [Common Issues](/Documentation/Troubleshooting/common-issues.md) - Solutions to frequently encountered problems
+- [Troubleshooting Guide](/Documentation/Troubleshooting/troubleshooting.md) - Detailed troubleshooting steps
+- [ImmyBot Overview](/immybot-overview.md) - Learn more about ImmyBot's capabilities
 
----
-
-**Next Steps:** [Common Issues →](./common-issues.md) | [Troubleshooting Guide →](./troubleshooting.md)
-:::

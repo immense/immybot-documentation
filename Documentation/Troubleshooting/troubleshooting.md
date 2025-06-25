@@ -362,6 +362,6 @@ MDMdiagnosticstool.exe -area "DeviceProvisioning;DeviceEnrollment" -cab "C:\Temp
 
 After resolving your issue, consider reviewing these related resources:
 
-- [Common Issues](./common-issues.md) - Solutions to frequently encountered problems
-- [Security Software Configuration](./security-software.md) - Configure security software to work with ImmyBot
-- [FAQ](./FAQ.md) - Answers to common questions about ImmyBot
+- [Common Issues](/Documentation/Troubleshooting/common-issues.md) - Solutions to frequently encountered problems
+- [Security Software Configuration](/Documentation/Troubleshooting/security-software.md) - Configure security software to work with ImmyBot
+- [FAQ](/Documentation/FAQ.md) - Answers to common questions about ImmyBot

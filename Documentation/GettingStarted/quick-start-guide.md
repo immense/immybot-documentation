@@ -40,7 +40,7 @@ When you first log in to ImmyBot, the Getting Started Wizard will prompt you to 
    1. Note: If you're testing with a virtual machine, please select **Downlaod ISO to Flash Drive** and proceed to Step 2.
 8. Place file on the root of your flashdrive
 
-![USB Drive Creation](FirstComputerSetup.png)
+![USB Drive Creation](/Documentation/HowToGuides/FirstComputerSetup.png)
 
 ## Step 3: Connect the Computer
 
@@ -76,7 +76,7 @@ For ImmyBot to properly configure the computer, you need to specify:
 1. **Customer (Required)**: The organization that owns the computer
 2. **Primary User (Recommended)**: The person who will primarily use this computer
 
-![Assign Customer and User](OnboardingForm.png)
+![Assign Customer and User](/Documentation/GettingStarted/OnboardingForm.png)
 
 > **Tip:** If this is your first time using ImmyBot, you'll only have your MSP as a customer and yourself as a user. That's fine for testing - just select these options.
 
@@ -155,8 +155,8 @@ For example, when installing Adobe Reader, ImmyBot will:
 
 Congratulations! You've successfully set up ImmyBot, connected your first computer, and created your first deployment. Here are some next steps to explore:
 
-- [First Computer Setup](./first-computer-setup.md) - Learn more about the onboarding process
-- [Core Concepts](./core-concepts.md) - Understand the fundamental concepts of ImmyBot
-- [Creating Deployments](./creating-deployments.md) - Explore advanced deployment options
-- [Integration Overview](./integration-overview.md) - Connect ImmyBot to your existing tools
+- [First Computer Setup](/Documentation/HowToGuides/onboarding.md.md) - Learn more about the onboarding process
+- [Core Concepts](/Documentation/GettingStarted/core-concepts.md) - Understand the fundamental concepts of ImmyBot
+- [Creating Deployments](/Documentation/HowToGuides/creating-managing-deployments.md) - Explore advanced deployment options
+- [Integration Overview](/Documentation/Integrations//integration-overview.md) - Connect ImmyBot to your existing tools
 

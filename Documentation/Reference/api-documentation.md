@@ -216,13 +216,13 @@ Error responses include a JSON body with more information:
 
 ## Examples
 
-Please see [Building your own integration](./build-your-own-integration.md) for examples for API scripts
+Please see [Building your own integration](/Documentation/Integrations/build-your-own-integration.md) for examples for API scripts
 
 
 ## Next Steps
 
 Now that you understand the basics of the ImmyBot API, you might want to explore:
 
-- [Scripting Guide](./scripts.md) - Learn how to use the API in scripts
-- [Integration Overview](./integration-overview.md) - Connect ImmyBot to your existing tools
-- [Build Your Own Integration](./build-your-own-integration.md) - Create custom integrations using the API
+- [Scripting Guide](/Documentation/AdvancedTopics/scripts.md) - Learn how to use the API in scripts
+- [Integration Overview](/Documentation/Integrations/integration-overview.md) - Connect ImmyBot to your existing tools
+- [Build Your Own Integration](/Documentation/Integrations/build-your-own-integration.md) - Create custom integrations using the API

@@ -125,7 +125,7 @@ When multiple deployments apply to the same computer, ImmyBot uses a resolution 
 - Tenant hierarchy
 - Supersedence relationships
 
-For detailed information on how deployments are resolved, see [Deployment Resolution](./terminology.md#deployment-resolution).
+For detailed information on how deployments are resolved, see [Deployment Resolution](/Documentation/Reference/terminology.md#deployment-resolution).
 
 ## Creating Deployments
 
@@ -141,7 +141,7 @@ To create a new deployment:
    - Additional settings
 4. Click **Create** to save the deployment
 
-For step-by-step instructions, see [Creating and Managing Deployments](./creating-managing-deployments.md).
+For step-by-step instructions, see [Creating and Managing Deployments](/Documentation/HowToGuides/creating-managing-deployments.md).
 
 ## Recommended Deployments
 
@@ -152,7 +152,7 @@ ImmyBot includes several recommended deployments that provide a solid foundation
 - **Manufacturer Updates**: Installs the latest updates from Dell, HP, and Lenovo
 - **Adobe Reader**: Installs and configures the latest version of Adobe Reader
 
-For more information, see [Recommended Deployments](./recommended-deployments.md).
+For more information, see [Recommended Deployments](/Documentation/HowToGuides/recommended-deployments.md).
 
 ## Best Practices
 
@@ -173,12 +173,3 @@ For more information, see [Recommended Deployments](./recommended-deployments.md
 - Test deployments in a Windows Sandbox where available
 - Monitor maintenance logs for deployment issues
 - Regularly review and update deployments as needed
-
-## Related Topics
-
-- [Creating and Managing Deployments](./creating-managing-deployments.md)
-- [Deployment Resolution](./terminology.md#deployment-resolution)
-- [Targets & Targeting](./targets-targeting.md)
-- [Maintenance Sessions](./maintenance-sessions.md)
-- [Software Library](./software-library.md)
-- [Maintenance Tasks](./maintenance-tasks.md)
