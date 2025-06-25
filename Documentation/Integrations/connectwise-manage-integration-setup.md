@@ -20,23 +20,23 @@ Setting up this integration allows you to
 
 ![alt text](/.vitepress/images/image-1.png)
 
-![](./.vitepress/images/2022-02-23_15-00-31.png)
+![](/.vitepress/images/2022-02-23_15-00-31.png)
 
 ## Create an API Member
 
 Go to *System -> Members* and create a new **API Member**
 
-![](./.vitepress/images/2021-03-23-14-28-30.png)
+![](/.vitepress/images/2021-03-23-14-28-30.png)
 
 Create a new API key
 
-![](./.vitepress/images/2021-03-23-14-43-35.png)
+![](/.vitepress/images/2021-03-23-14-43-35.png)
 
 ## Plugin the API Keys in ImmyBot
 
 Create a new PSA Link and fill in the **Provider Info**
 
-![](./.vitepress/images/2021-03-23-14-44-05.png)
+![](/.vitepress/images/2021-03-23-14-44-05.png)
 
 # CW Manage Pod v1
 
@@ -56,7 +56,7 @@ Go to ConnectWise -> Setup Tables -> Manage Hosted API -> +
 
 ## Technician Tools
 
-[What is Technician Tools?](./terminology.md#technician-tools)
+[What is Technician Tools?](/Documentation/Reference/terminology.md#technician-tools)
 
 **This feature only works for the `Service Ticket` screen.*
 

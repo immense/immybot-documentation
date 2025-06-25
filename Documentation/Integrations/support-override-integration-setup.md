@@ -137,8 +137,8 @@ return $Integration
 
 This is an example of a warning you will receive when a second integration with the `ISupportsSupportTicketDetailOverride` capability is enabled. To resolve the issue, disable the current integration. Navigate to the previous integration implementing this support override capability. Disable and Update it. Then navigate back to the desired support override integration you wish to enable and enable/update it.
 
-![image](./.vitepress/images/supportoverridedocs/IntegrationEnabledError.png)
+![image](/.vitepress/images/supportoverridedocs/IntegrationEnabledError.png)
 
 ## UI / Branding Change Example
 
-![image](./.vitepress/images/supportoverridedocs/BrandingChangeExample.png)
+![image](/.vitepress/images/supportoverridedocs/BrandingChangeExample.png)

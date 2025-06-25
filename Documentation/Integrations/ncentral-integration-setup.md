@@ -26,9 +26,9 @@ ImmyBot currently requires the following role permissions to operate correctly:
   - N-central Installers Download
 
 Create an "ImmyBot" role in your N-Central instance using above roles.
-![](./.vitepress/images/ncentraldocs/add_userrole_guide_1.png)
+![](/.vitepress/images/ncentraldocs/add_userrole_guide_1.png)
 
-![](./.vitepress/images/ncentraldocs/new_add_user_guide_1.png)
+![](/.vitepress/images/ncentraldocs/new_add_user_guide_1.png)
 
 
 ## Create an API-Only ImmyBot user in N-Central
@@ -51,16 +51,16 @@ run scripts on the machines.
 
 First, navigate to the "Script/Software Repository" under "Schedules Tasks" beneath the "Configuration" tab in N-Central.
 Once at the Script Repository page, select "Add" -> "Automation Policy".
-![](./.vitepress/images/ncentraldocs/add_automation_policy_1.png)
+![](/.vitepress/images/ncentraldocs/add_automation_policy_1.png)
 
 Second, <a href="https://docs.immy.bot/ImmyBotRunScriptV2.amp" target="_self">download the ImmyBot RunScript Automation Policy</a> and upload it to your instance. Fill out the Name and Description how you see fit if required.
-![](./.vitepress/images/ncentraldocs/add_automation_policy_2.png)
+![](/.vitepress/images/ncentraldocs/add_automation_policy_2.png)
 
 Last step is to ensure this new automation policy we have uploaded is able to be invoked by the Immybot API User.
 Find the automation by searching for "Immybot", then flipping the `Enable API` switch. Accept the confirmation modal, then copy the `Repository ID` for later use.
 ::: warning Make sure you copy YOUR `Repository ID`, as this identifier for the automation policy will be unique across every N-Central instance!
 :::
-![](./.vitepress/images/ncentraldocs/add_automation_policy_3.png)
+![](/.vitepress/images/ncentraldocs/add_automation_policy_3.png)
 
 ## Add integration for N-Central
 
@@ -75,7 +75,7 @@ Lastly, flip the `Enable Integration` switch.
 
 **If your error message contains "Unable to validate UI session: javax.validation.ValidationException: Unable to validate UI session.", then reset the password on your api user and generate a new JWT. This is a limitation imposed by N-Central**
 
-![](./.vitepress/images/ncentraldocs/add_integration_guide_new_1.png)
+![](/.vitepress/images/ncentraldocs/add_integration_guide_new_1.png)
 
 ## Import your customers
 
@@ -87,7 +87,7 @@ Lastly, flip the `Enable Integration` switch.
 Alternatively, you can create/map only certain customers.
 When you map a customer from an RMM, the computers will undergo Identification
 
-![](./LinkingClientsInIntegration.png)
+![](/LinkingClientsInIntegration.png)
 
 ## Troubleshooting
 

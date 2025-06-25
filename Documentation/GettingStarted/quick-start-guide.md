@@ -23,59 +23,77 @@ Before you begin, make sure you have:
 
 You'll be greeted with the ImmyBot dashboard, which provides an overview of your environment.
 
-## Step 2: Create an ImmyBot USB Drive
+<!--    -->
+## Step 2: Create an ImmyBot USB Drive for Physical Machines or ISO for Virtual Machines
 
-To connect your first computer to ImmyBot:
+When you first log in to ImmyBot, the Getting Started Wizard will prompt you to create an ImmyBot flash drive.
+
+> **Important:** You only need to create this USB drive ONCE. The same drive can be used for all clients and computers. You'll select the specific client after the computer connects to ImmyBot.
 
 1. Insert a USB drive into your computer
 2. From the ImmyBot dashboard, click on **Download ImmyAgent** in the left navigation
-3. Select **Create USB Drive**
-4. Choose your USB drive from the dropdown menu
-5. Click **Create**
+3. Select the **Onboarding** tenant
+4. Choose **New Computer Flash Drive**
+5. Check **Enable Automatic Onboarding**
+6. Check and set **Set Primary User**
+7. Click **Download PPKG to Flash Drive**
+   1. Note: If you're testing with a virtual machine, please select **Downlaod ISO to Flash Drive** and proceed to Step 2.
+8. Place file on the root of your flashdrive
 
-> **Note:** You only need to create this USB drive once. The same drive can be used for all clients and computers.
+![USB Drive Creation](FirstComputerSetup.png)
 
-## Step 3: Connect Your First Computer
+## Step 3: Connect the Computer
 
-### For Physical Computers
+### For Physical Computers (Recommended)
 
-1. Power on the computer and boot to Windows
+We recommend using a physical computer (Dell, HP, or Lenovo) for your first setup to experience the full capabilities of ImmyBot, including BIOS and driver updates.
+
+1. Unbox the new computer and power it on
 2. When you reach the Windows setup screen (region selection), insert your ImmyBot USB drive
-3. The computer will automatically detect the ImmyBot provisioning package
+3. The computer will automatically detect the ImmyBot provisioning package (PPKG)
 4. Follow any on-screen prompts to apply the package
 
 ### For Virtual Machines
 
-1. From the ImmyBot dashboard, click on **Download ImmyAgent**
-2. Select **Create ISO**
-3. Mount the ISO to your virtual machine
-4. At the Windows region selection screen, press the Windows key 5 times
-5. Alternatively, double-click the PPKG file from the mounted disk
+If you're testing with a virtual machine:
 
-## Step 4: Identify and Assign the Computer
+1. Mount the ISO from Step 1 to your virtual machine
+2. At the Windows region selection screen, press the Windows key 5 times
+3. Alternatively, double-click the PPKG file from the mounted disk
 
-Once connected, your computer will appear in the **New Computers** section:
+## Step 4: Identify the Computer in ImmyBot
+
+Once the provisioning package is applied, the computer will connect to ImmyBot and appear in the **New Computers** section.
 
 1. Go to **New Computers** in the ImmyBot dashboard
 2. Locate your newly connected computer in the list
 3. Click on the computer to begin the onboarding process
-4. Assign a **Customer** (required) and **Primary User** (recommended)
-5. Click **Start Onboarding**
 
-ImmyBot will automatically apply all recommended deployments to the computer.
+## Step 5: Assign Customer and User
 
-## Step 5: Create Your First Deployment
+For ImmyBot to properly configure the computer, you need to specify:
+
+1. **Customer (Required)**: The organization that owns the computer
+2. **Primary User (Recommended)**: The person who will primarily use this computer
+
+![Assign Customer and User](OnboardingForm.png)
+
+> **Tip:** If this is your first time using ImmyBot, you'll only have your MSP as a customer and yourself as a user. That's fine for testing - just select these options.
+
+> **Tip:** Customers can be imported from your RMM, PSA, or Azure integration. Users can be imported from your customers' Azure AD.
+<!--    -->
+
+## Step 6: Create Your First Deployment
 
 Now let's create a simple deployment to install a software package:
 
 1. Navigate to **Deployments** in the left sidebar
 2. Click **Create Deployment**
-3. Enter a name for your deployment (e.g., "Install Chrome")
-4. Select **Software** as the deployment type
-5. Search for and select "Google Chrome" from the software list
-6. Under **Targets**, click **Add Target**
-7. Select a target type (e.g., "All Computers")
-8. Click **Save**
+3. Select **Software** as the deployment type
+4. Search for and select "Google Chrome" from the software list
+5. Under **Targets**, click **Add Target**
+6. Select a target type (e.g., "All Computers")
+7. Click **Save**
 
 Your deployment is now created and will be applied to all computers in the selected target.
 
@@ -103,11 +121,11 @@ end
 
 You can also create deployments that only apply under certain conditions. For example:
 - Install Microsoft Visio only for users who have a license
-- Deploy SentinelOne only for customers who pay for it
+- Deploy SentinelOne only for customers who pay for it (Requires PSA integration to be enabled and healthy)
 
 These conditions are defined using filter scripts that can check external systems or conditions.
 
-## Step 6: Run a Maintenance Session
+## Step 7: Run a Maintenance Session
 
 To apply your new deployment immediately:
 

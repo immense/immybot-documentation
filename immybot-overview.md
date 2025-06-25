@@ -44,7 +44,7 @@ graph TD
 
 ImmyBot follows a simple but powerful workflow to manage your IT environment:
 
-1. **Discovery**: Computers are discovered through integrations with your RMM, PSA, or Azure AD
+1. **Discovery**: Computers are discovered through integrations with your RMM.
 2. **Definition**: You create deployments that define how computers should be configured
 3. **Execution**: Maintenance sessions apply these definitions to bring computers into compliance
 4. **Verification**: Each action is tested before and after execution to ensure success

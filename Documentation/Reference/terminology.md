@@ -57,7 +57,7 @@ graph TD
 - Deployments are conceptually similar to Group Policies in that they assign settings to a group of users or computers
 - A deployment defines the desired state (e.g., installed, uninstalled, specific version) for software or tasks
 
-![](./.vitepress/images/2021-03-01-08-42-41.png)
+![](/.vitepress/images/2021-03-01-08-42-41.png)
 
 **Important Note:** DO NOT BE AFRAID TO SAVE YOUR DEPLOYMENTS. THEY DO NOT APPLY AUTOMATICALLY.
 
@@ -80,11 +80,11 @@ Let's say you have a customer "Contoso" that uses Adobe Acrobat instead of Adobe
 
 **Step 1:** Create a Deployment that sets the desired state of Adobe Reader to Uninstalled for Contoso
 
-![](./.vitepress/images/2021-03-01-08-44-19.png)
+![](/.vitepress/images/2021-03-01-08-44-19.png)
 
 **Step 2:** Create a Deployment that Installs Adobe Acrobat for their computers
 
-![](./.vitepress/images/2021-03-01-08-51-38.png)
+![](/.vitepress/images/2021-03-01-08-51-38.png)
 
 **Result:** When maintenance runs on Contoso computers, Adobe Reader will be uninstalled and Adobe Acrobat will be installed, even if you have a global deployment that normally installs Adobe Reader on all computers.
 
@@ -124,11 +124,11 @@ That's a [Maintenance Session](#maintenance-session).
 
 You can view [Maintenance Sessions](#maintenance-session) for all computers under Computers->Sessions
 
-![](./.vitepress/images/2021-02-23-08-47-36.png)
+![](/.vitepress/images/2021-02-23-08-47-36.png)
 
 Or, you can view [Maintenance Sessions](#maintenance-session) for a specific Computer under the Sessions tab for that Computer
 
-![](./.vitepress/images/2021-02-23-08-46-09.png)
+![](/.vitepress/images/2021-02-23-08-46-09.png)
 
 ## [Maintenance Session](#maintenance-session) Stages
 
@@ -140,7 +140,7 @@ This is a read-only process, and typically done while the user is active. This i
 
 ### Execution Stage
 
-![](./.vitepress/images/2021-02-23-09-44-51.png)
+![](/.vitepress/images/2021-02-23-09-44-51.png)
 
 ## [Maintenance Action](#maintenance-action)
 
@@ -164,7 +164,7 @@ A *[Maintenance Session](#maintenance-session)* has one or more *[Maintenance Ac
 
 The image below depicts a typical [Maintenance Session](#maintenance-session) with many [Maintenance Actions](#maintenance-action)
 
-![](./.vitepress/images/2021-02-23-06-14-05.png)
+![](/.vitepress/images/2021-02-23-06-14-05.png)
 
 ## Software
 Software, in the context of ImmyBot refers to Software objects in My Software or Global Software.
@@ -196,10 +196,10 @@ Common uses for Pre-Requisites include
 
 ### Install required dependencies
 
-![](./.vitepress/images/2021-02-23-09-18-04.png)
+![](/.vitepress/images/2021-02-23-09-18-04.png)
 
 ### Ordering [Maintenance Actions](#maintenance-action)
-![](./.vitepress/images/2021-02-23-09-15-27.png)
+![](/.vitepress/images/2021-02-23-09-15-27.png)
 
 ## Detection Method
 A Detection Method is required in order to know whether or not a piece of Software is installed on a machine.
@@ -264,7 +264,7 @@ Runs in the ImmyBot backend, and can spawn code on the system by using Invoke-Im
 ### Cloud Script
 Runs in the ImmyBot backend, but intended to be run against a Tenant (perhaps for the purpose of getting or setting some setting in 365/Azure or some other system with an API). These are used exclusively in [Tasks](#task) targetting "Tenants".
 
-![](./.vitepress/images/2021-03-01-14-17-29.png)
+![](/.vitepress/images/2021-03-01-14-17-29.png)
 
 ## Schedules
 Used to run maintenance periodically on machines. Can optionally be limited to a single Maintenance Item.
@@ -275,13 +275,13 @@ NOTE You must also have a Deployment for the Maintenance Item to set the desired
 
 To ImmyBot, an RMM is a system that provides a list of computers, and a mechanism to run PowerShell scripts on them.
 
-![](./.vitepress/images/2021-02-23-06-18-23.png)
+![](/.vitepress/images/2021-02-23-06-18-23.png)
 
 To avoid having to deploy the ImmyAgent to existing machines, ImmyBot optionally integrates with RMMs like ConnectWise Automate and ConnectWise Control and uses their agents instead. These systems are not as performant as the ImmyAgent, but can suppliment ImmyBot functionality.
 
 For example, if you add an RMM Link for ConnectWise Control, you can open a remote session to the computer directly within ImmyBot:
 
-![](./.vitepress/images/2021-02-23-06-34-22.png)
+![](/.vitepress/images/2021-02-23-06-34-22.png)
 
 If you add an RMM integration for ConnectWise Automate, Scheduled [Maintenance Sessions](#maintenance-session) will apply all Approved Windows Updates using the ConnectWise Automate API based on your Approval Policies in Automate Patch Manager.
 
@@ -292,7 +292,7 @@ You can even add multiple RMMs of the same type, which is often useful in merger
 Because the same computer often exists in multiple RMMs (Like how CW Automate typically installs CW Control Automatically), ImmyBot prevents duplicates by identifying the computer by a unique id. We DO NOT use MAC Address! This unique id persists even if you wipe and reload the machine.
 
 When a new machine is detected, it first goes to New Computers->Actively Identifying
-![](./.vitepress/images/2021-02-23-06-44-25.png)
+![](/.vitepress/images/2021-02-23-06-44-25.png)
 
 It uses the following script to collect the UUID from the machine:
 ```
@@ -307,7 +307,7 @@ If it is a machine ImmyBot has seen before, it will be associated to the existin
 
 Computers can have one or more RmmComputers(Agents). You can think of these as logical "pathways" to the computer. We only need one to be online to function.
 
-![](./.vitepress/images/2021-02-23-06-45-47.png)
+![](/.vitepress/images/2021-02-23-06-45-47.png)
 
 ## Target Visibility
 

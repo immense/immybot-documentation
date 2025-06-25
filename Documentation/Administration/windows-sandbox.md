@@ -49,7 +49,7 @@ From the ImmyBot dashboard, download the Windows Sandbox configuration file (.ws
 
 Double-click the downloaded .wsb file to launch Windows Sandbox:
 
-![](./.vitepress/images/2021-03-15-08-29-35.png)
+![](/.vitepress/images/2021-03-15-08-29-35.png)
 
 ### Step 3: Wait for ImmyBot Agent Installation
 
@@ -59,7 +59,7 @@ The ImmyBot Agent will automatically install in the Sandbox environment:
 
 ### Step 4: Onboard the Sandbox Computer
 
-Once the agent is installed, the computer will appear in ImmyBot. [Onboard](./onboarding.md) the Sandbox computer:
+Once the agent is installed, the computer will appear in ImmyBot. [Onboard](Documentation/Administration/onboarding.md) the Sandbox computer:
 
 ![](/.vitepress/images/2021-03-15-08-30-29.png)
 
