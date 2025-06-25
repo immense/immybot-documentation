@@ -2,6 +2,11 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
+ImmyBot is designed to work with:
+
+- **Managed Computers**: Windows 10/11 (all editions), Windows Server 2016+
+- **Agent Requirements**: .NET Framework 4.8 or higher
+- **Browser Requirements**: Chrome, Edge, Firefox, Safari (latest versions)
 
 # Supported Operating Systems
 **All Systems must be capable of running .Net 8**

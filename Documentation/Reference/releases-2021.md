@@ -1945,7 +1945,3 @@ Released 2021-01-04
 - Pressing Deploy on the Edit Deployment page no longer auto expands the logs, making it easier to Deploy to multiple individual computers
 - Fixed a bug where you could not edit or view a disabled PSA Link
 - Invoke-CWARestMethod and other cmdlets used for interacting with the CWA API now contain error information returned by the API itself instead of being stripped down to a generic server error.
-
-## Releases in 2020
-
-[Go to 2020 releases](/releases-2020.html)

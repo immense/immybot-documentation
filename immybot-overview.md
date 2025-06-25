@@ -67,7 +67,3 @@ Ready to start automating your IT environment with ImmyBot? Follow these steps:
 2. **[First Computer Setup →](onboarding.md)** - Learn how to onboard your first computer
 3. **[Core Concepts →](core-concepts.md)** - Understand the fundamental concepts of ImmyBot
 4. **[Common Workflows →](common-workflows.md)** - Step-by-step guides for everyday tasks
-
----
-
-**Next Steps:** [Quick Start Guide →](quick-start-guide.md)

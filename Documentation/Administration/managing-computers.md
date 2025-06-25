@@ -157,6 +157,3 @@ Now that you understand how to manage computers in ImmyBot, you might want to ex
 - [Creating Deployments](./creating-deployments.md) - Create effective deployments for your computers
 - [Troubleshooting](./troubleshooting.md) - Resolve common issues with computer management
 
----
-
-**Next Steps:** [Managing Software →](./managing-software.md) | [Creating Deployments →](./creating-deployments.md)

@@ -29,6 +29,36 @@ graph TD
     D -->|can be| O[Ad Hoc]
 ```
 
+## Types of Deployments
+
+ImmyBot supports three main types of deployments:
+
+### Software Deployments
+
+Software deployments install, update, or remove software on target computers:
+
+- **Enforced**: Software is installed and kept at the specified version
+- **Available**: Software is available for users to install on-demand
+- **Removed**: Software is actively uninstalled if found
+
+### Task Deployments
+
+Task deployments run scripts or commands on target computers:
+
+- **One-time**: Run once and complete
+- **Recurring**: Run on a schedule
+- **Compliance-based**: Run only when a computer is out of compliance
+
+### Configuration Deployments
+
+Configuration deployments apply settings to target computers:
+
+- **Registry**: Set registry keys and values
+- **Files**: Create, modify, or delete files
+- **Settings**: Apply Windows or application settings
+
+
+
 ## Creating a Basic Deployment
 
 ### Step 1: Navigate to Deployments
@@ -37,7 +67,7 @@ graph TD
 2. Click on **Deployments** in the left navigation menu
 3. Click **New** to create a new deployment
 
-![Deployments Page](https://user-images.githubusercontent.com/1424395/173595097-f975123b-217f-42ef-aa47-2b816a5593b6.png)
+![Deployments Page](./Deployment-New.png)
 
 ### Step 2: Select Content Type
 

@@ -1371,6 +1371,3 @@ More events will be added in the future.
 - Fixed the timezone selector to show the region to differentiate the options
 - Fixed a bug where dynamic versions could depend on itself and cause an infinite loop
 
-## Releases in 2021
-
-[Go to 2021 releases](/releases-2021.html)

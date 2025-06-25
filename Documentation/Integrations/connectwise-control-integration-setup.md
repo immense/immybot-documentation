@@ -9,11 +9,11 @@ Setting up this integration allows you to
 
 ## Install ImmyBot Extension for Control
 
-![](./.vitepress/images/2021-03-23-19-12-34.png)
+![](/.vitepress/images/2021-03-23-19-12-34.png)
 
-![](./.vitepress/images/2021-03-23-19-13-56.png)
+![](/.vitepress/images/2021-03-23-19-13-56.png)
 
-![](./.vitepress/images/2021-03-23-19-17-38.png)
+![](/.vitepress/images/2021-03-23-19-17-38.png)
 
 ## Create RMMLink for Control
 
@@ -39,7 +39,7 @@ https://docs.connectwise.com/ConnectWise_Control_Documentation/Get_started/Admin
 Alternatively, you can create/map only certain customers.
 When you map a customer from an RMM, the computers will undergo Identification
 
-![](./LinkingClientsInIntegration.png)
+![](/LinkingClientsInIntegration.png)
 
 ## Troubleshooting
 

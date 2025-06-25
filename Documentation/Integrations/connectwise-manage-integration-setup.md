@@ -18,7 +18,7 @@ Setting up this integration allows you to
   - Optional - Required for the technician tools feature
 - *System -> API Reports -> Inquire Level (All)*
 
-![alt text](./.vitepress/images/image-1.png)
+![alt text](/.vitepress/images/image-1.png)
 
 ![](./.vitepress/images/2022-02-23_15-00-31.png)
 

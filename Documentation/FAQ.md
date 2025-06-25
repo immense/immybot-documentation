@@ -59,7 +59,7 @@ When a subscription is at the maximum maintained count, only maintenance for com
 
 ::: details For purchasing Immy, do you guys prefer Credit card or invoice? Would you rather us pay monthly, or can we pay all upfront?
 
-We prefer monthly credit card or ACH.
+We bill automatically to a credit card every month.
 :::
 
 ## Deployment and Configuration

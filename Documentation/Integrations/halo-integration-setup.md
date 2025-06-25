@@ -45,13 +45,13 @@ This tab will then show on all tickets in the system, like this:
 
 ## Technician Tools
 
-[What is Technician Tools?](./terminology.md#technician-tools)
+[What is Technician Tools?](/Documentation/Reference/terminology.html#technician-tools)
 
 HaloPSA version 2.125.5 introduced a new feature called Custom Tabs. You can configure these Custom Tabs to point to a web address that is rendered as an iframe.
 
 Within HaloPSA, configure the tab as follows:
 
-![alt text](image-10.png)
+![alt text](/image-10.png)
 
 Copy the url template:
 
@@ -59,7 +59,7 @@ Copy the url template:
 
 The URL is specific to your instance.  You'll need to replace `<your-domain>` with your domain and `<halo-integration-id>` with your halo integration id. This id can be found here:
 
-![alt text](image-2.png)
+![alt text](/image-2.png)
 
 After you setup the tab, navigate to a ticket and select the tab with the name you just created. It shoud load the technician tools page of immy.bot.
 

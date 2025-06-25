@@ -19,29 +19,29 @@ hero:
 features:
   - title: ImmyBot Overview
     details: Learn about ImmyBot's core capabilities and benefits
-    link: /immybot-overview
+    link: /Documentation/GettingStarted/introduction
   - title: Core Concepts
     details: Understand the fundamental concepts of ImmyBot
-    link: /core-concepts
+    link: /Documentation/GettingStarted/core-concepts
   - title: Computer Management
     details: Onboard and manage computers effectively
-    link: /managing-computers
+    link: /Documentation/Administration/managing-computers
   - title: Software Deployment
     details: Deploy and maintain software across your organization
-    link: /managing-software
+    link: /Documentation/HowToGuides/managing-software
   - title: Creating Deployments
     details: Configure targeted software and task deployments
-    link: /creating-deployments
+    link: /Documentation/HowToGuides/creating-managing-deployments
   - title: Integrations
     details: Connect ImmyBot with your existing tools and services
-    link: /integration-overview
+    link: /Documentation/Integrations/integration-overview
   - title: User Management
     details: Add users and configure access permissions
-    link: /add-users
+    link: Documentation/HowToGuides/add-users
   - title: Troubleshooting
     details: Resolve common issues and find solutions
-    link: /troubleshooting
+    link: /Documentation/Troubleshooting/common-issues
   - title: API & Custom Development
     details: Extend ImmyBot with custom integrations and API access
-    link: /api-documentation
+    link: /Documentation/Reference/api-documentation
 ---

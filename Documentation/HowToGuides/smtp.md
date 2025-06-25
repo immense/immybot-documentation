@@ -29,5 +29,5 @@ another tenant doesn't have SMTP setttings set, and you're sending mainteance em
 7. Send Test email
    - To
    - From
-![SMTP](./SMTPSettings.png)
+![SMTP](SMTPSettings.png)
 

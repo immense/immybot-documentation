@@ -38,22 +38,22 @@ ImmyBot requires the following permissions in Automate
    2. Password: Something complex and unique
    3. Email Address: Set this to your own email address
 3. Click on the Permissions tab, right click on the User Classes, and select the ImmyBot Role that you created.
-![](./.vitepress/images/2021-03-23-16-14-24.png)
+![](/.vitepress/images/2021-03-23-16-14-24.png)
 
-![](./.vitepress/images/2021-03-23-16-19-01.png)
+![](/.vitepress/images/2021-03-23-16-19-01.png)
 
-![](./.vitepress/images/2021-03-23-16-30-41.png)
+![](/.vitepress/images/2021-03-23-16-30-41.png)
 
 ## Enable Google MFA for ImmyBot User
 
 The integration requires Google for MFA. Duo is not supported as Duo does not expose the MFA token anywhere for us to use and doesn't appear to be the standard TOTP like Google uses.
 You will need to exclude the integration user from your Duo deployment if using Duo and configure the Google MFA plugin for Automate for this user.
 
-![](./.vitepress/images/2021-03-23-18-35-49.png)
+![](/.vitepress/images/2021-03-23-18-35-49.png)
 
-![](./.vitepress/images/2021-03-23-18-35-28.png)
+![](/.vitepress/images/2021-03-23-18-35-28.png)
 
-![](./.vitepress/images/2021-03-23-18-39-00.png)
+![](/.vitepress/images/2021-03-23-18-39-00.png)
 
 ## Add RMM Link for CW Automate
 
@@ -65,7 +65,7 @@ You will need to exclude the integration user from your Duo deployment if using 
    3. Automate Password: the password you created in the Create ImmyBot user step
    4. Manual Entry code: The Google MFA code you got in your email
 
-![](./CWAutomateIntegrationForm-GoogleMFA.png)
+![](/CWAutomateIntegrationForm-GoogleMFA.png)
 
 ## Import your customers
 
@@ -77,4 +77,4 @@ You will need to exclude the integration user from your Duo deployment if using 
 Alternatively, you can create/map only certain customers.
 When you map a customer from an RMM, the computers will undergo Identification
 
-![](./LinkingClientsInIntegration.png)
+![](/LinkingClientsInIntegration.png)

@@ -1,4 +1,4 @@
-# First Computer Setup
+# Computer Onboarding
 
 This guide walks you through the process of setting up your first computer with ImmyBot, from initial connection to successful onboarding.
 
@@ -25,7 +25,7 @@ When you first log in to ImmyBot, the Getting Started Wizard will prompt you to 
    1. Note: If you're testing with a virtual machine, please select **Downlaod ISO to Flash Drive** and proceed to Step 2.
 8. Place file on the root of your flashdrive
 
-![USB Drive Creation](/FirstComputerSetup.png)
+![USB Drive Creation](FirstComputerSetup.png)
 
 ## Step 2: Connect the Computer
 
@@ -61,7 +61,7 @@ For ImmyBot to properly configure the computer, you need to specify:
 1. **Customer (Required)**: The organization that owns the computer
 2. **Primary User (Recommended)**: The person who will primarily use this computer
 
-![Assign Customer and User](/OnboardingForm.png)
+![Assign Customer and User](OnboardingForm.png)
 
 > **Tip:** If this is your first time using ImmyBot, you'll only have your MSP as a customer and yourself as a user. That's fine for testing - just select these options.
 

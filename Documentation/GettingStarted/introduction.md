@@ -64,6 +64,17 @@ This paradigm shift allows you to focus on the end result rather than the proces
 
 ImmyBot consists of several key components that work together to provide a comprehensive automation solution:
 
+```mermaid
+graph TD
+    A[Deployments] -->|define| B[Desired State]
+    B -->|applied during| C[Maintenance Sessions]
+    C -->|run on| D[Computers]
+    E[Integrations] -->|discover| D
+    F[Agents] -->|manage| D
+    A -->|target| G[Users/Groups]
+    G -->|associated with| D
+```
+
 ### ImmyBot Instance
 
 The central management platform that:
