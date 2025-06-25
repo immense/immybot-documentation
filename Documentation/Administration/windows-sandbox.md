@@ -43,7 +43,7 @@ Alternatively, you can enable it through Windows Features:
 
 From the ImmyBot dashboard, download the Windows Sandbox configuration file (.wsb):
 
-![](./.vitepress/images/2021-03-15-08-29-07.png)
+![](/.vitepress/images/2021-03-15-08-29-07.png)
 
 ### Step 2: Launch the Sandbox Environment
 
@@ -55,25 +55,25 @@ Double-click the downloaded .wsb file to launch Windows Sandbox:
 
 The ImmyBot Agent will automatically install in the Sandbox environment:
 
-![](./.vitepress/images/2021-03-15-08-29-41.png)
+![](/.vitepress/images/2021-03-15-08-29-41.png)
 
 ### Step 4: Onboard the Sandbox Computer
 
 Once the agent is installed, the computer will appear in ImmyBot. [Onboard](./onboarding.md) the Sandbox computer:
 
-![](./.vitepress/images/2021-03-15-08-30-29.png)
+![](/.vitepress/images/2021-03-15-08-30-29.png)
 
 ### Step 5: Assign Customer and User
 
 Select the appropriate customer and user for testing:
 
-![](./.vitepress/images/2021-03-15-08-47-28.png)
+![](/.vitepress/images/2021-03-15-08-47-28.png)
 
 ### Step 6: Start the Onboarding Process
 
 Begin the onboarding process to apply your deployments:
 
-![](./.vitepress/images/2021-03-15-08-37-50.png)
+![](/.vitepress/images/2021-03-15-08-37-50.png)
 
 This will create an "Onboarding" maintenance session that will apply all applicable deployments to the Sandbox environment.
 
@@ -94,11 +94,5 @@ When testing with Windows Sandbox, be aware of these limitations:
 3. **Compare with Physical Machines**: Verify critical deployments on physical machines after testing in Sandbox
 4. **Use for Initial Validation**: Sandbox is great for initial testing but may not catch all edge cases
 
-## Next Steps
 
-After testing in Windows Sandbox, you might want to:
-
-- [Create custom deployments](./creating-deployments.md) based on your test results
-- [Configure maintenance schedules](./maintenance-updates.md) for your production environment
-- [Review common issues](./common-issues.md) that might affect your deployments
 
