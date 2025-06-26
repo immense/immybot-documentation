@@ -153,7 +153,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Known issues', link: '/Documentation/Reference/known-issues' },
                 ],
             },
-            { text: 'Frequently Asked Questions', link: '/documentation/FAQ' },
+            { text: 'Frequently Asked Questions', link: '/Documentation/FAQ' },
         ],
 
         socialLinks: [

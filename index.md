@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: Quick Start Guide
-      link: /quick-start-guide
+      link: /Documentation/GettingStarted/quick-start-guide
     - theme: alt
       text: What's New
-      link: /releases
+      link: /Documentation/Reference/releases
 
 features:
   - title: ImmyBot Overview
