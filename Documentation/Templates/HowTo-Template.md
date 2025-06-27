@@ -1,5 +1,4 @@
 <!-- How To Template -->
-
 # Page Name
 
 ::: danger _This is a Red Danger Notification_ <!-- Three colons to tell VitePress where the warning starts and stops-->
@@ -30,3 +29,11 @@ What do we need before we start?
 ### Step 2. Do Something else
   - Here is a bullet point
   - Here is another one
+
+<br><br><br>
+>[!NOTE] Document information
+>Author:
+<br>
+>Date Published:
+><br>
+>Date Revised:

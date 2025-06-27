@@ -1,4 +1,3 @@
-
 # Troubleshooting Guide
 
 > [!WARNING] *ImmyBot's EV code-signing certificate is changing on Feb. 11th, 2025*
@@ -9,10 +8,6 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 :::
 
 This comprehensive guide will help you troubleshoot common issues with ImmyBot, including agent connectivity problems, identification failures, security software conflicts, and more. Follow the step-by-step instructions to diagnose and resolve issues quickly.
-
-## Table of Contents
-  [[toc]]
-
 
 ## Identification Failures
 
@@ -155,7 +150,6 @@ Your script path can be found under Settings->Preferences->Script Path
 
 
 - [Troubleshooting Guide](#troubleshooting-guide)
-  - [Table of Contents](#table-of-contents)
   - [Identification Failures](#identification-failures)
     - [Needs a Manual Decision](#needs-a-manual-decision)
   - [Pending Computers](#pending-computers)

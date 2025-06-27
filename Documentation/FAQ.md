@@ -10,9 +10,7 @@ Please see the [section below](#what-windows-versions-does-immyagent-support) fo
 
 This comprehensive FAQ addresses common questions about ImmyBot, including licensing, deployment, configuration, and troubleshooting. If you don't find the answer to your question here, please check our [Common Issues](/Documentation/Troubleshooting/common-issues.md) guide or contact our [support team](mailto:support@immy.bot).
 
-## Table of Contents
-- [Frequently Asked Questions](#frequently-asked-questions)
-  [[toc]]
+
 
 ## Licensing and Plans
 ::: details What is the difference between the Starter and Standard plan?
@@ -326,7 +324,14 @@ Pay attention to the script output, Immy may be reporting that there is a name c
 This will occur if the device's system time is incorrect.  Ensure that the system time is correct and then restart the ImmyBot Agent Service.
 :::
 
-::: details Next Steps
+## Miscellaneous
+
+::: details We are rebranding, how do we change our company information?
+
+Branding information is [here](/Documentation/HowToGuides/branding.md). If you want to change your ImmyBot subdomain, you need to put submit a ticket to ImmyBot support.
+:::
+
+## Next Steps
 
 After reviewing these FAQs, you might want to explore:
 

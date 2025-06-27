@@ -36,9 +36,9 @@ Client tenants represent your customers. They can be created:
 - Automatically through PSA integration
 - Imported from Azure AD
 
-### Sub-Tenants
+### Child-Tenants
 
-Sub-tenants are child tenants of client tenants. They can represent:
+child-tenants are sub tenants of tenants. They can represent:
 - Branch offices
 - Departments
 - Divisions
