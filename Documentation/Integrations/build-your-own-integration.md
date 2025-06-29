@@ -2,14 +2,7 @@
 
 ImmyBot provides powerful integration capabilities that allow you to connect with external systems and extend its functionality. This guide explains how to build both inbound and outbound integrations to meet your specific needs.
 
-## Table of Contents
 
-- [Understanding Integration Types](#understanding-integration-types)
-- [Inbound Integrations](#inbound-integrations)
-- [Outbound Integrations](#outbound-integrations)
-- [Integration Capabilities](#integration-capabilities)
-- [Integration Context](#integration-context)
-- [Complete Examples](#complete-examples)
 
 ## Understanding Integration Types
 
@@ -862,6 +855,6 @@ Building custom integrations with ImmyBot allows you to extend its capabilities 
 
 For more information on working with ImmyBot's API and integrations, see:
 
-- [API Documentation](/Documentation/AdvancedTopics/api-documentation.md)
+- [API Documentation](/Documentation/Reference/api-documentation.md)
 - [Custom Integrations](/Documentation/Integrations//custom-integrations.md)
 - [Integration Overview](/Documentation/Integrations/integration-overview.md)

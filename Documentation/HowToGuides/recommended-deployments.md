@@ -2,24 +2,6 @@
 
 ImmyBot comes with several pre-configured "Recommended Deployments" that provide a solid foundation for managing your endpoints. This guide explains each recommended deployment and how to use them effectively.
 
-## Table of Contents
-
-- [Recommended Deployments](#recommended-deployments)
-  - [Table of Contents](#table-of-contents)
-  - [Create Profile for Primary User](#create-profile-for-primary-user)
-    - [How It Works](#how-it-works)
-  - [Microsoft 365 Apps](#microsoft-365-apps)
-    - [Included Applications](#included-applications)
-    - [Smart License Detection](#smart-license-detection)
-  - [Dell/Lenovo/HP Updates](#delllenovohp-updates)
-    - [Manufacturer-Specific Targeting](#manufacturer-specific-targeting)
-  - [Adobe Reader](#adobe-reader)
-    - [Handling Exceptions](#handling-exceptions)
-  - [Set Computer Name and Domain Join](#set-computer-name-and-domain-join)
-    - [Customization Recommended](#customization-recommended)
-  - [Customizing Recommended Deployments](#customizing-recommended-deployments)
-  - [Next Steps](#next-steps)
-
 ## Create Profile for Primary User
 
 This deployment creates a user profile for the primary user, allowing ImmyBot to set user-specific settings like default browser and PDF editors.

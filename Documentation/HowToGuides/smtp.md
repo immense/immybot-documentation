@@ -1,20 +1,21 @@
-# Overview
+# SMTP
 
 > [!WARNING] "From" address needs to be changed in Show More > Branding
 > Please see the [Branding for more information](./branding.md).
 
+## Overview
 
 SMTP settings allow you to specify SMTP settings per tenant.
 We reccomened you set the Onboarding tenant's SMTP settings first, as that will be used by default if
 another tenant doesn't have SMTP setttings set, and you're sending mainteance emails.
 
-# Best Practices
+## Best Practices
 - To help ensure deliverability, you should not [spoof](https://en.wikipedia.org/wiki/Email_spoofing) a sending domain.
 - You should also have SPF and DMARC set up for the sending domain.
 - You don't need to add ImmyBot IP addresses to your SPF record
 - You don't need to whitelist any ImmyBot IPs unless you have strict access controls in place.
 
-# Settings
+## Settings
 
 1. Tenant selection - Select the tenant that these settings will apply to
 2. Host - Input your SMTP host here

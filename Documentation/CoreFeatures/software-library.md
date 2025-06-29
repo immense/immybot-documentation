@@ -2,11 +2,14 @@
 import SoftwareList from '/.vitepress/components/SoftwareList.vue'
 </script>
 
-# Software Library
+# Software and Task Library
+
+## Software
 
 Access the Software Library navigating to **Library** > **Software**
 
-**This is a live list of software** <br> <br>
+**This is a live list of software in our global software library** <br>
+
 <SoftwareList />
 
 ## Tasks

@@ -1,10 +1,12 @@
-# Overview
+# Branding
+
+## Overview
 The Branding page allows you to set the color palet, company logo, etc on a per tenant level. This allows you to brand the individual tenants with either your company information or an IT departments information.
 
-# Best Practices
+## Best Practices
 - To ensure that your company branding is the same accross your tenants, the default global branding should be your company's branding, and one off's for specific tenants should have their own branding.
 
-# Settings
+## Settings
 1. Company - Who is this branding going to apply to?
 2. Description - Informational only to describe this brand
 3. Color Palte - Change the colors of the branding

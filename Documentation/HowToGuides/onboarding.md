@@ -5,7 +5,7 @@ This guide walks you through the process of setting up your first computer with 
 ## Prerequisites
 
 Before you begin, make sure you have:
-- An active ImmyBot account
+- An active ImmyBot account [Click here if you don't have one](https://www.immy.bot/pricing/)
 - Administrator access to the computer you want to set up
 - A USB drive (for physical computers)
 
