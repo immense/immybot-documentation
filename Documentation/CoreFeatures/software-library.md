@@ -1,26 +1,18 @@
+<script setup>
+import SoftwareList from '/.vitepress/components/SoftwareList.vue'
+</script>
+
 # Software Library
-**This is a short list of available software and tasks, and is intentionally incomplete**
 
-Access the Software Library and Task Library by navigating to **Library** > **Software** or **Library** > **Tasks** respectively
+Access the Software Library navigating to **Library** > **Software**
 
-## Software
-- Adobe Acrobat Reader
-- PowerBI Desktop
-- Notepad++
-- Powershell 7
-- CutePDF Writer
-- Cloudradial Agent
-- Microsoft Teams
-- Configure Storage Sense
-- Microsoft Edge Chromium
-- 7-Zip
-- Microsoft Print to PDF
-- Apps for Business (Metascript: (Global) Primary User has license for 365 Software $SoftwareName)
-- Visual Studio Code
-- Lenovo / Dell / HP system updates
-- Amazon Coretto 11 / 17 (Java Replacement)
-- Yubikey
+**This is a live list of software** <br> <br>
+<SoftwareList />
+
 ## Tasks
+
+Access the Task Library by navigating to **Library** > **Tasks** respectively
+
 - Set Date/Time
 - Disable Privacy Experience
 - Delete "Setup Completed Successfully" Registry
@@ -54,3 +46,4 @@ Access the Software Library and Task Library by navigating to **Library** > **So
 
 ## Creating your own software for deployments
 Please see [Managing Software](/Documentation/HowToGuides/managing-software.md) for intructions on creating software for deployments
+

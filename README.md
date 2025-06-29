@@ -4,7 +4,7 @@ Changes made to the main branch here are pushed to https://docs.immy.bot/ automa
 
 ## Getting Started
 
-Clone this repo then opening the folder in VS Code.
+Clone this repo then open the folder in VS Code.
 
 VS Code will recommend certain extensions when opening it the first time, we recommend you install these.
 
@@ -36,7 +36,7 @@ Save pages as you edit them, they will be automatically updated in your browser.
 
 ```
 immybot-documentation/
-├── Documentation/        # Informations f iles for the documents website
+├── Documentation/        # Informational files for the documents website
 │   ├── Administration/
 │   ├── AdvancedTopics/
 │   ├── CoreFeatures/
@@ -65,7 +65,7 @@ immybot-documentation/
      - The 'text:' column should be the title of the document
      - The link needs to be the absolute file path without .md at of the filename
   8. Save this file
-  9.  Test your changes
+  9. Test your changes
   10. Commit and push your changes to the PR
   12. If everything is satisfactory the changes will be merged into the main branch
 
