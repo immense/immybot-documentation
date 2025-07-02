@@ -29,7 +29,7 @@ Once a computer has been in ImmyBot for at least 7 days, maintenance can no long
 :::
 
 ::: details Standard
-Standard charges per maintained computer since it supports ongoing maintenance.
+Standard includes unlimited onboarding computers. Onboarding a computer does not count towards your standard licenses. Standard charges per maintained computer since it supports ongoing maintenance. You will see a check mark on the top left hand corner of the computer icon when reviewing.
 :::
 
 ::: details What is a maintained computer?

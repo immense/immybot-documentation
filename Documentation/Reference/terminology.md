@@ -2,23 +2,6 @@
 
 This comprehensive guide explains the key concepts and terminology used throughout ImmyBot. Understanding these terms will help you navigate the platform more effectively and make the most of its powerful automation capabilities.
 
-## Table of Contents
-
-- [Tenants](#tenants)
-- [User Computer Affinity](#user-computer-affinity)
-- [Deployments](#deployment)
-- [Targets](#target)
-- [Maintenance Sessions](#maintenance-session)
-- [Maintenance Actions](#maintenance-action)
-- [Software](#software)
-- [Tasks](#task)
-- [Scripts](#scripts)
-- [Schedules](#schedules)
-- [Integrations](#integrations)
-- [Identification](#identification)
-- [Target Visibility](#target-visibility)
-- [Technician Tools](#technician-tools)
-
 ## Tenants
 
 Tenants represent your customers or client organizations in ImmyBot. Each tenant is a separate entity with its own computers, users, and configurations.

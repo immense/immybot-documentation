@@ -1,4 +1,4 @@
-# Computers and Inventory
+# Computers
 
 > [!WARNING] *For starter subscriptions, computers cannot be managed after 7 days*
 > Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#licensing-and-plans).

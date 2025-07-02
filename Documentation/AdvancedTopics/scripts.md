@@ -2,15 +2,6 @@
 
 This comprehensive guide explains how to create and manage scripts in ImmyBot, including best practices, script types, execution contexts, and helper functions.
 
-## Table of Contents
-
-- [Best Practices](#best-practices)
-- [Script Types](#script-types)
-- [Script Execution Contexts](#script-execution-contexts)
-- [Variables](#variables)
-- [Scripting FAQ](#scripting-frequently-asked-questions)
-- [Helper Functions](#configuration-task-helper-functions)
-- [Parameters](#parameters)
 
 ## Best Practices
 
@@ -55,20 +46,20 @@ Follow these best practices to create effective, maintainable scripts in ImmyBot
 
 ImmyBot supports various script types, each serving a specific purpose in the automation workflow:
 
-| Script Type | Description |
-|-------------|-------------|
-| Software Detection | Determines if software is installed and its version |
-| Software Action | Handles installation, uninstallation, and updates |
-| Maintenance Task | Configures and tests system settings |
-| Metascript (Deployment Target) | Runs on the server to determine deployment applicability |
-| Filter Script (Deployment Target) | Returns specific computers for targeted deployments |
-| Device Inventory | Collects information about managed devices |
-| Function | Reusable code blocks for other scripts |
-| Dynamic Version | Retrieves latest software version information |
-| Download Installer | Custom logic for downloading software installers |
-| Module | PowerShell modules for extended functionality |
-| Preflight | Runs before maintenance to check prerequisites |
-| Integration | Connects ImmyBot to external systems |
+| Script Type                       | Description                                              |
+| --------------------------------- | -------------------------------------------------------- |
+| Software Detection                | Determines if software is installed and its version      |
+| Software Action                   | Handles installation, uninstallation, and updates        |
+| Maintenance Task                  | Configures and tests system settings                     |
+| Metascript (Deployment Target)    | Runs on the server to determine deployment applicability |
+| Filter Script (Deployment Target) | Returns specific computers for targeted deployments      |
+| Device Inventory                  | Collects information about managed devices               |
+| Function                          | Reusable code blocks for other scripts                   |
+| Dynamic Version                   | Retrieves latest software version information            |
+| Download Installer                | Custom logic for downloading software installers         |
+| Module                            | PowerShell modules for extended functionality            |
+| Preflight                         | Runs before maintenance to check prerequisites           |
+| Integration                       | Connects ImmyBot to external systems                     |
 
 ### Software Detection
 
@@ -84,16 +75,16 @@ Get-Command "C:\Program Files*\<softwarename>\mysoftware.exe" -ErrorAction Silen
 
 If there is no exe or dll file containing the version, perhaps there is a .ini, .config, .json or .xml file that contains the installed version.
 
-If all else fails, you can simply return "1.0" if a file associated to the software exists. 
+If all else fails, you can simply return "1.0" if a file associated to the software exists.
 
-These scripts  **must return a string that will cast to a valid `System.Version`**. 
+These scripts  **must return a string that will cast to a valid `System.Version`**.
 Returning an actual `System.Version` will fail. (Although we may correct this in the future)
-For example 
+For example
 ```
 $version = [String]"1.2.3"
 return $version
 ```
-will work, but currently 
+will work, but currently
 ```
 $version = [System.Version]"1.2.3"
 return $version
@@ -377,7 +368,7 @@ When used in the context of a Task, these functions honor the $method variable c
 **These must be run from the Metascript context
 ### Get-WindowsRegistryValue | RegistryShould-Be
 #### Overview
-Get-WindowsRegistryValue fetches the value of the specified Path and Name, and RegistryShould-Be tests and sets the value, creating missing keys/values if required 
+Get-WindowsRegistryValue fetches the value of the specified Path and Name, and RegistryShould-Be tests and sets the value, creating missing keys/values if required
 
 On average this saves 8-10 lines of PowerShell per registry value and makes your code significantly more readable
 
@@ -410,7 +401,7 @@ The following script will iterate recursively over the extracted files and place
 $ZippedConfigFolder = Invoke-ImmyCommand { Get-ChildItem $using:Folder -Recurse -File }
 $ZippedConfigFolder | select -Expand FullName | ForEach-Object {
   $FilePath = $_
-  $FilePath | FileShould-Be -in "C:\Program Files*\MySoftware" 
+  $FilePath | FileShould-Be -in "C:\Program Files*\MySoftware"
 }
 ```
 
@@ -429,7 +420,7 @@ See the scripts for OpenDental and SmartBoard for usage of this
 $ConfigFilePath = "C:\ProgramData\MySoftware\configuration.xml"
 $XML = Get-Content $ConfigFilePath
 $XML = $XML | XMLShould-Be -XPath "/ServerAddress" -Value $ServerAddress
-$XML | Set-Content $ConfigFilePath 
+$XML | Set-Content $ConfigFilePath
 ```
 
 ### HKCUShould-Be
@@ -493,7 +484,7 @@ dynamicparam
         New-ParameterCollection @(
             # The variable $RefreshToken now contains the OAuth response
             New-OAuthConsentParameter -Name RefreshToken -ResponseType code -AuthorizationEndpoint "<AUTH_ENDPOINT>" -TokenEndpoint "<TOKEN_ENDPOINT>" -ClientID '<CLIENT_ID>' -ClientSecret '<CLIENT_SECRET>'  -Scope "<SCOPE>" -Mandatory
-        )        
+        )
     }
 ```
 
@@ -503,10 +494,10 @@ param(
     [Parameter(Mandatory)]
     [OAuthConsent(
         authorizationEndpoint = "<AUTH_ENDPOINT>",
-        tokenEndpoint = "<TOKEN_ENDPOINT>", 
-        responseType = "<RESPONCE_CODE>", 
+        tokenEndpoint = "<TOKEN_ENDPOINT>",
+        responseType = "<RESPONCE_CODE>",
         resource = "<RESOURCE>",
-        scope = "<SCOPE>", 
+        scope = "<SCOPE>",
         ClientId = "<CLIENT_ID>",
         extraQueryParameters = $null)]
     $OAuthInfo

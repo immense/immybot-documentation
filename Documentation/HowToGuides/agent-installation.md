@@ -1,4 +1,4 @@
-# Installation Options
+# Agent Installation
 **Please see [System Requirements](/Documentation/GettingStarted/system-requirements.md) before proceeding**
 
 ## Provisioning Package (New Computer Flash Drive)

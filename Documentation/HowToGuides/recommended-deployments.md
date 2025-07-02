@@ -91,6 +91,18 @@ Unlike other recommended deployments, this one should typically be customized fo
 2. Create customer-specific versions with appropriate naming conventions and domain settings
 3. Apply these custom deployments to the relevant customer targets
 
+## BitLocker
+
+> [!WARNING] We recommend installing BitLocker Recovery Tool on atleast one Domain Controller
+> [BitLocker Recovery Tool](https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/recovery-process#helpdesk-recovery-in-active-directory-domain-services)
+> <br> [BitLocker Recovery Process](https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/recovery-process)
+
+This deployment will allows ImmyBot to manage BitLocker accross your computer endpoints
+- Checks for TPM and OS compatability
+- Stores the BitLocker Recovery Key in Azure or in Active Directory dynamically
+  - Requires Azure connection or Domain Controller in ImmyBot
+
+
 ## Customizing Recommended Deployments
 
 While recommended deployments provide a solid starting point, you should review and customize them to match your specific requirements:

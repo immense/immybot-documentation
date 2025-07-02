@@ -2,44 +2,6 @@
 
 This comprehensive guide explains the powerful scripting capabilities available in ImmyBot through Metascripts, Cloud Scripts, and their associated commands.
 
-## Table of Contents
-
-- [ImmyBot Command Reference](#immybot-command-reference)
-  - [Table of Contents](#table-of-contents)
-  - [Understanding Server-Side Scripts](#understanding-server-side-scripts)
-    - [Metascripts](#metascripts)
-      - [Example: Comparing PowerShell Versions](#example-comparing-powershell-versions)
-      - [Output](#output)
-    - [Cloud Scripts](#cloud-scripts)
-  - [Common Commands](#common-commands)
-    - [Azure Integration Commands](#azure-integration-commands)
-      - [Connect-ImmyAzureAD](#connect-immyazuread)
-      - [Get-ImmyAzureAuthHeader](#get-immyazureauthheader)
-    - [RMM Integration Commands](#rmm-integration-commands)
-      - [Get-ProviderInfo](#get-providerinfo)
-  - [Metascript Commands](#metascript-commands)
-    - [Remote Execution](#remote-execution)
-      - [Invoke-ImmyCommand](#invoke-immycommand)
-    - [Email Notifications](#email-notifications)
-      - [Send-ImmyEmail](#send-immyemail)
-    - [Computer Management](#computer-management)
-      - [Refresh-ComputerSystemInfo](#refresh-computersysteminfo)
-      - [Get-RmmComputer](#get-rmmcomputer)
-      - [Get-ImmyComputer](#get-immycomputer)
-  - [Filterscript Commands](#filterscript-commands)
-    - [Get-ImmyComputer](#get-immycomputer-1)
-  - [Software Auto Update Commands](#software-auto-update-commands)
-    - [Add-Script](#add-script)
-    - [Get-Script](#get-script)
-    - [Add-SoftwareVersion](#add-softwareversion)
-    - [Get-AllLocalScripts](#get-alllocalscripts)
-    - [Get-AllGlobalScripts](#get-allglobalscripts)
-  - [ConnectWise Automate Commands](#connectwise-automate-commands)
-    - [Invoke-CWAQuery](#invoke-cwaquery)
-    - [Invoke-CWARestMethod](#invoke-cwarestmethod)
-    - [Get-CWARestPages](#get-cwarestpages)
-  - [Best Practices](#best-practices)
-
 ## Understanding Server-Side Scripts
 
 ### Metascripts

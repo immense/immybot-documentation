@@ -7,7 +7,7 @@ Deployments are the central concept in ImmyBot. They define how computers "shoul
 A deployment is a rule that specifies:
 
 1. **What** should be deployed (software or task)
-2. **Where** it should be deployed (target computers)
+2. **Where** it should be deployed (target computer, user)
 3. **How** it should be enforced (required, optional, etc.)
 4. **When** it should be applied (immediately, during onboarding, etc.)
 
@@ -19,9 +19,9 @@ graph TD
     A -->|contains| E[Settings]
     B -->|can be| F[Software]
     B -->|can be| G[Task]
-    C -->|can be| H[Computers]
-    C -->|can be| I[Users]
-    C -->|can be| J[Groups]
+    C -->|can be| H[Tenants]
+    C -->|can be| I[Computers]
+    C -->|can be| J[Users]
     C -->|can be| K[Filter Scripts]
 ```
 
@@ -50,7 +50,7 @@ Task deployments run scripts or commands to configure settings or perform action
 - Set up network configurations
 - Perform custom maintenance actions
 
-## Enforcement Types
+## Target Enforcement Types
 
 The enforcement type determines how and when a deployment is applied:
 
@@ -64,16 +64,6 @@ Required deployments are automatically applied during maintenance sessions. They
 - Configurations are applied and maintained
 
 Use Required for software and settings that should always be present on target computers.
-
-### Optional
-
-Optional deployments are available for manual installation but aren't automatically applied. They:
-
-- Appear in the Self-Service Portal for users to install
-- Can be manually applied by technicians
-- Don't run during automated maintenance
-
-Use Optional for software that some users might need but isn't required for everyone.
 
 ### Onboarding
 
@@ -101,29 +91,22 @@ Deployments can target computers based on various criteria:
 
 ### Direct Targeting
 
-- **All Computers**: Apply to every computer in your ImmyBot instance
-- **Specific Computer**: Apply to a single computer
-- **Computer Group**: Apply to a predefined group of computers
-- **Tenant**: Apply to all computers in a specific tenant
+- **Cross Tenant**: Apply to every computer in your ImmyBot instance
+- **Single Tenant**: Apply to all computers in a specific tenant
+- **Computer or Person**: Apply to a single computer or person
 
 ### Dynamic Targeting
 
 - **Filter Scripts**: Use PowerShell scripts to dynamically determine eligibility
-- **User-Based**: Target computers based on their primary user
-- **Tag-Based**: Target computers with specific tags
+- **PSA Agreement Additions**: Use your PSA to push contract agreement additions such as a SentinelOne add on
 
 ### Exclusions
 
-You can also define exclusions to prevent a deployment from applying to certain computers, even if they match the target criteria.
+You can also define exclusions to prevent a deployment from applying to certain computers by creating a deployment that specifically excludes those endpoints and setting the **Software Should Be** to Ignored.
 
 ## Deployment Resolution
 
 When multiple deployments apply to the same computer, ImmyBot uses a resolution process to determine the final configuration. This process considers:
-
-- Enforcement type priority
-- Deployment specificity
-- Tenant hierarchy
-- Supersedence relationships
 
 For detailed information on how deployments are resolved, see [Deployment Resolution](/Documentation/Reference/terminology.md#deployment-resolution).
 

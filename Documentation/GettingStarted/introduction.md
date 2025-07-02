@@ -106,14 +106,6 @@ Scheduled or on-demand processes that:
 - Run maintenance tasks
 - Report results back to the server
 
-## Getting Started
-
-Ready to start using ImmyBot? Here's how to get up and running quickly:
-
-1. [Quick Start Guide](/Documentation/GettingStarted/quick-start-guide): Set up your first computer and deployment
-2. [First Computer Setup](/Documentation/HowToGuides/onboarding.md): Detailed instructions for onboarding computers
-3. [Core Concepts](/Documentation/GettingStarted/core-concepts): Learn the fundamental concepts of ImmyBot
-4. [Common Workflows](/Documentation/GettingStarted/common-workflows): Step-by-step guides for everyday tasks
 
 ## System Requirements
 
@@ -124,3 +116,13 @@ ImmyBot is designed to work with:
 - **Browser Requirements**: Chrome, Edge, Firefox, Safari (latest versions)
 
 For detailed system requirements, see the [System Requirements](/Documentation/GettingStarted/system-requirements) page.
+
+## Getting Started
+
+Ready to start using ImmyBot? Here's how to get up and running quickly:
+
+1. [Quick Start Guide](/Documentation/GettingStarted/quick-start-guide): Set up your first computer and deployment
+2. [First Computer Setup](/Documentation/HowToGuides/onboarding.md): Detailed instructions for onboarding computers
+3. [Core Concepts](/Documentation/GettingStarted/core-concepts): Learn the fundamental concepts of ImmyBot
+4. [Common Workflows](/Documentation/GettingStarted/common-workflows): Step-by-step guides for everyday tasks
+

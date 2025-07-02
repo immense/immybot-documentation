@@ -1,3 +1,4 @@
+# N-Central REST API Dynamic Integration
 ::: info
 This page is now dedicated to the new N-Central integration, utilizing the new N-Central REST API & ImmyBot Dynamic Integrations.
 
@@ -6,7 +7,6 @@ This new integration should provide improved stability over our classic (and soo
 Looking for the classic N-Central integration guide?
 We recommend against it, but here is [the classic setup guide](/old-ncentral-integration-setup.html).
 :::
-# N-Central REST API Dynamic Integration
 
 Setting up this integration allows you to:
 1. Import customers from N-Central
