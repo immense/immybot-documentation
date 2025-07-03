@@ -93,7 +93,7 @@ Unlike other recommended deployments, this one should typically be customized fo
 
 ## BitLocker
 
-> [!WARNING] We recommend installing BitLocker Recovery Tool on atleast one Domain Controller
+> [!WARNING] We recommend installing BitLocker Recovery Tool on at least one Domain Controller
 > [BitLocker Recovery Tool](https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/recovery-process#helpdesk-recovery-in-active-directory-domain-services)
 > <br> [BitLocker Recovery Process](https://learn.microsoft.com/en-us/windows/security/operating-system-security/data-protection/bitlocker/recovery-process)
 

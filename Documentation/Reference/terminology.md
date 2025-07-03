@@ -46,30 +46,6 @@ graph TD
 
 If you want your Deployments to be applied automatically, you need to create a [Schedule](#schedules). Otherwise, deployments only take effect when maintenance is manually run or triggered by another event.
 
-## Deployment Resolution
-
-Deployment Resolution is the process by which ImmyBot determines which deployment "wins" when multiple deployments could apply to the same computer or user. This is essential for handling exceptions and special cases.
-
-**Also known as:**
-* Creating Exceptions
-* "Winning" Deployments
-* Dealing with Snowflakes
-
-Like Group Policies have a "Winning Policy", ImmyBot must have a "Winning Deployment" for a given Maintenance Item on a computer. When multiple deployments target the same computer with conflicting settings, ImmyBot uses specific rules to determine which one takes precedence.
-
-### Example Scenario
-
-Let's say you have a customer "Contoso" that uses Adobe Acrobat instead of Adobe Reader, and you would like that to be installed instead.
-
-**Step 1:** Create a Deployment that sets the desired state of Adobe Reader to Uninstalled for Contoso
-
-![](/.vitepress/images/2021-03-01-08-44-19.png)
-
-**Step 2:** Create a Deployment that Installs Adobe Acrobat for their computers
-
-![](/.vitepress/images/2021-03-01-08-51-38.png)
-
-**Result:** When maintenance runs on Contoso computers, Adobe Reader will be uninstalled and Adobe Acrobat will be installed, even if you have a global deployment that normally installs Adobe Reader on all computers.
 
 ## [Target](#target)
 A "[Target](#target)" is a grouping of computers (or Tenants in the case of "Cloud Tasks")

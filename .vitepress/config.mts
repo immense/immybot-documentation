@@ -33,6 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Core Concepts', link: '/Documentation/GettingStarted/core-concepts' },
                     { text: 'Common Workflows', link: '/Documentation/GettingStarted/common-workflows' },
                     { text: 'System Requirements', link: '/Documentation/GettingStarted/system-requirements' },
+                    { text: 'Recommended Deployments', link: '/Documentation/GettingStarted/recommended-deployments' },
 
                 ],
             },
@@ -62,7 +63,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Computer Onboarding', link: '/Documentation/HowToGuides/onboarding' },
                     { text: 'Agent Installation', link: '/Documentation/HowToGuides/agent-installation' },
                     { text: 'User Management', link: '/Documentation/HowToGuides/add-users' },
-                    { text: 'Recommended Deployments', link: '/Documentation/HowToGuides/recommended-deployments' },
                     { text: 'SMTP', link: '/Documentation/HowToGuides/smtp' },
                     { text: 'Branding', link: '/Documentation/HowToGuides/branding' },
                 ],

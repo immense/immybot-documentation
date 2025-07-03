@@ -54,17 +54,17 @@ Maintenance sessions can be triggered:
 
 ## Agents
 
-The ImmyBot Agent is a lightweight service that runs on managed computers and communicates with the ImmyBot server. The agent:
+The ImmyBot Agent is a lightweight service that runs on managed computers and communicates with the ImmyBot instance. The agent:
 
-- Executes commands sent from the server
+- Executes commands sent from the ImmyBot instance
 - Reports computer information and status
 - Manages software installations and configurations
 - Runs scripts in various contexts (System, User, etc.)
 
 There are two types of agents:
 - **Full Agent**: Installed permanently on managed computers
-- **Ephemeral Agent**: Temporary agent used for one-time tasks or initial setup
-
+- **Ephemeral Agent**: Used for all communications, doesn't require the Full Agent, however is reccomended
+-
 ## Tenants
 
 Tenants represent the organizations you manage with ImmyBot. Each tenant:
@@ -92,7 +92,6 @@ In ImmyBot, software is more than just an application. A software definition inc
 
 Software can be deployed in different ways:
 - **Enforced**: Always installed and kept at a specific version
-- **Available**: Available for users to install on-demand
 - **Removed**: Actively uninstalled if found
 
 ## Tasks

@@ -85,44 +85,6 @@ This guide provides step-by-step instructions for the most common tasks you'll p
    - Once testing is successful, update targets if needed
    - Run maintenance on production computers or wait for scheduled maintenance
 
-## Setting Up Automated Maintenance
-
-### Prerequisites
-- Administrator access to ImmyBot
-- Defined maintenance window requirements
-- List of computers or customers to configure
-
-### Steps
-
-1. **Define Maintenance Windows**
-   - Navigate to **Show more** > **Preferences** > **Maintenance Windows**
-   - Click **Create Maintenance Window**
-   - Set a name, description, and schedule
-   - Define any exclusions or special conditions
-
-2. **Assign Maintenance Windows**
-   - Navigate to **Customers**
-   - Select a customer
-   - Click **Settings**
-   - Under **Maintenance Windows**, select the appropriate window
-   - Save changes
-
-3. **Configure Maintenance Settings**
-   - Navigate to **Show more** > **Preferences** > **Maintenance Settings**
-   - Set default behavior for maintenance sessions
-   - Configure notification settings
-   - Set retry policies and timeout values
-
-4. **Enable Automated Maintenance**
-   - Navigate to **Show more** > **Preferences** > **System Settings**
-   - Under **Automated Maintenance**, toggle the setting to enabled
-   - Configure any global settings for automated maintenance
-
-5. **Verify Configuration**
-   - Check the **Scheduled Maintenance** view
-   - Confirm that computers are scheduled appropriately
-   - Run a test maintenance session to verify settings
-
 ## Troubleshooting a Failed Deployment
 
 ### Prerequisites

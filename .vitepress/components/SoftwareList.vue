@@ -7,7 +7,8 @@ const error = ref(null)
 
 onMounted(async () => {
   try {
-    const response = await fetch('https://corsproxy.io/?https://immybot.azurewebsites.net/api/software')
+    // Direct request to the API
+    const response = await fetch('https://immybot.azurewebsites.net/api/software')
     if (!response.ok) throw new Error(`HTTP error: ${response.status}`)
     const data = await response.json()
     softwareList.value = data
