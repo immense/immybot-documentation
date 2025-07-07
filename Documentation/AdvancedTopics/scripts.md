@@ -2,10 +2,21 @@
 
 This comprehensive guide explains how to create and manage scripts in ImmyBot, including best practices, script types, execution contexts, and helper functions.
 
+## Understanding Script Flow
+```mermaid
+flowchart TD
+    A[Detection Script] --> |"Test Script (Optional)"| B(Dynamic Versions Script)
+    B --> C{Default Download Script}
+    B --> D{"Custom Download Script (Optional)"}
+    C --> E(Install Script)
+    D --> E
+    E --> F("Post-Installation Script (Optional)")
+```
 
 ## Best Practices
 
 Follow these best practices to create effective, maintainable scripts in ImmyBot:
+
 
 ### Code Organization and Reuse
 
