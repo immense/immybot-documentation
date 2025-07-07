@@ -28,7 +28,7 @@
 
 ![image](https://github.com/user-attachments/assets/5a27d217-a574-4a34-b42a-dd9a984e2ce1)
 > [!WARNING]
-> Note: Change the "instance" in the redirect uri to your ImmyBot subdomain
+> Note: Change the "instance" in the redirect uri to your ImmyBot subdomain and confirm it does not end with a trailing "/"
 
 ## Copy the below script to NinjaRMM Automation library and name it ImmyBot:
 (`Administration` -> `Library` -> `Automation` -> `Add` -> `New Script`)
