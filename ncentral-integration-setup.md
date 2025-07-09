@@ -23,7 +23,7 @@ ImmyBot currently requires the following role permissions to operate correctly:
 - Scheduled Tasks
   - Scheduled Tasks -> Manage
 - Downloads
-  - N-central Installers Download
+  - N-central Installers Download -> Manage
 
 Create an "ImmyBot" role in your N-Central instance using above roles.
 ![](./.vitepress/images/ncentraldocs/add_userrole_guide_1.png)
