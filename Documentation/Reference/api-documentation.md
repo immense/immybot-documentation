@@ -4,6 +4,10 @@ ImmyBot provides a comprehensive API that allows you to integrate with and exten
 
 ## API Overview
 
+::: info
+We utilize Sieve for sorting, filtering and pagenation https://github.com/Biarity/Sieve
+:::
+
 The ImmyBot API is a RESTful API that uses standard HTTP methods and returns JSON responses. You can use the API to:
 
 - Manage computers and users
@@ -24,7 +28,7 @@ ImmyBot provides interactive API documentation through Swagger UI, which allows 
 
 ## Authentication
 
-All API requests require authentication using an API key.
+All API requests require authentication using an Azure Enterprise application.
 
 1. **Create an App Registration in Microsoft Entra ID (Azure AD)**:
    - Navigate to [Microsoft Entra ID App Registrations](https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/CreateApplicationBlade/quickStartType~/null/isMSAApp~/false)
@@ -43,13 +47,7 @@ All API requests require authentication using an API key.
    - Paste the Enterprise App's object ID into the "AD External ID" field
    - Create a user from this person and grant admin privileges
 
-### Using API Keys
-
-Include your API key in the `Authorization` header of all requests:
-
-```
-Authorization: Bearer YOUR_API_KEY
-```
+### Using the API
 
 Example:
 
@@ -135,59 +133,6 @@ Function Invoke-ImmyBotRestMethod {
     }
 }
 ```
-
-
-## Common Endpoints
-
-
-## Webhooks
-
-ImmyBot can send webhook notifications for various events.
-
-### Configuring Webhooks
-
-1. Navigate to **Show more** > **Integrations** > **Webhooks**
-2. Click **Create Webhook**
-3. Enter a name
-4. Click **Save**
-
-### Webhook Events
-
-ImmyBot can send webhooks for the following events:
-
-- Session Started
-- Session Completed
-- Session Failed
-- Computer Added
-- Computer Status Changed
-- Deployment Created
-- Deployment Updated
-- Software Added
-- Software Updated
-
-### Webhook Format
-
-Webhooks are sent as HTTP POST requests with a JSON body. The exact format depends on the event type, but all webhooks include:
-
-```json
-{
-  "event_type": "session.completed",
-  "timestamp": "2023-06-15T14:15:30Z",
-  "instance_id": "your-instance-id",
-  "data": {
-    // Event-specific data
-  }
-}
-```
-
-## Rate Limiting
-
-The ImmyBot API implements rate limiting to prevent abuse. The current limits are:
-
-- 60 requests per minute per API key
-- 1000 requests per hour per API key
-
-If you exceed these limits, you'll receive a `429 Too Many Requests` response.
 
 ## Error Handling
 

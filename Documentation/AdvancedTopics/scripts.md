@@ -17,7 +17,6 @@ flowchart TD
 
 Follow these best practices to create effective, maintainable scripts in ImmyBot:
 
-
 ### Code Organization and Reuse
 
 * **Search Existing Scripts**: Use Ctrl+Shift+F or Ctrl+P in our script editor to find scripts that already do what you want. There's a lot of good logic in the built-in function scripts.

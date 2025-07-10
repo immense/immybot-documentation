@@ -228,7 +228,9 @@ Runs in the ImmyBot backend, but intended to be run against a Tenant (perhaps fo
 ## Schedules
 Used to run maintenance periodically on machines. Can optionally be limited to a single Maintenance Item.
 
-NOTE You must also have a Deployment for the Maintenance Item to set the desired state. Imagine a scenario where you need to ensure a single piece of software is up-to-date on all computers except for a CNC machine. Create 2 deployments, the first setting the desired state to Installed->Latest for all computers, then a second stating that the desired state is Ignored for the CNC machine. When you create the schedule, the software will be ignored for the CNC machine.
+::: info
+ You must also have a Deployment for the Maintenance Item to set the desired state. Imagine a scenario where you need to ensure a single piece of software is up-to-date on all computers except for a CNC machine. Create 2 deployments, the first setting the desired state to Installed->Latest for all computers, then a second stating that the desired state is Ignored for the CNC machine. When you create the schedule, the software will be ignored for the CNC machine.
+:::
 
 ## Integrations
 
@@ -295,8 +297,3 @@ When a technician opens a ticket from their PSA system (like HaloPSA), this page
 ### Deciding which deployments show up
 
 Deployment [target visibility](#target-visibility) determines if it is enabled for a particular page.  Technician Tools is one of the available visibility options. When this option is selected and the deployment resolves to a person, tenant, or computer associated with the opened PSA ticket, it will show up in the list.
-
-### Supported Integrations
-
-- [HaloPSA](/halo-integration-setup.md#technician-tools)
-- [CW Manage](/connectwise-manage-integration-setup)

@@ -73,7 +73,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 items: [
                     { text: 'Integration Overview', link: '/Documentation/Integrations/integration-overview' },
                     { text: 'Build Your Own Integration', link: '/Documentation/Integrations/build-your-own-integration' },
-                    { text: 'Custom Integrations', link: '/Documentation/Integrations/custom-integrations' },
+                    //{ text: 'Custom Integrations', link: '/Documentation/Integrations/custom-integrations' },
                     {
                         text: 'RMM Integrations',
                         collapsed: true,

@@ -32,23 +32,6 @@ Professional Services Automation (PSA) integrations connect ImmyBot to your busi
 - Provide technician tools within tickets
 - Track time spent on maintenance
 
-### Identity Integrations
-
-Identity integrations connect ImmyBot to directory services like Azure AD. These integrations:
-
-- Import users and groups
-- Enable user-based targeting
-- Provide authentication options
-- Synchronize organizational structure
-
-### Cloud Integrations
-
-Cloud integrations connect ImmyBot to cloud platforms. These integrations:
-
-- Enable cloud-based script execution
-- Provide access to cloud resources
-- Allow management of cloud services
-- Support hybrid environments
 
 ## Available Integrations
 

@@ -8,7 +8,7 @@ ImmyBot provides powerful integration capabilities that allow you to connect wit
 
 ### Inbound vs Outbound Integrations
 
-**Inbound Integrations**: Use the ImmyBot REST API from an external service to trigger actions within ImmyBot.
+**Inbound Integrations**: Use the ImmyBot REST API from an external service to trigger actions within ImmyBot. You can also pull information from within your ImmyBot instance into an external platform.
 
 **Outbound Integrations**: Defined in PowerShell within ImmyBot and typically consume another service's API to extend ImmyBot's capabilities.
 
@@ -31,11 +31,16 @@ Before creating an inbound integration, you need to set up authentication:
    - Create a new client secret and copy its VALUE (not the ID)
 
 3. **Configure ImmyBot Access**:
+     ::: warning
+     Object ID of the Enterprise App is not the Object ID of the App registration
+     :::
+
    - Navigate to the Enterprise App (click the "Managed Application" link in the App Registration)
    - Copy the object ID of the Enterprise App
    - In ImmyBot, go to Show More → People → New
-   - Paste the Enterprise App's object ID into the "AD External ID" field
-   - Create a user from this person and grant admin privileges
+   - Paste the Enterprise App's object ID into the "AD External ID" field and save
+   - Make that person a user by navigating back to the People list and clicking Create User on the user you just created
+   - Make the user an admin by going to Show More->Users, clicking Edit, and checking the Admin box and clicking Update
 
 ### Example: Installing Software on Computers
 
@@ -221,13 +226,6 @@ Reboot Preferences:
 
 Outbound integrations allow ImmyBot to connect with external systems like RMMs, PSAs, and security tools. While initially developed for internal use, this feature is now available for you to create custom integrations with your preferred tools.
 
-### Core Concepts
-
-At its core, an outbound integration is a PowerShell-based implementation of the `IProvider` interface. ImmyBot provides cmdlets that make it easy to create these integrations without needing to write C# code:
-
-- `New-DynamicIntegration`: Creates the base integration
-- `Add-DynamicIntegrationCapability`: Adds specific capabilities to your integration
-
 ### Integration Capabilities
 
 Capabilities are defined through interfaces that typically start with `ISupports...`. Each capability adds specific functionality to your integration:
@@ -254,7 +252,6 @@ With outbound integrations, you can:
 - **Automate Agent Installation**: Use tenant-specific tokens for automated deployments
 - **Manage Maintenance Mode**: Toggle maintenance/learning modes in external systems
 - **Handle Webhooks**: Process incoming HTTP requests with PowerShell scripts
-- **Extend ImmyBot**: Add custom functionality through the Metascript engine
 
 ## Building Your Integration
 
@@ -374,15 +371,22 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingAgent
         [string[]]$ClientIds = $null  # IDs of clients mapped in the UI
     )
 
-    # Retrieve agents from your external system
-    # This example uses mock data
-    foreach ($clientId in $ClientIds) {
-        Write-Verbose "Retrieving agents for client: $clientId"
+    # Retrieve agents from your external system, remove this array initialization and implement real logic to pull your agent data.
+    # This example uses mock data.
+    $ClientIds = @(
+        [PSCustomObject]@{ Name = 'Computer 1'; ID = 101 }
+        [PSCustomObject]@{ Name = 'Computer 2'; ID = 102 }
+        [PSCustomObject]@{ Name = 'Computer 3'; ID = 103 }
+        [PSCustomObject]@{ Name = 'Computer 4'; ID = 104 }
+        [PSCustomObject]@{ Name = 'Computer 5'; ID = 105 }
+    )
+    # End mock data
 
-        @("Agent1", "Agent2") | ForEach-Object {
-            # Create an agent object for each agent
-            New-IntegrationAgent -AgentId $_ -Name $_ -ClientId $clientId
-        }
+    foreach ($clientId in $ClientIds) {
+        Write-Verbose "Retrieving agents for client: $($clientId.Name)"
+
+        # Create an agent object for each agent
+        New-IntegrationAgent -AgentId $clientId.ID -Name $clientId.Name -ClientId $clientId.ID
     }
 }
 ```
@@ -390,6 +394,15 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingAgent
 ### Using Modules for Code Organization
 
 For complex integrations, it's often better to move common code into a PowerShell module:
+
+::: tip
+We reccomend using self documenting names for functions. If you're creating an integration for "Some Platform" the function names should be:<br>
+Connect-SomePlatformAPI <br>
+Get-SomePlatformAPI <br>
+Get-SomePlatformAgents <br>
+
+So on and so forth
+:::
 
 ```powershell
 # Create a module for your integration
@@ -484,7 +497,7 @@ Here's how the integration context works in practice:
 
 1. **Create an Integration**: Define an integration for a security tool like SentinelOne
 2. **Create Agent Software**: Create a software entry in ImmyBot for the agent
-3. **Link Software to Integration**: Associate the software with your integration type
+3. **Link Software to Integration**: Associate the software with your integration type (Edit Software > Scroll down and expand **Advanced** > Select Integration Type from the drop down and save)
 4. **Create Deployment**: When creating a deployment, select the specific integration instance
 5. **Install Script**: In the installation script, use `Get-IntegrationAgentInstallToken` to retrieve the token
 
@@ -856,5 +869,4 @@ Building custom integrations with ImmyBot allows you to extend its capabilities 
 For more information on working with ImmyBot's API and integrations, see:
 
 - [API Documentation](/Documentation/Reference/api-documentation.md)
-- [Custom Integrations](/Documentation/Integrations//custom-integrations.md)
 - [Integration Overview](/Documentation/Integrations/integration-overview.md)
