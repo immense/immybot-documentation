@@ -10,7 +10,7 @@ This guide explains how to add and manage users in ImmyBot.
 
 ImmyBot uses Azure AD/Entra ID for authentication:
 
-1. **Azure AD/Entra ID Integration**: Required for all ImmyBot installations
+1. **Azure AD/Entra ID Integration**: Required for all ImmyBot instances
 2. **Self-Registration**: Allow users to request access (with admin approval)
 
 ## Adding Users via Self-Registration
@@ -20,12 +20,12 @@ Self-registration is one way to add users to ImmyBot:
 1. Have the person navigate to your ImmyBot instance (e.g., `https://yourdomain.immy.bot`)
 2. They will see a login screen where they can request access:
 
-![User requesting access](https://user-images.githubusercontent.com/1424395/153074628-4a22c81a-177e-4ebb-9845-898ab0f95d88.jpeg)
+![User requesting access](/Documentation/HowToGuides/Request-Access.png))
 
 3. As an administrator, you'll see a yellow notification indicator at the top of your screen
 4. Click the notification to review and approve the access request:
 
-![Approving access request](https://immybot.blob.core.windows.net/release-media/bb34184f-c7c3-41cf-9fa3-f6489e6c3600)
+![Approving access request](/Documentation/HowToGuides/Approve-Access.png)
 
 5. Select the appropriate role for the user (see [User Roles and Security](/Documentation/Administration/user-roles.md) for details)
 6. Click **Approve** to grant access

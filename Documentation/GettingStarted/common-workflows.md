@@ -53,10 +53,7 @@ This guide provides step-by-step instructions for the most common tasks you'll p
    - Click **New** to create a new deployment
 
 2. **Select Deployment Type**
-   - Choose **Software**, **Task**, or **Configuration**
-   - For Software: Search and select from the software library or create a new software entry
-   - For Task: Create or select an existing script
-   - For Configuration: Define the configuration settings
+   - Choose your **Software** or **Task** maintenance item
 
 3. **Configure Deployment Settings**
    - Set the appropriate version (for software)
@@ -64,16 +61,13 @@ This guide provides step-by-step instructions for the most common tasks you'll p
    - Set the deployment mode (Enforced, Available, Removed)
 
 4. **Define Targets**
-   - Click **Add Target**
+   - Select Cross Tenant, Single Tenant, or Individual
    - Select the target type (Computers, Users, Groups, Filter Script)
    - Choose specific targets or create a filter script
-   - Add multiple targets if needed
 
 5. **Test the Deployment**
    - Save the deployment
-   - Navigate to **Computers**
-   - Select a test computer
-   - Click **Maintenance** > **Run Maintenance**
+   - Select a test computer from the computer list on the right and click deploy
    - Monitor the session to ensure the deployment applies correctly
 
 6. **Refine if Needed**
@@ -131,41 +125,6 @@ This guide provides step-by-step instructions for the most common tasks you'll p
    - If you found a significant issue, document it for future reference
    - Update any relevant scripts or procedures
    - Share the solution with your team if appropriate
-
-## Managing Software Updates
-
-### Prerequisites
-- Administrator access to ImmyBot
-- Knowledge of software update requirements
-- List of software to be updated
-
-### Steps
-
-1. **Review Available Updates**
-   - Navigate to **Software Library**
-   - Look for software with new versions available
-   - Review release notes and compatibility information
-
-2. **Test Updates**
-   - Create a test deployment for the new version
-   - Target a small group of test computers
-   - Run maintenance and verify successful installation
-   - Test functionality after update
-
-3. **Update Production Deployments**
-   - Navigate to existing deployments for the software
-   - Update the version to the new release
-   - Save changes
-
-4. **Monitor Rollout**
-   - Watch maintenance sessions as they apply the updates
-   - Check for any failures or issues
-   - Address problems as they arise
-
-5. **Verify Compliance**
-   - Navigate to **Software** in the left sidebar
-   - Filter for the updated software
-   - Verify that all computers have the correct version
 
 ## Next Steps
 
