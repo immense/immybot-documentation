@@ -6,58 +6,10 @@ This guide walks you through the process of creating and managing deployments in
 
 Deployments are the core building blocks of ImmyBot. They define what should be installed or configured on which computers. A deployment consists of:
 
-1. **Content**: The software or task to deploy
+1. **Type**: The software or task to deploy
 2. **Targets**: The computers or users that should receive the deployment
 3. **Enforcement Type**: How strictly the deployment should be applied
-4. **Settings**: Additional configuration options
-
-```mermaid
-graph TD
-    A[Deployment] -->|contains| B[Content]
-    A -->|contains| C[Targets]
-    A -->|contains| D[Enforcement Type]
-    A -->|contains| E[Settings]
-    B -->|can be| F[Software]
-    B -->|can be| G[Task]
-    C -->|can be| H[Computers]
-    C -->|can be| I[Users]
-    C -->|can be| J[Groups]
-    C -->|can be| K[Filter Scripts]
-    D -->|can be| L[Required]
-    D -->|can be| M[Optional]
-    D -->|can be| N[Onboarding]
-    D -->|can be| O[Ad Hoc]
-```
-
-## Types of Deployments
-
-ImmyBot supports three main types of deployments:
-
-### Software Deployments
-
-Software deployments install, update, or remove software on target computers:
-
-- **Enforced**: Software is installed and kept at the specified version
-- **Available**: Software is available for users to install on-demand
-- **Removed**: Software is actively uninstalled if found
-
-### Task Deployments
-
-Task deployments run scripts or commands on target computers:
-
-- **One-time**: Run once and complete
-- **Recurring**: Run on a schedule
-- **Compliance-based**: Run only when a computer is out of compliance
-
-### Configuration Deployments
-
-Configuration deployments apply settings to target computers:
-
-- **Registry**: Set registry keys and values
-- **Files**: Create, modify, or delete files
-- **Settings**: Apply Windows or application settings
-
-
+4. **Configuration Settings**: Additional configuration options
 
 ## Creating a Basic Deployment
 
@@ -69,29 +21,18 @@ Configuration deployments apply settings to target computers:
 
 ![Deployments Page](./Deployment-New.png)
 
-### Step 2: Select Content Type
+### Step 2: Software or Task
 
-Choose the type of content you want to deploy:
+Choose the maintenance item you want to deploy:
 
 - **Software**: Install or uninstall an application
 - **Task**: Run a script or configuration task
-
-For software deployments:
-1. Select **Software** as the content type
-2. Search for the software you want to deploy
-3. Select the desired version (or choose "Latest" to always use the newest version)
-
-For task deployments:
-1. Select **Task** as the content type
-2. Search for the task you want to run
-3. Configure any parameters required by the task
 
 ### Step 3: Configure Enforcement Type
 
 Select how strictly the deployment should be enforced:
 
 - **Required**: Automatically installed during maintenance
-- **Optional**: Available for manual installation
 - **Onboarding**: Applied only during computer onboarding
 - **Ad Hoc**: Only run when explicitly triggered
 
@@ -99,26 +40,25 @@ Select how strictly the deployment should be enforced:
 
 Define which computers should receive this deployment:
 
-1. Click **Add Target**
-2. Choose a target type:
-   - **All Computers**: Apply to every computer
-   - **Computer Group**: Apply to a specific group of computers
-   - **Computer**: Apply to a specific computer
-   - **Tenant**: Apply to all computers in a tenant
-   - **Filter Script**: Apply based on script results
+1. Select from the following
+   1. Cross Tenant
+      - Will apply to all computers in all tenants in the instnace, except where a more specific deployment wins.
+   2. Single Tenant
+      - Will apply to all computers in a single tenant, except where a more specific deployment wins.
+   3. Individual
+      - Applies to an individual computer or user.
+2. Configure the selected target type
+   - All Computers
+   - Filter Script
+   - Metascript
+   - Integration filters
+      - Some integrations such as ConnectWise Manage allow you to filter against other groups or agreement additions.
+   - Tags
+3. Target filters - Here you can configure any extra filtering you may need.
 
-3. Configure the selected target type
-4. Add additional targets if needed
+### Step 5: Configure Additional parameters
 
-### Step 5: Configure Additional Settings
-
-Depending on the content type, you may have additional settings to configure:
-
-- **Desired State**: Whether the software should be installed or uninstalled
-- **Visibility**: Where the deployment should be visible (Self-Service Portal, Technician Tools)
-- **Schedule**: When the deployment should be applied
-- **Dependencies**: Other deployments that must be applied first
-- **Supersedence**: Deployments that this deployment replaces
+Depending on the mainteance item, you may have additional settings to configure. Follow the parameter block on the screen.
 
 ### Step 6: Save the Deployment
 
@@ -205,31 +145,11 @@ Supersedence allows you to replace older deployments with newer ones:
 
 ## Best Practices
 
-### Naming Conventions
-
-Use clear, descriptive names for your deployments:
-
-- Include the software name and version
-- Indicate the target audience if specific
-- Use prefixes for organization (e.g., "SW:" for software, "TASK:" for tasks)
-
-Examples:
-- "SW: Google Chrome - All Users"
-- "TASK: Configure Windows Settings - Accounting"
-
 ### Targeting Strategy
 
 - Start with smaller, specific targets before expanding to larger groups
 - Use filter scripts for complex targeting scenarios
 - Test deployments on a small group before applying to all computers
-
-### Maintenance Windows
-
-For disruptive deployments:
-
-1. Create a maintenance window by editing the deployment
-2. Under **Schedule**, set specific days and times
-3. Configure notification settings to alert users
 
 ### Testing Deployments
 

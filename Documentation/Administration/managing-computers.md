@@ -19,9 +19,8 @@ The most common method is through an RMM integration:
 You can also manually install the ImmyBot agent:
 
 1. Navigate to **Download ImmyAgent** in the left sidebar
-2. Download the appropriate installer for your operating system
-3. Run the installer on the target computer
-4. The computer will appear in the **New Computers** section
+2. Run the installer on the target computer
+3. The computer will appear in the **New Computers** section
 
 ### Provisioning Package
 
@@ -53,8 +52,7 @@ Click on any computer to view detailed information:
 - **Software**: Installed software inventory
 - **Hardware**: Detailed hardware specifications
 - **Sessions**: History of maintenance sessions
-- **Logs**: Agent and maintenance logs
-- **Settings**: Computer-specific settings
+- **Actions**: Agent and maintenance logs
 
 ## Computer Actions
 
@@ -68,9 +66,7 @@ To perform actions on one or more computers:
 2. Click **Batch Actions** button
 3. Choose from available actions in the sidebar:
    - Run Maintenance
-   - Remote Control
-   - Power Actions (Restart, Shutdown, Wake)
-   - Reassign to different tenant or user
+   - Reassign to different tenant
    - Delete Computer
    - Add/Remove Tags
 
@@ -99,15 +95,6 @@ Tags help categorize and filter computers:
 3. Select **Add/Remove Tags**
 4. Add appropriate tags to categorize computers
 5. Use the filter bar to filter computers by tag
-
-### Advanced Filtering
-
-The Computers list offers powerful filtering capabilities:
-
-1. Click the filter icon in the column headers
-2. Select from predefined filters or create custom filters
-3. Combine multiple filters for precise computer selection
-4. Save frequently used filters for quick access
 
 ## Computer Information and Reporting
 
@@ -145,9 +132,7 @@ Follow these best practices for effective computer management:
 
 1. **Consistent Naming**: Establish a naming convention for computers
 2. **Regular Maintenance**: Schedule automatic maintenance for all computers
-3. **Group Organization**: Create logical computer groups for targeting
-4. **Tag Usage**: Use tags to add custom attributes for filtering
-5. **Inventory Review**: Regularly review software and hardware inventory
+3. **Inventory Review**: Regularly review software and hardware inventory
 
 ## Next Steps
 
