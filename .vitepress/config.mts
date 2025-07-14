@@ -33,7 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Core Concepts', link: '/Documentation/GettingStarted/core-concepts' },
                     { text: 'Common Workflows', link: '/Documentation/GettingStarted/common-workflows' },
                     { text: 'System Requirements', link: '/Documentation/GettingStarted/system-requirements' },
-                    { text: 'Supported Instance Configuration', link: '/Documentation/GettingStarted/Supported-Instance' },
+                    { text: 'Instance Best Practices', link: '/Documentation/GettingStarted/instance-best-practices' },
                     { text: 'Recommended Deployments', link: '/Documentation/GettingStarted/recommended-deployments' },
 
                 ],
@@ -66,6 +66,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'User Management', link: '/Documentation/HowToGuides/add-users' },
                     { text: 'SMTP', link: '/Documentation/HowToGuides/smtp' },
                     { text: 'Branding', link: '/Documentation/HowToGuides/branding' },
+                    { text: 'Migrating ImmyBot Instances', link: '/Documentation/HowToGuides/migrating-immybot-instances' },
                 ],
             },
             {

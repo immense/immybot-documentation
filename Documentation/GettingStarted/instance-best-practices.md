@@ -1,5 +1,5 @@
 <!-- How To Template -->
-# Supported Instance Configurations
+# Instance Best Practices
 
 ## Overview
 This page outlines the supported instance configurations to ensure that your ImmyBot instance is as stable as possible.
@@ -23,8 +23,9 @@ You will need admin permissions to your ImmyBot instance for some processes. Tho
   1. Ensure the start date for the service is correct in your PSA, ImmyBot does not deploy on inactive agreement additions.
   2. Otherwise you can set a tenant specific deployment to ignore that platform, and delete it the day before you're supposed to deploy the platform.
 
-### Utilize a Canary Tag
-- Create a tag and name it Canary. Apply it to a predetermined group of computers in each tenant, and push maintance to those computers first before the rest of the tenants. This allows you to get ahead of any issues that may come up. You will need to build internal processes around this as far as reviewing the canary sessions.
+### Utilize a Canary Tag and Schedule to catch issues before wide release
+- Create a tag and name it Canary, create an schedule and apply it only the the Canary Tag.
+- Apply the tag to a predetermined group of computers in each tenant, and push maintance to those computers first before the rest of the tenants. This allows you to get ahead of any issues that may come up. You will need to build internal processes around this as far as reviewing the canary sessions.
 
 ## Cross Platform Standardization
 ### Tenant names and slugs should match across all of your platforms

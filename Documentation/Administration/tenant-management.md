@@ -38,7 +38,7 @@ Client tenants represent your customers. They can be created:
 
 ### Child-Tenants
 
-child-tenants are sub tenants of tenants. They can represent:
+Child-tenants are sub tenants of tenants. They can represent:
 - Branch offices
 - Departments
 - Divisions
