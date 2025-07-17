@@ -62,7 +62,7 @@ The ImmyBot Agent is a lightweight service that runs on managed computers and co
 - Runs scripts in various contexts (System, User, etc.)
 
 There are two types of agents:
-- **Full Agent**: Installed on managed computers, reccomended for all endpoints. See [Installation](/Documentation/GettingStarted/quick-start-guide.md) for more information.
+- **Full Agent**: Installed on managed computers, the full agent creates Ephemeral agents that do the actual work. Reccomended for all endpoints. See [Installation](/Documentation/GettingStarted/quick-start-guide.md) for more information.
 - **Ephemeral Agent**: A temporary agent created dynamically for communicating to your ImmyBot instance. Does not require the Full Agent; integrations will be used to initiate these agents where possible if the full agent is not installed or not runnning.
 
 ## Tenants
@@ -76,10 +76,10 @@ Tenants can be organized hierarchically, with parent-child relationships that al
 
 ```mermaid
 graph TD
-    A[MSP] -->|parent of| B[Client A]
-    A -->|parent of| C[Client B]
-    C -->|parent of| D[Branch Office 1]
-    C -->|parent of| E[Branch Office 2]
+    A[ImmyBot Tenants] -->|In Immy Instance| B[Tenant A]
+    A -->|In Immy Instance| C[Tenant B]
+    C -->|parent of| D[Child Tenant 1]
+    C -->|parent of| E[Child Tenant 2]
 ```
 
 ## Software
@@ -104,14 +104,13 @@ Tasks are scripts or commands that perform specific actions on computers. Unlike
 Tasks can be:
 - **One-time**: Run once and complete
 - **Recurring**: Run on a schedule
-- **Compliance-based**: Run only when a computer is out of compliance
 
 ## Execution Contexts
 
 Scripts in ImmyBot can run in different contexts, each with its own capabilities and limitations:
 
 - **System Context**: Runs with SYSTEM privileges on the computer
-- **User Context**: Runs in the context of a specific user
+- **User Context**: Runs in the context of a specific user **User MUST be logged in**
 - **Metascript Context**: Runs on the ImmyBot server and can orchestrate actions across multiple computers
 - **Cloud Context**: Runs in a cloud environment with access to cloud-specific APIs
 

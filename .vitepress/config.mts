@@ -66,7 +66,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'User Management', link: '/Documentation/HowToGuides/add-users' },
                     { text: 'SMTP', link: '/Documentation/HowToGuides/smtp' },
                     { text: 'Branding', link: '/Documentation/HowToGuides/branding' },
-                    { text: 'Migrating ImmyBot Instances', link: '/Documentation/HowToGuides/migrating-immybot-instances' },
+                     {
+                        text: 'Instance Changes',
+                        collapsed: true,
+                        items: [
+                            { text: 'Migrating ImmyBot Instances', link: '/Documentation/HowToGuides/migrating-immybot-instances' },
+                            { text: 'Moving original instance to another instance', link: '/Documentation/HowToGuides/move-the-original-msp-tenant-to-a-new-tenant' },
+
+                        ]
+                    },
                 ],
             },
             {
@@ -158,6 +166,35 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 ],
             },
             { text: 'Frequently Asked Questions', link: '/Documentation/FAQ' },
+                        {
+                text: 'Test Links for redirects - DO NOT PUSH THIS TO PRODUCTION',
+                collapsed: false,
+                items: [
+ { text: "Getting Started", link: "/getting-started" },
+          { text: "What's New", link: "/releases" },
+          { text: "Add Users", link: "./add-users" },
+          { text: "Onboarding", link: "./onboarding" },
+          { text: "Recommended Deployments", link: "./recommended-deployments" },
+          { text: "Terminology", link: "./terminology" },
+          { text: "Troubleshooting", link: "./troubleshooting" },
+          { text: "User Roles", link: "./user-roles" },
+          { text: "Windows Sandbox", link: "./windows-sandbox" },
+                    { text: "Build Your Own", link: "/build-your-own-integration" },
+          { text: "ConnectSecure", link: "/connectsecure-integration-setup" },
+          { text: "ConnectWise Automate", link: "/connectwise-automate-integration-setup" },
+          { text: "ConnectWise Control", link: "/connectwise-control-integration-setup" },
+          { text: "ConnectWise Manage", link: "/connectwise-manage-integration-setup" },
+          { text: "N-Central", link: "/ncentral-integration-setup" },
+          { text: "NinjaRMM", link: "/ninjarmm-integration-setup" },
+          { text: "HaloPSA", link: "/halo-integration-setup" },
+          { text: "Azure", link: "/azure-graph-permissions-setup" },
+          { text: "Support Override", link: "/support-override-integration-setup" },
+                    { text: "Scripting Guide", link: "/scripts" },
+          { text: "Metascripts / Cloud Scripts", link: "/immy-commands" },
+                { text: "Frequently Asked Questions", link: "/FAQ" },
+
+                ],
+            },
         ],
 
         socialLinks: [

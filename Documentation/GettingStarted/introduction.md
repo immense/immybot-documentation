@@ -56,7 +56,6 @@ This paradigm shift allows you to focus on the end result rather than the proces
 
 - **Consistency**: Ensure all computers meet your organization's standards
 - **Automation**: Reduce manual intervention for routine tasks
-- **Visibility**: Maintain a comprehensive inventory of all assets
 - **Compliance**: Enforce security policies and software requirements
 - **User Experience**: Improve end-user experience with reliable systems
 
@@ -79,7 +78,7 @@ graph TD
 
 The central management platform that:
 - Orchestrates all automation activities
-- Stores configuration data and inventory information
+- Stores configuration data
 - Provides the web-based management interface
 - Communicates with agents on managed computers
 

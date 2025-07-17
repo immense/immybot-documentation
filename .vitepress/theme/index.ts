@@ -3,6 +3,7 @@ import { h } from 'vue';
 import Theme from 'vitepress/theme';
 import './style.css';
 import './immy.css';
+import MyLayout from './layout.vue'
 
 export default {
   extends: Theme,
@@ -14,4 +15,5 @@ export default {
   enhanceApp({ app, router, siteData }) {
     // ...
   }
+
 };

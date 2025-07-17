@@ -317,6 +317,8 @@ Make sure there is a Domain Controller in Immy for the machine. If you are using
 If the Domain Controller doesn’t have the red “Domain Controller” designation, press “Run Inventory”. This may happen if it was recently added to ImmyBot.
 
 Pay attention to the script output, Immy may be reporting that there is a name collision, or that it was unable to run scripts on the domain controller, usually due to security software.
+
+The "Set Computer Name and Domain Join" task needs to be run serially. If you're doing a large batch of onboardings, they may get stuck on this task. Ensure that all of the computers and Domain Controllers are online and connected to ImmyBot to ensure that they get through that task quickly.
 :::
 
 ::: details ImmyBot Agent logs show an error of "The specified SAS token is expired"
