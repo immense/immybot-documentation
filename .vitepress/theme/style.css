@@ -129,10 +129,11 @@
  * Component: Algolia
  * -------------------------------------------------------------------------- */
 
-.DocSearch {
-  --docsearch-primary-color: var(--vp-c-brand-1) !important;
-}
 
 html.dark {
   --vp-home-hero-name-background: var(--vp-c-text-1);
+}
+
+.dark [class*='DocSearch'] {
+  --docsearch-highlight-color: #5468ff;
 }
