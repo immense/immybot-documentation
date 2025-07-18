@@ -70,8 +70,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         text: 'Instance Changes',
                         collapsed: true,
                         items: [
-                            { text: 'Migrating ImmyBot Instances', link: '/Documentation/HowToGuides/migrating-immybot-instances' },
-                            { text: 'Moving original instance to another instance', link: '/Documentation/HowToGuides/move-the-original-msp-tenant-to-a-new-tenant' },
+                            { text: 'Migrating ImmyBot Instances', link: '/Documentation/HowToGuides/InstanceChanges/migrating-immybot-instances' },
+                            { text: 'Moving original instance to another instance', link: '/Documentation/HowToGuides/InstanceChanges/move-the-original-msp-tenant-to-a-new-tenant' },
 
                         ]
                     },
