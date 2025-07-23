@@ -6,6 +6,31 @@ Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#wha
 
 # Releases
 
+## 0.70.0
+
+Released 07/23/25
+
+## New Features
+- Continued update to RBAC for permission checks on the server
+- Enhanced enum handling in API to display enums as strings instead of integers in Swagger UI
+- Computer list now auto-refreshes with selective polling and live badge sync
+- Added more descriptive session logs when performing a task audit
+- Significantly improved the performance of the main computer list
+- The run button for schedules on the list page is no longer disabled when the schedule is disabled.
+
+## Bug Fixes
+- Fixed an issue where agents under the computer details page -> agents tab would show disconnected with a green (healthy) background
+- Fixed session context handling for parameter validation when debugging scripts
+- Fixed OAuth consent service to trim trailing slashes from redirect URIs
+- Fixed issues with tenant-specific computer views for MSP users
+- Fixed some incorrect access request handling and impersonation behavior
+- Fixed user cache handling for multiple UPNs
+- Fixed a performance issue with how we were caching authenticated users that lead to high memory in certain situations
+- Fixed an issue where maintenance sessions did not follow computers when computers were moved to a different tenant
+- Fixed an issue where tasks with script block parameters were being quick deployed without being allowed to specify the parameters
+- Fixed an issue where the batch actions button was missing from the Tenant Details Page -> Sessions tab
+-  Fixed an issue with trailing forward-slashes in the oauth flow consent-callback uri
+
 ## 0.69.0
 
 Released 06/23/25
