@@ -4,7 +4,7 @@ This guide explains how to configure and manage maintenance sessions and updates
 
 ## Prerequisites
 
-You must have already set up Software and / or task deployments.
+You must have already set up Software and / or Task deployments.
 Please see [Deployments](/Documentation/HowToGuides/Creating-managing-deployments) for more information
 
 ## Scheduled Maintenance Sessions

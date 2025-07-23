@@ -33,6 +33,16 @@ You will need admin permissions to your ImmyBot instance for some processes. Tho
 ### Tenant names and slugs should match across all of your platforms
 - This is to help ensure that the standardization you're aiming for is achieved via ImmyBot
 
+## Ensuring Email Deliverability
+
+
+
+- Use an authenticated SMTP Relay service
+- To help ensure deliverability, you should not [spoof](https://en.wikipedia.org/wiki/Email_spoofing) a sending domain.
+- You should also have SPF and DMARC set up for the sending domain.
+- You don't need to add ImmyBot IP addresses to your SPF record
+- You don't need to whitelist any ImmyBot IPs unless you have strict access controls in place.
+
 
 <br><br><br>
 >[!NOTE] Document information
