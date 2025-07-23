@@ -1,4 +1,12 @@
 # Tenants
+Tenants represent your customers or client organizations in ImmyBot. Each tenant is a separate entity with its own computers, users, and configurations.
+
+## Overview
+
+- Tenants can be created manually or synced automatically from external systems
+  - We recommend syncing Tenants from ConnectWise Automate, Microsoft Azure, or other supported integrations
+- Tenants can be organized in a hierarchical structure with parent-child relationships
+- Each tenant can have its own specific settings, deployments, and maintenance windows
 
 ## Tenant List
 All columns have a search and filter function, as well as the ability to sort said columns. You can also create new tenants manually here, and run batch actions against a selection of tenants.
@@ -12,14 +20,14 @@ All columns have a search and filter function, as well as the ability to sort sa
 
 ## Tenant Structure
 When you click into a tenant you will see any tags associated with the tenant at the top, and a list of tabs that pertain to the contents of the tenant or the preferences you've set for the tenant. From this page you can:
-- Manage computers individually and en masse
-- Review sessions for the tenant
-- Review aceions taken against the tenant
-- Review and deploy software across the computers in the tenant
-- Search for software that exists in the tenant's endpoints
-- Manage schedules for deployments
-- Set the preferences such as business hours, time zone, and cross tenant deployment participation
-- Edit the tenant name, slug, parent tenat, tags
-- Manage and test the Azure connection
+- **Computers** - Manage computers individually and en masse
+- **Sessions** - Review sessions for the tenant
+- **Actions** - Review actions taken against the tenant
+- **Software** Review and deploy software across the computers in the tenant
+- **Software Search** Search for software that exists in the tenant's endpoints
+- **Schedules** - Manage schedules for deployments
+- **Preferences** - Set the preferences such as business hours, time zone, and cross tenant deployment participation
+- **Edit** - Edit the tenant name, slug, parent tenat, tags
+- **Azure** - Manage and test the Azure connection
 
 ![An image](./Tenant-Computer.png)

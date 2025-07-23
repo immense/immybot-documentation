@@ -20,14 +20,18 @@ The Software Library is your central repository for all software definitions:
 1. Navigate to **Library** > **Software** in the left sidebar
 2. Browse the list of available software
 3. Use filters to narrow down the list
+4. Clicking on any existing software will bring you to the Software Details page.
 
 ### Software Details
 
 Click on any software to view detailed information:
 
-- **Software Info**: General information, and reboot requirements
-- **Scripts**: Installation, detection, and configuration scripts
-- **
+- **Software Info**: General information, Icon, Notes, and reboot requirements
+- **Licensing**: Configure if a license file or key is needed for installing the software.  This is also for MST files if you need to apply transforms for MSI installs.
+- **Version Detection**: Configure the detection method.  Display Name and Upgrade code will cover most software and the version table in this section is dynamically updated based on the Search Filter provided.
+- **Scripts**: Install, Uninstall, and Configuration scripts can be specified along with Upgrade Strategy and any Installation Prerequisites.
+- **Advanced Settings**: Dynamic Version scripts and number of less often used types of scripts can be specified here including Post-Install, Post-Uninstall, Testing, Download.  You can also specify Repair Strategy and any linked Integration type.
+
 
 ## Creating Software Definitions
 
@@ -37,7 +41,12 @@ ImmyBot comes with many pre-defined software packages, but you can also create y
 
 1. Navigate to **Library** > **Software**
 2. Click **New**
-3. Follow the on screen instruction to upload the installer package or create your own installation methods.
+3. Statically versioned software can upload a file or specify a URL for the version to be created.
+4. Dynamically versioned software can specify None here to set a dynamic version script on the next page.
+5. Confirm adding a version to new software.
+6. Specify a Software Name, Detection Method and any applicable scripts.
+7. Specify a Version String for statically versioned software.
+8. Click on Create
 
 ### Adding Software Versions
 
@@ -45,9 +54,13 @@ ImmyBot comes with many pre-defined software packages, but you can also create y
 2. Scroll to the bottom of the page to the **Versions** section
 3. Click **New** in the Versions section
 4. Follow the onscreen instructions to upload the installer package or create your own installation methods.
+5. Confirm the Version string is correct
 6. Click **Save** to add the version
 
 ### Version Detection Methods
+::: tip
+Use the Terminal tab on the computer and run Detect-Software from Metascript context after installing software.  Then you can look at how ImmyBot will see the Display Name and Upgrade Code in the list it returns
+:::
 
 Detection methods determine if software is already installed:
 
@@ -59,10 +72,22 @@ Detection methods determine if software is already installed:
    - Custom detection script
 4. Follow the on screen instructions to edit and live view your changes.
 
+::: info Version Detection
+Display Name and Upgrade Code usually work for most software.
+
+When using Custom Detection Scripts, the software may not be displayed in inventory accurately.
+:::
+
+
+
 ### Creating Installation Scripts
 
+::: warning
+ImmyBot Support does not provide custom scripting support
+:::
+
 ::: tip
-We reccomend using the default MSI and EXE scripts where possible.
+We recommend using the default install scripts where possible, search for “default” in the script drop down to find various default install scripts. The Default NSIS is a great starting point for customizing your own install scripts too.
 :::
 
 Installation scripts handle the software installation process:
@@ -71,17 +96,15 @@ Installation scripts handle the software installation process:
 2. Navigate to the **Installation** section
 3. Click **New**
 4. Write or paste your PowerShell script
-5. Use ImmyBot helper functions as needed
-6. Click **Save**
+   - Be sure to look up any silent install information that might be available from the vendor to help you write your script
+5. Make sure to set your Execution Context for the script appropriately on the right side.
+6. Use ImmyBot helper functions as needed
+   - Review our [Scripting Guide](/Documentation/AdvancedTopics/scripts) for more information.
+7. Click **Save**
 
 ### Automatic Updates
 
-For software that should always be on the latest version:
-
-1. Edit the deployment
-2. Set **Desired Version** to **Latest**
-3. Configure update behavior
-4. Save changes
+For software that should always be on the latest version you will need to create a Dynamic Version Script.  Dynamic Version scripts should return an array of objects. Each object must include at least a “Version” and “URL” property.  There are several existing functions in global that start with “Get-DynamicVersion” that you can use to help build your own Dynamic Version scripts, and many examples of how to use them in global also.
 
 ## Software Inventory
 
@@ -97,13 +120,9 @@ ImmyBot maintains a detailed inventory of installed software:
    - Customer
    - Computer
 
-### Identifying Outdated Software
-
-1. Navigate to **Reporting** > **Computer Software**
-2. Filter for specific software
-3. Group by version
-4. Identify computers with outdated versions
-5. Create or update deployments as needed
+::: tip
+Sorting by Version can help to identify outdated software
+:::
 
 ## Best Practices
 

@@ -7,10 +7,12 @@ This page outlines the supported instance configurations to ensure that your Imm
 ## Prerequisites
 You will need admin permissions to your ImmyBot instance for some processes. Those processes will be marked with an astrisk '*'.
 
-## Scheduled Maintenance
+## Scheduled Maintenance Sessions
 ### Run scheduled maintance once a week at most
 - We advise running scheduled maintanance at most once a week across your instance. This will help aleviate resource utilization. If you have more then 1000 computers in your instance, or are constrained by the number of sessons available, you should schedule batches of computers to run on different days.
 - This does not include ad-hoc sessions. The point of this guidance is to ensure that if you need to deploy a maintanance item on the fly, you will have the resources to do so.
+### Run full Maintenance where possible
+- Avoid using schedules for individual deployments. It is best practice to use as few schedules as possible. Focus on full maintenance, cross tenant schedules and deployments
 
 ## Deployments
 ### Use cross tenant deployments

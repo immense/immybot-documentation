@@ -132,7 +132,7 @@ Follow these best practices for effective computer management:
 
 1. **Consistent Naming**: Establish a naming convention for computers
 2. **Regular Maintenance**: Schedule automatic maintenance for all computers
-3. **Inventory Review**: Regularly review software and hardware inventory
+3. **Regular Reviews**: Regularly review software and hardware for out of date items
 
 ## Next Steps
 

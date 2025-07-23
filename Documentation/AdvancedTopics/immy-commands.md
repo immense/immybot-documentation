@@ -65,7 +65,12 @@ Documentation: [Microsoft Connect-AzureAD Reference](https://docs.microsoft.com/
 #### Get-ImmyAzureAuthHeader
 
 Obtains an authentication header for the specified Microsoft endpoint.
+#### Usage
 
+```powershell
+Get-ImmyAzureAuthHeader [-Endpoint] <["MSGraph", "AzureAD"]>
+```
+#### Example
 ```powershell
 # Get authentication header for Microsoft Graph API
 $Header = Get-ImmyAzureAuthHeader -Endpoint "MSGraph" -ErrorAction Stop
@@ -87,7 +92,13 @@ Write-Host "Found $($Groups.value.Count) groups in Azure AD"
 Retrieves an instance of an RMM Provider for the specified type.
 
 **Alias:** Get-RmmInfo
+#### Usage
 
+```powershell
+Get-ProviderInfo [[-ProviderType] <string>] [-IncludeClients] [<CommonParameters>]
+```
+
+#### Example
 ```powershell
 # Get information about the ConnectWise Automate integration
 $RmmInfo = Get-ProviderInfo -ProviderType CWAutomate
@@ -139,6 +150,23 @@ Invoke-CWARestMethod $Uri -Provider $RmmInfo.Provider -Method PATCH -Body $Body
 #### Invoke-ImmyCommand
 
 A powerful command that allows you to execute scripts remotely on devices.
+#### Usage
+
+```powershell
+Invoke-ImmyCommand [-ScriptBlock] <Object> [-Computer <PSComputer>] [-Context <string>] [-ArgumentList <array>] [-Timeout <int>] [-ConnectTimeout <int>] [-DisableConnectTimeoutWarnings] [-Parallel] [<CommonParameters>]
+```
+
+`-Context` accepts either "System" or "User"
+
+`-Timeout` accepts an integer denoted in seconds. The default is 120.
+
+`-Parallel` (switch, makes the script block run on all the computers simultaneously instead of in series)
+
+`-ConnectTimeout` (integer, seconds, to override the amount of time before giving up on trying to start the script on a computer)
+
+`-DisableConnectTimeoutWarnings` (switch, to suppress "WARNING: Timed out waiting for script to start on COMPUTER" for every computer that fails to start within the connect timeout).
+
+#### Examples
 
 ```powershell
 # Basic example - run a command on the current computer
@@ -198,6 +226,12 @@ $Results = Invoke-ImmyCommand {
 #### Send-ImmyEmail
 
 Sends an ImmyBot-styled email to specified recipients.
+
+```powershell
+Send-ImmyEmail [-Subject] <string> [-Body] <string> [[-To] <List[string]>] [[-Bcc] <List[string]>]
+```
+
+
 
 ```powershell
 # Send an email to the default recipients (based on maintenance session settings)

@@ -51,6 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Deployments', link: '/Documentation/CoreFeatures/deployments' },
                     //{ text: 'User Affinity', link: 'user-affinity' },
                     { text: 'Targets & Targeting', link: '/Documentation/CoreFeatures/targets-targeting' },
+
                     { text: 'Script Editor', link: '/Documentation/CoreFeatures/script-editor' },
                 ],
             },
@@ -59,7 +60,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 collapsed: true,
                 items: [
                     { text: 'Creating & Managing Deployments', link: '/Documentation/HowToGuides/creating-managing-deployments' },
+                    { text: 'Creating Maintenance Sessions', link: '/Documentation/Administration/maintenance-updates' },
                     { text: 'Managing Software', link: '/Documentation/HowToGuides/managing-software' },
+                    { text: 'Creating & Managing Schedules', link: '/Documentation/HowToGuides/schedules' },
                     { text: 'Working with Tasks', link: '/Documentation/HowToGuides/working-with-tasks' },
                     { text: 'Computer Onboarding', link: '/Documentation/HowToGuides/onboarding' },
                     { text: 'Agent Installation', link: '/Documentation/HowToGuides/agent-installation' },
@@ -119,7 +122,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 items: [
                     { text: 'User Roles and Security', link: '/Documentation/Administration/user-roles' },
                     { text: 'Tenant Management', link: '/Documentation/Administration/tenant-management' },
-                    { text: 'Maintenance and Updates', link: '/Documentation/Administration/maintenance-updates' },
                     { text: 'Managing Computers', link: '/Documentation/Administration/managing-computers' },
                     { text: 'Windows Sandbox', link: '/Documentation/Administration/windows-sandbox' },
                 ],
@@ -138,8 +140,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 collapsed: true,
                 items: [
                     { text: 'Common Issues', link: '/Documentation/Troubleshooting/common-issues' },
-                    { text: 'Security Software Configuration', link: '/Documentation/Troubleshooting/security-software' },
-                    { text: 'Agent Troubleshooting', link: '/Documentation/Troubleshooting/troubleshooting' },
+                    { text: 'Agent Troubleshooting and Security Exclusions', link: '/Documentation/Troubleshooting/troubleshooting' },
                 ],
             },
             {
@@ -166,35 +167,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 ],
             },
             { text: 'Frequently Asked Questions', link: '/Documentation/FAQ' },
-                        {
-                text: 'Test Links for redirects - DO NOT PUSH THIS TO PRODUCTION',
-                collapsed: false,
-                items: [
-                    { text: "Getting Started", link: "/getting-started" },
-                    { text: "What's New", link: "/releases" },
-                    { text: "Add Users", link: "/add-users" },
-                    { text: "Onboarding", link: "/onboarding" },
-                    { text: "Recommended Deployments", link: "/recommended-deployments" },
-                    { text: "Terminology", link: "/terminology" },
-                    { text: "Troubleshooting", link: "/troubleshooting" },
-                    { text: "User Roles", link: "/user-roles" },
-                    { text: "Windows Sandbox", link: "/windows-sandbox" },
-                    { text: "Build Your Own", link: "/build-your-own-integration" },
-                    { text: "ConnectSecure", link: "/connectsecure-integration-setup" },
-                    { text: "ConnectWise Automate", link: "/connectwise-automate-integration-setup" },
-                    { text: "ConnectWise Control", link: "/connectwise-control-integration-setup" },
-                    { text: "ConnectWise Manage", link: "/connectwise-manage-integration-setup" },
-                    { text: "N-Central", link: "/ncentral-integration-setup" },
-                    { text: "NinjaRMM", link: "/ninjarmm-integration-setup" },
-                    { text: "HaloPSA", link: "/halo-integration-setup" },
-                    { text: "Azure", link: "/azure-graph-permissions-setup" },
-                    { text: "Support Override", link: "/support-override-integration-setup" },
-                    { text: "Scripting Guide", link: "/scripts" },
-                    { text: "Metascripts / Cloud Scripts", link: "/immy-commands" },
-                    { text: "Frequently Asked Questions", link: "/FAQ" },
 
-                ],
-            },
         ],
 
         socialLinks: [

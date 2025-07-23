@@ -8,21 +8,19 @@ A deployment is a rule that specifies:
 
 1. **What** should be deployed (software or task)
 2. **Where** it should be deployed (target computer, user)
-3. **How** it should be enforced (required, optional, etc.)
-4. **When** it should be applied (immediately, during onboarding, etc.)
+3. **How** it should be enforced (required, adhoc, or onboarding.)
 
 ```mermaid
 graph TD
-    A[Deployment] -->|contains| B[Content]
-    A -->|contains| C[Targets]
-    A -->|contains| D[Enforcement Type]
-    A -->|contains| E[Settings]
+    A[Deployment] -->|Contains| B[Maintenance Item]
+    A -->|Effects| C[Targets]
+    A -->|Enforces| D[Enforcement Type]
+    A -->|May Contain| E[Parameters]
     B -->|can be| F[Software]
     B -->|can be| G[Task]
-    C -->|can be| H[Tenants]
     C -->|can be| I[Computers]
     C -->|can be| J[Users]
-    C -->|can be| K[Filter Scripts]
+
 ```
 
 Think of deployments as similar to Group Policy Objects in Windows environments, but more powerful and flexible.
@@ -67,13 +65,18 @@ Use Required for software and settings that should always be present on target c
 
 ### Onboarding
 
-Onboarding deployments only run during the initial computer setup process. They:
+Onboarding deployments only run during the initial computer Onboarding process. They:
 
 - Run once when a computer is first added to ImmyBot
 - Don't run during regular maintenance
 - Are ideal for initial configuration tasks
 
-Use Onboarding for one-time setup tasks like computer naming, domain joining, and initial software installation.
+Use Onboarding for one-time setup tasks like computer naming, and domain joining.
+
+:::info Onboarding can be skipped
+While we do not recommend it, Onboarding can be skipped. ImmyBot will then run scheduled maintenance based on the Schedule applied to the PC.
+Please note Schedules require an ImmyBot Standard or ImmyBot Forever plan
+:::
 
 ### Ad Hoc
 
@@ -117,12 +120,15 @@ To create a new deployment:
 1. Navigate to **Deployments** in the left sidebar
 2. Click **New** to create a new deployment
 3. Configure the deployment settings:
-   - Name and description
    - Content type (Software or Task)
    - Enforcement type
    - Targets
    - Additional settings
 4. Click **Create** to save the deployment
+
+::: info Saving your deployments
+Do not be afraid to save your deployments. They do not apply automatically. They only apply when you run a [maintenace session](/Documentation/CoreFeatures/maintenance-sessions).
+:::
 
 For step-by-step instructions, see [Creating and Managing Deployments](/Documentation/HowToGuides/creating-managing-deployments.md).
 
@@ -135,7 +141,7 @@ ImmyBot includes several recommended deployments that provide a solid foundation
 - **Manufacturer Updates**: Installs the latest updates from Dell, HP, and Lenovo
 - **Adobe Reader**: Installs and configures the latest version of Adobe Reader
 
-For more information, see [Recommended Deployments](/Documentation/HowToGuides/recommended-deployments.md).
+For more information, see [Recommended Deployments](/Documentation/GettingStarted/recommended-deployments).
 
 ## Best Practices
 

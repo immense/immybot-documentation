@@ -25,10 +25,7 @@ Add these paths to your file/folder exclusion list:
 C:\Program Files\ImmyBot\*
 C:\Program Files (x86)\ImmyBot\*
 C:\Windows\Temp\ImmyBot\*
-C:\Windows\Temp\*.ps1
-C:\Windows\Temp\*.bat
-C:\Windows\Temp\*.exe
-C:\Windows\Temp\*.msi
+
 ```
 
 ### Process Exclusions
@@ -48,7 +45,6 @@ Allow these network connections:
 
 ```
 *.immy.bot:443
-*.immy.bot:80
 ```
 
 ## Microsoft Defender

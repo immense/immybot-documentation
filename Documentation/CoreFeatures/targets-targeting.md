@@ -1,5 +1,8 @@
-# Target
+# Targets & Targeting
 
+This is an overview of targets within ImmyBot.
+
+## Targets
 A "Target" is a grouping of computers (or Tenants in the case of "Cloud Tasks")
 
 ImmyBot's ability to resolve Targets to a group of computers is perhaps its most powerful feature.
@@ -13,7 +16,12 @@ This is particularly useful for security software, help desk portals, or anythin
 ## Offboarding
 Conversely, you could create Deployments that remove your stack for customers you are offboarding.
 
-Create an "Offboarding" product in your PSA
-Create a deployment for each of the pieces of software you would like removed setting the desired state to Uninstalled
-Target all customers with the "Offboarding" product on their agreement
-Note: ImmyBot even honors the date range on additions, making scheduled offboarding easier if say the customer wants your software removed on the last day of the month.
+- Create an "Offboarding" product in your PSA
+- Create a deployment for each of the pieces of software you would like removed setting the desired state to Uninstalled
+- Target all customers with the "Offboarding" product on their agreement
+
+The same thing can be done with a tag if you would rather handle it soley within ImmyBot or do not have your PSA integrated.
+
+:::info
+ImmyBot honors the date range on agreement additions, making scheduled offboarding easier if say the customer wants your software removed on the last day of the month.
+:::

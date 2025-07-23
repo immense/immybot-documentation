@@ -24,7 +24,7 @@ User Computer Affinity is how ImmyBot associates users with their computers, ena
 
 ## Deployment
 
-A deployment is a rule that assigns [Software](#software) or [Tasks](#task) (collectively known as "Maintenance Items") to a [Target](#target). Deployments define what should be installed, configured, or maintained on specific computers or for specific users.
+A deployment is a rule that assigns [Software](#software) or [Tasks](#task) (collectively known as "Maintenance Items") to a Target. Deployments define what should be installed, configured, or maintained on specific computers or for specific users.
 
 ```mermaid
 graph TD
@@ -47,53 +47,45 @@ graph TD
 If you want your Deployments to be applied automatically, you need to create a [Schedule](#schedules). Otherwise, deployments only take effect when maintenance is manually run or triggered by another event.
 
 
-## [Target](#target)
-A "[Target](#target)" is a grouping of computers (or Tenants in the case of "Cloud Tasks")
+## Target
+A Target is a grouping of computers (or Tenants in the case of "Cloud Tasks")
 
-ImmyBot's ability to resolve [Targets](#target) to a group of computers is perhaps its most powerful feature.
+ImmyBot's ability to resolve Targets to a group of computers is perhaps its most powerful feature.
 
 For example, you can select a Group of users from AzureAD (which includes on-prem synced groups, and Teams) and ImmyBot will automatically resolve that to the list of computers in use by the people in that group.
 
-If you enable PSA integration, a [Target](#target) could be all computers covered under a certain type of Agreement, or computers covered by an Agreement that includes a certain product.
+If you enable PSA integration, a Target could be all computers covered under a certain type of Agreement, or computers covered by an Agreement that includes a certain product.
 
 This is particularly useful for security software, help desk portals, or anything else in your stack that you may only want to be installed for customers that are paying you for it.
 
-### Offboarding
 
-Conversely, you could create Deployments that remove your stack for customers you are offboarding.
-- Create an "Offboarding" product in your PSA
-- Create a deployment for each of the pieces of software you would like removed setting the desired state to Uninstalled
-- Target all customers with the "Offboarding" product on their agreement
+## Maintenance Session
 
-Note: ImmyBot even honors the date range on additions, making scheduled offboarding easier if say the customer wants your software removed on the last day of the month.
-
-## [Maintenance Session](#maintenance-session)
-
-A [Maintenance Session](#maintenance-session) is conceptually similar to running gpupdate /force
+A Maintenance Session is conceptually similar to running gpupdate /force
 
 In other systems, different types of maintenance happen on their own schedule. Windows Updates may run on Tuesday night, but Third Party updates may run on Wednesday night, and auto-fix tasks may run whenever an alert is fired for a failed monitor, which has its own polling interval.
 
-By forcing all automation to happen in a sequential set of actions we call a [Maintenance Session](#maintenance-session), we can deliver predictability not only as to _what_ changes will be made, but also _when_.
+By forcing all automation to happen in a sequential set of actions we call a Maintenance Session, we can deliver predictability not only as to _what_ changes will be made, but also _when_.
 
 This also provides a cohesive mechanism for setting up a new computer. At best in traditional RMMs you can assign Monitors that detect the absence of required software and run Install scripts when they are missing, but this doesn't scale as pre-requisites and exclusions are required.
 
 Imagine if Group Policy could reliably deploy any type of software, and gpupdate /force worked reliably off-net, and when you ran it, it gave you real-time feedback about exactly what it was doing. Also imagine that it could optionally notify the end user before and after with a branded email telling them exactly what is being done, that optionally lets them cancel.
 
-That's a [Maintenance Session](#maintenance-session).
+That's a Maintenance Session.
 
-You can view [Maintenance Sessions](#maintenance-session) for all computers under Computers->Sessions
+You can view Maintenance Sessions for all computers under Computers->Sessions
 
 ![](/.vitepress/images/2021-02-23-08-47-36.png)
 
-Or, you can view [Maintenance Sessions](#maintenance-session) for a specific Computer under the Sessions tab for that Computer
+Or, you can view Maintenance Sessions for a specific Computer under the Sessions tab for that Computer
 
 ![](/.vitepress/images/2021-02-23-08-46-09.png)
 
-## [Maintenance Session](#maintenance-session) Stages
+## Maintenance Session Stages
 
 ### Detection Stage
 
-During the Detection Stage, ImmyBot "Detects" which Maintenance Actions are necessary to bring the computer into compliance. These Actions are added to the [Maintenance Session](#maintenance-session).
+During the Detection Stage, ImmyBot "Detects" which Maintenance Actions are necessary to bring the computer into compliance. These Actions are added to the Maintenance Session.
 
 This is a read-only process, and typically done while the user is active. This is so ImmyBot can notify the user of changes that will occur later during the Execution Stage. By doing this during the day, and scheduling Execution for later, we are giving the end user the best possible chance to be aware of the upcoming maintenance, Postponing if you allow. The Postpone feature is very popular among engineers that do may need to leave renderings and analysis tasks running overnight.
 
@@ -101,7 +93,7 @@ This is a read-only process, and typically done while the user is active. This i
 
 ![](/.vitepress/images/2021-02-23-09-44-51.png)
 
-## [Maintenance Action](#maintenance-action)
+## Maintenance Action
 
 ```mermaid
 flowchart TD
@@ -119,9 +111,9 @@ flowchart TD
  PostInstallDetect --> |No| Non-Compliant
 ```
 
-A *[Maintenance Session](#maintenance-session)* has one or more *[Maintenance Actions](#maintenance-action)*. A [Maintenance Action](#maintenance-action) could be to install software, apply a Windows Update, or run a [Task](#task).
+A *Maintenance Session* has one or more *Maintenance Actions*. A Maintenance Action could be to install software, apply a Windows Update, or run a [Task](#task).
 
-The image below depicts a typical [Maintenance Session](#maintenance-session) with many [Maintenance Actions](#maintenance-action)
+The image below depicts a typical Maintenance Session with many [Maintenance Actions](#maintenance-action)
 
 ![](/.vitepress/images/2021-02-23-06-14-05.png)
 
@@ -165,20 +157,19 @@ A Detection Method is required in order to know whether or not a piece of Softwa
 
 For Software, the detection method must returns the version of the software installed on the machine, if any.
 
-For [Tasks](#task), the Detection Method is the "test" mechanism, which must return true or false to indicate whether or not the machine is in compliance.
+For Tasks, the Detection Method is the "test" mechanism, which must return true or false to indicate whether or not the machine is in compliance.
 
-## Software Version
+## Software
 ```mermaid
 graph TD
     C[Software Version] --> Install
     C --> Uninstall
     C --> Upgrade
-    C --> Repair
     C --> Test
 ```
 
 ## Task
-A Task (aka Mainenance Task) is a catch-all for anything that isn't software.
+A Task is a catch-all for anything that isn't software.
 
 ```mermaid
 graph TD
@@ -203,9 +194,6 @@ Runs the "test" script, if the test returns false, runs "set", then runs "test" 
 
 ### Audit
 Runs the "test" script which should return true or false. It can output whatever it wants, but the last output should be boolean.
-
-### Monitor
-Runs the "get" script, which can return anything. Useful for collecting data like Bitlocker Keys, Quickbooks Licenses, or any other piece of information you are interested in.
 
 ## Scripts
 From the above diagrams, you can see that scripts are the building blocks for higher level objects like Software and Tasks.

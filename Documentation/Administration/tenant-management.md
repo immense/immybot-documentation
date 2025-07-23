@@ -14,10 +14,10 @@ Tenants can be organized hierarchically, with parent-child relationships that al
 
 ```mermaid
 graph TD
-    A[MSP] -->|parent of| B[Client A]
-    A -->|parent of| C[Client B]
-    C -->|parent of| D[Branch Office 1]
-    C -->|parent of| E[Branch Office 2]
+    A[MSP Tenants] -->|Manages| B[Tenant A - Corp Office A]
+    A -->|Manages| C[Tenant B - Corp Office B]
+    C -->|parent of| D[Tenant C - Branch Office 1]
+    C -->|parent of| E[Tenant D - Branch Office 2]
 ```
 
 ## Tenant Types
@@ -26,7 +26,7 @@ ImmyBot supports several tenant types:
 
 ### MSP Tenant
 
-The MSP tenant is the top-level tenant in your ImmyBot instance. It represents your organization and serves as the parent for all client tenants.
+By default that first tenant in the ImmyBot instance is your MSP tenant. You can create additional MSP tenants, however, and Users (not People) can view and manage all Tenants within your instance.
 
 ### Client Tenants
 
@@ -61,12 +61,11 @@ Child-tenants are sub tenants of tenants. They can represent:
 If you have configured integrations, you can import tenants:
 
 1. Navigate to **Show More** > **Integrations** in the left sidebar
-2. Select your integration (RMM, PSA, or Azure)
-3. Click **Edit** on your integration
-4. Navigate to the **Clients** tab
-5. Click **Sync agents for selected clients**
-6. Review the imported tenants
-7. Configure any additional settings
+2. Find and **Edit** your integration (RMM, PSA, or Azure)
+3. Navigate to the **Clients** tab
+4. Click **Sync agents for selected clients**
+5. Review the imported tenants
+6. Configure any additional settings
 8. Click **Save**
 
 ## Tenant Hierarchy
@@ -87,7 +86,6 @@ Child tenants inherit certain settings from their parents:
 
 - Deployments (if configured for inheritance)
 - Maintenance windows
-- Default settings
 - Integration mappings
 
 You can override inherited settings at the child tenant level when needed.
@@ -101,7 +99,7 @@ Each tenant can have its own configuration options:
 1. Navigate to **Tenants**
 2. Select the tenant
 3. Click the **Schedules** tab
-4. Configure maintenance windows:
+4. Configure the Schedule:
    - Click **New** to create a new schedule
    - Set schedule name, frequency, and time window
    - Select targets (computers or groups)
@@ -128,6 +126,8 @@ You can create deployments that apply only to specific tenants:
 4. Configure the deployment as needed
 5. Save the deployment
 
+For detailed instructions please see [Deployments](/Documentation/HowToGuides/creating-managing-deployments.md)
+
 ## Managing Tenant Users
 
 Each tenant can have its own set of users:
@@ -147,36 +147,12 @@ Each tenant can have its own set of users:
 
 If you have configured Azure AD integration:
 
-1. Navigate to **Show More** > **Integrations** in the left sidebar
-2. Select your Azure integration
-3. Click **Edit** on your integration
-4. Navigate to the **Users** tab
-5. Click **Sync users**
-6. Review the imported users
-7. Click **Save** to apply changes
-
-## Tenant Reporting
-
-ImmyBot provides several reports for tenant management:
-
-### Tenant Overview
-
-1. Navigate to **Tenants**
-2. Select the tenant
-3. View the dashboard for an overview of:
-   - Computer count and status
-   - Recent maintenance sessions
-   - Deployment compliance
-   - Software inventory
-
-### Deployment Compliance Reports
-
-1. Navigate to **Reporting** in the left sidebar
-2. Select the appropriate report type
-3. Filter by tenant
-4. View compliance status for deployments
-5. Identify computers that need attention
-6. Take action as needed
+1. Navigate to **Show More** > **Azure** in the left sidebar
+2. Select an Azure Client
+3. Navigate to the **Users** tab
+4. Click **Sync users From the parent tenant**
+5. Review the imported users
+6. Click **Save** to apply changes
 
 ## Tenant Migration
 
@@ -187,10 +163,9 @@ Sometimes you may need to move computers between tenants:
 1. Navigate to **Computers**
 2. Select the computer(s) to move
 3. Click **Batch Actions**
-4. Select **Reassign**
-5. Select the new tenant
-6. Click **Update**
-7. Confirm the action
+4. Under **Change Tenant** Select the target tenant
+5. Click **Change**
+6. Confirm the action was successful
 
 ### Merging Tenants
 
@@ -209,7 +184,7 @@ Follow these best practices for effective tenant management:
 2. **Hierarchical Organization**: Create a logical hierarchy that reflects your business relationships
 3. **Regular Audits**: Periodically review tenant structure and settings
 4. **Documentation**: Maintain documentation of tenant configurations
-5. **Limit Direct Access**: Restrict direct access to the MSP tenant
+5. **Limit Direct Access**: Restrict direct access to the MSP tenants
 
 ## Next Steps
 

@@ -144,32 +144,14 @@ Add ***both*** certificates to avoid issues if following before Feb. 11th, 2025 
 
 Exclusions based on code signing certificate are an industry standard feature and should be a standard feature in any best-in-class security software. However, if your security software is unable to exclude based on code signing certificate, create an exclusion for your instance's Script Path.
 
-Your script path can be found under Settings->Preferences->Script Path
+::: tip  Finding the script Path for your instance
+Your script path can be found under **Settings** -> **Preferences** -> **Script Path**
+
 
 ![image](https://user-images.githubusercontent.com/1424395/173610304-50bab775-c7c8-40b3-944e-fab1dde862ee.png)
+:::
 
-
-- [Troubleshooting Guide](#troubleshooting-guide)
-  - [Identification Failures](#identification-failures)
-    - [Needs a Manual Decision](#needs-a-manual-decision)
-  - [Pending Computers](#pending-computers)
-  - [Security Software Exclusions](#security-software-exclusions)
-    - [ThreatLocker](#threatlocker)
-    - [Sophos Central](#sophos-central)
-    - [BitDefender](#bitdefender)
-    - [CrowdStrike](#crowdstrike)
-    - [Microsoft Defender for Endpoint](#microsoft-defender-for-endpoint)
-    - [Cylance](#cylance)
-    - [SentinelOne](#sentinelone)
-    - [DNSFilter](#dnsfilter)
-    - [Group Policy Objects](#group-policy-objects)
-  - [Working With Support](#working-with-support)
-    - [Preparing for Support](#preparing-for-support)
-    - [Gather an Endpoint Trace Log](#gather-an-endpoint-trace-log)
-    - [MDMDiagnostics Logs](#mdmdiagnostics-logs)
-  - [Next Steps](#next-steps)
-
-### ThreatLocker
+## ThreatLocker
 
 1. Application Control-> Applications
 2. Create New Application
@@ -204,7 +186,7 @@ Ultimately it should look like this:
 1. Create a New Application Policy
  ![image](https://user-images.githubusercontent.com/1424395/173602798-7042c0ea-1406-476c-a291-0deee6e843c5.png)
 
-### Sophos Central
+## Sophos Central
 
 **Tenant Specific**
 Manual Addition:
@@ -214,8 +196,14 @@ Manual Addition:
 3. Select "Add apps"
 4. In the "allow by:" dropdown, select certificate and add the following
 
+New Certificate on Feb. 11th, 2025:
 ```
-CN=Immense Networks LLC, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
+CN=ImmyBot LLC, O=ImmyBot LLC, L=Baton Rouge, S=Louisiana, C=US
+```
+
+Existing Certificate:
+```
+CN=Immense Networks, O=Immense Networks, L=Baton Rouge, S=Louisiana, C=US
 ```
 
 Event Log Method:
@@ -227,23 +215,23 @@ If Sophos reports that Immy Bot has been blocked, you have the option of going t
 2. Once in the template, navigate to Global Settings - Allowed Applications
 3. Follow steps 3 and 4 listed in the **Tenant Specific** section above
 
-### BitDefender
+## BitDefender
 
 BitDefender will intermittently block script execution unless you disable Aggressive scanning mode or add a your instance's [Script Path](#security-software-exclusions) to your policy's exclusion list.
 
 1. Edit the policy->Antimalware->Settings->In-policy Exclusions
 2. Add a folder exclusion for your [Script Path](#security-software-exclusions)
 
-### CrowdStrike
+## CrowdStrike
 
 CrowdStrike uses AI to decide what to allow and disallow. Periodically this AI will mark the ImmyBot Agent or ImmyBot Ephemeral Agent as malicious. This usually happens after we update it. Marking it as a false positive in your CrowdStrike portal will train the global AI to not treat it as malicious.
 
-### Microsoft Defender for Endpoint
+## Microsoft Defender for Endpoint
 
 Add a your instance's [Script Path](#security-software-exclusions) to your policy's exclusion list.
 <https://docs.microsoft.com/en-us/mem/intune/configuration/device-restrictions-configure#create-the-profile>
 
-### Cylance
+## Cylance
 
 Cylance blocks our websocket making the ImmybotAgent log look like this:
 
@@ -259,15 +247,15 @@ at System.Net.Http.HttpConnection.RawConnectionStream.WriteAsync(ReadOnlyMemory`
 To correct it, you need to bypass SSL Inspection for your instances hostnames/IPs, which are found under
  Show more > integrations > Fetch IP Address and Hostnames
 
-### SentinelOne
+## SentinelOne
 
  Sentinel requires BOTH your instance's Script path and the ImmyBot Agent process excluded. With only the script path excluded, devices will regularly have issues running the ImmyBot Agent to download the ephemeral agent. This is apparent in two cases:
   1. Importing devices - The new agent can't download the ephemeral agent to start running inventory.
-   2. Updating ImmyBot Agents - The new agent can't download the corresponding new ephemeral agent when attempting to run deployments or scripts.
+  2. Updating ImmyBot Agents - The new agent can't download the corresponding new ephemeral agent when attempting to run deployments or scripts.
 
 You can also set your Exclusion Mode to "Interoperability - Extended".
 
-### DNSFilter
+## DNSFilter
 
 There have been reports indicating that DNSFilter, along with potentially other DNS filtering tools, is not directly blocking subdomain.immy.bot but has failed to resolve some DNS queries.
 
@@ -277,7 +265,7 @@ Explicitly allowing the DNS for subdomain.immy.bot (replacing "subdomain" with y
 
 For guidance on managing allow and block lists, please refer to: https://help.dnsfilter.com/hc/en-us/articles/1500008111381-Allow-and-Block-Lists
 
-### Group Policy Objects
+## Group Policy Objects
 
 PowerShell execution policies set through Group Policy can affect ImmyBot's ability to run scripts. Ensure the following GPO settings are configured correctly:
 
@@ -293,9 +281,8 @@ When you've tried all the troubleshooting steps and still need assistance, our s
 
 **Support Contact Information:**
 - Email: `support@immy.bot`
-- Support Portal: [https://www.immy.bot/support/](https://www.immy.bot/support/)
 
-### Preparing for Support
+## Preparing for Support
 
 To help our support team resolve your issue quickly, please provide the following information:
 
@@ -316,7 +303,7 @@ To help our support team resolve your issue quickly, please provide the followin
    - Script logs from C:\ProgramData\ImmyBot\Scripts\*\*.logs
    - Any additional diagnostic information as described below
 
-### Gather an Endpoint Trace Log
+## Gather an Endpoint Trace Log
 
 Windows Performance Recorder can generate a detailed log of an endpoint's activity, which can be used to identify environmental causes for issues running the ImmyBot Agent.
 
@@ -339,7 +326,7 @@ If the `wpr -stop` command fails, try running without the "-compress" parameter.
 
 This ETL file can be reviewed in Windows Performance Analyzer from the Windows Performance Toolkit SDK.
 
-### MDMDiagnostics Logs
+## MDMDiagnostics Logs
 
 For issues with device enrollment, MDMDiagnostics logs can help identify the root cause.
 

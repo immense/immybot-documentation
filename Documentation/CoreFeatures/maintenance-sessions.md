@@ -1,15 +1,39 @@
 # Maintenance Sessions
 
-This guide explains how to configure and manage maintenance sessions and updates in ImmyBot, ensuring your managed computers stay up-to-date and properly configured.
+This guide explains maintenance sessions and updates in ImmyBot, ensuring your managed computers stay up-to-date and properly configured.
 
 ## Understanding Maintenance Sessions
 
-Maintenance sessions are the mechanism through which ImmyBot applies deployments to computers. When a maintenance session runs, ImmyBot:
+A Maintenance Session is conceptually similar to running gpupdate /force, but more powerful and predictable.
+
+In traditional systems, different types of maintenance tasks run on separate, often unpredictable schedules. For example, Windows Updates might run Tuesday night, third-party updates on Wednesday, and auto-remediation tasks whenever an alert triggers—each based on its own polling interval.
+
+By consolidating all automation into a structured sequence called a Maintenance Session, we gain control and consistency, not just over what changes are applied, but when they happen.
+
+This approach also streamlines onboarding new machines. Conventional RMMs typically rely on Monitors that detect missing software and trigger install scripts. However, this method doesn’t scale well due to complex dependency and exclusion handling.
+
+Now, imagine if Group Policy could:
+
+- Reliably deploy any type of software,
+- Run consistently even when the device is off-network,
+- Provide real-time feedback about what's being applied,
+- And optionally notify the end user with branded emails—before and after—with the option to cancel.
+
+That’s the kind of reliability and transparency Maintenance Sessions bring.
+
+
+## The Anatomy of a Maintenance Session
+
+When a maintenance session runs, ImmyBot:
 
 1. Identifies all deployments that apply to the computer
 2. Determines the current state of the computer
 3. Creates a plan to bring the computer into compliance
 4. Executes that plan as a series of maintenance actions
+5. Determines the current state of the computer to see if the deployments were successful
+6. Reports on the results of the maintance session
+
+
 
 ```mermaid
 graph LR
@@ -17,232 +41,89 @@ graph LR
     B --> C[Check Current State]
     C --> D[Create Plan]
     D --> E[Execute Actions]
-    E --> F[Report Results]
+    E --> F[Check Current State]
+    F --> G[Report Results]
 ```
 
-## Maintenance Windows
+## Maintenance Session Stages
 
-Maintenance windows define when automated maintenance can run on computers. This helps ensure that maintenance activities don't disrupt users during working hours.
+### Detection Stage
 
-### Creating Maintenance Windows
+During the Detection Stage, ImmyBot "Detects" which Maintenance Actions are necessary to bring the computer into compliance. These Actions are added to the Maintenance Session.
 
-1. Navigate to **Show more** > **Preferences** > **Maintenance Windows**
-2. Click **Create Maintenance Window**
-3. Enter a name for the window
-4. Configure the schedule:
-   - Days of the week
-   - Start and end times
-   - Time zone
-5. (Optional) Add exclusions for holidays or special events
-6. Click **Save**
+This is a read-only process, and typically done while the user is active. This is so ImmyBot can notify the user of changes that will occur later during the Execution Stage. By doing this during the day, and scheduling Execution for later, we are giving the end user the best possible chance to be aware of the upcoming maintenance, Postponing if you allow. The Postpone feature is very popular among engineers that do may need to leave renderings and analysis tasks running overnight.
 
-### Assigning Maintenance Windows
+### Execution Stage
 
-To assign a maintenance window to a tenant:
+```mermaid
+flowchart TD
+    A[Start Execution Stage] --> B(What should this computer have?)
+    B --> C(What does this computer have?)
+    C --> D(Determine Required Changes)
+    D --> E{Notify user?}
+    E --> F(Yes)
+    E --> G(No)
+    F --> H[Send Email]
+    G --> I{Do It Now?}
+    H --> I
+    I --> J(Yes)
+    I --> K(No)
+    K --> L(Schedule for later)
+    L --> M{User Postponed?}
+    M --> N(No)
+    N --> O(Perform Maintenance Action)
+    J --> O
+    O --> P[Stop Execution Stage]
+```
+## Maintenance Action
 
-1. Navigate to **Tenants** in the left sidebar
-2. Select a tenant
-3. In the tenant details page, find the **Maintenance Window** dropdown
-4. Select the appropriate window from the dropdown
-5. Click **Save**
+This is an example of the flow for a software install
 
-You can also assign different maintenance windows to specific computer groups:
+```mermaid
+flowchart TD
+ A[Software Install] --> Detect{Software Installed?}
+ Detect --> |No| Install
+ Detect --> |Yes| HasConfigurationTask{Has Configuration Task?}
+ Install --> PostInstallDetect{Software Installed?}
+ PostInstallDetect --> |Yes|HasConfigurationTask
+ HasConfigurationTask --> |Yes| MaintenanceTaskTest{Run Test Script}
+ MaintenanceTaskTest --> |return $true| Compliant
+ MaintenanceTaskTest --> |return $false| RunSetScript(Run Set Script)
+ RunSetScript --> PostMaintenanceTaskTest{Run Test Script}
+ PostMaintenanceTaskTest --> |return $true| Compliant
+ PostMaintenanceTaskTest --> |return $false| Non-Compliant
+ PostInstallDetect --> |No| Non-Compliant
+```
 
-1. Navigate to **Computer Groups** in the left sidebar
-2. Select a group
-3. In the group details page, find the **Maintenance Window** dropdown
-4. Select the appropriate window from the dropdown
-5. Click **Save**
+A *Maintenance Session* has one or more *Maintenance Actions*. A Maintenance Action could be to install software, apply a Windows Update, or run a [Task](#task).
 
-## Automated Maintenance
+The image below depicts a typical Maintenance Session with many [Maintenance Actions](#maintenance-action)
 
-ImmyBot can automatically run maintenance sessions based on your configured maintenance windows.
+![](/.vitepress/images/2021-02-23-06-14-05.png)
 
-### Configuring Automated Maintenance
+## Finding your Maintenance Sessions
+You can view Maintenance Sessions for all computers under the **Sessions** tab on the left hand navigation.
 
-1. Navigate to **Show more** > **Preferences** > **System Settings**
-2. Under **Automated Maintenance**, toggle the setting to enabled
-3. Configure global settings:
-   - Maximum concurrent sessions
-   - Retry behavior
-   - Notification preferences
-4. Click **Save**
+![](/.vitepress/images/2021-02-23-08-47-36.png)
 
-### Maintenance Frequency
+Or, you can view Maintenance Sessions for a specific Computer under the Sessions tab for that Computer
 
-You can control how often maintenance runs:
+![](/.vitepress/images/2021-02-23-08-46-09.png)
 
-1. Navigate to **Show more** > **Preferences** > **Maintenance Settings**
-2. Configure the maintenance frequency:
-   - Daily: Runs every day during the maintenance window
-   - Weekly: Runs once per week during the maintenance window
-   - Monthly: Runs once per month during the maintenance window
-3. Click **Save**
 
-## Manual Maintenance
 
-You can also trigger maintenance sessions manually when needed.
 
-### Running Maintenance on a Single Computer
+## Scheduled Maintenance Sessions
 
-1. Navigate to **Computers**
-2. Select the computer
-3. Click **Maintenance** in the action bar
-4. Choose **Run Maintenance**
-5. Configure options:
-   - Select specific deployments (optional)
-   - Choose notification preferences
-   - Set priority
-6. Click **Start**
+::: info ImmyBot Standard and ImmyBot Forever Clients only
+If you're an ImmyBot starter client, you do not have access to Schedules in ImmyBot
+:::
 
-### Running Maintenance on Multiple Computers
+ImmyBot can automatically run maintenance sessions based on your configured Schedules.
 
-1. Navigate to **Computers**
-2. Select multiple computers using the checkboxes
-3. Click **Maintenance** in the action bar
-4. Choose **Run Maintenance**
-5. Configure options as above
-6. Click **Start**
+Please see [Schedules](/Documentation/HowToGuides/schedules) on how to accomplish this
 
-## Windows Updates
-
-ImmyBot can manage Windows updates as part of maintenance sessions.
-
-### Configuring Windows Update Settings
-
-1. Navigate to **Show more** > **Preferences** > **Windows Updates**
-2. Configure update behavior:
-   - Update categories (security, feature, driver)
-   - Deferral periods
-   - Restart behavior
-3. Click **Save**
-
-### Creating Windows Update Deployments
-
-1. Navigate to **Deployments**
-2. Click **Create Deployment**
-3. Enter a name (e.g., "Windows Updates")
-4. Select **Task** as the deployment type
-5. Choose or create a Windows Update task
-6. Configure targets
-7. Click **Save**
-
-## Software Updates
-
-ImmyBot makes it easy to manage software updates across your environment.
-
-### Adding New Software Versions
-
-1. Navigate to **Software Library**
-2. Select the software to update
-3. Click **Add Version**
-4. Enter version information
-5. Configure installation options
-6. Click **Save**
-
-### Updating Deployments
-
-1. Navigate to **Deployments**
-2. Select the deployment to update
-3. Change the version to the new release
-4. Click **Save**
-
-### Automatic Version Updates
-
-For software that should always be on the latest version:
-
-1. Edit the deployment
-2. Set **Version** to **Latest**
-3. Configure update behavior
-4. Save changes
-
-## Maintenance Reporting
-
-ImmyBot provides detailed reporting on maintenance activities.
-
-### Viewing Maintenance Sessions
-
-1. Navigate to **Sessions**
-2. View all maintenance sessions across your environment
-3. Filter by:
-   - Status (Completed, Failed, In Progress)
-   - Computer
-   - Tenant
-   - Date range
-
-### Session Details
-
-Click on any session to view detailed information:
-
-- Actions performed
-- Success/failure status
-- Detailed logs
-- Duration and timing
-- Affected deployments
-
-### Compliance Reporting
-
-1. Navigate to **Reports** > **Compliance**
-2. View compliance status for all deployments
-3. Identify computers that are out of compliance
-4. Take action as needed
-
-## Maintenance Notifications
-
-ImmyBot can send notifications about maintenance activities.
-
-### Configuring Email Notifications
-
-1. Navigate to **Show more** > **Notifications**
-2. Configure email settings:
-   - SMTP server
-   - From address
-   - Authentication
-3. Click **Save**
-
-### Setting Up Notification Rules
-
-1. Navigate to **Show more** > **Notifications** > **Notification Rules**
-2. Click **Create Rule**
-3. Configure trigger events:
-   - Session completion
-   - Session failure
-   - Compliance issues
-4. Set recipients
-5. Configure message template
-6. Click **Save**
-
-## Best Practices
-
-Follow these best practices for effective maintenance management:
-
-1. **Staggered Windows**: Create staggered maintenance windows to avoid overloading your infrastructure
-2. **Test First**: Test updates on a small group before deploying widely
-3. **Regular Review**: Periodically review maintenance logs and compliance reports
-4. **Clear Communication**: Inform users about maintenance windows and expected changes
-5. **Backup First**: Ensure critical systems have recent backups before major updates
-
-## Troubleshooting
-
-If you encounter issues with maintenance sessions:
-
-### Common Problems and Solutions
-
-1. **Sessions Not Starting**
-   - Check agent status
-   - Verify maintenance window configuration
-   - Check for server resource constraints
-
-2. **Failed Actions**
-   - Review detailed logs
-   - Check for security software interference
-   - Verify network connectivity
-   - Ensure sufficient disk space
-
-3. **Incomplete Sessions**
-   - Check for timeout settings
-   - Look for user interruptions
-   - Verify deployment configurations
+You can control how often maintenance runs in the Schedule, please also see our [best practices](/Documentation/GettingStarted/instance-best-practices.html#scheduled-maintenance) for more information
 
 ## Next Steps
 

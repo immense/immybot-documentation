@@ -4,11 +4,15 @@ This guide walks you through the process of creating and managing deployments in
 
 ## Understanding Deployments
 
-Deployments are the core building blocks of ImmyBot. They define what should be installed or configured on which computers. A deployment consists of:
+::: info Saving your deployments
+Do not be afraid to save your deployments. They do not apply automatically. They only apply when you run a [maintenace session](/Documentation/CoreFeatures/maintenance-sessions).
+:::
 
-1. **Type**: The software or task to deploy
+Deployments are a core building block of ImmyBot. They define what should be installed or configured on which computers. A deployment consists of:
+
+1. **Maintenance Itme**: The software or task to deploy
 2. **Targets**: The computers or users that should receive the deployment
-3. **Enforcement Type**: How strictly the deployment should be applied
+3. **Enforcement Type**: Is this a required deployment, adhoc (one off) deployment or an onboarding only task
 4. **Configuration Settings**: Additional configuration options
 
 ## Creating a Basic Deployment
@@ -27,6 +31,10 @@ Choose the maintenance item you want to deploy:
 
 - **Software**: Install or uninstall an application
 - **Task**: Run a script or configuration task
+
+### Step 2.1: Select Desired version - Software Only
+
+Select your desired software version for the deployment. Options are based on what is available in the software item.
 
 ### Step 3: Configure Enforcement Type
 
@@ -58,7 +66,7 @@ Define which computers should receive this deployment:
 
 ### Step 5: Configure Additional parameters
 
-Depending on the mainteance item, you may have additional settings to configure. Follow the parameter block on the screen.
+1. Depending on the mainteance item, you may have additional settings to configure. Follow the parameter block on the screen.
 
 ### Step 6: Save the Deployment
 
@@ -94,6 +102,20 @@ To temporarily disable a deployment without deleting it:
 2. Click the **More Actions** dropdown next to the page title
 3. Select **Delete**
 4. Confirm the deletion when prompted
+
+
+## Offboarding Deployments
+
+Conversely, you could create Deployments that remove your stack for customers you are offboarding.
+- Create an "Offboarding" product in your PSA
+- Create a deployment for each of the pieces of software you would like removed setting the desired state to Uninstalled
+- Target all customers with the "Offboarding" product on their agreement
+
+The same thing can be done with a tag if you would rather handle it soley within ImmyBot or do not have your PSA integrated.
+
+:::info
+ImmyBot honors the date range on agreement additions, making scheduled offboarding easier if say the customer wants your software removed on the last day of the month.
+:::
 
 ## Advanced Deployment Configurations
 
@@ -133,15 +155,6 @@ Dependencies ensure that deployments are applied in the correct order:
 4. Configure the dependency type:
    - **Hard**: The dependent deployment must succeed
    - **Soft**: The dependent deployment must run, but can fail
-
-### Supersedence
-
-Supersedence allows you to replace older deployments with newer ones:
-
-1. When creating or editing a deployment, go to the **Supersedence** section
-2. Click **Add Superseded Deployment**
-3. Select the deployment that this new deployment replaces
-4. The superseded deployment will be automatically disabled when this deployment is enabled
 
 ## Best Practices
 

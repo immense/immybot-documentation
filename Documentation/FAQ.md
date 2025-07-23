@@ -93,7 +93,7 @@ We can, however, install Feature Updates during Onboarding (as well as after Onb
 
 ::: details Since Immy.Bot doesn’t use an ISO, does it require a device to have the ability to have 2 USB devices plugged in? One for a Windows ISO and one for the ImmyBot ppkg?
 
-If you want to wipe the computer you can use the Media Creation Tool to create a Windows Setup flash drive and then put our .ppkg file on it. After installing Windows, it will automatically apply the .ppkg
+If you want to wipe the computer you can use the Media Creation Tool to create a Windows Setup flash drive and then put our .ppkg file on the root of the flash drive. After installing Windows, it will automatically apply the provisioning package. You should only have 1 .ppkg file per USB, otherwise you will have to manually select which on to use.
 :::
 
 ::: details Does Immy’s setup process support a USB NIC for WiFi?  If so, how do we present those drivers to Immy, or do we even need to?
@@ -151,7 +151,7 @@ Yes, you would accomplish this with tags.
 ## AzureAD and Intune
 ::: details Can Immy join AzureAD?
 
-Yes. Create a deployment for the Join AzureAD task. We use the bulk enrollment technique and generate a provisioning package to join the machine to AzureAD. At the time of writing, this requires you to create a user in each customer’s tenant. We plan to remove this requirement in the future.
+Yes. Create a deployment for the Join AzureAD task. We use the bulk enrollment technique and generate a provisioning package to join the machine to AzureAD. We reccomened using oAuth over DEM user.
 :::
 
 ::: details My AzureAD Join action is failing, what are some common fixes?
