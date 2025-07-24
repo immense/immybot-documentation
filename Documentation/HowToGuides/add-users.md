@@ -1,4 +1,4 @@
-# Adding Users
+# Creating & Managing Users
 
 ::: warning
  We require all users to be authenticated through Azure. No personal accounts can be used. No "Local ImmyBot" accounts are possible

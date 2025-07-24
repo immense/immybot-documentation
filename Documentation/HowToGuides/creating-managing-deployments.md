@@ -1,4 +1,4 @@
-# Creating and Managing Deployments
+# Creating & Managing Deployments
 
 This guide walks you through the process of creating and managing deployments in ImmyBot, from basic setup to advanced configurations.
 

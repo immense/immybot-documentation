@@ -1,4 +1,4 @@
-# Working with Tasks
+# Creating & Managing Tasks
 
 Tasks in ImmyBot are powerful scripts that perform specific actions on computers. This guide explains how to create, manage, and deploy tasks effectively.
 

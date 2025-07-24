@@ -1,4 +1,4 @@
-# Managing Software
+# Creating & Managing Software
 
 This guide explains how to effectively manage software across your environment using ImmyBot, from creating software definitions to deploying and maintaining software on your managed computers.
 

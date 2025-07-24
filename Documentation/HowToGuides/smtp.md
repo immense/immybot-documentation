@@ -1,4 +1,4 @@
-# SMTP
+# Managing SMTP
 
 > [!WARNING] "From" address needs to be changed in Show More > Branding
 > Please see the [Branding](./branding.md) for more information.

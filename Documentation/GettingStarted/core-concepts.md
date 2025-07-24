@@ -4,27 +4,27 @@ This guide explains the fundamental concepts of ImmyBot that you'll need to unde
 
 ## Deployments
 
-Deployments are the central concept in ImmyBot. They define how computers "should be" configured.
+A deployment is a rule that specifies:
 
-A deployment consists of:
-- **Type**: Software, Task, or Configuration
-- **Content**: The specific software, task, or configuration to apply
-- **Targets**: The computers, users, or groups that should receive this deployment
-- **Settings**: Additional options that control how the deployment behaves
+1. **What** should be deployed (software or task)
+2. **Where** it should be deployed (target computer, user)
+3. **How** it should be enforced (required, adhoc, or onboarding.)
 
 ```mermaid
 graph TD
-    A[Deployment] -->|contains| B[Type]
-    A -->|contains| C[Content]
-    A -->|contains| D[Targets]
-    A -->|contains| E[Settings]
-    D -->|can be| F[Computers]
-    D -->|can be| G[Users]
-    D -->|can be| H[Groups]
-    D -->|can be| I[Filter Scripts]
+    A[Deployment] -->|Contains| B[Maintenance Item]
+    A -->|Effects| C[Targets]
+    A -->|Enforces| D[Enforcement Type]
+    A -->|May Contain| E[Parameters]
+    B -->|can be| F[Software]
+    B -->|can be| G[Task]
+    C -->|can be| I[Computers]
+    C -->|can be| J[Users]
+
 ```
 
 Think of deployments as similar to Group Policy Objects in Windows environments, but more powerful and flexible.
+
 
 > **Example**: A deployment might specify that "All accounting computers should have QuickBooks 2023 installed."
 
@@ -32,10 +32,16 @@ Think of deployments as similar to Group Policy Objects in Windows environments,
 
 Maintenance Sessions are the mechanism through which ImmyBot applies deployments to computers. When a maintenance session runs, ImmyBot:
 
+When a maintenance session runs, ImmyBot:
+
 1. Identifies all deployments that apply to the computer
 2. Determines the current state of the computer
 3. Creates a plan to bring the computer into compliance
 4. Executes that plan as a series of maintenance actions
+5. Determines the current state of the computer to see if the deployments were successful
+6. Reports on the results of the maintance session
+
+
 
 ```mermaid
 graph LR
@@ -43,13 +49,13 @@ graph LR
     B --> C[Check Current State]
     C --> D[Create Plan]
     D --> E[Execute Actions]
-    E --> F[Report Results]
+    E --> F[Check Current State]
+    F --> G[Report Results]
 ```
 
 Maintenance sessions can be triggered:
 - Manually by a technician
 - Automatically on a schedule
-- During computer onboarding
 - Via API or integration
 
 ## Agents
@@ -67,7 +73,9 @@ There are two types of agents:
 
 ## Tenants
 
-Tenants represent the organizations you manage with ImmyBot. Each tenant:
+
+In ImmyBot, tenants represent the organizations you manage. Each tenant:
+
 - Has its own set of computers and users
 - Can have tenant-specific deployments
 - May have different settings and configurations
@@ -76,11 +84,12 @@ Tenants can be organized hierarchically, with parent-child relationships that al
 
 ```mermaid
 graph TD
-    A[ImmyBot Tenants] -->|In Immy Instance| B[Tenant A]
-    A -->|In Immy Instance| C[Tenant B]
-    C -->|parent of| D[Child Tenant 1]
-    C -->|parent of| E[Child Tenant 2]
+    A[MSP Tenants] -->|Manages| B[Tenant A - Corp Office A]
+    A -->|Manages| C[Tenant B - Corp Office B]
+    C -->|parent of| D[Tenant C - Branch Office 1]
+    C -->|parent of| E[Tenant D - Branch Office 2]
 ```
+
 
 ## Software
 
