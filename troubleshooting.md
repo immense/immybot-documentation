@@ -321,7 +321,7 @@ This ETL can be reviewed in Windows Performance Analyzer from the Windows Perfor
 ### MDMDiagnostics Logs
 
 
-Issues with device enrollment occur often, and the possible reasons behind them are numerous. Logs from the MDMDiagnostics tool can help identify the root cause.
+Issues with Intune device enrollment occur often, and the possible reasons behind them are numerous. Logs from the MDMDiagnostics tool can help identify the root cause.
 
 1. From an elevated CMD Prompt, run:
 
