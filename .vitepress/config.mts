@@ -44,12 +44,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 items: [
                     { text: 'Tenants', link: '/Documentation/CoreFeatures/tenants-organizations' },
                     { text: 'Computers', link: '/Documentation/CoreFeatures/computers-inventory' },
-                    //{ text: 'Users & Permissions', link: 'users-permissions' },
                     { text: 'Software & Tasks Library', link: '/Documentation/CoreFeatures/software-library' },
-                    //{ text: 'Maintenance Tasks', link: 'maintenance-tasks' },
-                    { text: 'Maintenance Sessions', link: '/Documentation/CoreFeatures/maintenance-sessions' },
                     { text: 'Deployments', link: '/Documentation/CoreFeatures/deployments' },
-                    //{ text: 'User Affinity', link: 'user-affinity' },
+                    { text: 'Maintenance Sessions', link: '/Documentation/CoreFeatures/maintenance-sessions' },
                     { text: 'Targets & Targeting', link: '/Documentation/CoreFeatures/targets-targeting' },
                     { text: 'Script Editor', link: '/Documentation/CoreFeatures/script-editor' },
                 ],
@@ -86,7 +83,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 items: [
                     { text: 'Integration Overview', link: '/Documentation/Integrations/integration-overview' },
                     { text: 'Build Your Own Integration', link: '/Documentation/Integrations/build-your-own-integration' },
-                    //{ text: 'Custom Integrations', link: '/Documentation/Integrations/custom-integrations' },
                     {
                         text: 'RMM Integrations',
                         collapsed: true,

@@ -271,7 +271,7 @@ Supply ImmyBot with an API Key to SentinelOne, and ImmyBot will look for a Site 
 
 Yes, but we can't verify that it is written to Azure AD as that would require additional privileges that our App Registration doesn't request.
 
-We also write the Bitlocker Recovery Key to Active Directory for Domain Joined machines. This doesn't require any Group Policy setup, or line of site to the domain controller. This works as long as the machine is joined to a domain and there is a domain controller for that domain in ImmyBot.
+We also write the BitLocker Recovery Key to Active Directory for Domain Joined machines. This doesn't require any Group Policy setup, or line of site to the domain controller. This works as long as the machine is joined to a domain and there is a domain controller for that domain in ImmyBot.
 :::
 
 ## Agent Management

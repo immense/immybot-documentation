@@ -20,6 +20,7 @@ When configuring a new computer, ImmyBot needs to set user-specific settings, bu
 - For cloud-only users, uses their Azure AD SID
 - Creates the profile without requiring the user's password
 - Handles the UserChoice hash (Microsoft's anti-tamper mechanism) automatically
+  - Requires UCPD task to be deployed
 
 This deployment is essential for proper user experience configuration and should typically remain enabled.
 
@@ -87,7 +88,7 @@ This deployment demonstrates ImmyBot's ability to:
 
 Unlike other recommended deployments, this one should typically be customized for each customer:
 
-1. Turn off the default deployment
+1. Turn off the default deployment by clicking **Disable**
 2. Create customer-specific versions with appropriate naming conventions and domain settings
 3. Apply these custom deployments to the relevant customer targets
 

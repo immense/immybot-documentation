@@ -8,20 +8,16 @@ Before you begin, make sure you have:
 - An active ImmyBot account [Click here if you don't have one](https://www.immy.bot/pricing/)
 - Administrator access to the computer you want to set up
 - A USB drive (for physical computers)
-- An existing ImmyBot Tenant. It is recommended to create an Onboarding Tenant [Managing ImmyBot Tenants](/Documentation/Administration/tenant-management.md)
 
 ## Step 1: Create an ImmyBot USB Drive for Physical Machines or ISO for Virtual Machines
 
 When you first log in to ImmyBot, the Getting Started Wizard will prompt you to create an ImmyBot flash drive.
 
 > **Important:** You only need to create this USB drive ONCE. The same drive can be used for all clients and computers. You'll select the specific client after the computer connects to ImmyBot.
-> When using the same deployment package be sure you set Automatic Onboarding to Disabled, or use an Onboarding Tenant that will only apply cross tenant deployments.
 
 1. Insert a USB drive into your computer
-2. From the ImmyBot dashboard, click on **ImmyBot Agent Download** in the left navigation
+2. From the ImmyBot dashboard, click on **Download ImmyAgent** in the left navigation
 3. Select the **Onboarding** tenant
-   > **Tip:** If this is your first time using ImmyBot, you'll only have your MSP as a customer and yourself as a user. That's fine for testing - just select these options. Customers can be imported from your RMM, PSA, or Azure integration later.
-
 4. Choose **New Computer Flash Drive**
 5. Check **Enable Automatic Onboarding**
 6. Check and set **Set Primary User**
@@ -48,13 +44,11 @@ If you're testing with a virtual machine:
 
 1. Mount the ISO from Step 1 to your virtual machine
 2. At the Windows region selection screen, press the Windows key 5 times
-3. Alternatively, open a powershell prompt (Shift + F10) and run Install-ProvisioningPackage -PackagePath {Path to PPKG}
+3. Alternatively, double-click the PPKG file from the mounted disk
 
 ## Step 3: Identify the Computer in ImmyBot
 
-> **Note:** If you enabled Automatic Onboarding you can watch the session getting started on the Sessions page.
-
-Once the provisioning package is applied, the computer will connect to ImmyBot and appear in the **New Computers** section if Automatic Onboarding is disabled.
+Once the provisioning package is applied, the computer will connect to ImmyBot and appear in the **New Computers** section.
 
 1. Go to **New Computers** in the ImmyBot dashboard
 2. Locate your newly connected computer in the list
@@ -78,7 +72,7 @@ For ImmyBot to properly configure the computer, you need to specify:
 After assigning the customer and user:
 
 1. Click **Save and onboard now**
-2. ImmyBot will create an "Onboarding" session
+2. ImmyBot will create an "Onboarding" maintenance session
 3. The system will automatically apply all "Recommended Deployments" to the computer
 4. You can monitor the progress in real-time from the Sessions tab
 
@@ -87,9 +81,10 @@ After assigning the customer and user:
 During the onboarding process, ImmyBot:
 
 1. Installs and configures software based on your deployments
-2. Tests for and if needed applies Tasks which can include security settings, policies and Windows updates
+2. Applies security settings and policies
 3. Configures user-specific settings for the primary user
-4. Updates drivers and BIOS (for supported manufacturers - Dell, Lenovo, HP)
+4. Updates drivers and BIOS (for supported manufacturers)
+5. Applies Windows updates
 
 ### User Profile Creation
 
@@ -129,5 +124,5 @@ If you encounter issues during the onboarding process:
 - Check the maintenance session logs for specific error messages
 - Ensure the computer has a stable internet connection
 - Verify that any security software isn't blocking the ImmyBot agent
-- See our [Troubleshooting Guide](/Documentation/troubleshooting/common-issues.md) for more detailed help
+- See our [Troubleshooting Guide](troubleshooting.md) for more detailed help
 

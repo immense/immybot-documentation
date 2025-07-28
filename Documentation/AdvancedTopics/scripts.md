@@ -1,5 +1,9 @@
 # Scripting Guide
 
+::: warning ImmyBot support will not assist with custom script writing
+It is outside of the scope of support for ImmyBot to assist with custom scripting. You're more then welcome to send your questions to support, and we will answer as best as we can to guide you in the right direction.
+:::
+
 This comprehensive guide explains how to create and manage scripts in ImmyBot, including best practices, script types, execution contexts, and helper functions.
 
 ## Understanding Script Flow

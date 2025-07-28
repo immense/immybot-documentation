@@ -2,6 +2,11 @@
 **Please see [System Requirements](/Documentation/GettingStarted/system-requirements.md) before proceeding**
 
 ## Provisioning Package (New Computer Flash Drive)
+
+::: warning Pro Operating Systems only
+PPKG files through ImmyBot are only supported on Pro and Education labeled Windows Operating Systems. Home is not supported, and not a recommended way to deploy ImmyBot.
+:::
+
 This option is perfect for brand new computers, or computers that have been newly wiped and reloaded. Once you configure your settings for the deployment, you will be given a file to download. Once downloaded, and placed on a flash drive like a regular file, you will need to insert the flash drive into the computer and turn it on. From there, Windows will see the Provisioning Package, and take it from there. ImmyBot will be installed, and if Automatic Onboarding was selected, the computer will begin onboarding.
 
 This option allows you to
@@ -14,18 +19,15 @@ This option allows you to
 This is a great option for computers that are already set up, and you have a remote option to run PowerShell.
 
 This will allow you to:
-- Enable Automatic Onboarding if appropriate
-- Can be used for mass deployment such as new client onboarding
+- Enable Automatic Onboarding
+- Set the Primary User from the agent configuration interface
+- Utilize RMM scripting to push the Immy Agent to machines
 
 ## Executable file
 
 The executable file is good option to deploy the ImmyBot agent when you do not have remote access to the machine, or to have end users deploy the ImmyBot Agent.
 
 ## Sandbox
-The best option for testing deployments on the fly. This can also be useful for troublshooting software installs without cluttering your own computer. Do not use this option for testing Automatic Onboarding, Sandbox instances get reverted by [Windows on instance reboot](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/).
+The best option for testing deployments on the fly. Do not use this option for testing Automatic Onboarding, Sandbox instances get reverted by [Windows on instance reboot](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/).
 
 See [Windows Sandbox](/Documentation/Administration/windows-sandbox.md) for more information
-
-## Troubleshooting
-
-If you encounter issues installing the agent take a look at our [Troubleshooting Guide](/Documentation/Troubleshooting/common-issues.md)

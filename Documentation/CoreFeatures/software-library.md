@@ -14,6 +14,10 @@ Access the Software Library navigating to **Library** > **Software**
 
 ## Tasks
 
+:::info
+This is a small list of recommended tasks, not a list of all available tasks.
+:::
+
 Access the Task Library by navigating to **Library** > **Tasks** respectively
 
 - Set Date/Time
@@ -30,7 +34,7 @@ Access the Task Library by navigating to **Library** > **Tasks** respectively
 - Set Computer Name and Domain Join
 - Local User/Administrator
 - Join AzureAD
-- Bitlocker Encryption
+- BitLocker Encryption
 - Clean Folders
 - Configure Action Center
 - Configure Active Hours

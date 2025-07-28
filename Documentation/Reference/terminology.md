@@ -209,7 +209,7 @@ Will attempt to run as the logged on user
 Runs in the ImmyBot backend, and can spawn code on the system by using Invoke-ImmyCommand
 
 ### Cloud Script
-Runs in the ImmyBot backend, but intended to be run against a Tenant (perhaps for the purpose of getting or setting some setting in 365/Azure or some other system with an API). These are used exclusively in [Tasks](#task) targetting "Tenants".
+Runs in the ImmyBot backend, but intended to be run against a Tenant (perhaps for the purpose of getting or setting some setting in 365/Azure or some other system with an API). These are used exclusively in [Tasks](#task) targeting "Tenants".
 
 ![](/.vitepress/images/2021-03-01-14-17-29.png)
 

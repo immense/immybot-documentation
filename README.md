@@ -56,7 +56,7 @@ immybot-documentation/
   1. Copy the appropriate template into the appropriate folder in the repo. Templates are located in /Documentation/Templates
      - The document needs to be put in the same folder that people will navigate to. IE if you're writing a howto document it needs to go into /Documentation/HowToGuides
   2. Rename this file, file extension must be .md
-    a. You need to name the file to the document that your writing. IE if the document is How To Log Into Immybot, you need to name it HowToLogIntoImmybot.md
+     - You need to name the file to the document that your writing. IE if the document is How To Log Into Immybot, you need to name it HowToLogIntoImmybot.md
   3. Edit this file with the appropriate information, processes, best practices etc
   4. Once complete save the file.
   5. Edit the file /.vitepress/Config.mts file
@@ -65,8 +65,8 @@ immybot-documentation/
      - The 'text:' column should be the title of the document
      - The link needs to be the absolute file path without .md at of the filename
   8. Save this file
-  9. Test your changes
+  9.  Test your changes
   10. Commit and push your changes to the PR
-  12. If everything is satisfactory the changes will be merged into the main branch
+  11. If everything is satisfactory the changes will be merged into the main branch
 
 

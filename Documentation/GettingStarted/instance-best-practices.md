@@ -14,11 +14,16 @@ You will need admin permissions to your ImmyBot instance for some processes. Tho
 ### Run full Maintenance where possible
 - Avoid using schedules for individual deployments. It is best practice to use as few schedules as possible. Focus on full maintenance, cross tenant schedules and deployments
 
+<!-- We need to add more here. Cross tenant, Cross tenant tags, and when to use individual deployments-->
 ## Deployments
 ### Use cross tenant deployments
 - All deployments should be cross tenant that filter down, except for one off situations.
 
 ### PSA agreement additions
+
+::: info Not available for all PSAs
+Currently only available for ConnectWise Manage and HaloPSA
+:::
 - The PSA integrations have the ability to allow you to filter down from agreement additions. If you resell a platform such as SentinelOne, and there is an agreement addition for it, you can set up a cross tenant deployment that will ensure that it's installed while you only have to set up one deployment
   ::: details What if I need to do a targeted roll out of this platfom?
   You have 2 options.
