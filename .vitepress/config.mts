@@ -5,7 +5,7 @@ import { withMermaid } from "vitepress-plugin-mermaid";
 export default withMermaid({
     title: "ImmyBot Documentation",
     head: [
-        ['meta', { property: 'og:image', content: '/public/OpenGraph-ImmyBotDefault01.png' }],
+        ['meta', { property: 'og:image', content: '/OpenGraph-ImmyBotDefault01.png' }],
         ['meta', { property: 'og:title', content: 'ImmyBot | Technical Documentation' }],
         ['meta', { property: 'og:description', content: 'Dive into getting started guides, recommended deployment workflows, user‑role breakdowns, scripting best practices, and deep dives into integrations and custom metascripts. Get everything you need to streamline your ImmyBot automation toolbox.' }],
         ['link', { rel: 'icon', href: '/favicon.ico' }],
