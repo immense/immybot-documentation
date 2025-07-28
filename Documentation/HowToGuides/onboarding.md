@@ -129,5 +129,5 @@ If you encounter issues during the onboarding process:
 - Check the maintenance session logs for specific error messages
 - Ensure the computer has a stable internet connection
 - Verify that any security software isn't blocking the ImmyBot agent
-- See our [Troubleshooting Guide](/Documentation/troubleshooting/common-issues.md) for more detailed help
+- See our [Troubleshooting Guide](/Documentation/Troubleshooting/troubleshooting) for more detailed help
 
