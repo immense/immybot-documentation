@@ -13,7 +13,8 @@ The script editor is a built in tool that allows you to build, and edit local in
 8. Debugger
 
 ![ScriptEditor](./ScriptEditor.png)
-
+<!--
 ### How to exit the script editor
 
-### Ensuring your script is running in the correct execution context
+### Ensuring your script is running in the correct execution context>
+-->

@@ -97,7 +97,7 @@
 :root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: var(--vp-c-text-1);
-
+  --vp-button-brand-bg: #087AFF;
   --vp-home-hero-image-background-image: none;
   --vp-home-hero-image-filter: blur(40px);
 }
