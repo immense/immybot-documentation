@@ -352,27 +352,6 @@ Avoid setting these variables yourself or having variables with similar names.
 - Software Detection
 - Software Auto Update
 
-## Scripting Frequently Asked Questions
-### Can I use custom parameters in my scripts?
-Yes. Add parameters to the Task your script is associated to. If this is a software install script, associate the task to the software as a "Configuration Task", and all parameters are passed into the Install scripts
-
-### Can I deploy files along with my scripts?
-Yes. Tasks have a “File” parameter type. Immy will download the file and provide the path to the file in variable.  If a zip file is provided, the zip file will be extracted and the path to the extracted zip folder will have Folder appended to the provided parameter name and be available to the task script.  Ex. Providing a file parameter name $ZipFile, there will be an additional parameter created call $ZipFileFolder.  $ZipFile will contain the path to the original zip file and $ZipFileFolder will contain the file path to the extracted contents of the zip file.
-
-### Can I deploy a script to all of my computers?
-Yes, you do this by creating a Task. We strongly recommend your task includes a ‘Test’ so Immy can check its work and provide reporting on the effectiveness of your script.
-
-### Why do I have to create a Configuration Task to get custom parameters into my Software?
-- Some software can only be configured at install time by providing command line parameters to the installer, think Antivirus products.
-- Some software can only be configured after they are installed, think VPN Profiles
-- Some software can go either way (Generally by manipulating config files or registry values)
-
-Let’s say your Software package accepts command line parameters at install time. You would create a Configuration Task with those parameters without implementing the scripts on that Task. ImmyBot will pass the parameters into the install script.
-
-Later you need to reconfigure this software on lots of machines. You discover that the parameters you passed into the installer are ultimately held as registry values (Duo Logon Provider is like this). At this time you would implement the scripts on the Software’s Configuration Task. These scripts task will test the existing registry values against the desired ones, and set them to the desired value, and then re-test to verify.
-
-### How does Immy get the latest version of software?
-This is done via “Dynamic Versions”. Rather than upload the latest installer for every version of a piece of software, create a dynamic versions script that returns the most current version number, and the URL to download it. Reader, Zoom, 7zip, Chrome, Edge, Firefox, Bluebeam, Citrix, Egnyte,  and many more already have dynamic version scripts defined. This allows Immy to keep these items up to date on all your machines.
 
 ## Configuration Task Helper Functions
 We provide helper functions for common tasks like Registry and configuration file manipulation
@@ -517,3 +496,66 @@ param(
     $OAuthInfo
 )
 ```
+## Scripting Frequently Asked Questions
+### Can I use custom parameters in my scripts?
+Yes. Add parameters to the Task your script is associated to. If this is a software install script, associate the task to the software as a "Configuration Task", and all parameters are passed into the Install scripts
+
+### Can I deploy files along with my scripts?
+Yes. Tasks have a “File” parameter type. Immy will download the file and provide the path to the file in variable.  If a zip file is provided, the zip file will be extracted and the path to the extracted zip folder will have Folder appended to the provided parameter name and be available to the task script.  Ex. Providing a file parameter name $ZipFile, there will be an additional parameter created call $ZipFileFolder.  $ZipFile will contain the path to the original zip file and $ZipFileFolder will contain the file path to the extracted contents of the zip file.
+
+### Can I deploy a script to all of my computers?
+Yes, you do this by creating a Task. We strongly recommend your task includes a ‘Test’ so Immy can check its work and provide reporting on the effectiveness of your script.
+
+### Why do I have to create a Configuration Task to get custom parameters into my Software?
+- Some software can only be configured at install time by providing command line parameters to the installer, think Antivirus products.
+- Some software can only be configured after they are installed, think VPN Profiles
+- Some software can go either way (Generally by manipulating config files or registry values)
+
+Let’s say your Software package accepts command line parameters at install time. You would create a Configuration Task with those parameters without implementing the scripts on that Task. ImmyBot will pass the parameters into the install script.
+
+Later you need to reconfigure this software on lots of machines. You discover that the parameters you passed into the installer are ultimately held as registry values (Duo Logon Provider is like this). At this time you would implement the scripts on the Software’s Configuration Task. These scripts task will test the existing registry values against the desired ones, and set them to the desired value, and then re-test to verify.
+
+### How does Immy get the latest version of software?
+This is done via “Dynamic Versions”. Rather than upload the latest installer for every version of a piece of software, create a dynamic versions script that returns the most current version number, and the URL to download it. Reader, Zoom, 7zip, Chrome, Edge, Firefox, Bluebeam, Citrix, Egnyte,  and many more already have dynamic version scripts defined. This allows Immy to keep these items up to date on all your machines.
+
+### How do you pass variables to Invoke-ImmyCommand?
+To pass variables from your meta script to Invoke-ImmyCommand, you call the variable you need to call it like so:
+```powershell
+$using:VariableName
+```
+
+Example:
+
+```powershell
+#Set your variables
+$VariableOne = "Hello World"
+$VariableTwo = "Hello World 2"
+
+#Do things outside of Invoke-ImmyCommand
+Write-host "Outside of Invoke-ImmyCommand"
+
+#Invoke ImmyCommand to do things on the PC
+Invoke-ImmyCommand -Timeout 600 -scriptblock {
+  Write-Host "`Inside Invoke-ImmyCommand" -ForegroundColor Green
+  Write-host $env:COMPUTERNAME -ForegroundColor Green
+  Write-Host "Writing `$VariableOne: $using:VariableOne" -ForegroundColor Green
+  Write-Host "Writing `$VariableTwo: $using:VariableTwo" -ForegroundColor Green
+
+  #You cannot set variables that are outside of Invoke-ImmyCommand
+  Write-Host "Attempting to set variables" -ForegroundColor Yellow
+  $VariableOne = "GoodBye World"
+  $VariableThree = "Goodbye World 2"
+  Write-host "Writing variables to host" -ForegroundColor Yellow
+  Write-Host "Writing `$VariableOne again: $using:VariableOne" -ForegroundColor Green
+  Write-host "Writing `$VariableThree: $VariableThree" -ForegroundColor Green
+}
+
+Write-Host "`Outside of Invoke-ImmyCommany again"
+Write-Host "Writing `$VariableOne again: $VariableOne"
+Write-Host "Writing `$VariableThree: again: $VariableThree"
+Write-Host "End of Script"
+
+```
+
+Output:
+![alt text](Invoke-ImmyCommand-Output.png)
