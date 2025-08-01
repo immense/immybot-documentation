@@ -519,7 +519,7 @@ Later you need to reconfigure this software on lots of machines. You discover th
 This is done via “Dynamic Versions”. Rather than upload the latest installer for every version of a piece of software, create a dynamic versions script that returns the most current version number, and the URL to download it. Reader, Zoom, 7zip, Chrome, Edge, Firefox, Bluebeam, Citrix, Egnyte,  and many more already have dynamic version scripts defined. This allows Immy to keep these items up to date on all your machines.
 
 ### How do you pass variables to Invoke-ImmyCommand?
-To pass variables from your meta script to Invoke-ImmyCommand, you call the variable you need to call it like so:
+To pass variables from your meta script to Invoke-ImmyCommand, reference the variable like this:
 ```powershell
 $using:VariableName
 ```
@@ -534,7 +534,7 @@ $VariableTwo = "Hello World 2"
 #Do things outside of Invoke-ImmyCommand
 Write-host "Outside of Invoke-ImmyCommand"
 
-#Invoke ImmyCommand to do things on the PC
+#Invoke-ImmyCommand to do things on the PC
 Invoke-ImmyCommand -Timeout 600 -scriptblock {
   Write-Host "`Inside Invoke-ImmyCommand" -ForegroundColor Green
   Write-host $env:COMPUTERNAME -ForegroundColor Green
@@ -550,7 +550,7 @@ Invoke-ImmyCommand -Timeout 600 -scriptblock {
   Write-host "Writing `$VariableThree: $VariableThree" -ForegroundColor Green
 }
 
-Write-Host "`Outside of Invoke-ImmyCommany again"
+Write-Host "`Outside of Invoke-ImmyCommand again"
 Write-Host "Writing `$VariableOne again: $VariableOne"
 Write-Host "Writing `$VariableThree: again: $VariableThree"
 Write-Host "End of Script"
