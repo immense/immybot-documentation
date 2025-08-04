@@ -120,6 +120,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 collapsed: true,
                 items: [
                     { text: 'User Roles and Security', link: '/Documentation/Administration/user-roles' },
+                    { text: 'RBAC (coming soon)', link: '/Documentation/Administration/rbac' },
                     { text: 'Tenant Management', link: '/Documentation/Administration/tenant-management' },
                     { text: 'Managing Computers', link: '/Documentation/Administration/managing-computers' },
                     { text: 'Windows Sandbox', link: '/Documentation/Administration/windows-sandbox' },
