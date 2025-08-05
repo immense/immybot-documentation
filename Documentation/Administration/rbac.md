@@ -10,7 +10,7 @@ Our RBAC implementation follows a structured 5-goal approach, ensuring stability
 
 **Objective**: Seamlessly transition from legacy permissions to RBAC without breaking changes or requiring user reconfiguration. Doing this allowed us to iteratively battle-test the changes to the backend over time.
 
-**Status**: Complete - Implemented and released over the past 8 months
+**Status**: Complete - Implemented and released over the past 8 months. Contained most of the work for the entire project.
 
 **Achievement**: Full feature parity with the existing permission system while laying the foundation for advanced RBAC capabilities.
 
@@ -22,18 +22,18 @@ Our RBAC implementation follows a structured 5-goal approach, ensuring stability
 
 **Objective**: Provide a new user management experience that maintains feature parity with current capabilities while providing insight into which specific permissions users have.
 
-**Status**: 90% complete - A few tasks remain, but the feature is almost across the finish line and is currently available under a feature flag for early testing.
+**Status**: 90% complete - A few tasks remain, but the feature is almost across the finish line and is available for early testing.
 
 #### Built-In Roles
 
-The system includes four primary access levels that mirror existing permission structures:
+The system includes four primary roles that mirror existing permission structures:
 
-| Role | Access Level | Description |
-|------|-------------|-------------|
-| **MSP Administrator** | Full System | Complete administrative access across all tenants |
-| **MSP User** | Restricted System | Broad access with specific limitations |
-| **Tenant Administrator** | Full Tenant | Complete access within assigned tenant(s) |
-| **Tenant User** | Restricted Tenant | Limited access within assigned tenant(s) |
+| Role | Description |
+|------|-------------|
+| **MSP Administrator** | Complete administrative access across all tenants |
+| **MSP User** | Broad access with specific limitations |
+| **Tenant Administrator** | Complete access within assigned tenant(s) |
+| **Tenant User** | Limited access within assigned tenant(s) |
 
 *Additional built-in roles maintain compatibility with existing application preferences and toggles.*
 
