@@ -1,4 +1,4 @@
-# Role-Based Access Control (RBAC) System
+# Role-Based Access Control (RBAC) System (In Active Development)
 
 ImmyBot's RBAC system provides granular permission management, allowing you to control exactly what users can access and modify within your environment. This system has been designed with a phased approach to ensure seamless migration from legacy permissions while introducing powerful new capabilities.
 
@@ -6,25 +6,23 @@ ImmyBot's RBAC system provides granular permission management, allowing you to c
 
 Our RBAC implementation follows a structured 5-goal approach, ensuring stability and backward compatibility throughout the transition.
 
-### ✅ Goal 1: Build & Migrate to RBAC (Complete)
+### ✅ Goal 1: Migrate to RBAC Behind the Scenes (Complete)
 
-**Objective**: Seamlessly transition from legacy permissions to RBAC without breaking changes or requiring user reconfiguration.
+**Objective**: Seamlessly transition from legacy permissions to RBAC without breaking changes or requiring user reconfiguration. Doing this allowed us to iteratively battle-test the changes to the backend over time.
 
 **Status**: Complete - Implemented and released over the past 8 months
 
-**Achievement**: Full feature parity with existing permission system while laying the foundation for advanced RBAC capabilities.
+**Achievement**: Full feature parity with the existing permission system while laying the foundation for advanced RBAC capabilities.
 
 ---
 
-### Goal 2: Expose RBAC Interface
+### Goal 2: Expose RBAC in the UI - In Progress (90% complete)
 
 **Objective**: Provide a clear, intuitive UI for managing users and understanding current permissions.
 
-**Key Features**:
-- User management (create, remove, assign roles)
-- Role assignment with expiration dates
-- Built-in role visibility and permission details
-- Comprehensive user and role overview screens
+**Objective**: Provide a new user management experience that maintains feature parity with current capabilities while providing insight into which specific permissions users have.
+
+**Status**: 90% complete - A few tasks remain, but the feature is almost across the finish line and is currently available under a feature flag for early testing.
 
 #### Built-In Roles
 
@@ -62,11 +60,13 @@ The system includes four primary access levels that mirror existing permission s
 
 ---
 
-### Goal 3: Role Assignments with Tenant Scoping
+### Goal 3: Role Assignments with Tenant Scopes - (70% complete)
 
 **Objective**: Enable flexible role assignment across different tenant scopes.
 
-Role assignments define where a user's permissions apply. Users can have multiple assignments with different scopes, providing precise access control.
+Today, your msp users are hard mapped to allow access to all tenants, and your non-msp users are hard mapped to only access their own tenant. Role assignments will allow you to define where a user's permissions apply. Users can have multiple assignments with different scopes, providing precise access control.
+
+**Status**: 70% complete - All of the groundwork is completed. We are now in the later stages, mostly focusing on ensuring all of the different scopes across different resource types work as expected.
 
 #### Available Scopes
 
@@ -101,11 +101,13 @@ Role assignments define where a user's permissions apply. Users can have multipl
 
 ---
 
-### Goal 4: Resource Scoping
+### Goal 4: Role Assignments with Resource Scopes (70% complete)
 
 **Objective**: Provide granular control over specific resources within assigned tenants.
 
 Resource scopes define exactly which resources a role can access, starting with computer resources.
+
+**Status**: 70% complete - We aim to release computers as the initial resource scope to minimize the involved changes. Most of the work has been completed.
 
 #### Computer Resource Scopes
 
@@ -127,11 +129,11 @@ Resource scopes define exactly which resources a role can access, starting with 
 
 ---
 
-### Goal 5: Custom Roles
+### Goal 5: Custom Roles - (80% complete)
 
 **Objective**: Enable creation of tailored roles with specific permission combinations.
 
-**Status**: Near completion - will be released alongside other goals
+**Status**: 80% complete - This feature is almost completed and is in final testing
 
 Custom roles provide the ultimate flexibility in permission management, allowing you to:
 - Create roles with precisely the permissions you need
