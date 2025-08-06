@@ -302,6 +302,7 @@ To help our support team resolve your issue quickly, please provide the followin
    - Agent logs from C:\ProgramData\ImmyBot\Logs
    - Script logs from C:\ProgramData\ImmyBot\Scripts\*\*.logs
    - Any additional diagnostic information as described below
+   - A session link or number (if applicable)
 
 ## Gather an Endpoint Trace Log
 
