@@ -17,7 +17,7 @@ This document goes over the ins and outs of migrating one ImmyBot instance to an
 - Admin access to both instances
 - The ability to create API keys for integrations and deployments where needed
 - Instance identification
-  - Decide which instance will be the "Winning" or "Destination" instance and which one is the "Loosing" or "Source" instance.
+  - Decide which instance will be the "Winning" or "Destination" instance and which one is the "Losing" or "Source" instance.
   - For the sake of this document we will be using the terms Destination and Source.
 - Knowledge of ImmyBot to create Tenants, Deployments, Software, Tasks, and Integrations.
 
