@@ -32,7 +32,7 @@ This document goes over the ins and outs of migrating one ImmyBot instance to an
 
 ### Migrate Integrations that Manage Companies
   - Follow the specific integration guide to recreate the integrations from your Source instance to the Destination instance. We want to do this first in the event that you are managing your tenants through your PSA or RMM.
-  - If your integrations does both, we recommend disabling any options that allow scripts to run on the endpoints first.
+  - If your integration does both, we recommend disabling any options that allow scripts to run on the endpoints first.
 
 ### Migrate Tags
   - If necessary, migrate any tags that are not standard in the Destination tenant
@@ -57,7 +57,7 @@ This document goes over the ins and outs of migrating one ImmyBot instance to an
   - Be sure to review and update the Deployment Ordering
 
 ### Migrate Deployments
-  - Recreate any deployments that need to be. Typically these are going to be one off's that are per tenant such as Line of Business applications that are for a specific vertical.
+  - Recreate any deployments that need to be. Typically these are going to be one-off's that are per tenant such as Line of Business applications that are for a specific vertical.
 
 ### Migrate Schedules
   - Copy schedules from the Source instance to the Destination instance
@@ -75,9 +75,9 @@ This document goes over the ins and outs of migrating one ImmyBot instance to an
   - We recommend disabling any options that allow scripts to run on the endpoints until you're ready to cut over and move agents.
 
 ### Migrate Computers
-  - ImmyBot has has a task called 'Migrate ImmyAgent' that you need to run in the Source tenant to migrate the computers automatically. The information you need to put into the Deployment is going to come from the Destination tenant ImmyBot PowerShell installer.
-  - This task should not be run cross tenant. It needs to be run tenant by tenant, and you need to create the [PoweShell](/Documentation/HowToGuides/agent-installation.md#powershell) installer Tenant by Tenant in the Destination instance.
-  - Alternatively if you have an integration that can run scripts on computers, you can use that to move the computers over. Ie ScreenConnect.
+  - ImmyBot has a task called 'Migrate ImmyAgent' that you need to run in the Source tenant to migrate the computers automatically. The information you need to put into the Deployment is going to come from the Destination tenant ImmyBot PowerShell installer.
+  - This task should not be run cross tenant. It needs to be run tenant by tenant, and you need to create the [PowerShell](/Documentation/HowToGuides/agent-installation.md#powershell) installer Tenant by Tenant in the Destination instance.
+  - Alternatively if you have an integration that can run scripts on computers, you can use that to move the computers over. e.g. ScreenConnect.
 
 <br><br><br>
 >[!NOTE] Document information
