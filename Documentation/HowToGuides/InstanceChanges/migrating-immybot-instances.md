@@ -2,7 +2,7 @@
 # Migrating ImmyBot Instances
 
 > [!WARNING] This is a manual process
-> ImmyBot does not have an automated method to migrate instances, except for the computers themselves. This is due to the issues that may arrise when moving integrations, and cross tenant deployments. This also afords you the oppurtunity to not migrate Deployments, Sofware, Tasks, etc that are not needed anymore, and bring the source material to your Destination instance standards.
+> ImmyBot does not have an automated method to migrate instances, except for the computers themselves. This is due to the issues that may arise when moving integrations, and cross tenant deployments. This also affords you the opportunity to not migrate Deployments, Software, Tasks, etc that are not needed anymore, and bring the source material to your Destination instance standards.
 
 ::: info
 You may contact support for one on one review of instances, or guidance for this process
@@ -11,13 +11,13 @@ You may contact support for one on one review of instances, or guidance for this
 
 
 ## Overview
-This document goes over the ins and outs of migrating one ImmyBot instance to another. Due to how unique each instance can be, this serves to be a generic checklist that should be followed in order to ensure that the migration goes smoothly. At its core, the migration is going to involve you identifing what is different in the Source tenant from the Destination Instance, and moving those things over to the Destination Instance.
+This document goes over the ins and outs of migrating one ImmyBot instance to another. Due to how unique each instance can be, this serves to be a generic checklist that should be followed in order to ensure that the migration goes smoothly. At its core, the migration is going to involve you identifying what is different in the Source tenant from the Destination Instance, and moving those things over to the Destination Instance.
 
 ## Prerequisites
 - Admin access to both instances
 - The ability to create API keys for integrations and deployments where needed
 - Instance identification
-  - Decide which instance will be the "Winning" or "Destination" instance and which one is the "Loosing" or "Source" instnace.
+  - Decide which instance will be the "Winning" or "Destination" instance and which one is the "Loosing" or "Source" instance.
   - For the sake of this document we will be using the terms Destination and Source.
 - Knowledge of ImmyBot to create Tenants, Deployments, Software, Tasks, and Integrations.
 
@@ -32,7 +32,7 @@ This document goes over the ins and outs of migrating one ImmyBot instance to an
 
 ### Migrate Integrations that Manage Companies
   - Follow the specific integration guide to recreate the integrations from your Source instance to the Destination instance. We want to do this first in the event that you are managing your tenants through your PSA or RMM.
-  - If your integrations does both, we reccomened disabling any options that allow scripts to run on the endpoints first.
+  - If your integrations does both, we recommend disabling any options that allow scripts to run on the endpoints first.
 
 ### Migrate Tags
   - If necessary, migrate any tags that are not standard in the Destination tenant
@@ -57,7 +57,7 @@ This document goes over the ins and outs of migrating one ImmyBot instance to an
   - Be sure to review and update the Deployment Ordering
 
 ### Migrate Deployments
-  - Recreate any deployments that need to be. Typically these are going to be one off's that are per tenant such as Line of Business applications that are for a specific verticle.
+  - Recreate any deployments that need to be. Typically these are going to be one off's that are per tenant such as Line of Business applications that are for a specific vertical.
 
 ### Migrate Schedules
   - Copy schedules from the Source instance to the Destination instance
@@ -72,12 +72,12 @@ This document goes over the ins and outs of migrating one ImmyBot instance to an
 
 ### Migrate Integrations that Manage Computers
   - Follow the specific integration guide to recreate the integrations from your Source instance to the Destination instance.
-  - We reccomened disabling any options that allow scripts to run on the endpoints until you're ready to cut over and move agents.
+  - We recommend disabling any options that allow scripts to run on the endpoints until you're ready to cut over and move agents.
 
 ### Migrate Computers
   - ImmyBot has has a task called 'Migrate ImmyAgent' that you need to run in the Source tenant to migrate the computers automatically. The information you need to put into the Deployment is going to come from the Destination tenant ImmyBot PowerShell installer.
   - This task should not be run cross tenant. It needs to be run tenant by tenant, and you need to create the [PoweShell](/Documentation/HowToGuides/agent-installation.md#powershell) installer Tenant by Tenant in the Destination instance.
-  - Alternativley if you have an integration that can run scripts on computers, you can use that to move the computers over. Ie ScreenConnect.
+  - Alternatively if you have an integration that can run scripts on computers, you can use that to move the computers over. Ie ScreenConnect.
 
 <br><br><br>
 >[!NOTE] Document information
