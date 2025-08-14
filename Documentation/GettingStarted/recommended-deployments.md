@@ -84,6 +84,10 @@ This deployment demonstrates ImmyBot's ability to:
 - Join computers to your Active Directory domain
 - Configure domain-specific settings
 
+> [!Note] ImmyBot must have an agent online on a Domain Controller for the tenant the domain join is being done for.  
+> ImmyBot uses that agent connection to create an offline domain join blob file to complete the join without the computer being joined having line of sight to the domain controller.  
+> For more troubleshooting information see the [FAQ](/Documentation/FAQ.html#domain-join-didn-t-work-what-gives)
+
 ### Customization Recommended
 
 Unlike other recommended deployments, this one should typically be customized for each customer:
