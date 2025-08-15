@@ -58,19 +58,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 text: 'How-To Guides',
                 collapsed: true,
                 items: [
-                    { text: 'Creating & Managing Software', link: '/Documentation/HowToGuides/managing-software' },
-                    { text: 'Creating & Managing Tasks', link: '/Documentation/HowToGuides/working-with-tasks' },
-                    { text: 'Creating & Managing Deployments', link: '/Documentation/HowToGuides/creating-managing-deployments' },
-                    { text: 'Creating & Managing Schedules', link: '/Documentation/HowToGuides/schedules' },
-                    { text: 'Creating & Managing Users', link: '/Documentation/HowToGuides/add-users' },
-                    { text: 'Managing SMTP', link: '/Documentation/HowToGuides/smtp' },
-                    { text: 'Managing Branding', link: '/Documentation/HowToGuides/branding' },
-                    { text: 'Agent Installation', link: '/Documentation/HowToGuides/agent-installation' },
-                    { text: 'Computer Onboarding', link: '/Documentation/HowToGuides/onboarding' },
-                    { text: 'Creating Maintenance Sessions', link: '/Documentation/Administration/maintenance-updates' },
+                    {
+                        text: 'Basic Instance Management',
+                        collapsed: true,
+                        items: [
+                            { text: 'Creating & Managing Software', link: '/Documentation/HowToGuides/managing-software' },
+                            { text: 'Creating & Managing Tasks', link: '/Documentation/HowToGuides/working-with-tasks' },
+                            { text: 'Creating & Managing Deployments', link: '/Documentation/HowToGuides/creating-managing-deployments' },
+                            { text: 'Creating & Managing Schedules', link: '/Documentation/HowToGuides/schedules' },
+                            { text: 'Creating & Managing Users', link: '/Documentation/HowToGuides/add-users' },
+                            { text: 'Managing SMTP', link: '/Documentation/HowToGuides/smtp' },
+                            { text: 'Managing Branding', link: '/Documentation/HowToGuides/branding' },
+                            { text: 'Agent Installation', link: '/Documentation/HowToGuides/agent-installation' },
+                            { text: 'Computer Onboarding', link: '/Documentation/HowToGuides/onboarding' },
+                            { text: 'Creating Maintenance Sessions', link: '/Documentation/Administration/maintenance-updates' },
 
-                     {
-                        text: 'Instance Changes',
+                        ]
+                    },
+                    {
+                        text: 'Advanced Instance Management',
                         collapsed: true,
                         items: [
                             { text: 'Migrating ImmyBot Instances', link: '/Documentation/HowToGuides/InstanceChanges/migrating-immybot-instances' },
@@ -78,6 +84,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                         ]
                     },
+                       { text: 'Upgrading Windows 10 to Windows 11', link: '/Documentation/HowToGuides/upgrading-windows-10-to-windows-11' },
                 ],
             },
             {
@@ -124,6 +131,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Tenant Management', link: '/Documentation/Administration/tenant-management' },
                     { text: 'Managing Computers', link: '/Documentation/Administration/managing-computers' },
                     { text: 'Windows Sandbox', link: '/Documentation/Administration/windows-sandbox' },
+                    { text: 'Subscription Management', link: '/Documentation/Administration/subscription-managment' },
+
                 ],
             },
             {
