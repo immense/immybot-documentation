@@ -22,7 +22,7 @@ There is potentially A LOT of changing tags in this process. You can do this en 
 ### Set up your Instance
 #### Set up your Tags
 - Tag 1: **Windows 11 Upgrade Check**
-  - This tag will apply to a Cross Tenant Deployment that will run the **Windows 11 Readiness Check** and allow you to determine if the computer can be upgraded to Windows 11
+  - This tag will apply to a Cross Tenant Deployment that will run the **Windows 11 Readiness Check**, **Disk Space Audit**,  and **Disk Health Status** to allow you to determine if the computer can be upgraded to Windows 11
 - Tag 2: **Windows 11 Upgrade Stage**
   - This tag will apply to a Cross Tenant Deployment that will run the **Windows Target Feature Update Version** and set the appropriate registry keys to allow your PCs to upgrade to Windows 11.
 - Tag 3: **Windows 11 Upgrade Execute**
@@ -47,7 +47,25 @@ If you have created these exact Cross Tenant Deployments already, you don't need
           - Tag Name: **Windows 11 Upgrade Check**
         - Target Filter: Workstations and Portable Devices
 
-  2.  Create a deployment with the task **Windows Target Feature Update Version**,
+  2. Create a deployment with the task **Disk Space Audit**
+      - Task Mode: Audit
+      - Parameters: Leave default
+      - Target Enforcement: Adhoc
+      - Target Scope: Cross Tenant
+        - Target Type: Tag
+          - Tag Name: **Windows 11 Upgrade Check**
+        - Target Filter: Workstations and Portable Devices
+        -
+  3. Create a deployment with the task **Disk Health Status**
+      - Task Mode: Audit
+      - Parameters: Leave default
+      - Target Enforcement: Adhoc
+      - Target Scope: Cross Tenant
+        - Target Type: Tag
+          - Tag Name: **Windows 11 Upgrade Check**
+        - Target Filter: Workstations and Portable Devices
+
+  4.  Create a deployment with the task **Windows Target Feature Update Version**,
       - Task Mode: Enforce
       - Parameters:
         - Set ProductVersion to Windows 11
@@ -58,7 +76,7 @@ If you have created these exact Cross Tenant Deployments already, you don't need
           - Tag Name: **Windows Target Feature Update Version**
         - Target Filter: Workstations and Portable Devices
 
-  3. Create a deployment with the task **Install Windows Updates**
+  5. Create a deployment with the task **Install Windows Updates**
       - Task Mode: Enforce
       - Parameters: Leave default
       - Target Enforcement: Required
@@ -67,7 +85,7 @@ If you have created these exact Cross Tenant Deployments already, you don't need
           - Tag Name: **Windows 11 Upgrade Execute**
         - Target Filter: Workstations and Portable Devices
 
-  4.  Edit the deployment ordering (**Library** > **Deployment Ordering**) so that  "Windows Target Feature Update version"  in the "Beginning" column
+  6.  Edit the deployment ordering (**Library** > **Deployment Ordering**) so that  "Windows Target Feature Update version"  in the "Beginning" column
 
 ## Before Day of Deployment
 
@@ -75,10 +93,19 @@ If you have created these exact Cross Tenant Deployments already, you don't need
   1. Utilize ImmyBot to confirm there are not pending updates by running maintenance sessions that include a deployment **Install Windows Updates** with the default parameters in the Deployment.
 
 ### Step 2. Windows 11 Hardware Readiness
+::: info Dashboard Monitoring
+If you're planning on using the dashboard, you should set that up now so that deployments can be reviewed and exported.
+![alt text](dashboard.png)
+:::
+
   1. Tag all target computers with the Tag **Windows 11 Upgrade Check**
-  2. Run adhoc sessions against all targeted computers and confirm hardware compatibility.
+  2. Run adhoc sessions for the following deployments against all targeted computers and confirm hardware compatibility.
+     -  **Windows 11 Hardware Readiness**, **Disk Space Audit**, **Disk Health Status**
      - You can monitor this from the dashboard, and export the results if need be.
-  3. Remove tags from PCs that return a failure in the audit. These need to be replaced, not upgraded.
+  3. Review the computers that return a failure from the audit
+     - **Windows 11 Hardware Readiness** failures - Remove tags from PCs that return a failure here. These need to be replaced, not upgraded.
+     -   **Disk Space Audit** failures - Review computer drive, you need 25GB of free space to help ensure a successful upgrade
+     -   **Disk Health Status** failures - Remove tags from PCs that return a failure here. The drive need to be replaced or the computer needs to be replaced, not upgraded.
 
 ## Day of Deployment
 ### Step 3. Windows Target Feature Update Version
