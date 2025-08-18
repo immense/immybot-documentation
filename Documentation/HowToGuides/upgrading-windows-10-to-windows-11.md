@@ -95,7 +95,7 @@ If you have created these exact Cross Tenant Deployments already, you don't need
 ### Step 2. Windows 11 Hardware Readiness
 ::: info Dashboard Monitoring
 If you're planning on using the dashboard, you should set that up now so that deployments can be reviewed and exported.
-![alt text](dashboard.png)
+![alt text](Dashboard.png)
 :::
 
   1. Tag all target computers with the Tag **Windows 11 Upgrade Check**
@@ -110,7 +110,7 @@ If you're planning on using the dashboard, you should set that up now so that de
 ## Day of Deployment
 ### Step 3. Windows Target Feature Update Version
 
-  1. All computers that have the tag **Windows 11 Upgrade Check** and have passed the Windows 11 Hardware Readiness check should have their **Windows 11 Upgrade Check** tags replaced with **Windows 11 Upgrade Stage**
+  1. All computers that have the tag **Windows 11 Upgrade Check** and have passed the 3 health deployments should have their **Windows 11 Upgrade Check** tags replaced with **Windows 11 Upgrade Stage**
   2. Run an adhoc deployment for **Windows Target Feature Update Version**, this will set up the computers to allow Windows 11 to be installed via registry changes.
 
 
