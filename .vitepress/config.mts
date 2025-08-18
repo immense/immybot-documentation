@@ -33,6 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 items: [
                     { text: 'Introduction to ImmyBot', link: '/Documentation/GettingStarted/introduction' },
                     { text: 'Quick Start Guide', link: '/Documentation/GettingStarted/quick-start-guide' },
+                    { text: 'ImmyBot Onboarding', link: '/Documentation/GettingStarted/instance-onboarding' },
                     { text: 'Core Concepts', link: '/Documentation/GettingStarted/core-concepts' },
                     { text: 'Common Workflows', link: '/Documentation/GettingStarted/common-workflows' },
                     { text: 'System Requirements', link: '/Documentation/GettingStarted/system-requirements' },

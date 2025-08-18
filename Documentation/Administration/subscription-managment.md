@@ -1,7 +1,11 @@
 # Subscription Management
 
 ## Overview
-This document will give you a high level overview of managing your ImmyBot Subscriptions
+This document will give you a high level overview of managing your ImmyBot Subscriptions. You cannot manage instance resources on your own, you must open a ticket with support to take care of this for you.
+
+::: info ImmyBot support can assist
+If you would like ImmyBot to make changes, you must make the request in writing to customercare@immy.bot
+:::
 
 ## Prerequisites
 - MSP Admin role on your user account.

@@ -31,5 +31,9 @@
   },
   "findUnusedExports.detectCircularImports": true,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "MarkdownPaste.path": "../.vitepress/images"
+  "MarkdownPaste.path": "../.vitepress/images",
+  "cSpell.words": [
+    "Intune",
+    "metascript"
+  ]
 }
