@@ -315,7 +315,7 @@ $DellLaptops = Get-ImmyComputer -InventoryKeys @("Manufacturer=Dell*", "ChassisT
 
 **Parameters:**
 - `-InventoryKeys`: Array of inventory key-value pairs to filter by
-
+<!--
 ## Software Auto Update Commands
 
 ### Add-Script
@@ -399,7 +399,7 @@ Retrieves paginated results from the ConnectWise Automate API.
 ```powershell
 # Example coming soon
 ```
-
+-->
 ## Best Practices
 
 When working with ImmyBot commands, consider these best practices:
