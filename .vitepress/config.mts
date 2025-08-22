@@ -132,7 +132,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Tenant Management', link: '/Documentation/Administration/tenant-management' },
                     { text: 'Managing Computers', link: '/Documentation/Administration/managing-computers' },
                     { text: 'Windows Sandbox', link: '/Documentation/Administration/windows-sandbox' },
-                    { text: 'Subscription Management', link: '/Documentation/Administration/subscription-managment' },
+                    { text: 'Subscription Management and Licenses', link: '/Documentation/Administration/subscription-managment' },
 
                 ],
             },
