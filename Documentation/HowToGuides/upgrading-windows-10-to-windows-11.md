@@ -66,7 +66,7 @@ If you're an ImmyBot Standard or ImmyBot Forever customer, you can schedule this
 Why does the task fail in the test phase?
 - This can be for a number of reasons, but the answer is in the results of the test phase. This task checks for 4 things in the test phase:
     1. Is this computer already Windows 11? If yes, pass and do nothing else, if no, move on to step 2.
-   ![alt text](Windows11Compliant.png)
+   ![alt text](Windows11CompliantTask.png)
     2. Disk Space - Is the free space more then 25 GB? If not fail, if is it, move one to step 3
     3. Disk Health - Are there any predictive or SMART failures on the disk? If yes, fail, if not, move on to step 4
     4. Windows 11 readiness - Does the computer pass the Windows 11 readiness script from Microsoft? If no, fail, if yes move on to the execution stage.
