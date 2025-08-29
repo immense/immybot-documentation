@@ -90,11 +90,11 @@ You are going to want to go over the [Deployment Concept](/Documentation/CoreFea
 ## Azure / Active Directory Setup
 
 ### Azure AD Join Setup
-In each Azure tenant you manage (read: every Microsoft 365 account you intent on using Join AzureAD and / or Join Intune tasks for) you will need to create a DEM account. This account does not need to be and should not be a Global Administrator. Document the password in your password manage for each client.
+In each Azure tenant you manage (read: every Microsoft 365 account you intend on using Join AzureAD and / or Join Intune tasks for) you will need to create a DEM account. This account does not need to be and should not be a Global Administrator. Document the password in your password manage for each client.
 
 Once the user is created, add the Cloud Device Manager Role and assign an Intune P1 license if you intend on utilizing Intune for your clients.
 
-This user will need to be excluded from enforced MFA for device joining.
+--> **This user will need to be excluded from enforced MFA for device joining.** <--
 
 #### Creating the Deployment
 1. Deployments > New
@@ -116,7 +116,9 @@ Supplemental Links:
 
 ### Active Directory Join Setup
 
-For each Tenant you intend on running the Rename and Join Active Directory task, you will need to install the ImmyBot agent on a domain controller that is in that tenant. You need at least one, but we recommend having at least two. Once the ImmyBot agent is installed, it will attempt to run inventory on that domain controller and assign the Domain Controller tag to the computer. If it does not show up, you can run inventory manually (Computers > Find your DC > Check the box to the left of the DC > Batch Actions > Maintenance Session > Click the Type drop down, and select Inventory Scripts > click Run)
+For each Tenant you intend on joining computers to a local Active Directory by using the Rename and Join Active Directory task, you will need to install the ImmyBot agent on a domain controller that is in that tenant. You need one, but we recommend having at least two. Once the ImmyBot agent is installed, it will attempt to run inventory on that domain controller and assign the Domain Controller tag to the computer. If it does not show up, you can run inventory manually:
+
+Computers > Find your DC > Check the box to the left of the DC > Batch Actions > Maintenance Session > Click the Type drop down, and select Inventory Scripts > click Run
 
 #### Creating the Deployment
 1. Deployments > New
@@ -141,6 +143,8 @@ If you would like to send emails about the work being done to your tenant comput
 Be sure to configure the timezone for your instance.
 
 Show More > Preferences > Search for "Default Time Zone" > Set preference
+
+In each of your tenants, you can set the individual time zones in each preferences.
 
 ## Configure Automatic ImmyBot Version Upgrades
 
@@ -181,7 +185,7 @@ We recommend setting up Cross Tenant deployments for the following Tasks and Sof
     - ![alt text](image.png)
 
 
-### Set up a Schedule
+## Set up a Schedule
 If you're an ImmyBot Forever or ImmyBot Standard client, you have access to Schedules. You can create a schedule to run maintenance across any subset of your computers.
 
 See [Schedules](/Documentation/HowToGuides/schedules) for more information.
