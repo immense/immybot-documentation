@@ -4,6 +4,44 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
+## 0.71.0
+
+Released 08/19/25
+
+### Agent Improvements
+
+- Implemented agent PowerShell execution host pooling to reduce script startup time
+- Added ability to fully cancel running agent scripts by killing the script's PowerShell process
+- Improved agent reconnection script recovery
+- Added more detailed agent connection logs to Computer timeline
+- Ensured agent script PowerShell processes run as 64-bit to work around SentinelOne access violation bug
+- Consolidate and fix agent logs
+
+
+### Other Improvements
+
+- Added a login hint to avoid Microsoft's account selector screen when logged into multiple accounts
+- Improved internal handling of rebooting computers
+- When creating an integration, we now check if you have an existing integration and set the default integration name with a numeric suffix, (e.g CW Control 3). This helps avoid duplicate names and errors on submission.
+ no longer suggests a duplicate name and avoids 409 errors.
+- For schedules, When users toggle between "Execute Immediately After Detection" and "At a specific time", the Active Hours checkbox setting is now properly preserved. Previously, switching back to scheduled execution would lose the user's Active Hours preference.
+- Enhanced the Get-ProviderAgent cmdlet to return a strongly-typed PSProviderAgent object instead of a generic dictionary, providing more consistent and reliable access to provider agent properties in PowerShell metascripts.
+- Added immediate domain controller detection for newly installed agents. Domain controller badge now appears immediately after agent installation without waiting for maintenance.
+- Continued development of RBAC
+
+### Bug Fixes
+
+- Fixed a memory leak in our PowerShell runspace pool management that was leading to instance crashes after prolonged uptime
+- Fixed a regression where software marked as "reboot required" weren't properly throwing errors when reboots were suppressed
+- Fixed an issue when requesting access to ImmyBot where the screen would reload every 10 seconds
+- Fixed an issue where items set to "Onboarding Only" and ordered before non-onboarding tasks were not respecting deployment ordering
+- Fixed an issue where newly created Automate clients were syncing with an empty “Customer Name”. The mapping now checks Company for null or whitespace and, when blank, falls back to Name.
+- Fixed an issue where the "Complete Azure Setup" button redirected to the wrong page
+- Fixed an issue where loading a computer details page would sometimes show the error 'Cannot set properties of null (setting "inventory")'
+- Fixed an issue where deleting a person would throw an error if the person was assigned as a primary user of a computer. The primary user field is now wiped out in this scenario.
+- Fixed an issue where loading the script editor would consistently throw intellisense errors in the output window
+- Fixed an issue where ImmyBot was incorrectly selecting x64 installers instead of ARM installers on ARM computers because it only used the "Architecture" field which shows "64-bit" for ARM64 systems
+
 ## 0.70.0
 
 Released 07/23/25
