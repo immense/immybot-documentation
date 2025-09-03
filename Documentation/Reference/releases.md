@@ -4,7 +4,7 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
-## 0.72.1
+## 0.71.1
 
 Released 09/03/25
 
