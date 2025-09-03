@@ -4,6 +4,16 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
+## 0.72.2
+
+Released 09/03/25
+
+### Bug Fixes
+
+- Fixed an issue where telemetry was unexpectedly getting dropped
+- Fixed an issue where `Invoke-ImmyCommand -ContextString User -TerminateFromNoLoggedOnUser` would not terminate the script when no user was logged on.
+- Fixed an issue where non-msp users were shown the "Can Manage Cross Tenant Deployments flag" in the UI. This flag is only available for MSP users.
+
 ## 0.71.0
 
 Released 08/19/25
