@@ -10,20 +10,61 @@ Setting up this integration allows you to
 
 - Under the details section, select the Client ID and Secret Authentication Method
 - Generate and copy the Client ID and Client Secret
+- The API will need to have the API permissions below.
 - The Login Type should be "Agent", and you should select an "Agent to log in as"
+- When selecting the "Agent to log in as" be sure it has the Agent permissions below.
 
-## Permissions:
+## Agent Permissions:
+The agent user must be part of a the Team used for support and have the following permissions either from a Role or directly applied.
 
-- read:customers -> Yes
-- read:contracts -> Yes
-- read:items -> Yes
-- edit:reporting -> Yes
-- edit:items -> Yes (*should not be needed > 2.99, API bug will not allow listing items without edit rights)
-- read:invoices -> Yes
-- read:software -> Yes
-- read:tickets -> Yes (required for the Technician Tools feature)
-- read:assets -> Yes (*future feature of the integration will include asset population, not currently necessary)
-- edit:assets -> Yes (*future feature of the integration will include asset population, not currently necessary)
+### Feature Access Permissions
+| Permission                      | Value           |
+| ------------------------------- | --------------- |
+| Tickets Access Level            | Read Only       |
+| Clients Access Level            | Read Only       |
+| Users Access Level              | Read Only       |
+| CRM Access Level                | Read Only       |
+| Assets Access Level             | Read and Modify |
+| Suppliers Access Level          | Read Only       |
+| Items Access Level              | Read Only       |
+| Sales Access Level              | Read Only       |
+| Quotations Access Level         | Read Only       |
+| Sales Orders Access Level       | Read Only       |
+| Purchase Orders Access Level    | Read Only       |
+| Billing Details Access Level    | Read Only       |
+| Invoices Access Level           | Read Only       |
+| Reporting Access Level          | Read and Modify |
+| Client Contracts Access Level   | Read Only       |
+| Supplier Contracts Access Level | Read Only       |
+
+### Tickets Permissions
+| Permission                                         | Value |
+| -------------------------------------------------- | ----- |
+| Can view Unassigned Tickets                        | Yes   |
+| Can view Tickets that are assigned to other Agents | Yes   |
+| Can export tickets                                 | Yes   |
+
+### Billing Permissions
+| Permission           | Value     |
+| -------------------- | --------- |
+| Can View Item Costs  | Read Only |
+| Can View Item Prices | Read Only |
+| Can View Item SKU    | Read Only |
+
+## API Permissions:
+
+| Permission     | Value | Notes                                                                                      |
+| -------------- | ----- | ------------------------------------------------------------------------------------------ |
+| read:customers | Yes   |                                                                                            |
+| read:contracts | Yes   |                                                                                            |
+| read:items     | Yes   |                                                                                            |
+| edit:reporting | Yes   |                                                                                            |
+| edit:items     | Yes   | *Should not be needed > 2.99, API bug will not allow listing items without edit rights*    |
+| read:invoices  | Yes   |                                                                                            |
+| read:software  | Yes   |                                                                                            |
+| read:tickets   | Yes   | Required for the **Technician Tools** feature                                              |
+| read:assets    | Yes   | *Future feature of the integration will include asset population, not currently necessary* |
+| edit:assets    | Yes   | *Future feature of the integration will include asset population, not currently necessary* |
 
 ## Plug in the Client ID and Client Secret in ImmyBot
 
