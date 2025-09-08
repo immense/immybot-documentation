@@ -19,6 +19,9 @@ You will need admin permissions to your ImmyBot instance for some processes. Tho
 ### Use cross tenant deployments
 - All deployments should be cross tenant that filter down, except for one off situations.
 
+### Disable User Choice Protection Driver on your computers
+- Deploy the task "Configure UCPD (User Choice Protection Driver)" to disable this driver so that ImmyBot can manage configurations with software like Adobe Acrobat and Google Chrome.
+
 ### PSA agreement additions
 
 ::: info Not available for all PSAs
@@ -39,8 +42,6 @@ Currently only available for ConnectWise Manage and HaloPSA
 - This is to help ensure that the standardization you're aiming for is achieved via ImmyBot
 
 ## Ensuring Email Deliverability
-
-
 
 - Use an authenticated SMTP Relay service
 - To help ensure deliverability, you should not [spoof](https://en.wikipedia.org/wiki/Email_spoofing) a sending domain.

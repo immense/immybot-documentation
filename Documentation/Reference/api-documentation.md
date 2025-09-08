@@ -24,7 +24,7 @@ ImmyBot provides interactive API documentation through Swagger UI, which allows 
 1. Navigate to `https://yourdomain.immy.bot/swagger` (replace "yourdomain" with your ImmyBot instance name)
 2. Browse the available endpoints organized by category
 3. Expand any endpoint to see details about parameters, request body format, and response schemas
-4. Test endpoints directly from the Swagger UI by providing required parameters and your API key
+4. Test endpoints directly from the Swagger UI by providing required parameters
 
 ## Authentication
 
@@ -41,15 +41,28 @@ All API requests require authentication using an Azure Enterprise application.
    - Create a new client secret and copy its VALUE (not the ID)
 
 3. **Configure ImmyBot Access**:
-   - Navigate to the Enterprise App (click the "Managed Application" link in the App Registration)
-   - Copy the object ID of the Enterprise App
+   - Navigate to Enterprise Apps in Azure
+   - Click on your API Application that you just made
+   - Copy the object ID of the Enterprise App (Not the Application ID)
    - In ImmyBot, go to Show More → People → New
    - Paste the Enterprise App's object ID into the "AD External ID" field
+   - Fill out the rest of the form as you see fit
    - Create a user from this person and grant admin privileges
 
 ### Using the API
 
 Example:
+
+:::info
+This script is for demonstration purposes only. You should not hard code API secrets into your code. This script will:
+1. Take your configured variables and get an authentication token from Azure
+2. It will load 2 functions into the powershell context that the script is running in
+   1. Get-ImmyBotApiAuthToken
+   2. Invoke-ImmyBotRestMethod
+3. Create an ImmyBot authentication token based on the Azure token
+
+From there, in the same PowerShell context, you will be able to call Invoke-ImmyBotRestMethod and provide an endpoint. By default Invoke-ImmyBotRestMethod uses GET as the method, however, you can set that to any other applicable method.
+:::
 
 ```powershell
 # Configuration Variables

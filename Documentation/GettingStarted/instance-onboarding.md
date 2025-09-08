@@ -26,6 +26,9 @@ flowchart TD
     F --> E
 ```
 
+## Getting Started
+ImmyBot comes with a self guided Getting Started module. We reccomened you follow it to get familairized with the interface, although, you can skip if if you want. If you do skip it and decide you want to go through it, simply click on your email address at the top right corner, and click on Getting Started. This will bring you to that module.
+
 ## Process
 
 ### Configure Security Platforms
@@ -86,6 +89,8 @@ Alteratively, you can import all customers using the **Import all customers** bu
 ## Regarding Deployments
 
 You are going to want to go over the [Deployment Concept](/Documentation/CoreFeatures/deployments) as well as [Managing Deployments](/Documentation/HowToGuides/creating-managing-deployments) pages before continuing. They outline how Deployments work, as well as their intentions and use in your ImmyBot instance.
+
+When you first log into your ImmyBot instance, you will be given a list of recommended deployments. Review these deployments, and determine if they fit what you're looking for. If they do not, you can dismiss them. You can edit the deployment by clicking on the "eye" icon. This will allow you to create an override for that deployment. This is helpful for first onboardings, and you can add to the deployments later, or now.
 
 ## Azure / Active Directory Setup
 
