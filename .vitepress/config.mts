@@ -33,6 +33,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 items: [
                     { text: 'Introduction to ImmyBot', link: '/Documentation/GettingStarted/introduction' },
                     { text: 'Quick Start Guide', link: '/Documentation/GettingStarted/quick-start-guide' },
+                    { text: 'ImmyBot Onboarding', link: '/Documentation/GettingStarted/instance-onboarding' },
                     { text: 'Core Concepts', link: '/Documentation/GettingStarted/core-concepts' },
                     { text: 'Common Workflows', link: '/Documentation/GettingStarted/common-workflows' },
                     { text: 'System Requirements', link: '/Documentation/GettingStarted/system-requirements' },
@@ -58,19 +59,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 text: 'How-To Guides',
                 collapsed: true,
                 items: [
-                    { text: 'Creating & Managing Software', link: '/Documentation/HowToGuides/managing-software' },
-                    { text: 'Creating & Managing Tasks', link: '/Documentation/HowToGuides/working-with-tasks' },
-                    { text: 'Creating & Managing Deployments', link: '/Documentation/HowToGuides/creating-managing-deployments' },
-                    { text: 'Creating & Managing Schedules', link: '/Documentation/HowToGuides/schedules' },
-                    { text: 'Creating & Managing Users', link: '/Documentation/HowToGuides/add-users' },
-                    { text: 'Managing SMTP', link: '/Documentation/HowToGuides/smtp' },
-                    { text: 'Managing Branding', link: '/Documentation/HowToGuides/branding' },
-                    { text: 'Agent Installation', link: '/Documentation/HowToGuides/agent-installation' },
-                    { text: 'Computer Onboarding', link: '/Documentation/HowToGuides/onboarding' },
-                    { text: 'Creating Maintenance Sessions', link: '/Documentation/Administration/maintenance-updates' },
+                    {
+                        text: 'Basic Instance Management',
+                        collapsed: true,
+                        items: [
+                            { text: 'Creating & Managing Software', link: '/Documentation/HowToGuides/managing-software' },
+                            { text: 'Creating & Managing Tasks', link: '/Documentation/HowToGuides/working-with-tasks' },
+                            { text: 'Creating & Managing Deployments', link: '/Documentation/HowToGuides/creating-managing-deployments' },
+                            { text: 'Creating & Managing Schedules', link: '/Documentation/HowToGuides/schedules' },
+                            { text: 'Creating & Managing Users', link: '/Documentation/HowToGuides/add-users' },
+                            { text: 'Managing SMTP', link: '/Documentation/HowToGuides/smtp' },
+                            { text: 'Managing Branding', link: '/Documentation/HowToGuides/branding' },
+                            { text: 'Agent Installation', link: '/Documentation/HowToGuides/agent-installation' },
+                            { text: 'Computer Onboarding', link: '/Documentation/HowToGuides/onboarding' },
+                            { text: 'Creating Maintenance Sessions', link: '/Documentation/Administration/maintenance-updates' },
 
-                     {
-                        text: 'Instance Changes',
+                        ]
+                    },
+                    {
+                        text: 'Advanced Instance Management',
                         collapsed: true,
                         items: [
                             { text: 'Migrating ImmyBot Instances', link: '/Documentation/HowToGuides/InstanceChanges/migrating-immybot-instances' },
@@ -78,6 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                         ]
                     },
+                       //{ text: 'Upgrading Windows 10 to Windows 11', link: '/Documentation/HowToGuides/upgrading-windows-10-to-windows-11' },
                 ],
             },
             {
@@ -85,7 +93,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 collapsed: true,
                 items: [
                     { text: 'Integration Overview', link: '/Documentation/Integrations/integration-overview' },
-                    { text: 'Build Your Own Integration', link: '/Documentation/Integrations/build-your-own-integration' },
+                    {
+                        text: 'Azure',
+                        collapsed: true,
+                        items: [
+                            { text: 'Azure Integration Setup', link: '/Documentation/Integrations/azure-graph-permissions-setup' },
+                            { text: 'Azure Custom Application Permissions', link: '/Documentation/Integrations/azure-custom-application-permissions' },
+                            { text: 'Azure GDAP Customer Management', link: '/Documentation/Integrations/azure-gdap-customer-management' },
+                            { text: 'Azure Conditional Access Policies and Guidance', link: '/Documentation/Integrations/azure-conditional-access-policies-and-guidance' },
+
+                        ]
+                    },
                     {
                         text: 'RMM Integrations',
                         collapsed: true,
@@ -108,11 +126,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         text: 'Other Integrations',
                         collapsed: true,
                         items: [
-                            { text: 'Azure', link: '/Documentation/Integrations/azure-graph-permissions-setup' },
                             { text: 'ConnectSecure', link: '/Documentation/Integrations/connectsecure-integration-setup' },
                              { text: "Support Override", link: '/Documentation/Integrations/support-override-integration-setup' },
                         ]
                     },
+                    { text: 'Build Your Own Integration', link: '/Documentation/Integrations/build-your-own-integration' },
                 ],
             },
             {
@@ -124,6 +142,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Tenant Management', link: '/Documentation/Administration/tenant-management' },
                     { text: 'Managing Computers', link: '/Documentation/Administration/managing-computers' },
                     { text: 'Windows Sandbox', link: '/Documentation/Administration/windows-sandbox' },
+                    { text: 'Subscription Management and Licenses', link: '/Documentation/Administration/subscription-managment' },
+                    { text: 'Deployment Ordering', link: '/Documentation/Administration/deployment-ordering' },
+
                 ],
             },
             {

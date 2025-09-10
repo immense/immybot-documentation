@@ -137,3 +137,36 @@ html.dark {
 .dark [class*='DocSearch'] {
   --docsearch-highlight-color: #5468ff;
 }
+
+/**
+ * Component: Pop out
+ * -------------------------------------------------------------------------- */
+.image-hover-link {
+  position: relative;
+  color: #3eaf7c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.image-popout {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  padding: 2px;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+.image-popout img {
+  max-width: 1000px;
+  height: auto;
+  display: block;
+}
+
+.image-hover-link:hover .image-popout {
+  display: block;
+}

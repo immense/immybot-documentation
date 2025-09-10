@@ -2,7 +2,7 @@
 # Move the Original MSP Tenant to a New Tenant
 
 ## Overview and or Objective
-This document is intended to walk you through the process of changing the primary MSP tenant in your ImmyBot instance. Use cases would primaraly be if the entity that is purchasing ImmyBot is going through a buyout, and you need to change Azure environemnt so you can take down the old company's Azure environment, or the company is going through a rebrand and you need to work on changing email addresses.
+This document is intended to walk you through the process of changing the primary MSP tenant in your ImmyBot instance. Use cases would primarily be if the entity that is purchasing ImmyBot is going through a buyout, and you need to change the Azure environment so you can take down the old company's Azure environment, or the company is going through a rebrand and you need to work on changing email addresses.
 
 ## Prerequisites
 1. 2 MSP admins for the ImmyBot instance

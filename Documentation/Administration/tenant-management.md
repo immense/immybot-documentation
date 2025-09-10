@@ -14,10 +14,10 @@ Tenants can be organized hierarchically, with parent-child relationships that al
 
 ```mermaid
 graph TD
-    A[MSP Tenants] -->|Manages| B[Tenant A - Corp Office A]
-    A -->|Manages| C[Tenant B - Corp Office B]
-    C -->|parent of| D[Tenant C - Branch Office 1]
-    C -->|parent of| E[Tenant D - Branch Office 2]
+    A[MSP Tenants] -->|Manages| B[Tenant A]
+    A -->|Manages| C[Tenant B - Corp B]
+    C -->|parent of| D[Tenant C - Subsidiary Business 1]
+    C -->|parent of| E[Tenant D - Subsidiary Business 2]
 ```
 
 ## Tenant Types
@@ -38,11 +38,9 @@ Client tenants represent your customers. They can be created:
 
 ### Child-Tenants
 
-Child-tenants are sub tenants of tenants. They can represent:
-- Branch offices
-- Departments
-- Divisions
-- Geographic locations
+Child tenants are sub-tenants of a parent tenant, typically representing separate business entities that share some infrastructure with the parent. Child tenants do not have direct access to the parent tenant's Azure resources.
+
+To enable Azure resource sharing, a separate domain can be associated with the child tenant. This allows integration with the parent tenant's Azure environment, but it requires users in the child tenant to operate under that specific domain, rather than the domain used by the rest of the parent organization's Azure users.
 
 ## Creating Tenants
 
@@ -184,7 +182,6 @@ Follow these best practices for effective tenant management:
 2. **Hierarchical Organization**: Create a logical hierarchy that reflects your business relationships
 3. **Regular Audits**: Periodically review tenant structure and settings
 4. **Documentation**: Maintain documentation of tenant configurations
-5. **Limit Direct Access**: Restrict direct access to the MSP tenants
 
 ## Next Steps
 
