@@ -27,7 +27,7 @@ flowchart TD
 ```
 
 ## Getting Started
-ImmyBot comes with a self guided Getting Started module. We reccomened you follow it to get familairized with the interface, although, you can skip if if you want. If you do skip it and decide you want to go through it, simply click on your email address at the top right corner, and click on Getting Started. This will bring you to that module.
+ImmyBot comes with a self guided Getting Started module. We recommend you follow it to get familiarized with the interface, although, you can skip if if you want. If you do skip it and decide you want to go through it, simply click on your email address at the top right corner, and click on Getting Started. This will bring you to that module.
 
 ## Process
 
@@ -203,10 +203,10 @@ You're set up to start [onboarding](/Documentation/HowToGuides/onboarding) your 
 <br><br><br>
 
 >[!NOTE] Document information
->Author:
+>Author: Mark Gomez and Drew Hackworth
 <br>
->Date Published:
+>Date Published: 9/10/2025
 ><br>
->Date Revised:
+>Date Revised: N/A
 ><br>
->Version Number:
+>Version Number: 1.0

@@ -7,7 +7,7 @@ This document is intended to give you information on how to configure Conditiona
 Admin access to your Azure tenant to review and change Conditional Access Policies.
 
 ## Guidance
-We recommend excluding the DEM users you use for oAuth from the CAPs that cover the Device Registration Service (01cb2876-7ebd-4aa4-9cc9-d28bd4d359a9). In general you can exclude the user from all CAPs, and create a duplicate CAP that only effects this DEM user. This CAP would cover include All Resources, and exclude Device Registration Service.
+We recommend excluding the DEM users you use for oAuth from the CAPs that protect the Device Registration Service (01cb2876-7ebd-4aa4-9cc9-d28bd4d359a9). In general you can exclude the user from all CAPs, and create a CAP that only effects this DEM user. This CAP would cover include All Resources, and exclude Device Registration Service.
 
 ## User Specific Conditional Access Policy
 This is a generic CAP works with ImmyBot's Azure requirements when utilizing AzureAD Join and Intune Enrollment.
@@ -33,7 +33,7 @@ Session: Not Configured
 </pre>
 :::
 ### Session Exceptions
-If your security requirements need to have session settings set, below are the ones we recommend keeping disabled where possible.
+If your security requirements necessitate configuring session settings, we recommend disabling the following options wherever feasible.
 
 #### Sign in frequency
 This is a hard requirement for a user to re-authenticate their sessions. If this is set and applied to your DEM users, it will make the tokens in ImmyBot expire and you will have to reauthenticate however often it's required by this setting.
@@ -46,10 +46,10 @@ This requires all long-lived tokens to be bound to the device using software key
 
 <br><br><br>
 >[!NOTE] Document information
->Author:
+>Author: Mark Gomez and Dakota Lewis-Mathews
 <br>
->Date Published:
+>Date Published: 9/10/2025
 ><br>
->Date Revised:
+>Date Revised: N/A
 ><br>
->Version Number:
+>Version Number: 1.0

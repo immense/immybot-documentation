@@ -4,7 +4,7 @@
 This document will give you a high level overview of managing your ImmyBot Subscriptions and Licenses. You cannot manage instance resources on your own, you must open a ticket with support to take care of this for you.
 
 ::: info ImmyBot support can assist
-If you would like ImmyBot to make changes, you must make the request in writing to customercare@immy.bot
+If you would like ImmyBot to make changes to your subscription, you must make the request in writing to customercare@immy.bot
 :::
 
 ## Prerequisites
@@ -36,7 +36,7 @@ Licenses are only applied to computers that you've ran maintenance against since
 >[!NOTE] Document information
 >Author: Mark Gomez
 <br>
->Date Published: 2025/08
+>Date Published: 09/10/2025
 ><br>
 >Date Revised: N/A
 ><br>
