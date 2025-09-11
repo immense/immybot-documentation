@@ -112,6 +112,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             { text: 'ConnectWise Control', link: '/Documentation/Integrations/connectwise-control-integration-setup' },
                             { text: 'N-Central', link: '/Documentation/Integrations/ncentral-integration-setup' },
                             { text: 'NinjaRMM', link: '/Documentation/Integrations/ninjarmm-integration-setup' },
+                            { text: 'Datto RMM', link: '/Documentation/Integrations/dattormm' },
+
                         ]
                     },
                     {

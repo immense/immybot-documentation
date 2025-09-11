@@ -29,7 +29,11 @@ If you would like ImmyBot to make changes to your subscription, you must make th
 This does not apply to ImmyBot Starter and ImmyBot Forever clients
 :::
 
-Licenses are only applied to computers that you've ran maintenance against since the beginning of your billing period. You can edit the number of licenses you have by editing your subscription. You cannot move licenses around after they're assigned to an endpoint. If you have any questions about your licenses or subscription please contact customercare@immy.bot
+Licenses are only applied to computers that you've ran maintenance against since the beginning of your billing period. You can edit the number of licenses you have by editing your subscription.
+
+You cannot move licenses around after they're assigned to an endpoint.
+
+If you have any questions about your licenses or subscription please contact customercare@immy.bot
 
 
 <br><br><br>
