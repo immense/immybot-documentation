@@ -1,5 +1,5 @@
 <!-- How To Template -->
-# Update Windows 10 to Windows 11
+# Upgrade Windows 10 to Windows 11
 
 ## Overview
 With the upcoming retirement of Windows 10, we have published this document to give you guidance on upgrading Windows 10 to Windows 11 utilizing ImmyBot.
@@ -27,12 +27,14 @@ We recommend using the **Windows 11 Upgrade** Task in Audit mode against the com
 :::warning If you're using **Install Windows Updates (Beta)** in your deployments already, we recommend creating a Single Tenant Deployment to ignore this task so that you have a controlled deployment otherwise you will run into issue where the Windows 11 upgrade is pushed outside of your deployment window.
 :::
 
+You need to either create a deployment with a Tag or create a deployment with a filter script. You do not need to do both, this is just meant to give you options.
+
 #### Set up your Tag
 1. Create a tag with the name **Windows 11 Upgrade**
 
 #### Set up your Deployment with a Tag
 
-1. Create a deployment with the task **Windows 10 to Windows 11 Upgrade**
+1. Create a deployment with the task **Windows 10 to Windows 11 Upgrade - Beta**
     - Task Mode: Enforced
     - Parameters: Leave default
     - Target Enforcement: Adhoc
@@ -42,9 +44,11 @@ We recommend using the **Windows 11 Upgrade** Task in Audit mode against the com
       - Target Filter: Workstations and Portable Devices
 2. Tag all target computers with the tag **Windows 11 Upgrade**
 
+------
+
 #### Set up your Deployment with a Filter Script and Single Tenant Deployment
 
-1. Create a deployment with the task **Windows 10 to Windows 11 Upgrade**
+1. Create a deployment with the task **Windows 10 to Windows 11 Upgrade - Beta**
     - Task Mode: Enforced
     - Parameters: Leave default
     - Target Enforcement: Adhoc
@@ -104,7 +108,7 @@ Specs: 8 3.7 GHz cores, 8 GB RAM, 100 GB SSD
 >[!NOTE] Document information
 >Author: Mark Gomez
 <br>
->Date Published: 2025/08
+>Date Published: 2025/09/15
 ><br>
 >Date Revised: N/A
 ><br>

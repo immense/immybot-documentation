@@ -86,7 +86,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                         ]
                     },
-                       //{ text: 'Upgrading Windows 10 to Windows 11', link: '/Documentation/HowToGuides/upgrading-windows-10-to-windows-11' },
+                       { text: 'Upgrading Windows 10 to Windows 11', link: '/Documentation/HowToGuides/upgrading-windows-10-to-windows-11' },
                 ],
             },
             {
