@@ -5,6 +5,8 @@
 This document is intended to give you an overview of the deployment ordering in ImmyBot. In the context of ImmyBot, deployment ordering refers to the execution of maintenance items at specific intervals of a session.
 
 ## Prerequisites
+An active ImmyBot subscription or [trial](https://www.immy.bot/pricing/)
+
 A Deployment needs to be set up before you can set the order for the maintenance item you're working on.
 
 ## Flowchart

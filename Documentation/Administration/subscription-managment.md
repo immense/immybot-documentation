@@ -8,6 +8,8 @@ If you would like ImmyBot to make changes to your subscription, you must make th
 :::
 
 ## Prerequisites
+An active ImmyBot subscription or [trial](https://www.immy.bot/pricing/)
+
 - MSP Admin role on your user account.
 - We are assuming you're logged into ImmyBot.
 

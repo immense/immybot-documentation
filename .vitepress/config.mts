@@ -46,6 +46,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 text: 'Core Features',
                 collapsed: false,
                 items: [
+                    { text: 'Dashboard', link: '/Documentation/CoreFeatures/dashboard' },
                     { text: 'Tenants', link: '/Documentation/CoreFeatures/tenants-organizations' },
                     { text: 'Computers', link: '/Documentation/CoreFeatures/computers-inventory' },
                     { text: 'Software & Tasks Library', link: '/Documentation/CoreFeatures/software-library' },
@@ -140,6 +141,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 collapsed: true,
                 items: [
                     { text: 'User Roles and Security', link: '/Documentation/Administration/user-roles' },
+                    { text: 'Reporting', link: '/Documentation/Administration/reporting' },
                     { text: 'RBAC (coming soon)', link: '/Documentation/Administration/rbac' },
                     { text: 'Tenant Management', link: '/Documentation/Administration/tenant-management' },
                     { text: 'Managing Computers', link: '/Documentation/Administration/managing-computers' },
