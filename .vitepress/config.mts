@@ -102,7 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             { text: 'Azure Custom Application Permissions', link: '/Documentation/Integrations/azure-custom-application-permissions' },
                             { text: 'Azure GDAP Customer Management', link: '/Documentation/Integrations/azure-gdap-customer-management' },
                             { text: 'Azure Conditional Access Policies and Guidance', link: '/Documentation/Integrations/azure-conditional-access-policies-and-guidance' },
-
+                            { text: 'Managing Azure Tenant Mappings', link: '/Documentation/Integrations/managing-azure-tenant-mappings' },
                         ]
                     },
                     {
@@ -148,6 +148,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Windows Sandbox', link: '/Documentation/Administration/windows-sandbox' },
                     { text: 'Subscription Management and Licenses', link: '/Documentation/Administration/subscription-managment' },
                     { text: 'Deployment Ordering', link: '/Documentation/Administration/deployment-ordering' },
+                    { text: 'Preferences in your instance', link: '/Documentation/Administration/preferences' },
+                    { text: 'System Status Information', link: '/Documentation/Administration/system-status' },
+                    { text: 'Miscellaneous Interface Pages', link: '/Documentation/Administration/misc-interface-pages' },
 
                 ],
             },
