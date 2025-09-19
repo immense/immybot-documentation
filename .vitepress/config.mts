@@ -46,6 +46,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 text: 'Core Features',
                 collapsed: false,
                 items: [
+                    { text: 'Dashboard', link: '/Documentation/CoreFeatures/dashboard' },
                     { text: 'Tenants', link: '/Documentation/CoreFeatures/tenants-organizations' },
                     { text: 'Computers', link: '/Documentation/CoreFeatures/computers-inventory' },
                     { text: 'Software & Tasks Library', link: '/Documentation/CoreFeatures/software-library' },
@@ -101,7 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             { text: 'Azure Custom Application Permissions', link: '/Documentation/Integrations/azure-custom-application-permissions' },
                             { text: 'Azure GDAP Customer Management', link: '/Documentation/Integrations/azure-gdap-customer-management' },
                             { text: 'Azure Conditional Access Policies and Guidance', link: '/Documentation/Integrations/azure-conditional-access-policies-and-guidance' },
-
+                            { text: 'Managing Azure Tenant Mappings', link: '/Documentation/Integrations/managing-azure-tenant-mappings' },
                         ]
                     },
                     {
@@ -112,6 +113,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             { text: 'ConnectWise Control', link: '/Documentation/Integrations/connectwise-control-integration-setup' },
                             { text: 'N-Central', link: '/Documentation/Integrations/ncentral-integration-setup' },
                             { text: 'NinjaRMM', link: '/Documentation/Integrations/ninjarmm-integration-setup' },
+                            { text: 'Datto RMM', link: '/Documentation/Integrations/dattormm' },
+
                         ]
                     },
                     {
@@ -138,12 +141,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 collapsed: true,
                 items: [
                     { text: 'User Roles and Security', link: '/Documentation/Administration/user-roles' },
+                    { text: 'Reporting', link: '/Documentation/Administration/reporting' },
                     { text: 'RBAC (coming soon)', link: '/Documentation/Administration/rbac' },
                     { text: 'Tenant Management', link: '/Documentation/Administration/tenant-management' },
                     { text: 'Managing Computers', link: '/Documentation/Administration/managing-computers' },
                     { text: 'Windows Sandbox', link: '/Documentation/Administration/windows-sandbox' },
                     { text: 'Subscription Management and Licenses', link: '/Documentation/Administration/subscription-managment' },
                     { text: 'Deployment Ordering', link: '/Documentation/Administration/deployment-ordering' },
+                    { text: 'Preferences in your instance', link: '/Documentation/Administration/preferences' },
+                    { text: 'System Status Information', link: '/Documentation/Administration/system-status' },
+                    { text: 'Miscellaneous Interface Pages', link: '/Documentation/Administration/misc-interface-pages' },
 
                 ],
             },

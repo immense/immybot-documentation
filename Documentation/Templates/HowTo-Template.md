@@ -22,6 +22,8 @@ What are we trying to accomplish?
 ## Prerequisites
 What do we need before we start?
 
+An active ImmyBot subscription or [trial](https://www.immy.bot/pricing/)
+
 ## Process
 ### Step 1. Do Something
   1. This is step 1 of 1
