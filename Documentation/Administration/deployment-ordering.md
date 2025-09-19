@@ -57,7 +57,7 @@ You can move everything around using the provided arrow keys on each line for th
 >[!NOTE] Document information
 >Author: Mark Gomez
 <br>
->Date Published: 2025/08
+>Date Published: 08/30/2025
 ><br>
 >Date Revised: N/A
 ><br>

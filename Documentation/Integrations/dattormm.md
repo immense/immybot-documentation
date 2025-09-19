@@ -53,10 +53,10 @@ Now the next time a session is run against a targeted computer, Datto RMM will g
 
 <br><br><br>
 >[!NOTE] Document information
->Author:
+>Author: Mark Gomez
 <br>
->Date Published:
+>Date Published: 09/19/2025
 ><br>
->Date Revised:
+>Date Revised: N/A
 ><br>
->Version Number:
+>Version Number: 1.0

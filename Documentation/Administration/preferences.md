@@ -70,10 +70,10 @@ These can be managed in the individual tenant, or from Show More > Preferences a
 
 <br><br><br>
 >[!NOTE] Document information
->Author:
+>Author: Mark Gomez
 <br>
->Date Published:
+>Date Published: 09/19/2025
 ><br>
->Date Revised:
+>Date Revised: N/A
 ><br>
->Version Number:
+>Version Number: 1.0

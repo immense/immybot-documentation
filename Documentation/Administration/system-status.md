@@ -85,10 +85,10 @@ Not all tiles will be viewable until it has data available to present. Ex, if yo
 
 <br><br><br>
 >[!NOTE] Document information
->Author:
+>Author: Mark Gomez
 <br>
->Date Published:
+>Date Published: 09/19/2025
 ><br>
->Date Revised:
+>Date Revised: N/A
 ><br>
->Version Number:
+>Version Number: 1.0
