@@ -57,7 +57,7 @@ You can create and manage Tags from this page. Tags are used to target tenants a
 ### Navigation
 - **Show More** > **OAuth Tokens**
 ### Description
-There is no credentials that are shown in plain text here, however, confidential informaiton (Token IDs, ClientIDs, etc) are shown.
+No credentials are shown in plain text; however, confidential information (such as Token IDs, Client IDs, etc.) is visible.
 
 ## Locks
 ### Objective
