@@ -4,6 +4,44 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
+## 0.72.0
+
+Released 09/24/25
+
+### Bug Fixes
+
+- Fixes an issue where a Filter Script could be saved / executed as a Metascript
+- Fixed some grammar errors in the UI
+- Fixed issue where `ISupportsExternalProviderAgentUrl` would break dynamic integration icons
+- Fixed timeout issues with tenant deletion
+- Fixed `RestoreComputers` API endpoint that was always returning "No computers were found to restore" when attempting to restore deleted computers
+- Fixed an issue where computers excluded from maintenance couldn't run inventory scripts, even though the UI indicates inventory should still be allowed
+- Fixed a PowerShell script output byte count overflow issue
+- Fixed prerequisite failure messages to show readable software names (e.g., "Google Chrome") instead of technical IDs (e.g., "GlobalSoftware-307")
+- Fixed an issue with maintenance sessions where sessions would get stuck in the running status forever, even after restarting Immybot.
+- Fixed the alignment of integration icons in the main computer table
+- Fixed off-center alignment of login page, and improved page responsiveness on smaller screensizes
+- Fixed cut-off text in the Tenant Details -> Mappings table
+- Fixed Tenant Details page tabs to not wrap text
+- Fixed an issue where global task references were missing at the top of global task details pages.
+- Fixed other various minor UI issues
+- Fixed an issue where integrations could not be deleted when the underlying integration type was deleted
+- Fixed an issue where dynamic integration types were not showing an error message when the script failed to return the $integration object
+- Fixed an issue where viewing change requests could incorrectly result in a 403
+- Fixed an issue where the deployment preview/deploy buttons would transiently throw errors on the server
+
+## Improvements
+
+- Improved handling of PowerShell runspaces such that scripts should now start and end on the same thread/runspace. This will help prevent unexpected errors such as "There is no Runspace available to run scripts in this thread" from occurring.
+- Implemented one-click schedule duplication. Users can now duplicate existing schedules with a single button click, creating a new disabled schedule with all original properties preserved.
+- Pagination controls are now always show in tables that support it
+- Updated the Maintenance Sessions page's Session Status column header filter to accept text input instead of only numeric values.
+- Clicking the Update to Release button on the System Update page now shows a modal for confirmation.
+- Normalized spacing and padding between table action buttons
+- Made the session count panels at the top of the Maintenance Session list page have equal heights.
+- On the Computer Details -> Agents tab: added a button to "View agent in external portal" for integrations supporting it.  Updated the CW Control integration to support this.
+- Added more logos to the computer timeline for integration-specific events
+
 ## 0.71.1
 
 Released 09/03/25
