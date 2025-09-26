@@ -2,7 +2,7 @@
 # Security Software Exclusions
 
 ## Overview
-This document lists out security exclusion recommendations. These exclusions are intended to keep ImmyBot running effectively.
+This document lists out security exclusion recommendations. These exclusions are intended to keep ImmyBot running effectively. This is not an exhaustive list. Please contact support if you're using a platform not on this list, and would like guidance on proceeding.
 
 ## Prerequisites
 Admin access to your security platforms.
@@ -174,7 +174,6 @@ Our agents can detect SSL inspection and will log it in the platform. Part of tr
 1. Add the security exclusions for your instance to your firewall
    - This is going to vary firewall to firewall, please consult your firewall vendor's manual.
    - You can find the domains and IP addresses you need to exclude by going to `Show more` -> `SMTP` -> `Click on "Fetch IP Addresses and Hostnames"`
-   - additionally you will need to exclude
 2. Duplicate the certificate task
    - Duplicate the "Import Certificate" task in ImmyBot, rename it something self documenting such as "Corp Office - SSL Inspection"
 3. Create deployment for that duplicate task

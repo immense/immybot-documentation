@@ -6,6 +6,10 @@ This document will instruct you on configuring and managing your Autotask integr
 ## Prerequisites
 An active ImmyBot subscription or [trial](https://www.immy.bot/pricing/)
 
+MSP Admin permissions to your ImmyBot Tenant
+
+Admin permissions to your AutoTask instance
+
 ## Process
 
 ### Create API user in AutoTask

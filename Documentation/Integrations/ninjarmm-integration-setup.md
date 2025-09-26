@@ -60,6 +60,7 @@ The script should be set to
 - Operating System: Windows
 - Architecture: All
 - Run As: System
+
 ### Note the Script ID
 Before leaving the script, also create a `Script Variable`.
 1. Hit `+ Add` next to `Script Variables`.
@@ -67,8 +68,10 @@ Before leaving the script, also create a `Script Variable`.
 3. Enter `Code` as the variable name.
 4. Hit `Add` to save it.
 
-Note the script Id in the URL `https://{region}.ninjarmm.com/#/editor/script/71` -> `71`.
+::: info Get the script ID from the URL
+ Get the script Id in the URL `https://{region}.ninjarmm.com/#/editor/script/71` -> `71`.
 It will be needed as one of the parameters in the integration setup to run scripts.
+:::
 
 ## In ImmyBot, create a new dynamic integration with the NinjaRMM integration type:
 (`Show More` -> `Integrations` -> `Add Integration` -> `NinjaRMM`)
@@ -77,6 +80,9 @@ Add the required parameters and authenticate the OAuthInfo parameter with a Ninj
 
 - Name: NinjaRMM
 - ClientID: Provided to you by NinjaRMM
+  ::: note
+  Special characters are not supported. If your Ninja instance give you a client ID with a special character you will need to recreate it.
+  :::
 - ClientSecret: Provided to you by NinjaRMM
 - Region: This is the subdomain
 - ScriptID: From the URL in the [script step above](/Documentation/Integrations/ninjarmm-integration-setup.html#note-the-script-id)

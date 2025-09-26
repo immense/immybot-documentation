@@ -26,7 +26,8 @@ Vendor documentation: https://developer.acronis.com/doc/cyberapps/settings/index
 3. Click Acronis
 4. Name your integration
 5. Input your datacenter URL
-   1. ex: https://eu8-cloud.acronis.com
+   - You can find your datacenter URL in the URL after you log in.
+   - ex: https://eu8-cloud.acronis.com
 6. Input your API Client ID and Secret into their respective fields
 7. Click update
 8. Toggle your capabilities (see below for more information)
