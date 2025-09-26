@@ -9,6 +9,6 @@
 - Cloud Radial - Checks are failing with API error
   - Due to a redirect for their API that is not working, work in progress internally at ImmyBot, no workaround at this time.
 - ImmyBot instance becomes unresponsive due to unhealthy integration
-  - Check for unhealthy integratoin: *Show More* > *Integrations*, review any that are labled unhealthy
-  - Workaround: Resolve the issues for that integraton: Edit the integration and resolving the issues listed.
+  - Check for unhealthy integration: *Show More* > *Integrations*, review any that are labeled unhealthy
+  - Workaround: Resolve the issues for that integration: Edit the integration and resolving the issues listed.
   - Workaround: Disable the integration

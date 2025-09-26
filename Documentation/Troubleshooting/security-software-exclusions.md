@@ -13,7 +13,7 @@ Ideally you would instruct your security software would support excluding code s
 
 ::: warning
 ImmyBot's current code-signing certificate is set to change on Feb. 11th, 2025.
-Please add both our upcoming and existing certificate exlusions to ensure no issues.
+Please add both our upcoming and existing certificate exclusions to ensure no issues.
 
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-should-i-do-about-immybot-s-upcoming-code-signing-certificate-change)
 :::
@@ -124,7 +124,7 @@ Add a your instance's [Script Path](#security-software-exclusions) to your polic
 
 ## Cylance
 
-Cylance blocks our websocket making the ImmybotAgent log look like this:
+Cylance blocks our websocket making the ImmyBot Agent log look like this:
 
 ```
 2022-09-21 12:24:26.562 -04:00 [INF] Process exiting.
