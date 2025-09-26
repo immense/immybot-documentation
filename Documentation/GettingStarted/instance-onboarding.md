@@ -17,7 +17,7 @@ We recommend creating processes around a single source of truth when implementin
 
 ```mermaid
 flowchart TD
-    A[Source of truth] -->|Sycs to| B(ImmyBot)
+    A[Source of truth] -->|Syncs to| B(ImmyBot)
     B --> |Creates Sites|C(RMM)
     B --> |Creates Sites|D(XDR / AV)
     B --> |Creates Sites|F(Vuln Mgmnt)
@@ -46,6 +46,7 @@ The ConnectWise Manage integration allows you to use agreement additions as a fi
 Supported PSA Integrations
 - ConnectWise Manage: [Setup](/Documentation/Integrations/connectwise-manage-integration-setup)
 - Halo PSA: [Setup](/Documentation/Integrations/halo-integration-setup)
+- AutoTask: [Setup](/Documentation/Integrations/autotask)
 
 ## RMM Integration Setup
 Setting up your RMM Integration allows you to run scripts through your RMM instead of utilizing the ImmyBot Permanent Agent, as well as sync your clients from your RMM.

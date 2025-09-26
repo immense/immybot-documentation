@@ -171,7 +171,7 @@ Yes, you would accomplish this with tags.
 ## AzureAD and Intune
 #### Can ImmyBot join AzureAD?
 ::: details Yes, via a deployment.
-Yes. Create a deployment for the Join AzureAD task. We use the bulk enrollment technique and generate a provisioning package to join the machine to AzureAD. We reccomened using oAuth over DEM user.
+Yes. Create a deployment for the Join AzureAD task. We use the bulk enrollment technique and generate a provisioning package to join the machine to AzureAD. We recommend using oAuth over DEM user.
 :::
 #### My AzureAD Join action is failing, what are some common fixes?
 ::: details Check MFA, CAPs, and logs.

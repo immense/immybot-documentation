@@ -47,7 +47,7 @@ Windows needs to recognize it as removable media which can be problematic with U
 6. Place file on the root of your flashdrive
 
 ::: danger Initial Admininstrator Credentials Recommendation
-We reccomend leaving this default, then in one of your first deployments, deleting it and creating a new administrator. Unless your provisioning package is encrypted, it is trivial to retrieve this password.
+We recommend leaving this default, then in one of your first deployments, deleting it and creating a new administrator. Unless your provisioning package is encrypted, it is trivial to retrieve this password.
 :::
 
 ![USB Drive Creation](/Documentation/HowToGuides/FirstComputerSetup.png)

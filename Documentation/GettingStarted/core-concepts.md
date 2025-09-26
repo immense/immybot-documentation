@@ -68,7 +68,7 @@ The ImmyBot Agent is a lightweight service that runs on managed computers and co
 - Runs scripts in various contexts (System, User, etc.)
 
 There are two types of agents:
-- **Full Agent**: Installed on managed computers, the full agent creates Ephemeral agents that do the actual work. Reccomended for all endpoints. See [Installation](/Documentation/GettingStarted/quick-start-guide.md) for more information.
+- **Full Agent**: Installed on managed computers, the full agent creates Ephemeral agents that do the actual work. Recommended for all endpoints. See [Installation](/Documentation/GettingStarted/quick-start-guide.md) for more information.
 - **Ephemeral Agent**: A temporary agent created dynamically for communicating to your ImmyBot instance. Does not require the Full Agent; integrations will be used to initiate these agents where possible if the full agent is not installed or not runnning.
 
 ## Tenants

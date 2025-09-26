@@ -12,8 +12,8 @@ Like Group Policies have a "Winning Policy", ImmyBot must have a "Winning Deploy
 ## Deployment Heirarchy
 ```mermaid
 graph TD
-    A[Computer or Person Deployment] -->|Superscedes| B[Single Tenant Deployment]
-    B -->|Superscedes|C[Cross Tenant Deployments]
+    A[Computer or Person Deployment] -->|Supersedes| B[Single Tenant Deployment]
+    B -->|Supersedes|C[Cross Tenant Deployments]
 
 ```
 
@@ -21,9 +21,9 @@ graph TD
 Lets say you want to ensure that a client has a softphone that needs to be deployed to everyone, except for the CEO, who's name is John Doe.
 You would:
 <br><br>
-A. Deploy it to all computers in the tenant - Create a software deployment for this softphone, set the **Software Should Be** field to **Installed**,  set **Task Mode** to **Enforce**, set **Target Enforcment** to **Required**, set **Target Scope** to **Single Tenant**, set **Target Type** to **All Computers** and set **Target  Filter** to **Workstations and Portable Devices**
+A. Deploy it to all computers in the tenant - Create a software deployment for this softphone, set the **Software Should Be** field to **Installed**,  set **Task Mode** to **Enforce**, set **Target Enforcement** to **Required**, set **Target Scope** to **Single Tenant**, set **Target Type** to **All Computers** and set **Target  Filter** to **Workstations and Portable Devices**
 <br><br>
-B. Ensure it's uninstalled from John Doe's computer - Create a software deployment for this softphone, set the **Software Should Be** field to **Uninstalled**, set **Task Mode** to **Enforce**, set **Target Enforcment** to **Required**, set **Target Scope** to **Single Individual  and Person**, set **Person** to **John Doe**
+B. Ensure it's uninstalled from John Doe's computer - Create a software deployment for this softphone, set the **Software Should Be** field to **Uninstalled**, set **Task Mode** to **Enforce**, set **Target Enforcement** to **Required**, set **Target Scope** to **Single Individual  and Person**, set **Person** to **John Doe**
 
 Here, the software will get installed on all computers, except John Doe's. ImmyBot will ensure that John Doe's computer has the software uninstalled.
 

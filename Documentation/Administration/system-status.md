@@ -1,4 +1,3 @@
-<!-- How To Template -->
 # System Status
 
 ## Overview

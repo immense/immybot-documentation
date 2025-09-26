@@ -6,8 +6,8 @@
 ## Overview
 
 SMTP settings allow you to specify SMTP settings per tenant.
-We reccomened you set the Onboarding tenant's SMTP settings first, as that will be used by default if
-another tenant doesn't have SMTP setttings set, and you're sending mainteance emails.
+We recommend you set the Onboarding tenant's SMTP settings first, as that will be used by default if
+another tenant doesn't have SMTP settings set, and you're sending maintenance emails.
 
 ## Settings
 
@@ -17,7 +17,7 @@ another tenant doesn't have SMTP setttings set, and you're sending mainteance em
    - [GSuite](https://support.google.com/a/answer/176600?hl=en)
 3. Port - This is the SMTP port we need to use. Typically its 25, 465 or 587
 4. Timeout - How long do you want to want before the email is considered failed. By default this should be 10000
-5. Use SMTP Authentication - Do we need to authentcate to your SMTP host? If yes, check this box
+5. Use SMTP Authentication - Do we need to authenticate to your SMTP host? If yes, check this box
    - Username
    - Password
 6. SSL Enabled - Do we need to use SSL for emails? If yes, check this box
