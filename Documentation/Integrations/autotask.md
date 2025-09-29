@@ -22,9 +22,8 @@ Admin permissions to your AutoTask instance
      - If you choose to create your own entries for these fields:
       - The username must contain letters and numbers, may contain special characters (@ ( ) ; : [ ] | \ are not allowed), and must be unique for your database (including inactive resources).
       - The password must match the criteria configured in the system settings for your AutoTask Site Setup.
-6. Select the Custom (internal Integration) under API Tracking Identifier.
-7. Make note of the API Tracking Identifier
-8. Click Save & Close.
+6. Select ImmyBot under API Tracking Identifier.
+7. Click Save & Close.
 
 ### Create Integration in ImmyBot
 
@@ -34,22 +33,22 @@ Admin permissions to your AutoTask instance
 4. Name your integration
 5. Input your integration code
 6. Input the username and secret for your API user
-7. Input your API Tracking identifier
 8. Click update
 9. Toggle your capabilities (see below for more information)
 10. Toggle the enable integration switch
 11. Review your clients in Acronis and link to your ImmyBot tenants
 
 ### Capabilities
-Mapping clients from the integration to tenants in ImmyBot
+- Mapping clients from the integration to tenants in ImmyBot
+- Retrieving client groups and clients in groups
 
 
 <br><br><br>
 >[!NOTE] Document information
->Author:
+>Author: Mark Gomez
 <br>
->Date Published:
+>Date Published: 9/30/2025
 ><br>
->Date Revised:
+>Date Revised: N/A
 ><br>
->Version Number:
+>Version Number: 1.0

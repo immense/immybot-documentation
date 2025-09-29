@@ -123,7 +123,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         items: [
                             { text: 'ConnectWise Manage', link: '/Documentation/Integrations/connectwise-manage-integration-setup' },
                             { text: 'HaloPSA', link: '/Documentation/Integrations/halo-integration-setup' },
-                            { text: 'Autotask', link: '/Documentation/Integrations/autotask' },
+                            { text: 'AutoTask', link: '/Documentation/Integrations/autotask' },
 
                         ]
                     },

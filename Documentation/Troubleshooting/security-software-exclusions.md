@@ -193,10 +193,10 @@ flowchart TD
 
 <br><br><br>
 >[!NOTE] Document information
->Author:
+>Author: Mark Gomez
 <br>
->Date Published:
+>Date Published: 9/30/2025
 ><br>
->Date Revised:
+>Date Revised:N/A
 ><br>
->Version Number:
+>Version Number: 1.0
