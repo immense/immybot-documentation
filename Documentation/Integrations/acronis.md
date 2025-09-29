@@ -2,7 +2,7 @@
 # Acronis
 
 ## Overview
-This document is intended to go over the configuration of Acronis
+This document is intended to go over the configuration of the Acronis integration in ImmyBot.
 
 ## Prerequisites
 An active ImmyBot subscription or [trial](https://www.immy.bot/pricing/)

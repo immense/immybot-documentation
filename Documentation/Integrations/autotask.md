@@ -1,7 +1,7 @@
 # AutoTask
 
 ## Overview
-This document will instruct you on configuring and managing your Autotask integration.
+This document will instruct you on configuring and managing your AutoTask integration.
 
 ## Prerequisites
 An active ImmyBot subscription or [trial](https://www.immy.bot/pricing/)
@@ -36,7 +36,7 @@ Admin permissions to your AutoTask instance
 8. Click update
 9. Toggle your capabilities (see below for more information)
 10. Toggle the enable integration switch
-11. Review your clients in Acronis and link to your ImmyBot tenants
+11. Review your clients in AutoTask and link to your ImmyBot tenants
 
 ### Capabilities
 - Mapping clients from the integration to tenants in ImmyBot
