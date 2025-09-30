@@ -307,6 +307,19 @@ This guide addresses the most frequently encountered issues in ImmyBot and provi
    - Allocate appropriate resources based on environment size
    - Consider scaling options for larger environments
 
+## MDMDiagnostics Logs
+
+For issues with device enrollment, MDMDiagnostics logs can help identify the root cause.
+
+**Steps to Collect MDM Diagnostics:**
+
+1. From an elevated CMD Prompt, run:
+```bat
+MDMdiagnosticstool.exe -area "DeviceProvisioning;DeviceEnrollment" -cab "C:\Temp\MDMDiag_Log.cab"
+```
+
+2. The cab file may be too large to email, so you can create a cloud share and send the link to `support@immy.bot`.
+
 ## Next Steps
 
 If you're still experiencing issues after following these troubleshooting steps:
