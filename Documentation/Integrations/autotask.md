@@ -22,7 +22,7 @@ Admin permissions to your AutoTask instance
      - If you choose to create your own entries for these fields:
       - The username must contain letters and numbers, may contain special characters (@ ( ) ; : [ ] | \ are not allowed), and must be unique for your database (including inactive resources).
       - The password must match the criteria configured in the system settings for your AutoTask Site Setup.
-6. Select ImmyBot under API Tracking Identifier.
+6. Select Custom Software under API Tracking Identifier. Make note of the tracking identifier.
 7. Click Save & Close.
 
 ### Create Integration in ImmyBot
