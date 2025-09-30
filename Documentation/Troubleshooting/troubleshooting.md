@@ -179,18 +179,6 @@ If the `wpr -stop` command fails, try running without the "-compress" parameter.
 
 This ETL file can be reviewed in Windows Performance Analyzer from the Windows Performance Toolkit SDK.
 
-## MDMDiagnostics Logs
-
-For issues with device enrollment, MDMDiagnostics logs can help identify the root cause.
-
-**Steps to Collect MDM Diagnostics:**
-
-1. From an elevated CMD Prompt, run:
-```bat
-MDMdiagnosticstool.exe -area "DeviceProvisioning;DeviceEnrollment" -cab "C:\Temp\MDMDiag_Log.cab"
-```
-
-2. The cab file may be too large to email, so you can create a cloud share and send the link to `support@immy.bot`.
 
 ## Next Steps
 

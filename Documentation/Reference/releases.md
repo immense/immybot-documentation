@@ -30,7 +30,7 @@ Released 09/24/25
 - Fixed an issue where viewing change requests could incorrectly result in a 403
 - Fixed an issue where the deployment preview/deploy buttons would transiently throw errors on the server
 
-## Improvements
+### Improvements
 
 - Improved handling of PowerShell runspaces such that scripts should now start and end on the same thread/runspace. This will help prevent unexpected errors such as "There is no Runspace available to run scripts in this thread" from occurring.
 - Implemented one-click schedule duplication. Users can now duplicate existing schedules with a single button click, creating a new disabled schedule with all original properties preserved.
