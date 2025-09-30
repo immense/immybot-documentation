@@ -135,7 +135,7 @@ graph TD
 ```
 
 
-### Pre-Requisities
+### Pre-Requisites
 This is a VERY powerful, and critically underrated feature in ImmyBot. ImmyBot resolves dependencies recursively, with built-in circular reference detection.
 
 Common uses for Pre-Requisites include
@@ -226,7 +226,7 @@ To ImmyBot, an RMM is a system that provides a list of computers, and a mechanis
 
 ![](/.vitepress/images/2021-02-23-06-18-23.png)
 
-To avoid having to deploy the ImmyAgent to existing machines, ImmyBot optionally integrates with RMMs like ConnectWise Automate and ConnectWise Control and uses their agents instead. These systems are not as performant as the ImmyAgent, but can suppliment ImmyBot functionality.
+To avoid having to deploy the ImmyAgent to existing machines, ImmyBot optionally integrates with RMMs like ConnectWise Automate and ConnectWise Control and uses their agents instead. These systems are not as performant as the ImmyAgent, but can supplement ImmyBot functionality.
 
 For example, if you add an RMM Link for ConnectWise Control, you can open a remote session to the computer directly within ImmyBot:
 
@@ -248,7 +248,7 @@ It uses the following script to collect the UUID from the machine:
 gwmi Win32_ComputerSystemProduct | select -expand UUID
 ```
 
-This value is static even if you wipe and reload the machine, although we have **VERY** rarely seen this value change following a BIOS upgrade or due to a mainboard fault. We chose this value instead of Mac Address or Hard Drive serial number because of issues other systems have with USB Ethernet cables and hard drive replacement. We did not use serialnumber because we learned that many computers do not have serial numbers.
+This value is static even if you wipe and reload the machine, although we have **VERY** rarely seen this value change following a BIOS upgrade or due to a mainboard fault. We chose this value instead of Mac Address or Hard Drive serial number because of issues other systems have with USB Ethernet cables and hard drive replacement. We did not use serial number because we learned that many computers do not have serial numbers.
 
 In practice, this value works almost _too_ well. Machines you just wiped and expect to find in New Computers, are often associated to their pre-wiped computer objects. To find them, you often have to search for the serial number of the computer in the Computer List. In 0.40.1 we began using the Windows OfflineInstallationID value to identify when an existing computer has been wiped so we can set its status to "Needs Onboarding" which causes it to show up under New Computers as expected.
 

@@ -102,5 +102,5 @@ The URL is specific to your instance.  You'll need to replace `<your-domain>` wi
 
 ![alt text](/image-2.png)
 
-After you setup the tab, navigate to a ticket and select the tab with the name you just created. It shoud load the technician tools page of immy.bot.
+After you setup the tab, navigate to a ticket and select the tab with the name you just created. It should load the technician tools page of immy.bot.
 

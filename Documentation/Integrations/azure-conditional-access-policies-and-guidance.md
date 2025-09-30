@@ -39,7 +39,7 @@ If your security requirements necessitate configuring session settings, we recom
 This is a hard requirement for a user to re-authenticate their sessions. If this is set and applied to your DEM users, it will make the tokens in ImmyBot expire and you will have to reauthenticate however often it's required by this setting.
 
 #### Continuous Access
-This allows Microsoft to revoke a token at any time based on critical events or real-time policy evaluation. While this is a good option to use, it can cause issues with ImmyBot not being able to renew oAuth tokens, we reccomened leaving this disabled for the CAP that covers your DEM users.
+This allows Microsoft to revoke a token at any time based on critical events or real-time policy evaluation. While this is a good option to use, it can cause issues with ImmyBot not being able to renew oAuth tokens, we recommend leaving this disabled for the CAP that covers your DEM users.
 
 #### Token Protection
 This requires all long-lived tokens to be bound to the device using software key binding or hardware security module binding where available. ImmyBot does not use static infrastructure resources, and as a result, this may cause your authentication tokens to become invalid if your instance is redeployed.

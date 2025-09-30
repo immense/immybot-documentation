@@ -28,7 +28,7 @@ You can also trigger maintenance sessions manually when needed. You can do it in
    - Suppress Reboots
    - Reboot if Necessary
    - Force Reboot
-5. This will start the maintance session
+5. This will start the maintenance session
 
 ### Running Maintenance on Multiple Computers
 
@@ -76,7 +76,7 @@ There are 2 ways to sent email notification for maintenance sessions.
    1. Edit the deployment you intent to run an adhoc session for
    2. Edit the maintance options on the right to send the required email
 2. Through Schedules
-   1. Within the [Schedules](/Documentation/HowToGuides/schedules), you can set the email notifcation requirements.
+   1. Within the [Schedules](/Documentation/HowToGuides/schedules), you can set the email notification requirements.
 
 
 ## Best Practices
@@ -91,7 +91,7 @@ Follow these best practices for effective maintenance management:
 
 ## Troubleshooting
 
-[Click here](/Documentation/Troubleshooting/troubleshooting) for more detailed troublshooting
+[Click here](/Documentation/Troubleshooting/troubleshooting) for more detailed troubleshooting
 
 If you encounter issues with maintenance sessions:
 

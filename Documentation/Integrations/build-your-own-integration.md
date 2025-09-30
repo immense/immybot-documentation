@@ -396,7 +396,7 @@ $Integration | Add-DynamicIntegrationCapability -Interface ISupportsListingAgent
 For complex integrations, it's often better to move common code into a PowerShell module:
 
 ::: tip
-We reccomend using self documenting names for functions. If you're creating an integration for "Some Platform" the function names should be:<br>
+We recommend using self documenting names for functions. If you're creating an integration for "Some Platform" the function names should be:<br>
 Connect-SomePlatformAPI <br>
 Get-SomePlatformAPI <br>
 Get-SomePlatformAgents <br>

@@ -33,7 +33,16 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "MarkdownPaste.path": "../.vitepress/images",
   "cSpell.words": [
+    "Acronis",
+    "extrafields",
+    "Filterscript",
+    "gpupdate",
+    "Hostnames",
     "Intune",
-    "metascript"
+    "metascript",
+    "Metascripts",
+    "Nodeware",
+    "runspace",
+    "Sophos"
   ]
 }

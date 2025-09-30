@@ -123,6 +123,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         items: [
                             { text: 'ConnectWise Manage', link: '/Documentation/Integrations/connectwise-manage-integration-setup' },
                             { text: 'HaloPSA', link: '/Documentation/Integrations/halo-integration-setup' },
+                            { text: 'AutoTask', link: '/Documentation/Integrations/autotask' },
+
                         ]
                     },
                     {
@@ -130,7 +132,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         collapsed: true,
                         items: [
                             { text: 'ConnectSecure', link: '/Documentation/Integrations/connectsecure-integration-setup' },
-                             { text: "Support Override", link: '/Documentation/Integrations/support-override-integration-setup' },
+                            { text: 'Support Override', link: '/Documentation/Integrations/support-override-integration-setup' },
+                            { text: 'Acronis', link: '/Documentation/Integrations/acronis' },
+                            { text: 'Nodeware', link: '/Documentation/Integrations/nodeware' },
+                            { text: 'Beachhead Secure', link: '/Documentation/Integrations/beachhead-secure' },
                         ]
                     },
                     { text: 'Build Your Own Integration', link: '/Documentation/Integrations/build-your-own-integration' },
@@ -168,7 +173,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 collapsed: true,
                 items: [
                     { text: 'Common Issues', link: '/Documentation/Troubleshooting/common-issues' },
-                    { text: 'Agent Troubleshooting and Security Exclusions', link: '/Documentation/Troubleshooting/troubleshooting' },
+                    { text: 'Security Software Exclusions', link: '/Documentation/Troubleshooting/security-software-exclusions' },
+                    { text: 'Agent Troubleshooting', link: '/Documentation/Troubleshooting/troubleshooting' },
                 ],
             },
             {

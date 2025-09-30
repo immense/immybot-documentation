@@ -5,7 +5,7 @@ ImmyBot provides a comprehensive API that allows you to integrate with and exten
 ## API Overview
 
 ::: info
-We utilize Sieve for sorting, filtering and pagenation https://github.com/Biarity/Sieve
+We utilize Sieve for sorting, filtering and pagination https://github.com/Biarity/Sieve
 :::
 
 The ImmyBot API is a RESTful API that uses standard HTTP methods and returns JSON responses. You can use the API to:

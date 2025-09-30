@@ -26,9 +26,17 @@
 ## Create a client app in your NinjaRMM instance using above permissions:
 (`Administration` -> `Apps` -> `Api` -> `Add`)
 
+1. Set the Application platform to Web
+2. Set the Name to ImmyBot or whatever you want
+3. Set the redirect URI to `https://<instance>.immy.bot/consent-callback`
+   - You need to press Enter after inputting your URI.
+   > [!WARNING]
+   > Note: Change the "instance" in the redirect uri to your ImmyBot subdomain
+
+4. Under scopes check `Monitoring`, `Management`, and `Control`
+5. Under Allowed Grant Types select `Authorization Code` and `Refresh Token`
+
 ![image](https://github.com/user-attachments/assets/5a27d217-a574-4a34-b42a-dd9a984e2ce1)
-> [!WARNING]
-> Note: Change the "instance" in the redirect uri to your ImmyBot subdomain
 
 ## Copy the below script to NinjaRMM Automation library and name it ImmyBot:
 (`Administration` -> `Library` -> `Automation` -> `Add` -> `New Script`)
@@ -46,23 +54,43 @@ $DecodedCommand = [System.Text.Encoding]::UTF8.GetString($bytes)
 iex $DecodedCommand
 Write-Host "Ephemeral Agent started"
 ```
+The script should be set to
+- Name: ImmyBot
+- Language: Powershell
+- Operating System: Windows
+- Architecture: All
+- Run As: System
 
+### Note the Script ID
 Before leaving the script, also create a `Script Variable`.
 1. Hit `+ Add` next to `Script Variables`.
 2. Select the `String/Text` type.
 3. Enter `Code` as the variable name.
 4. Hit `Add` to save it.
 
-Note the script Id in the URL `https://{region}.ninjarmm.com/#/editor/script/71` -> `71`.  
+::: info Get the script ID from the URL
+ Get the script Id in the URL `https://{region}.ninjarmm.com/#/editor/script/71` -> `71`.
 It will be needed as one of the parameters in the integration setup to run scripts.
+:::
 
 ## In ImmyBot, create a new dynamic integration with the NinjaRMM integration type:
 (`Show More` -> `Integrations` -> `Add Integration` -> `NinjaRMM`)
 
 Add the required parameters and authenticate the OAuthInfo parameter with a NinjaRMM user with sufficient privileges:
+
+- Name: NinjaRMM
+- ClientID: Provided to you by NinjaRMM
+  ::: note
+  Special characters are not supported. If your Ninja instance give you a client ID with a special character you will need to recreate it.
+  :::
+- ClientSecret: Provided to you by NinjaRMM
+- Region: This is the subdomain
+- ScriptID: From the URL in the [script step above](/Documentation/Integrations/ninjarmm-integration-setup.html#note-the-script-id)
+
+
 ![image](https://github.com/user-attachments/assets/78b760fd-b0f9-4230-9b3e-389d487dfea3)
 > [!WARNING]
-> At this time Client IDs do not support special characters. 
+> At this time Client IDs do not support special characters.
 > Please create a new client app if one is generated for you.
 
 

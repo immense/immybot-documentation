@@ -33,7 +33,7 @@ Create an "ImmyBot" role in your N-Central instance using above roles.
 
 ## Create an API-Only ImmyBot user in N-Central
 
-N-Able themselves have an [offical short guide for doing this we recommend following](https://documentation.n-able.com/N-central/userguide/Content/User_Management/Role%20Based%20Permissions/role_based_permissions_create_APIuser.htm) for this part, but here is a recap:
+N-Able themselves have an [official short guide for doing this we recommend following](https://documentation.n-able.com/N-central/userguide/Content/User_Management/Role%20Based%20Permissions/role_based_permissions_create_APIuser.htm) for this part, but here is a recap:
 
 1. Create a new "ImmyBot" user in the instance with the "ImmyBot" role applied.
 2. Set a password (it is required for now but the api team is working on removing this)
@@ -46,7 +46,7 @@ N-Able themselves have an [offical short guide for doing this we recommend follo
 
 ## Add the necessary 'RunScript' Automation Policy
 
-After completing the new API-Only user setup, it's time time add an Automation Policy to N-Central so Immybot can
+After completing the new API-Only user setup, it's time time add an Automation Policy to N-Central so ImmyBot can
 run scripts on the machines.
 
 First, navigate to the "Script/Software Repository" under "Schedules Tasks" beneath the "Configuration" tab in N-Central.
@@ -56,8 +56,8 @@ Once at the Script Repository page, select "Add" -> "Automation Policy".
 Second, <a href="https://docs.immy.bot/ImmyBotRunScriptV2.amp" target="_self">download the ImmyBot RunScript Automation Policy</a> and upload it to your instance. Fill out the Name and Description how you see fit if required.
 ![](/.vitepress/images/ncentraldocs/add_automation_policy_2.png)
 
-Last step is to ensure this new automation policy we have uploaded is able to be invoked by the Immybot API User.
-Find the automation by searching for "Immybot", then flipping the `Enable API` switch. Accept the confirmation modal, then copy the `Repository ID` for later use.
+Last step is to ensure this new automation policy we have uploaded is able to be invoked by the ImmyBot API User.
+Find the automation by searching for "ImmyBot", then flipping the `Enable API` switch. Accept the confirmation modal, then copy the `Repository ID` for later use.
 ::: warning Make sure you copy YOUR `Repository ID`, as this identifier for the automation policy will be unique across every N-Central instance!
 :::
 ![](/.vitepress/images/ncentraldocs/add_automation_policy_3.png)
@@ -70,7 +70,7 @@ Input a name you'd like for the integration, followed by your N-Central server U
 Then, input the `RepositoryId` gathered from the step before.
 Lastly, flip the `Enable Integration` switch.
 
-::: warning If the `Health Check` reports an error after enabling the integration, ensure you have completed the above steps correctly. If you continue to have issues, reachout to the community or support for assistance.
+::: warning If the `Health Check` reports an error after enabling the integration, ensure you have completed the above steps correctly. If you continue to have issues, reach out to the community or support for assistance.
 :::
 
 **If your error message contains "Unable to validate UI session: javax.validation.ValidationException: Unable to validate UI session.", then reset the password on your api user and generate a new JWT. This is a limitation imposed by N-Central**
@@ -82,7 +82,7 @@ Lastly, flip the `Enable Integration` switch.
 1. From the CW Automate Integration screen click on Clients
 2. Link your MSP tenant manually first
 3. You can bulk Create tenants or manually link tenants between ImmyBot and CW Automate
-   1. Alternativly, ImmyBot will suggest tenants that it thinks are the correct ones to link
+   1. Alternatively, ImmyBot will suggest tenants that it thinks are the correct ones to link
 
 Alternatively, you can create/map only certain customers.
 When you map a customer from an RMM, the computers will undergo Identification
