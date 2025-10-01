@@ -373,6 +373,46 @@ This will occur if the device's system time is incorrect.  Ensure that the syste
 Branding information is [here](/Documentation/HowToGuides/branding.md). If you want to change your ImmyBot subdomain, you need to put submit a ticket to ImmyBot support.
 :::
 
+## Kubernetes Migration
+
+ImmyBot is in the process of moving from Azure AppServices to Kubernetes clusters. You will get an email indicating that the move is pending along with a maintenance window.
+
+::: details How do I know if my ImmyBot instance is on Kubernetes or AppService?
+There are a couple of ways to do this.
+
+1. Within your instance: Show More > SMTP > Click on "Fetch IP Addresses and Hostnames"
+   - If you see 7 IP addresses under "immy.bot IP Addresses" then you're on AppService
+   - If you see 2 IP addresses under "immy.bot IP Addresses" then you're on Kubernetes
+
+2. Run DIG against your instance URL
+   - If you get a CNAME Record back then you're on AppService
+   - If you get an A Record back then you're on Kubernetes
+:::
+
+::: details Is there a cost associated with this move?
+No.
+:::
+
+::: details What will change?
+- The IP addresses that your agents and instance utilize for command and control.
+  - The new IP addresses will be sent along with the notification email.
+- You will see better stability overall, but especially during workload bursts within ImmyBot
+:::
+
+::: details Will my ImmyBot instance be available during the migration?
+No. Your instance will be down for 3 to 7 minutes while the instance spools up on the cluster.
+:::
+
+::: details What do I need to do?
+ For the most part, nothing. Your endpoints will automatically reconnect to the new infrastructure. There will be no changes to deployments, software, tasks, etc since they're agnostic to the platform they're on.
+:::
+
+::: danger Regarding the IP Address change
+If you're utilizing any kind of IP Whitelisting, you will need to adjust that with the IP addresses that were sent to you. Alternatively, after the migration is complete, you can get this information from:
+
+**Show More** -> **SMTP** -> **Fetch IP Addresses and domains**
+:::
+
 ## Next Steps
 
 After reviewing these FAQs, you might want to explore:
