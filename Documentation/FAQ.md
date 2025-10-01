@@ -399,7 +399,7 @@ No.
 - You will see better stability overall, but especially during workload bursts within ImmyBot
 :::
 
-::: details Will ImmyBot be available during the migration?
+::: details Will my ImmyBot instance be available during the migration?
 No. Your instance will be down for 3 to 7 minutes while the instance spools up on the cluster.
 :::
 
