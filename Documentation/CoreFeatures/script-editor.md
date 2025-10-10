@@ -41,7 +41,7 @@ Click on the icon with the '+' on the top right corner of the navigation pane.
 
 ![alt text](New-Script.png)
 
-On the right hand side, under script details, you're need to ensure you're utilizing the correct [execution context](http://localhost:5175/Documentation/AdvancedTopics/scripts.html#script-execution-contexts).
+On the right hand side, under script details, you're need to ensure you're utilizing the correct [execution context](http://docs.immy.bot/Documentation/AdvancedTopics/scripts.html#script-execution-contexts).
 
 ![alt text](Script-Execution.png)
 
