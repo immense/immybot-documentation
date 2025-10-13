@@ -375,7 +375,7 @@ Branding information is [here](/Documentation/HowToGuides/branding.md). If you w
 
 ## Kubernetes Migration
 
-ImmyBot is in the process of moving from Azure AppServices to Kubernetes clusters. You will get an email indicating that the move is pending along with a maintenance window.
+ImmyBot is in the process of moving from Azure AppServices to Azure Kubernetes clusters. You will get an email indicating that the move is pending along with a maintenance window.
 
 ::: details How do I know if my ImmyBot instance is on Kubernetes or AppService?
 There are a couple of ways to do this.
@@ -405,6 +405,14 @@ No. Your instance will be down for 3 to 7 minutes while the instance spools up o
 
 ::: details What do I need to do?
  For the most part, nothing. Your endpoints will automatically reconnect to the new infrastructure. There will be no changes to deployments, software, tasks, etc since they're agnostic to the platform they're on.
+
+If you're instance is not on at least ImmyBot 0.72.0, you will need to update it. To update your instance:
+
+1. Log in as an MSP Admin.
+2. Navigate to Show More > System Update.
+3. Follow the on-screen instructions to complete the update.
+
+If your instance is not updated by the time that the migration windows starts, we’ll update your instance as part of the migration process. 
 :::
 
 ::: danger Regarding the IP Address change
