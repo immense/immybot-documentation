@@ -46,6 +46,10 @@ Admin permissions to your Autotask instance
 ### Migrating your Autotask API
 In October 2025, ImmyBot completed the approval process for an official integration with Autotask. Please follow this process if you had the Autotask integration set up prior to October 31, 2025 and you created a custom Integration Identifier.
 
+::: warning Migration Deadline
+This migration needs to be completed by November 30, 2025. At that point, ImmyBot will update the Autotask integration to hard code the approved Integration Code and your integration will break.
+:::
+
 1. Follow the above steps to create a new API user. You cannot reuse your old API User
 2. Navigate to your integration in your ImmyBot instance
    1. `Show More` -> `Integrations` -> `Edit your integration`
