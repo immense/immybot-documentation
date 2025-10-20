@@ -43,11 +43,11 @@ Admin permissions to your Autotask instance
 - Mapping clients from the integration to tenants in ImmyBot
 - Retrieving client groups and clients in groups
 
-### Migrating your Autotask API
-In October 2025, ImmyBot completed the approval process for an official integration with Autotask. Please follow this process if you had the Autotask integration set up prior to October 31, 2025 and you created a custom Integration Identifier.
+### Migrating your Autotask API User
+In October 2025, ImmyBot completed the approval process for an official integration with Autotask. Please follow this process if you had the Autotask integration set up prior to October 15, 2025 and you created a custom Integration Identifier.
 
 ::: warning Migration Deadline
-This migration needs to be completed by November 30, 2025. At that point, ImmyBot will update the Autotask integration to hard code the approved Integration Code and your integration will break if it has not been migrated per the instructions below.
+This migration needs to be completed by November 30, 2025. On December 1, 2025, ImmyBot will update the Autotask integration to hard code the approved code and your integration will break if it has not been migrated per the instructions below.
 :::
 
 1. Follow the above steps to create a new API user. You cannot reuse your old API User
@@ -64,6 +64,6 @@ This migration needs to be completed by November 30, 2025. At that point, ImmyBo
 <br>
 >Date Published: 9/30/2025
 ><br>
->Date Revised: 10/31/2025
+>Date Revised: 10/20/2025
 ><br>
 >Version Number: 1.1
