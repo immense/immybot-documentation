@@ -4,6 +4,14 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
+## 0.72.1
+
+Released 10/20/25
+
+### Security Fix
+
+- Updated the docker image which contains a fix for https://github.com/dotnet/aspnetcore/issues/64033
+
 ## 0.72.0
 
 Released 09/24/25
