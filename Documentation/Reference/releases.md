@@ -4,6 +4,49 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
+## 0.73.1
+
+Released 10/30/2025
+
+### Bug Fixes
+
+- Fixed an issue where MSP non-admins were not allowed to manage deployments even when the preference "Allow Non-Admin Users to Manage Deployments" was enabled.
+- Fixed a performance issue that was causing the computer details page to load slowly for instances that contained a large number of computers
+
+## 0.73.0
+
+Released 10/27/25
+
+## Bug Fixes
+- Fixed an issue where MSP non-admins were still allowed to manage deployments even when the preference "Allow Non-Admin Users to Manage Deployments" was not enabled.
+- Fixed an issue where cancelling a session quickly after creating it could result in the session stuck in the running status
+- Fixed the onboarding form to honor deployment `Require` overrides. Parameters marked `Require` now show as required and block submission when empty on the onboarding form. Aligned UI/validation across parameter sets and removed a few edge-case false errors.
+- Fixed an issue where the existing primary user would get wiped out during onboarding even when you didn't have onboarding tasks managing the primary user
+- Fixed an uncommon issue where schedules would not kick off at the expected time
+- Fixed OAuth access token deletion error that was causing a 500-server error with "InvalidOperationException: Failed to delete secret" when attempting to delete tokens
+- Fixed the "Reboot preference Normal is not recognized. No action taken." error that occurs when using "If Necessary" reboot preference
+- Fixed intermittent failure of the "Create and go back" button on deployment creation form
+- Fixed Invoke-AtomicCommand to support positional parameters by adding Position = 1 to the ScriptBlock parameter. Now works like Invoke-ImmyCommand without requiring explicit parameter names.
+
+## Improvements
+
+- The computer timeline now shows the immy icon for ephemeral agent session events.
+- Improved ephemeral agent error handling
+- Improved performance of saving computer inventory changes to the database
+- Improved resilience of saving maintenance session data to the database
+- `Get-ImmyComputer -InventoryKeys SomeKey` is now matched using a case-insensitive search.
+- Schedules now have a "Name" input for easier identification in the schedules list.
+- The main sidebar now keeps the current page's link highlighted when navigating to child pages.
+- Actions for deleting and restoring computers now show up in the audit table.
+- Added batch actions to the schedule list page, allowing for bulk disable/enable, run/cancel, and delete.
+- Removed the default values on the "New Tag" page and replaced them with input placeholder text This helps accidentally prevents labels having the name "Example Tag".
+- Removes the disruptive "Editor idle timeout reached. Editor Services has been terminated to conserve resources." modal and replaces it with a user-friendly status bar indicator.
+- OAuth2 parameter values now indicate whether it matches the ImmyBot default app registration or a custom app registration
+- Critical services on the server now cause the application to restart if they stop working.  Unexpected errors were occurring by letting the application continue to run when critical services stopped working.
+- Reduced calls to dynamic version scripts by 2-3x during maintenance sessions
+- Updated internal usage of `choco list` to support version 2.0.0
+- ARM devices can now fall back to x86/x64 installer versions when ARM-specific versions are not available in dynamic version scripts. This fixes the issue where ARM computers failed to install software like Adobe Reader that only provides x86/x64 builds.
+
 ## 0.72.1
 
 Released 10/20/25
