@@ -4,6 +4,15 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
+## 0.73.1
+
+Released 10/30/2025
+
+### Bug Fixes
+
+- Fixed an issue where MSP non-admins were not allowed to manage deployments even when the preference "Allow Non-Admin Users to Manage Deployments" was enabled.
+- Fixed a performance issue that was causing the computer details page to load slowly for instances that contained a large number of computers
+
 ## 0.73.0
 
 Released 10/27/25
