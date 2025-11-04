@@ -1,10 +1,13 @@
 # Role-Based Access Control (RBAC)
 
+*Updated 11/14/25*
+
 ![alt text](image-16.png)
 
 *RBAC is still actively being developed. If you are beta testing this feature, please report any bugs or issues you find*
 
-Last Updated 11/14/25
+[Known Issues](#known-issues)
+
 
 ImmyBot's RBAC system provides granular permission management, allowing you to control exactly what users can access and modify within your environment. This system has been designed with a phased approach to ensure seamless migration from legacy permissions while introducing powerful new capabilities.
 
@@ -124,3 +127,8 @@ On the main Users & Roles page, we have a tab to view all direct role assignment
 Consider replacing these direct role assignments with groups to better organize your users.
 
 ![alt text](image-14.png)
+
+# Known Issues
+
+1. The deployment and schedules details pages have some known issues for users who have been granted access to one or more tenants that are not their own tenant. This should be fixed in an upcoming release.
+1. If a user attempts to create a deployment or schedule that resolves to computers that they are not authorized to manage, they should be forced to submit a change request. This is not currently working but will be fixed in an upcoming release.
