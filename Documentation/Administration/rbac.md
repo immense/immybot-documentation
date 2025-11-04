@@ -109,11 +109,11 @@ take precendence when determining if a user has access to a particular permissio
 
 ![alt text](image-19.png)
 
-# Users
+## Users
 
 A user is a person who has been granted access to ImmyBot.
 
-## Creating a user
+### Creating a user
 
 ![alt text](image-20.png)
 
@@ -121,14 +121,14 @@ A user is a person who has been granted access to ImmyBot.
 2. From Existing People - Existing people can be promited to a user. If you can't find a specific person, you may need to link their azure customer to a tenant in ImmyBot.
 3. Manually - You can always manually create a user if you know their Azure Object ID.
 
-## View all direct role assignments
+### View all direct role assignments
 
 On the main Users & Roles page, we have a tab to view all direct role assignments. For existing customers, you will see that all of your users have been migrated over to direct role assignments.
 Consider replacing these direct role assignments with groups to better organize your users.
 
 ![alt text](image-14.png)
 
-# Known Issues
+## Known Issues
 
 1. The deployment and schedules details pages have some known issues for users who have been granted access to one or more tenants that are not their own tenant. This should be fixed in an upcoming release.
 1. If a user attempts to create a deployment or schedule that resolves to computers that they are not authorized to manage, they should be forced to submit a change request. This is not currently working but will be fixed in an upcoming release.
