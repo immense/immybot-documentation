@@ -1,16 +1,28 @@
-# Role-Based Access Control (RBAC) System (In Active Development)
+# Role-Based Access Control (RBAC)
 
-Last Updated 10/07/25
+![alt text](image-16.png)
+
+*RBAC is still actively being developed. If you are beta testing this feature, please report any bugs or issues you find*
+
+Last Updated 11/14/25
 
 ImmyBot's RBAC system provides granular permission management, allowing you to control exactly what users can access and modify within your environment. This system has been designed with a phased approach to ensure seamless migration from legacy permissions while introducing powerful new capabilities.
 
+RBAC can be broken down into four sections:
+
+1) [Roles](#roles)
+2) [Groups](#groups)
+3) [Role Assignments](#role-assignments)
+4) [Users](#users)
+
 ## Roles
+
+A role grants one or more capabilities. There are 100+ capabilities to choose from. Some examples are 'Manage Software' and 'Manage Billing'.
 
 ### Built-In Roles
 
-![alt text](image-5.png)
+In an effort to provide a seamless transition for exisiting customers, four built-in legacy roles have been added that mirror existing permission structures:
 
-Four main legacy roles are built-in that mirror existing permission structures:
 
 | Role | Description | Legacy User Type
 |------|-------------| ----------------|
@@ -33,6 +45,9 @@ Additional built-in roles have been added to maintain compatibility with existin
 
 Built-in roles are inherently available to all tenants. However, in order to assign a role that contains system permissions, a user must be granted the **Assign Cross-Tenant Roles** permission. Built-in roles are read-only and the permissions they grant cannot be modified.
 
+![alt text](image-5.png)
+
+
 ### Custom Roles
 
 ![alt text](image-9.png)
@@ -43,11 +58,11 @@ If you have the `Manage Public Roles` permission, then you can create a role tha
 
 Otherwise, a role is owned by a specific tenant. A user can only see public roles or roles that are managed by a tenant they have permission to manage roles for.
 
-### Role Permissions
+### Role Capabilities
 
 ![alt text](image-8.png)
 
-There are over a hundred different permissions that can be granted for a given role.
+There are 100+ different permissions that can be granted for a given role.
 
 #### System permissions
 
@@ -55,9 +70,23 @@ Many permissions can be scoped to a particular set of tenants or resources throu
 such as 'Manage Billing' are denoted as system permissions and cannot be limited to certain tenants. System permissions are
 traditionally reserved for MSP users and should be carefully considered when granted to non-MSP users.
 
+## Groups
+
+A group is a collection of users that share the same permission requirements. Since, managing permissions for individual users can be very tedious, we encourage the adoption of groups.
+
+A group can be granted one or more role assignments.
+
+![alt text](image-17.png)
+
+Members of a group inherit all role assignments assigned to the group.
+
+![alt text](image-18.png)
+
+If a group is owned by a specific tenant, then only users that belong to that tenant can be added to the group.
+
 ## Role Assignments
 
-Permissions are granted or denied to users through **Role Assignments**.
+Permissions are granted or denied to users through **Role Assignments**. Role assignments can be assigned to Groups or directly to users.
 
 ![alt text](image-7.png)
 
@@ -75,35 +104,23 @@ take precendence when determining if a user has access to a particular permissio
 | **User's Tenant** | Scopes the role only to the tenant of the selected user. Useful for giving your customers access to their own tenant.
 | **Resource** | Grants the role at the selected resource scope. The only resource type supported for now is Computers.
 
-*Stay tuned for updates as we finalize these powerful new capabilities.*
+![alt text](image-19.png)
 
 # Users
 
-![alt text](image-13.png)
-
-The main Users & Roles page contains a list of all users you are allowed to see.
+A user is a person who has been granted access to ImmyBot.
 
 ## Creating a user
 
-![alt text](image-12.png)
+![alt text](image-20.png)
 
-1. Users can request access and will show up in the Access Request area.
-2. Existing people can be promited to a user. If you can't find people, you may need to link their azure customer to a tenant in ImmyBot.
-3. You can always manually create a user if you know their Azure Object ID
+1. Access Requests - Users can request access and will show up on the main Users & Roles page.
+2. From Existing People - Existing people can be promited to a user. If you can't find a specific person, you may need to link their azure customer to a tenant in ImmyBot.
+3. Manually - You can always manually create a user if you know their Azure Object ID.
 
-## View all role assignments
+## View all direct role assignments
 
-The Role Assignments tab shows all role assignments for users that you are allowed to see.
+On the main Users & Roles page, we have a tab to view all direct role assignments. For existing customers, you will see that all of your users have been migrated over to direct role assignments.
+Consider replacing these direct role assignments with groups to better organize your users.
 
 ![alt text](image-14.png)
-
-## View a single user
-
-The user details page contains information about the user such as their name, email, and Azure Object ID.
-
-If you have permission to manage the user you are viewing, then you will also see the Role Assignment sections
-which allow you to add or remove the user's role assignments.
-
-An activity log is shown underneath that indicates actions performed by this user.
-
-![alt text](image-15.png)
