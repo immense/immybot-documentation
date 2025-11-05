@@ -86,6 +86,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
                         ]
                     },
+                    {
+                        text: 'I do not know what to call this so for the time being it is going to be called "Click here if you like automating your new computers"',
+                        collapsed: true,
+                        items: [
+                            { text: 'Join AzureAD', link: '/Documentation/HowToGuides/Tasks/JoinAzureAD' },
+                            { text: 'Configure Directory', link: '/Documentation/HowToGuides/Tasks/ConfigureDirectory' },
+
+                        ]
+                    },
                        { text: 'Upgrading Windows 10 to Windows 11', link: '/Documentation/HowToGuides/upgrading-windows-10-to-windows-11' },
                 ],
             },
