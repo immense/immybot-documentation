@@ -307,10 +307,10 @@ Returns a list of computers for the specified tenant, or all computers if it is 
 
 ```powershell
 # Get all Windows 10 computers
-$Windows10Computers = Get-ImmyComputer -InventoryKeys @("OsName=Windows 10*")
+Get-ImmyComputer -InventoryKeys WindowsSystemInfo | Where-Object {$_.Inventory.WindowsSystemInfo.OsName -like "*Windows*10*" }
 
-# Get all Dell laptops
-$DellLaptops = Get-ImmyComputer -InventoryKeys @("Manufacturer=Dell*", "ChassisTypes=Laptop")
+# Get all Dell computers
+Get-ImmyComputer -InventoryKeys WindowsSystemInfo | Where-Object {$_.Inventory.WindowsSystemInfo.Manufacturer -like "*Dell*" }
 ```
 
 **Parameters:**
