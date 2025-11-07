@@ -17,7 +17,7 @@ Released 10/30/2025
 
 Released 10/27/25
 
-## Bug Fixes
+### Bug Fixes
 - Fixed an issue where MSP non-admins were still allowed to manage deployments even when the preference "Allow Non-Admin Users to Manage Deployments" was not enabled.
 - Fixed an issue where cancelling a session quickly after creating it could result in the session stuck in the running status
 - Fixed the onboarding form to honor deployment `Require` overrides. Parameters marked `Require` now show as required and block submission when empty on the onboarding form. Aligned UI/validation across parameter sets and removed a few edge-case false errors.
@@ -28,7 +28,7 @@ Released 10/27/25
 - Fixed intermittent failure of the "Create and go back" button on deployment creation form
 - Fixed Invoke-AtomicCommand to support positional parameters by adding Position = 1 to the ScriptBlock parameter. Now works like Invoke-ImmyCommand without requiring explicit parameter names.
 
-## Improvements
+### Improvements
 
 - The computer timeline now shows the immy icon for ephemeral agent session events.
 - Improved ephemeral agent error handling
