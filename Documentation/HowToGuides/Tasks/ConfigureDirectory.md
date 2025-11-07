@@ -3,23 +3,33 @@
 ## Overview
 This document will go over setting up, using, and troubleshooting the task Configure Directory.
 
-Configure Directory is a combination of `Change Computer Name and Join Domain` and `AzureAD Join`. We utilize the access that ImmyBot has to determine if you're tenants are using Active Directory, or AzureAD. Similar to Change COmputer Name and Join Domain, you have the choice of joining a domain at all.
+Configure Directory is a combination of `Set Computer Name and Domain Join` and `AzureAD Join`. We utilize the access that ImmyBot has to determine if you're tenants are using Active Directory, or AzureAD. Similar to Set Computer Name and Domain Join, you have the choice of joining a domain at all.
 
-## Prerequisites
-An active ImmyBot subscription or [trial](https://www.immy.bot/pricing/)
-
-Permissions to configure Deployments, and run sessions
-
-You will need to set up a DEM user for each of your tenants if you're planning on joining to AzureAD
-
-If you're using local Active Directory,
+This task is intended to replace Join AzureAD and Set Computer Name and Domain Join. If you're trying to add a computer to a domain, change the name, etc, utilize this task.
 
 ## Deployment Planning
 You can set up a Cross Tenant deployment for local Active Directory joins, the task will automatically utilize the Domain Controller in the tenant. If you plan on doing any AzureAD Joining, you will need to set up a single tenant deployment per tenant.
 
 If you only want to maintain a naming convention, just set DirectoryType to None, and set up your naming convention.
 
+## Prerequisites
+An active ImmyBot subscription or [trial](https://www.immy.bot/pricing/)
+
+Permissions to configure Deployments
+
+You will need to set up a DEM user for each of your tenants if you're planning on joining to AzureAD
+
+If you're using Enhanced AzureAD Join, you need to set up automatic [Intune Enrollment](https://learn.microsoft.com/en-us/intune/intune-service/enrollment/quickstart-setup-auto-enrollment)
+
+If you're using local Active Directory, you will need Domain Controllers with the permanent agent installed.
+
+
+
 ### DEM User Creation
+
+::: info
+You only need to create DEM users if you're adding these computers to Azure.
+:::
 
 AzureAD/Entra Join DEM User Instructions
 1. Create a DEM (Device Enrollment Manager) user in the Customer's Azure AD (Ex. dem@contoso.com)
@@ -31,7 +41,6 @@ AzureAD/Entra Join DEM User Instructions
 7. MANUALLY LOGON AS THE USER AN INCOGNITO WINDOW
    - Verify a password change is not required
 8. Verify the user is not being prompted for MFA or MFA Registration
-9.  Information on common issues can be found here: https://community.immy.bot/t/everything-you-need-to-know-about-azuread-and-immy/2669
 
 ## Parameters
 
@@ -45,7 +54,7 @@ AzureAD/Entra Join DEM User Instructions
 | CacheProvisioningPackage      |                                                                                                                            | Set to True                                                                                          |
 | SkipRegistryTest              | Skips registry validation and modification steps required for Azure AD Join.                                               | Use this if registry settings are confirmed correct or for testing purposes, otherwise leave default |
 | ClearExistingEnrollments      | Set this to clear all existing enrollments before joining (including User/Workplace Joins).                                | Leave Default                                                                                        |
-| UseEnhancedAzureADJoin        | Use certificate based Azure AD join instead of PPKG.                                                                       | Set up and enable                                                                                    |
+| UseEnhancedAzureADJoin        | Use certificate based Azure AD join instead of PPKG. Needs Automtic Intune Enrollment set up                               | Set up and enable                                                                                    |
 
 ### Computer Name Template
 
@@ -167,9 +176,9 @@ This error can typically be resolved by using the OAuth flow instead of the user
 4. Go to [Microsoft Intune Admin Center - Devices](https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/DevicesMenu/~/enrollment) under the "Device Enrollment Managers" tab and add the account
 5. MFA exclusions and enrollment policies may need to be adjusted to fit your use-case (as mentioned above)
 
-> :warning: WARNING
-> From a security standpoint, we do NOT recommend using a global admin or existing user as a DEM.
-
+::: danger Do not use a Global Administrator
+From a security standpoint, we do NOT recommend using a global admin or existing user as a DEM.
+:::
 
 
 <br><br><br>
