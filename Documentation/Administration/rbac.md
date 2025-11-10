@@ -128,12 +128,10 @@ Consider replacing these direct role assignments with groups to better organize 
 
 ![alt text](image-14.png)
 
-### My User's Group and Role Assignmets
+### My User's Group and Role Assignments
 
 You can now view your own user's group and role assignments on the profile page. The profile page can be accessed at /profile or
 by clicking the profile link in your account dropdown located in the top-right of the page.
-
-
 
 ## Known Issues
 
