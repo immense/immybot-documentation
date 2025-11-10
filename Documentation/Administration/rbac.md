@@ -128,6 +128,13 @@ Consider replacing these direct role assignments with groups to better organize 
 
 ![alt text](image-14.png)
 
+### My User's Group and Role Assignmets
+
+You can now view your own user's group and role assignments on the profile page. The profile page can be accessed at /profile or
+by clicking the profile link in your account dropdown located in the top-right of the page.
+
+
+
 ## Known Issues
 
 1. The deployment and schedules details pages have some known issues for users who have been granted access to one or more tenants that are not their own tenant. This should be fixed in an upcoming release.
