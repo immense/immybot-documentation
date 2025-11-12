@@ -4,6 +4,10 @@
 You only need to create DEM users if you're adding these computers to Azure.
 :::
 
+::: danger Do not use a Global Administrator
+From a security standpoint, we do NOT recommend using a global admin or existing user as a DEM.
+:::
+
 AzureAD/Entra Join DEM User Instructions
 1. Create a DEM (Device Enrollment Manager) user in the Customer's Azure AD (Ex. dem@contoso.com)
 2. Assign the DEM user an Intune license (Intune Plan 1 is fine)

@@ -77,17 +77,3 @@ It's recommended to disable MFA for this account or consider using OAuth for a m
 #### AADSTS90002
 
 This error can typically be resolved by using the OAuth flow instead of the username/password flow.
-
-#### Registered Application Issues
-
-- I'll come by and update this with more later, but for now just make sure that if you modify permissions on the app, it requires reconsenting in ImmyBot.
-### Creating a DEM (Device Enrollment Manager)
-1. Create a service account in Intune
-2. Apply an Intune User license to the account
-3. Apply the Cloud Device Administrator role to the account
-4. Go to [Microsoft Intune Admin Center - Devices](https://intune.microsoft.com/#view/Microsoft_Intune_DeviceSettings/DevicesMenu/~/enrollment) under the "Device Enrollment Managers" tab and add the account
-5. MFA exclusions and enrollment policies may need to be adjusted to fit your use-case (as mentioned above)
-
-::: danger Do not use a Global Administrator
-From a security standpoint, we do NOT recommend using a global admin or existing user as a DEM.
-:::
