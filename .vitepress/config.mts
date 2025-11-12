@@ -26,7 +26,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     themeConfig: {
         logo: '/immybot-glasses.png',
         // https://vitepress.dev/reference/default-theme-config
+         outline: {
+            level: [2, 3], // This will show H1, H2, and H3
+    },
         sidebar: [
+
             {
                 text: 'Getting Started',
                 collapsed: false,
@@ -93,14 +97,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     },
 
                     {
-                        text: 'Active Directory',
+                        text: 'Computer Configuration, and Management',
                         collapsed: true,
                         items: [
-                            { text: 'Configure Directory', link: '/Documentation/HowToGuides/Tasks/ConfigureDirectory' },
-
+                            { text: 'Renaming Computers and adding them to an IDP - Configure Directory', link: '/Documentation/HowToGuides/Tasks/ConfigureDirectory' },
+                            { text: 'Directory Migration', link: '/Documentation/HowToGuides/Tasks/DirectoryMigration' },
+                            { text: 'Upgrading Windows 10 to Windows 11', link: '/Documentation/HowToGuides/upgrading-windows-10-to-windows-11' },
                         ]
                     },
-                       { text: 'Upgrading Windows 10 to Windows 11', link: '/Documentation/HowToGuides/upgrading-windows-10-to-windows-11' },
                 ],
             },
             {

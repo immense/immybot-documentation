@@ -48,9 +48,17 @@ immybot-documentation/
 │   ├── Troubleshooting/
 |   └── FAQ.MD
 ├── .vitepress/           # Vitepress config file for navigation
+│   ├── Includes/         # Source of truth for repeating information
 |   └──config.MTS
 └──Index.md               # Landing Page
 ```
+
+## Regarding Duplicate Information
+Duplicate information, or information that should have a single source of truth need to go into `.\vitepress\includes` folder as a markdown file (.md)
+You can reference the information by using
+
+`<!--@include: @/.vitepress/includes/fileName.md-->`
+
 
 ## Contributing
   1. Copy the appropriate template into the appropriate folder in the repo. Templates are located in /Documentation/Templates
