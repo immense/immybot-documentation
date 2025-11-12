@@ -128,7 +128,14 @@ Consider replacing these direct role assignments with groups to better organize 
 
 ![alt text](image-14.png)
 
+### My User's Group and Role Assignments
+
+You can now view your own user's group and role assignments on the profile page. The profile page can be accessed at /profile or
+by clicking the profile link in your account dropdown located in the top-right of the page.
+
 ## Known Issues
 
-1. The deployment and schedules details pages have some known issues for users who have been granted access to one or more tenants that are not their own tenant. This should be fixed in an upcoming release.
-1. If a user attempts to create a deployment or schedule that resolves to computers that they are not authorized to manage, they should be forced to submit a change request. This is not currently working but will be fixed in an upcoming release.
+1. Fixed - The deployment and schedules details pages have some known issues for users who have been granted access to one or more tenants that are not their own tenant. This should be fixed in an upcoming release.
+1. Fixed - If a user attempts to create a deployment or schedule that resolves to computers that they are not authorized to manage, they should be forced to submit a change request. This is not currently working but will be fixed in an upcoming release.
+3. Certain pages are not displaying properly when the current user is unauthorized to access them. All pages that have resource identifiers in the url are being cleaned up to handle 404 and 403 responses.
+4. Some delete opertions are not being audited.
