@@ -15,12 +15,30 @@ An active ImmyBot subscription or [trial](https://www.immy.bot/pricing/)
 - Do not have folder redirection set up to a server via GPO.
 - Ensure that all available updates are applied to the computer(s).
 
+## Deployment Planning
 
+### Data Protected by Windows DPAPI
+
+Windows DPAPI (Data Protection API) user-based encryption binds encrypted data to the user's domain credentials. When a user's domain association changes during migration, any data encrypted with DPAPI will become inaccessible.
+
+**Affected Components:**
+- Windows Hello (biometric authentication, PINs)
+- Browser stored passwords (Chrome, Edge, Firefox)
+- Saved credentials in Credential Manager
+- Application-specific encrypted data
+
+### Pre-Migration Requirements
+
+1. **Enable Browser Sync:** Users must sign into their browsers (Chrome, Edge, etc.) and enable synchronization before migration. This ensures passwords and other encrypted data are backed up to the cloud and can be re-downloaded after migration.
+
+2. **Document Windows Hello Usage:** Users will need to reconfigure Windows Hello features, including facial recognition, fingerprint readers, and PINs after migration is complete.
+
+3. **Review Credential Manager:** Any credentials stored in Windows Credential Manager should be documented, as these may need to be re-entered post-migration.
 
 ## Parameters
 | Parameter                              | Description                                                                                                                                                                                                                                                                                                                                       |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **DestinationDirectoryType**           |                                                                                                                                                                                                                                                                                                                                                   |
+| **DestinationDirectoryType**           | Choose the destination directy type here. ImmyBot will use information avaialble to it to get the computers to the target destination.                                                                                                                                                                                                            |
 | **ProfileTypesToMigrate**              | For each profile on a machine, ImmyBot gets the SID of the associated user, and determines if that SID is Local, ActiveDirectory, or AzureAD. ImmyBot will not attempt to migrate the machine if it can't find a target account in the destination directory for every profile. You can avoid this by limiting the profiles using this parameter. |
 | **Workgroup Migrations**               | Use this if the computer(s) are in a workgroup. This will allow us to convert generic profiles into named profiles. (e.g., C:\Users\JFrontDesk actually belongs to jane.doe@company.com)                                                                                                                                                          |
 | **ProfileNamesToAvoid**                | Use this to avoid migrating profiles that don't have a matching identity in the target AzureAD. (Like local admin accounts). Does a case insensitive "Contains" search. For example, C:\Users\ITAdmin would be excluded if you enter ITAdmin or admin.                                                                                            |
