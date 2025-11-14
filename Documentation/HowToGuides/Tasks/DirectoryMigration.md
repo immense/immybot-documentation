@@ -75,10 +75,10 @@ Windows DPAPI (Data Protection API) user-based encryption binds encrypted data t
 
 <br><br><br>
 >[!NOTE] Document information
->Author:
+>Author: Mark Gomez and Brandon Ritchey
 <br>
->Date Published:
+>Date Published: 11/14/2025
 ><br>
->Date Revised:
+>Date Revised: N/A
 ><br>
->Version Number:
+>Version Number: 1.0

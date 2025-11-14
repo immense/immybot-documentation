@@ -79,11 +79,11 @@ $SerialNumber-$Year-### -> `ABC123-2025-001`
 
 <br><br><br>
 >[!NOTE] Document information
->Author:
+>Author: Mark Gomez and Brandon Ritchey
 <br>
->Date Published:
+>Date Published: 11/14/2025
 ><br>
->Date Revised:
+>Date Revised: N/A
 ><br>
->Version Number:
+>Version Number: 1.0
 

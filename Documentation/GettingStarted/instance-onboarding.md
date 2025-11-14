@@ -34,7 +34,7 @@ ImmyBot comes with a self guided Getting Started module. We recommend you follow
 ### Configure Security Platforms
 You will need to make some changes to your security platform in order for ImmyBot to work correctly without your antivirus, XDR, Zero Trust platforms etc, killing the processes we start.
 
-Please see our [security requirements](/Documentation/Troubleshooting/security-software) for detailed information on the changes you need to make.
+Please see our [security requirements](/Documentation/Troubleshooting/security-software-exclusions) for detailed information on the changes you need to make.
 
 ## PSA Integration Setup
 Setting up your PSA integration allows ImmyBot to sync and utilize
