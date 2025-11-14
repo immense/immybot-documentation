@@ -26,7 +26,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     themeConfig: {
         logo: '/immybot-glasses.png',
         // https://vitepress.dev/reference/default-theme-config
+         outline: {
+            level: [2, 3], // This will show H1, H2, and H3
+    },
         sidebar: [
+
             {
                 text: 'Getting Started',
                 collapsed: false,
@@ -61,32 +65,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 collapsed: true,
                 items: [
                     {
-                        text: 'Basic Instance Management',
+                        text: 'Instance Management',
                         collapsed: true,
                         items: [
-                            { text: 'Creating & Managing Software', link: '/Documentation/HowToGuides/managing-software' },
-                            { text: 'Creating & Managing Tasks', link: '/Documentation/HowToGuides/working-with-tasks' },
-                            { text: 'Creating & Managing Deployments', link: '/Documentation/HowToGuides/creating-managing-deployments' },
-                            { text: 'Creating & Managing Schedules', link: '/Documentation/HowToGuides/schedules' },
-                            { text: 'Creating & Managing Users', link: '/Documentation/HowToGuides/add-users' },
-                            { text: 'Managing SMTP', link: '/Documentation/HowToGuides/smtp' },
-                            { text: 'Managing Branding', link: '/Documentation/HowToGuides/branding' },
-                            { text: 'Agent Installation', link: '/Documentation/HowToGuides/agent-installation' },
-                            { text: 'Computer Onboarding', link: '/Documentation/HowToGuides/onboarding' },
-                            { text: 'Creating Maintenance Sessions', link: '/Documentation/Administration/maintenance-updates' },
+                            {
+                                text: 'Basic Instance Management',
+                                collapsed: true,
+                                items: [
+                                    { text: 'Creating & Managing Software', link: '/Documentation/HowToGuides/managing-software' },
+                                    { text: 'Creating & Managing Tasks', link: '/Documentation/HowToGuides/working-with-tasks' },
+                                    { text: 'Creating & Managing Deployments', link: '/Documentation/HowToGuides/creating-managing-deployments' },
+                                    { text: 'Creating & Managing Schedules', link: '/Documentation/HowToGuides/schedules' },
+                                    { text: 'Creating & Managing Users', link: '/Documentation/HowToGuides/add-users' },
+                                    { text: 'Managing SMTP', link: '/Documentation/HowToGuides/smtp' },
+                                    { text: 'Managing Branding', link: '/Documentation/HowToGuides/branding' },
+                                    { text: 'Agent Installation', link: '/Documentation/HowToGuides/agent-installation' },
+                                    { text: 'Computer Onboarding', link: '/Documentation/HowToGuides/onboarding' },
+                                    { text: 'Creating Maintenance Sessions', link: '/Documentation/Administration/maintenance-updates' },
+                                ]
+                            },
+                            {
+                                text: 'Advanced Instance Management',
+                                collapsed: true,
+                                items: [
+                                    { text: 'Migrating ImmyBot Instances', link: '/Documentation/HowToGuides/InstanceChanges/migrating-immybot-instances' },
+                                    { text: 'Moving the original MSP Tenant to another MSP Tenant', link: '/Documentation/HowToGuides/InstanceChanges/move-the-original-msp-tenant-to-a-new-tenant' },
+                                ]
+                            },
 
                         ]
                     },
+
                     {
-                        text: 'Advanced Instance Management',
+                        text: 'Computer Configuration, and Management',
                         collapsed: true,
                         items: [
-                            { text: 'Migrating ImmyBot Instances', link: '/Documentation/HowToGuides/InstanceChanges/migrating-immybot-instances' },
-                            { text: 'Moving the original MSP Tenant to another MSP Tenant', link: '/Documentation/HowToGuides/InstanceChanges/move-the-original-msp-tenant-to-a-new-tenant' },
-
+                            { text: 'Renaming Computers and adding them to an IDP - Configure Directory', link: '/Documentation/HowToGuides/Tasks/ConfigureDirectory' },
+                            { text: 'Directory Migration', link: '/Documentation/HowToGuides/Tasks/DirectoryMigration' },
+                            { text: 'Upgrading Windows 10 to Windows 11', link: '/Documentation/HowToGuides/upgrading-windows-10-to-windows-11' },
                         ]
                     },
-                       { text: 'Upgrading Windows 10 to Windows 11', link: '/Documentation/HowToGuides/upgrading-windows-10-to-windows-11' },
                 ],
             },
             {
@@ -110,7 +128,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         collapsed: true,
                         items: [
                             { text: 'ConnectWise Automate', link: '/Documentation/Integrations/connectwise-automate-integration-setup' },
-                            { text: 'ConnectWise Control', link: '/Documentation/Integrations/connectwise-control-integration-setup' },
+                            { text: 'ConnectWise ScreenConnect', link: '/Documentation/Integrations/connectwise-control-integration-setup' },
                             { text: 'N-Central', link: '/Documentation/Integrations/ncentral-integration-setup' },
                             { text: 'NinjaRMM', link: '/Documentation/Integrations/ninjarmm-integration-setup' },
                             { text: 'Datto RMM', link: '/Documentation/Integrations/dattormm' },
@@ -175,6 +193,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Common Issues', link: '/Documentation/Troubleshooting/common-issues' },
                     { text: 'Security Software Exclusions', link: '/Documentation/Troubleshooting/security-software-exclusions' },
                     { text: 'Agent Troubleshooting', link: '/Documentation/Troubleshooting/troubleshooting' },
+                    { text: 'App Registration Secret Expired', link: '/Documentation/Troubleshooting/AppRegistrationSecretExpired' },
                 ],
             },
             {

@@ -37,16 +37,16 @@ Professional Services Automation (PSA) integrations connect ImmyBot to your busi
 
 ImmyBot currently supports the following integrations:
 
-| Integration          | Type     | Key Features                         |
-| -------------------- | -------- | ------------------------------------ |
-| ConnectWise Automate | RMM      | Computer discovery, remote control   |
-| ConnectWise Control  | RMM      | Remote control, session recording    |
-| N-Central            | RMM      | Computer discovery, customer mapping |
-| NinjaRMM             | RMM      | Computer discovery, customer mapping |
-| ConnectSecure        | RMM      | Remote control, session recording    |
-| ConnectWise Manage   | PSA      | Customer sync, ticket integration    |
-| HaloPSA              | PSA      | Customer sync, ticket integration    |
-| Azure                | Identity | User/group import, authentication    |
+| Integration               | Type     | Key Features                         |
+| ------------------------- | -------- | ------------------------------------ |
+| ConnectWise Automate      | RMM      | Computer discovery, remote control   |
+| ConnectWise ScreenConnect | RMM      | Remote control, session recording    |
+| N-Central                 | RMM      | Computer discovery, customer mapping |
+| NinjaRMM                  | RMM      | Computer discovery, customer mapping |
+| ConnectSecure             | RMM      | Remote control, session recording    |
+| ConnectWise Manage        | PSA      | Customer sync, ticket integration    |
+| HaloPSA                   | PSA      | Customer sync, ticket integration    |
+| Azure                     | Identity | User/group import, authentication    |
 
 ## Choosing the Right Integrations
 
@@ -105,7 +105,7 @@ Most integrations follow a similar setup process:
 Ready to set up your integrations? Choose from the following guides:
 
 - [ConnectWise Automate Setup](/Documentation/Integrations/connectwise-automate-integration-setup.md)
-- [ConnectWise Control Setup](/Documentation/Integrations/connectwise-control-integration-setup.md)
+- [ConnectWise ScreenConnect Setup](/Documentation/Integrations/connectwise-control-integration-setup.md)
 - [ConnectWise Manage Setup](/Documentation/Integrations/connectwise-manage-integration-setup.md)
 - [N-Central Setup](/Documentation/Integrations/ncentral-integration-setup.md)
 - [NinjaRMM Setup](/Documentation/Integrations/ninjarmm-integration-setup.md)

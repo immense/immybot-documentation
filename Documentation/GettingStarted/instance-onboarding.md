@@ -55,7 +55,7 @@ Supported RMM Integrations
 
 [ConnectWise Automate](/Documentation/Integrations/connectwise-automate-integration-setup)
 
-[ConnectWise Control](/Documentation/Integrations/connectwise-control-integration-setup)
+[ConnectWise ScreenConnect](/Documentation/Integrations/connectwise-control-integration-setup)
 
 [N-Central](/Documentation/Integrations/ncentral-integration-setup)
 
