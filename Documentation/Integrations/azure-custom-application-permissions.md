@@ -44,8 +44,9 @@ See the <font style="font-size:20px">📷</font>s below for the minimum permissi
 5. Add the following permissions
    1. DelegatedAdminRelationship.Read.All
    2. DeviceManagementManagedDevices.ReadWrite.All
-   3. Directory.Read.All
-   4. User.Read
+   3. DeviceManagementScripts.ReadWrite.All
+   4. Directory.Read.All
+   5. User.Read
    ::: details <font style="font-size:20px">📷</font>
    ![alt text](GranularPerms.png)
    :::
