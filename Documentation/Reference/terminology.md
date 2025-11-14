@@ -226,9 +226,9 @@ To ImmyBot, an RMM is a system that provides a list of computers, and a mechanis
 
 ![](/.vitepress/images/2021-02-23-06-18-23.png)
 
-To avoid having to deploy the ImmyAgent to existing machines, ImmyBot optionally integrates with RMMs like ConnectWise Automate and ConnectWise Control and uses their agents instead. These systems are not as performant as the ImmyAgent, but can supplement ImmyBot functionality.
+To avoid having to deploy the ImmyAgent to existing machines, ImmyBot optionally integrates with RMMs like ConnectWise Automate and ConnectWise ScreenConnect and uses their agents instead. These systems are not as performant as the ImmyAgent, but can supplement ImmyBot functionality.
 
-For example, if you add an RMM Link for ConnectWise Control, you can open a remote session to the computer directly within ImmyBot:
+For example, if you add an RMM Link for ConnectWise ScreenConnect, you can open a remote session to the computer directly within ImmyBot:
 
 ![](/.vitepress/images/2021-02-23-06-34-22.png)
 
@@ -238,7 +238,7 @@ You can even add multiple RMMs of the same type, which is often useful in merger
 
 ## Identification
 
-Because the same computer often exists in multiple RMMs (Like how CW Automate typically installs CW Control Automatically), ImmyBot prevents duplicates by identifying the computer by a unique id. We DO NOT use MAC Address! This unique id persists even if you wipe and reload the machine.
+Because the same computer often exists in multiple RMMs (Like how CW Automate typically installs ConnectWise ScreenConnect Automatically), ImmyBot prevents duplicates by identifying the computer by a unique id. We DO NOT use MAC Address! This unique id persists even if you wipe and reload the machine.
 
 When a new machine is detected, it first goes to New Computers->Actively Identifying
 ![](/.vitepress/images/2021-02-23-06-44-25.png)

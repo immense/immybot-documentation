@@ -352,7 +352,7 @@ Yes, we welcome feature requests and contributions from our community! Please su
 
 #### Domain Join didn’t work, what gives?
 ::: details It's likely that the DC is missing entirely, or ImmyBot hasn't identified the agent as a DC
-Make sure there is a Domain Controller in ImmyBot for the machine. If you are using a supported RMM like CW Automate/Control setup the integration so the Domain Controller is imported automatically. Otherwise, you’ll need to install the ImmyAgent on a domain controller for that customer.
+Make sure there is a Domain Controller in ImmyBot for the machine. If you are using a supported RMM like ConnectWise Automate/Control setup the integration so the Domain Controller is imported automatically. Otherwise, you’ll need to install the ImmyAgent on a domain controller for that customer.
 
 If the Domain Controller doesn’t have the red “Domain Controller” designation, press “Run Inventory”. This may happen if it was recently added to ImmyBot.
 

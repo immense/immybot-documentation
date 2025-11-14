@@ -17,7 +17,7 @@ An active ImmyBot subscription or [trial](https://www.immy.bot/pricing/)
 
 Permissions to configure Deployments
 
-You will need to set up a DEM user for each of your tenants if you're planning on joining to AzureAD
+You will need to set up a DEM user for each of your tenants if you're planning on joining to AzureAD.
 
 If you need to add the computers to AzureAD, you need to set up automatic [Intune Enrollment](https://learn.microsoft.com/en-us/intune/intune-service/enrollment/quickstart-setup-auto-enrollment)
 

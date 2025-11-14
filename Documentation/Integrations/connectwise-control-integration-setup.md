@@ -1,13 +1,13 @@
-# ConnectWise Control
+# ConnectWise ScreenConnect
 
 Setting up this integration allows you to
-1. Import customers from Control
-2. Import computers from Control
-3. Manage all computers in Control without deploying the ImmyBot Agent
-4. Remote into computers from the ImmyBot interface using Control (Note: We default to requiring customer consent, you can disable this under Settings->Preferences)
-5. Fix the Automate agent using the Control agent (by creating a cross-tenant deployment for the Automate Agent and creating a schedule for your customers)
+1. Import customers from ScreenConnect
+2. Import computers from ScreenConnect
+3. Manage all computers in ScreenConnect without deploying the ImmyBot Agent
+4. Remote into computers from the ImmyBot interface using ScreenConnect (Note: We default to requiring customer consent, you can disable this under Settings->Preferences)
+5. Fix the Automate agent using the ScreenConnect agent (by creating a cross-tenant deployment for the Automate Agent and creating a schedule for your customers)
 
-## Install ImmyBot Extension for Control
+## Install ImmyBot Extension for ScreenConnect
 
 ![](/.vitepress/images/2021-03-23-19-12-34.png)
 
@@ -15,7 +15,7 @@ Setting up this integration allows you to
 
 ![](/.vitepress/images/2021-03-23-19-17-38.png)
 
-## Create RMMLink for Control
+## Create RMMLink for ScreenConnect
 
 ![image](https://github.com/immense/immybot-documentation/assets/95599350/157501cd-b0df-48fa-9a31-d6445777a04b)
 ![image](https://github.com/immense/immybot-documentation/assets/95599350/7b8b278e-ce38-48bc-a12f-509542556f43)
@@ -24,10 +24,10 @@ Setting up this integration allows you to
 ## FAQ
 What custom property do I use?
 
-By default most ConnectWise Control instances you would select 1 for the ClientName CustomProperty field, this is the "Company" property in Control.
-Secondary group is any number between 1-8 that you would like to group from based on Control groups.
-You can find more infomation about Control custom propertys here;
-https://docs.connectwise.com/ConnectWise_Control_Documentation/Get_started/Administration_page/Appearance_page/Add_custom_properties_to_sessions
+By default most ConnectWise ScreenConnect instances you would select 1 for the ClientName CustomProperty field, this is the "Company" property in ScreenConnect.
+Secondary group is any number between 1-8 that you would like to group from based on ScreenConnect groups.
+You can find more infomation about ScreenConnect custom propertys here;
+https://docs.connectwise.com/ConnectWise_ScreenConnect_Documentation/Get_started/Administration_page/Appearance_page/Add_custom_properties_to_sessions
 
 ## Import your customers
 
@@ -43,9 +43,9 @@ When you map a customer from an RMM, the computers will undergo Identification
 
 ## Troubleshooting
 
-ConnectWise Control uses Sqlite under the hood, making it vulnerable to performance issues unless aggressive Database Maintenance Tasks are enabled.
+ConnectWise ScreenConnect uses Sqlite under the hood, making it vulnerable to performance issues unless aggressive Database Maintenance Tasks are enabled.
 
-While ImmyBot only uses Control (and other integrations) to spawn an out-of-band connection, over the course of time the database can grow as ImmyBot establishes this connection on each machine once every 24 hours to collect inventory.
+While ImmyBot only uses ScreenConnect (and other integrations) to spawn an out-of-band connection, over the course of time the database can grow as ImmyBot establishes this connection on each machine once every 24 hours to collect inventory.
 
 Commands go into the SessionEvent table with EventType = 44
 Responses go into SessionConnectionEvent with EventType = 70
@@ -62,14 +62,14 @@ Access Sessions: Purge records of session connections older than 7 days for Host
 
 ### Manual Cleanup
 
-If you host Control yourself, you can restore performance by doing the following
+If you host ScreenConnect yourself, you can restore performance by doing the following
 
 Download and Install [DB Browser for SQLite](https://sqlitebrowser.org/) on your server
 Open `C:\Program Files (x86)\ScreenConnect\App_Data\session.db`
 Navigate to SQL Editor
 Paste in the following SQL
 
-#### Soft delete all commands and responses (This usually solves the problem without kicking everyone out of Control)
+#### Soft delete all commands and responses (This usually solves the problem without kicking everyone out of ScreenConnect)
 ```sql
 update SessionEvent set EventAttributes = 1 where EventType = 44;
 update SessionConnectionEvent set EventAttributes = 1 where EventType = 70;
