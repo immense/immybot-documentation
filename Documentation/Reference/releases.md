@@ -4,6 +4,38 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
+## 0.74.0
+
+Released 11/17/2025
+
+### Bug Fixes
+
+- Fixed an issue with searching by tags on the tenant list page would not work as expected
+- Fixed an issue where some onboarding only deployments would not execute the task in the onboarding stage
+- Fixed an issue where the "Reload integration types" button was using the wrong permission in the frontend
+- Fixed missing $PrimaryPersonEmail automatic variable in computer sessions. Added fallback logic to fetch the Person directly by ID when the navigation property is unavailable.
+- Fixes issues where follow-up and completion emails weren't being sent correctly due to improper pending reboot detection logic.
+- Fixed ANSI escape sequence rendering in session logs. PowerShell color codes now display properly instead of showing as raw escape sequences like [32m. Added this library https://github.com/drudru/ansi_up
+- Fixed an issue where some chocolatey deployments would fail due to the chocolately package missing a name
+- Fixed a bug where password input fields on integration configuration forms didn't update correctly after submitting the form
+- Fixed navbar highlighting on certain  pages
+- Fixed Force reboot preference not rebooting when no pending reboot is detected. Force now reboots regardless of pending reboot status while still respecting business hours suppression.
+- Filter scripts were executing with different scopes during deployment preview vs session resolution, causing deployments to show in "Affected Computers" but not actually apply during sessions. Fixed by removing the single-computer limitation and adding proper caching so filter scripts execute consistently with their full intended scope everywhere.
+- Fixed software marked as "Reboot Required" being attempted when reboots are suppressed or declined.
+- Fixed an issue with deploying computers on the deployment details page that would cause an excessive amount of database queries.
+
+### Improvements
+
+- Session list now shows the software or task name for single-item sessions in a new "Name" column. The column is searchable and sortable, making it easy to find specific deployments. For software with configuration tasks, only the software name is shown (not the config task).
+- Added confirmation modal when deleting a Tag from a Computer
+- Improved logic inside the `Wait-ImmyComputer` cmdlet
+- Improved styling of select boxes
+- Improved caching of dynamic version scripts
+- Added a collapsible banner on the deployment details page that shows which tenants are excluded from cross-tenant deployments based on the application preference.
+- Updated the main font to "Outfit"
+ - Reduced brightness of alerts
+- Added audit trail support for built-in integrations and added masking of sensitive data in audit logs.
+
 ## 0.73.1
 
 Released 10/30/2025
