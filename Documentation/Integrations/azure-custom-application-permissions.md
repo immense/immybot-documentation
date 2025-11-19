@@ -77,4 +77,7 @@ See the <font style="font-size:20px">📷</font>s below for the minimum permissi
 
 :::info
 Copy the `Application (client) ID` and `Client Secret Value` into the form in ImmyBot.
+The form in ImmyBot is located under Show More -> Azure and will be shown when you select Custom for the permission level
+<img width="681" height="211" alt="image" src="https://github.com/user-attachments/assets/f2078dfc-172e-4482-902f-ca13b36b837b" />
+
 :::
