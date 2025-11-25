@@ -87,6 +87,14 @@ Define which computers should receive this deployment:
 2. Make your changes directly in the deployment details page
 3. Click **Update** to save your changes
 
+### Exclusion Deployments
+
+1. Navigate to the deployment you want to create exclusions for
+2. Click the Duplicate button
+3. Change the Sofware Should Be or Task Mode to Ignore
+4. Set the Target Scope, Type, and Filter to the machine(s) to be excluded.  The more specific Deployment will be used in a session.
+5. Click Create/Update to finish creating the exclusion deploment.
+
 ### Disabling Deployments
 
 To temporarily disable a deployment without deleting it:
