@@ -4,6 +4,19 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
+## 0.74.1
+
+Released 11/18/2025
+
+### Bug Fixes
+
+- Fixed an issue with the "Copy as Script Param Block" button throwing "function does not exist" error
+- Fixed an issue with media parameter values failing to resolve to a file path
+
+The following fix was introduced in 0.74.0 and has been reverted due to breaking changes in filter scripts. Another fix will be created that should maintain backwards compatibility.
+
+- Filter scripts were executing with different scopes during deployment preview vs session resolution, causing deployments to show in "Affected Computers" but not actually apply during sessions. Fixed by removing the single-computer limitation and adding proper caching so filter scripts execute consistently with their full intended scope everywhere.
+
 ## 0.74.0
 
 Released 11/17/2025
