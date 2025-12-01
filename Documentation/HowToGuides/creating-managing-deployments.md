@@ -5,12 +5,12 @@ This guide walks you through the process of creating and managing deployments in
 ## Understanding Deployments
 
 ::: info Saving your deployments
-Do not be afraid to save your deployments. They do not apply automatically. They only apply when you run a [maintenace session](/Documentation/CoreFeatures/maintenance-sessions).
+Do not be afraid to save your deployments. They do not apply automatically. They only apply when you run a [maintenance session](/Documentation/CoreFeatures/maintenance-sessions).
 :::
 
 Deployments are a core building block of ImmyBot. They define what should be installed or configured on which computers. A deployment consists of:
 
-1. **Maintenance Itme**: The software or task to deploy
+1. **Maintenance Item**: The software or task to deploy
 2. **Targets**: The computers or users that should receive the deployment
 3. **Enforcement Type**: Is this a required deployment, adhoc (one off) deployment or an onboarding only task
 4. **Configuration Settings**: Additional configuration options
@@ -50,7 +50,7 @@ Define which computers should receive this deployment:
 
 1. Select from the following
    1. Cross Tenant
-      - Will apply to all computers in all tenants in the instnace, except where a more specific deployment wins.
+      - Will apply to all computers in all tenants in the instance, except where a more specific deployment wins.
    2. Single Tenant
       - Will apply to all computers in a single tenant, except where a more specific deployment wins.
    3. Individual
