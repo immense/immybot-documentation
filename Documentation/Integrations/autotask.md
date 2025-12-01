@@ -49,7 +49,7 @@ In October 2025, ImmyBot completed the approval process for an official integrat
 ::: warning Migration Deadline
 This migration needs to be completed by November 30, 2025. On December 1, 2025, ImmyBot will update the Autotask integration to hard code the approved code and your integration will break if it has not been migrated per the instructions below.
 
-Update: The integration has been updated. If you're integration is broken and you have not followed the steps to migrate, please do so.
+Update: The integration has been updated. If your integration is broken and you have not followed the steps to migrate, please do so.
 :::
 
 1. Follow the above steps to create a new API user. You cannot reuse your old API User
