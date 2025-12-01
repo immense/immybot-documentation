@@ -55,9 +55,8 @@ Update: The integration has been updated. If your integration is broken and you 
 1. Follow the above steps to create a new API user. You cannot reuse your old API User
 2. Navigate to your integration in your ImmyBot instance
    1. `Show More` -> `Integrations` -> `Edit your integration`
-3. Remove your Integration Code by clicking "Remove Specified Value"
-4. Update your API Username and Password
-5. Click update and toggle the enabled switch to force the integration to refresh and start using your new API user.
+3. Update your API Username and Password
+4. Click update and toggle the enabled switch to force the integration to refresh and start using your new API user.
 
 
 <br><br><br>
