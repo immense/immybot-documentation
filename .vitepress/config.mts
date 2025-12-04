@@ -200,7 +200,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 collapsed: true,
                 items: [
                     { text: 'Terminology', link: '/Documentation/Reference/terminology' },
-                    { text: 'API Documentation', link: '/Documentation/Reference/api-documentation' },
+                    { text: 'API Documentation', collapsed: false,
+                        items: [
+                            { text: 'Overview', link: '/Documentation/Reference/api-documentation' },
+                            { text: 'API Reference Guide', link: '/Documentation/api-reference-guide' },
+                        ]
+
+                    },
                     { text: 'Release Notes',  collapsed: true,
                         items: [
                             { text: 'Current Releases', link: '/Documentation/Reference/releases' },
