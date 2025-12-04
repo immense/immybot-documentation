@@ -1,0 +1,43 @@
+
+---
+layout: false
+---
+
+<!doctype html>
+<html>
+
+<head>
+  <title>ImmyBot API</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta property="og:title" content="api.immy.bot" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="API Reference Guide" />
+  <meta property="og:image" content="./image.png" />
+  <link rel="icon" href="./favicon.ico" />
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- Load the Script -->
+  <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"></script>
+  <!-- Initialize the Scalar API Reference -->
+  <script>
+    Scalar.createApiReference('#app', {
+      sources: [
+        {
+          title: "0.74.1-build.44168",
+          url: './specs/0.74.1-build.44168.json',
+          default: true,
+        },
+        {
+          title: "RBAC",
+          url: './specs/RBAC.json'
+        },
+      ]
+    })
+  </script>
+</body>
+
+</html>
