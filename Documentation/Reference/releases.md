@@ -4,6 +4,62 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
+## 0.75.0
+
+Released 12/15/2025
+
+### SMTP Authentication Required
+
+We now force all SMTP to use authentication for security.  Visit the [docs](https://docs.immy.bot/Documentation/HowToGuides/smtp.html) for more information.
+
+### Filter Script Mode
+
+Filter scripts tend to be CPU and Memory intensive and also slow to execute.
+
+We added a filter script mode that allows you to opt into a more performant way to use filter scripts. The mode has two options:
+
+**Legacy**
+ - This mode is only available for backwards compatibility for existing filter scripts.
+  - Always use Optimized mode for newer scripts.
+  - Legacy mode expects the return type of the script to be `PSComputer[] `.
+  - This mode cannot take advantage of caching without breaking backwards compatibility.
+
+**Optimized**
+  - This mode uses caching, has improved performance, and expects a return type of `int[]` (*array of computer ids*).
+  - Works well with the new `Get-ImmyComputerIds` cmdlet
+
+A new filter script cmdlet has been added called `Get-ImmyComputerIds`:
+
+```
+Get-ImmyComputerIds [-TargetGroupFilter <TargetGroupFilter>] [-OnboardingOnly] [-Tag <string>] [-SoftwareFilter <string>] [-SoftwareSearchMode <SoftwareSearchMode>] [<CommonParameters>]
+```
+
+A common use case for filter scripts is to return computers that have a particular software installed.
+
+You can accomplish this with:
+```
+Get-ImmyComputerIds -SoftwaerFilter "Foxit" -SoftwareSearchMode Contains
+```
+
+This cmdlet will be expanded to cover more common scenarios in the future, such as filtering by manufacturer or model.
+
+### Bug Fixes
+
+- Removed background oauth updates from the audit log because it was causing an explosion of audits
+- Fixed the type conversion error in Invoke-ImmyCommand where it was passing a string (ComputerName) instead of the Computer object to ErrorRecord.
+- Fixed an issue with quick deploy not working when deploying software
+- Fixed another case where session logs were not correctly rendering the ANSI codes
+- Fixed an issue where session follow-up emails were not always being sent
+
+### Other Improvements
+
+- Added better caching around agent connection events to reduce CPU and memory bursts on startup or when a bunch of agents connect at the same time
+- Added download metadata caching (ETag and ContentLength) for installers using Windows Alternate Data Streams (ADS). After downloading, we save this metadata to the file's ImmyBot ADS stream. On subsequent runs, if the file exists, we verify against the cached ETag or compare the file size instead of re-downloading. This skips redundant downloads for large installers that haven't changed.
+-  Improved handling of 403 and 404 requests
+- Added CPU info to the computer details page overview tab
+- Enabled Get-Help in metascripts
+
+
 ## 0.74.1
 
 Released 11/18/2025
