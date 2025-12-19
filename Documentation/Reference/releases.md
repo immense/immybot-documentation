@@ -4,6 +4,14 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
+## 0.75.1
+
+Released 12/19/2025
+
+### Bug Fixes
+
+- Fixed an issue where users logging into an instance could be landed on an error page instead of the landing page where they request access.
+
 ## 0.75.0
 
 Released 12/15/2025
