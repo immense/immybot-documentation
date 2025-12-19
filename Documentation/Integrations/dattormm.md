@@ -23,11 +23,25 @@ There is a small delay after adding an agent to Datto RMM where Quick Jobs will 
 :::
 
 ## Process
+### Create a Datto RMM Security Group (Optional)
+1. Navigate to `Setup` -> `Security Levels`
+2. Click `Create Security Level`
+3. Name it something obvious like ImmyBot API
+   1. Add a description if you would like
+4. Expand `Permissions`
+   1. Enable `Sites`
+   2. Set `Sites`, `Devices`, and `Manage` to the Manage radial button
+   3. Set the rest of the options to View
+5. Expand `Components`
+   1. Set all of these to View
+6. Expand `Remote Control Tools`
+   1. Disable Toggle All
+
 ### Create the Datto RMM API User
-1. Navigate to `Setup` > `Global Settings` > `Access Control`.
+1. Navigate to `Setup` -> `Global Settings` -> `Access Control`.
 2. Turn on the Enable API Access toggle.
    ![alt text](DattoRMM1.png)
-4. Navigate to `Setup` > `Users`, and click the username that you would like to enable API access for.
+4. Navigate to `Setup` -> `Users`, and click the username that you would like to enable API access for.
 ![alt text](DattoRMM2.png)
 
 5. Click Generate API Keys to generate an API Key and an API Secret Key for this user.
@@ -36,6 +50,7 @@ There is a small delay after adding an agent to Datto RMM where Quick Jobs will 
 :::
 
 6. The API Key and the API Secret Key will be displayed. Make a note of these and the API URL somewhere safe.
+7. Change the Security Group to the one you created. If you did not create one, set it to Administrator
 
 ::: danger  Important
 The API Secret Key will be hidden for security reasons after navigating away from this page. It will not be possible to retrieve it again. However, you can regenerate API keys at any time by returning to the page and clicking Generate API Keys. This will invalidate any keys previously generated. Similarly, clicking Delete API Keys will revoke access altogether. Regenerating and deleting API keys is irreversible, and you must confirm the action by clicking `Confirm` in the confirmation dialog box.
@@ -64,7 +79,7 @@ You need to add the Ad Hoc PowerShell component to your instance if you plan on 
 
 ### Set up the Deployment
  1. Click on `Deployments` and then Click on `New`
- 2. Select `Datto RMM (Integration) `from the Software / Task drop down
+ 2. Select `Datto RMM - Integration `from the Software / Task drop down
  3. Select the radial button labeled `Installed` under the `Software should be`
  4. Select the `Latest` radial button under `Desired Version`
  5. Select the radial button labeled `Required` under `Target Enforcement`
@@ -83,6 +98,6 @@ Now the next time a session is run against a targeted computer, Datto RMM will g
 <br>
 >Date Published: 09/19/2025
 ><br>
->Date Revised: 11/2025
+>Date Revised: 12/19/2025
 ><br>
 >Version Number: 1.0
