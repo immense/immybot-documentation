@@ -80,7 +80,7 @@ Add the required parameters and authenticate the OAuthInfo parameter with a Ninj
 
 - Name: NinjaRMM
 - ClientID: Provided to you by NinjaRMM
-  ::: note
+  ::: info
   Special characters are not supported. If your Ninja instance give you a client ID with a special character you will need to recreate it.
   :::
 - ClientSecret: Provided to you by NinjaRMM
