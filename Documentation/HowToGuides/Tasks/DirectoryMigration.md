@@ -10,8 +10,8 @@ An active ImmyBot subscription or [trial](https://www.immy.bot/pricing/)
 
 - Admin access to your Microsoft Tenant.
 - Computers that are migrating cannot be Windows Home.
-- [Custom Azure Permissions](/Documentation/Integrations/azure-custom-application-permissions) are set up and established for the tenant.
-- If you're using Enhanced AzureAD Join, you need to set up automatic [Intune Enrollment](https://learn.microsoft.com/en-us/intune/intune-service/enrollment/quickstart-setup-auto-enrollment)
+- Tenant is linked to Azure and consented to with at least the default permissions.
+- You need to set up automatic [Intune Enrollment](https://learn.microsoft.com/en-us/intune/intune-service/enrollment/quickstart-setup-auto-enrollment)
 - Do not have folder redirection set up to a server via GPO.
 - Ensure that all available updates are applied to the computer(s).
 
@@ -59,8 +59,10 @@ Windows DPAPI (Data Protection API) user-based encryption binds encrypted data t
 | Source ↓ Destination -> | Workgroup   | AzureAD     | Active Directory |
 | ----------------------- | ----------- | ----------- | ---------------- |
 | Workgroup               | Unsupported | Supported   | Supported        |
-| AzureAD                 | Unsupported | Unsupported | Supported        |
+| AzureAD                 | Unsupported | Supported   | Supported        |
 | Active Directory        | Unsupported | Supported   | Supported        |
+
+When migrating AzureAD to AzureAD, be sure the computer is in the ImmyBot Tenant mapped to the destination Azure tenant
 
 ## Troubleshooting
 

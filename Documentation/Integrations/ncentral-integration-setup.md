@@ -79,9 +79,9 @@ Lastly, flip the `Enable Integration` switch.
 
 ## Import your customers
 
-1. From the CW Automate Integration screen click on Clients
+1. From the N-Central Integration screen click on Clients
 2. Link your MSP tenant manually first
-3. You can bulk Create tenants or manually link tenants between ImmyBot and CW Automate
+3. You can bulk Create tenants or manually link tenants between ImmyBot and N-Central
    1. Alternatively, ImmyBot will suggest tenants that it thinks are the correct ones to link
 
 Alternatively, you can create/map only certain customers.

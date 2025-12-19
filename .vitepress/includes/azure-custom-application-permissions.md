@@ -38,15 +38,15 @@ See the <font style="font-size:20px">📷</font>s below for the minimum permissi
    ![alt text](MSGraph-ApplicationPerms.png)
    :::
 5. Add the following permissions
-   | Permission                                   | Required | Notes                                                 |
-   | -------------------------------------------- | -------- | ----------------------------------------------------- |
-   | DelegatedAdminRelationship.Read.All          | Yes      |                                                       |
-   | Directory.Read.All                           | Yes      |                                                       |
-   | User.Read                                    | Yes      |                                                       |
-   | DeviceManagementScripts.ReadWrite.All        | No       | Needed for using the Deploy Immy Agent to Intune task |
-   | DeviceManagementConfiguration.ReadWrite.All  | No       | Needed for using the Enroll in Autopilot task         |
-   | DeviceManagementManagedDevices.ReadWrite.All | No       | Needed for using Sync Primary User With Intune task   |
-   | Application.ReadWrite.All                    | No       | Needed for using Add Azure Sync Fabric to Tenant task |
+   | Permission                                   | Permission Type | Required | Notes                                                 |
+   | -------------------------------------------- | --------------- | -------- | ----------------------------------------------------- |
+   | DelegatedAdminRelationship.Read.All          | Application     | Yes      |                                                       |
+   | Directory.Read.All                           | Application     | Yes      |                                                       |
+   | User.Read                                    | Delegated       | Yes      |                                                       |
+   | DeviceManagementScripts.ReadWrite.All        | Application     | No       | Needed for using the Deploy Immy Agent to Intune task |
+   | DeviceManagementConfiguration.ReadWrite.All  | Application     | No       | Needed for using the Enroll in Autopilot task         |
+   | DeviceManagementManagedDevices.ReadWrite.All | Application     | No       | Needed for using Sync Primary User With Intune task   |
+   | Application.ReadWrite.All                    | Application     | No       | Needed for using Add Azure Sync Fabric to Tenant task |
 
 
    ::: details <font style="font-size:20px">📷</font>

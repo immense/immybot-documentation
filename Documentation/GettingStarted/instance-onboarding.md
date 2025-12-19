@@ -96,7 +96,7 @@ When you first log into your ImmyBot instance, you will be given a list of recom
 ## Azure / Active Directory Setup
 
 ### Azure AD Join Setup
-In each Azure tenant you manage (read: every Microsoft 365 account you intend on using Join AzureAD and / or Join Intune tasks for) you will need to create a DEM account. This account does not need to be and should not be a Global Administrator. Document the password in your password manage for each client.
+In each Azure tenant you manage (read: every Microsoft 365 account you intend on using Join AzureAD and / or Join Intune tasks for) you will need to create a DEM account. This account does not need to be and should not be a Global Administrator. Document the password in your password manager for each client.
 
 Once the user is created, add the Cloud Device Manager Role and assign an Intune P1 license if you intend on utilizing Intune for your clients.
 
