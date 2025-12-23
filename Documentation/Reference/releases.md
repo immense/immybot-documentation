@@ -4,6 +4,14 @@
 Please see the [FAQ section for more details](https://docs.immy.bot/FAQ.html#what-windows-versions-does-immyagent-support)
 :::
 
+## 0.75.2
+
+Released 12/23/2025
+
+### Bug Fixes
+
+- Fixed an issue where the "Request Access" button on the landing page was still disabled even after enabling Access Requests under preferences
+
 ## 0.75.1
 
 Released 12/19/2025
