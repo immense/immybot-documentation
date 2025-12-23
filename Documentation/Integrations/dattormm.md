@@ -30,8 +30,10 @@ There is a small delay after adding an agent to Datto RMM where Quick Jobs will 
    1. Add a description if you would like
 4. Expand `Permissions`
    1. Enable `Sites`
-   2. Set `Sites`, `Devices`, and `Manage` to the Manage radial button
-   3. Set the rest of the options to View
+      1. Set `Sites`, `Devices`, and `Manage` to the Manage radial button
+      2. Set the rest of the options to View
+   2. Enable `Jobs`
+      1. Set `Active Jobs` to Manage
 5. Expand `Components`
    1. Set all of these to View
 6. Expand `Remote Control Tools`
