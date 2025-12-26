@@ -67,6 +67,7 @@ You need to add the Ad Hoc PowerShell component to your instance if you plan on 
 1. Navigate to `Automation` -> `ComStore`
 2. Search for `Run Ad Hoc Command (PowerShell 2-5) [WIN]`
 3. Click Add on the right hand side of the item
+4. Click into the component and copy the UID
 
 ### Set up the integration
 
@@ -74,7 +75,8 @@ You need to add the Ad Hoc PowerShell component to your instance if you plan on 
 2. Click on `Add Integration`
 3. Select `Datto RMM`
 4. Change the URL to your instance API URL.
-5. Update the APIKey and APISecret
+5. Update the APIKey, APISecret, and Component UID.
+   1. ![alt text](componentUID.png)
 6. Click Update
 7. Enable the integration
 8. Link your clients in the client tab
