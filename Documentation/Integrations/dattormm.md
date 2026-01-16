@@ -19,7 +19,9 @@ This document will detail how to deploy Datto RMM with ImmyBot.
 :::info About Running scripts through this integration
 We utilize Datto RMM Quick Jobs to run scripts through this provider. This can cause an issue due to the ephemeral agent timing out before the connection can be made.
 
-There is a small delay after adding an agent to Datto RMM where Quick Jobs will queue for some time while Datto RMM gets computer information from that agent. We recommend waiting at least 10 minutes before attempting to run ephemeral agents through this integration
+There is a small delay after adding an agent to Datto RMM where Quick Jobs will queue for some time while Datto RMM gets computer information from that agent. We recommend waiting at least 10 minutes before attempting to run ephemeral agents through this integration.
+
+Due to this delay from Datto's QuickJobs, we don't recommend having the DattoRMM integration as the only agent to run scripts.
 :::
 
 ## Process
