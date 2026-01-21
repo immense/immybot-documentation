@@ -2,6 +2,7 @@
 
 Click on any of the links below to see release notes from that year
 
+## [2025](/Documentation/Reference/releases-2025.md)
 ## [2024](/Documentation/Reference/releases-2024.md)
 ## [2023](/Documentation/Reference/releases-2023.md)
 ## [2022](/Documentation/Reference/releases-2022.md)

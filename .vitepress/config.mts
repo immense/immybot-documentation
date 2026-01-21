@@ -208,6 +208,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             { text: 'Archived Releases', link: '/Documentation/Reference/releases-archived',
                                 collapsed: true,
                                 items: [
+                                    { text: '2025', link: '/Documentation/Reference/releases-2025' },
                                     { text: '2024', link: '/Documentation/Reference/releases-2024' },
                                     { text: '2023', link: '/Documentation/Reference/releases-2023',  },
                                     { text: '2022', link: '/Documentation/Reference/releases-2022' },

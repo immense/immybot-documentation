@@ -185,5 +185,5 @@ This ETL file can be reviewed in Windows Performance Analyzer from the Windows P
 After resolving your issue, consider reviewing these related resources:
 
 - [Common Issues](/Documentation/Troubleshooting/common-issues.md) - Solutions to frequently encountered problems
-- [Security Software Configuration](/Documentation/Troubleshooting/security-software.md) - Configure security software to work with ImmyBot
+- [Security Software Configuration](/Documentation/Troubleshooting/security-software-exclusions.md) - Configure security software to work with ImmyBot
 - [FAQ](/Documentation/FAQ.md) - Answers to common questions about ImmyBot
