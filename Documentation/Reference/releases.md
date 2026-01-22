@@ -1,3 +1,12 @@
+## 0.76.1
+
+Released 01/22/2025
+
+### Bug Fixes
+
+- Fixed an issue with some tenant admins unable to load the tag list page
+- Fixed an issue where the preferences page would continually reload when toggling on PII mode
+
 ## 0.76.0
 
 Released 01/19/2025
