@@ -32,6 +32,22 @@ There will be a link to the localhost URL in your terminal, by default it is: ht
 
 Save pages as you edit them, they will be automatically updated in your browser. Any changes made to /.vitepress/config.mts will cause the instance to restart locally.
 
+## Wistia Embeds
+
+Use the `WistiaEmbed` component to add Wistia videos in Markdown without page-level scripts.
+
+Example:
+
+```
+<WistiaEmbed media-id="j4jjmljlxw" />
+```
+
+Optional props:
+- `aspect` (number or string, default `16/9`)
+- `swatch` (string URL override for the preview image)
+
+You can place multiple embeds on the same page by repeating the component with different `media-id` values.
+
 ## Project Structure
 
 ```
@@ -76,5 +92,4 @@ You can reference the information by using
   9.  Test your changes
   10. Commit and push your changes to the PR
   11. If everything is satisfactory the changes will be merged into the main branch
-
 
