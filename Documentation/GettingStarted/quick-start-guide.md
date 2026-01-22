@@ -2,6 +2,8 @@
 
 This guide will help you get up and running with ImmyBot in under 30 minutes. Follow these steps to set up your account, connect your first computer, and create your first deployment.
 
+<WistiaEmbed media-id="j4jjmljlxw" />
+
 ## Understanding the ImmyBot Approach
 
 **The goal of ImmyBot is to set up a computer knowing only the customer and the end user.**
@@ -168,4 +170,3 @@ Congratulations! You've successfully set up ImmyBot, connected your first comput
 - [Core Concepts](/Documentation/GettingStarted/core-concepts.md) - Understand the fundamental concepts of ImmyBot
 - [Creating Deployments](/Documentation/HowToGuides/creating-managing-deployments.md) - Explore advanced deployment options
 - [Integration Overview](/Documentation/Integrations//integration-overview.md) - Connect ImmyBot to your existing tools
-

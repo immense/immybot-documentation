@@ -1,6 +1,7 @@
 // https://vitepress.dev/guide/custom-theme
 import { h } from 'vue';
 import Theme from 'vitepress/theme';
+import WistiaEmbed from '../components/WistiaEmbed.vue';
 import './style.css';
 import './immy.css';
 
@@ -12,6 +13,6 @@ export default {
     });
   },
   enhanceApp({ app, router, siteData }) {
-    // ...
+    app.component('WistiaEmbed', WistiaEmbed);
   }
 };

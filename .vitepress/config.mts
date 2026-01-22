@@ -20,6 +20,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ]
     ],
     description: "A documentation suite for all things ImmyBot",
+    vue: {
+        template: {
+            compilerOptions: {
+                isCustomElement: (tag) => tag === 'wistia-player',
+            },
+        },
+    },
     sitemap: {
         hostname: 'https://docs.immy.bot'
     },
