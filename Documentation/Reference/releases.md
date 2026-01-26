@@ -1,6 +1,17 @@
+## 0.76.2
+
+Released 01/26/2026
+
+### Stability Improvements
+
+- Improved memory footprint of integration audit logs around refreshing an agent's online status
+- Improved CPU and memory footprint when writing output to PowerShell streams.
+- Improved CPU and memory footprint in Azure data syncs
+- Improved memory footprint in global software caches and lookups
+
 ## 0.76.1
 
-Released 01/22/2025
+Released 01/22/2026
 
 ### Bug Fixes
 
@@ -9,7 +20,7 @@ Released 01/22/2025
 
 ## 0.76.0
 
-Released 01/19/2025
+Released 01/19/2026
 
 ### Bug Fixes
 
