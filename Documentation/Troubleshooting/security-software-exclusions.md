@@ -147,11 +147,13 @@ To correct it, you need to bypass SSL Inspection for your instances hostnames/IP
 You can also set your Exclusion Mode to "Interoperability - Extended".
 
 :::danger Updating SentinelOne through ImmyBot
-If you want ImmyBot to handle SentinelOne updates, you must enable "Local Upgrade/Downgrade Authorization" found in:
+If you want ImmyBot to handle SentinelOne updates, you must disable "Local Upgrade/Downgrade Authorization" found in:
 
 **Sentinels** > **Policy** > **Agent**
 
 ![alt text](S1-LU-LD-Auth.png)
+
+*its enabled here, but this should be toggled off*
 
 :::
 
