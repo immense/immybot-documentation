@@ -194,6 +194,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     { text: 'Security Software Exclusions', link: '/Documentation/Troubleshooting/security-software-exclusions' },
                     { text: 'Agent Troubleshooting', link: '/Documentation/Troubleshooting/troubleshooting' },
                     { text: 'App Registration Secret Expired', link: '/Documentation/Troubleshooting/AppRegistrationSecretExpired' },
+                    { text: 'ImmyBot Customer Portal', link: '/Documentation/Troubleshooting/Customer-Portal' },
+
                 ],
             },
             {
