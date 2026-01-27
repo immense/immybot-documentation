@@ -43,7 +43,10 @@ Simply click on "Mark as Closed" at the top right corner of your ticket.
 ![alt text](MarkAsClosed.png)
 
 ### Responding to a ticket
-To reply to an existing ticket:
+
+You can respond to a ticket via this portal or in an email response to the support update. We are not taking down the existing infrastructure to get support.
+
+To reply to an existing ticket in the portal:
 1. Click on the ticket from your ticket list to open it
 2. Scroll to the bottom of the ticket thread
 3. Type your response in the reply box
