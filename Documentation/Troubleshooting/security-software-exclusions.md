@@ -153,8 +153,6 @@ If you want ImmyBot to handle SentinelOne updates, you must disable "Local Upgra
 
 ![alt text](S1-LU-LD-Auth.png)
 
-*its enabled here, but this should be toggled off*
-
 :::
 
 ## DNSFilter
