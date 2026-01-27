@@ -34,19 +34,28 @@ Save pages as you edit them, they will be automatically updated in your browser.
 
 ## Wistia Embeds
 
-Use the `WistiaEmbed` component to add Wistia videos in Markdown without page-level scripts.
+Use the `WistiaEmbed` component to add Wistia videos or channel playlists in Markdown without page-level scripts.
 
-Example:
+Example (single video):
 
 ```
 <WistiaEmbed media-id="j4jjmljlxw" />
 ```
 
-Optional props:
+Example (channel playlist):
+
+```
+<WistiaEmbed channel-id="wq8r00965n" />
+```
+
+Required props:
+- `media-id` for single videos or `channel-id` for channel playlists
+
+Optional props (video only):
 - `aspect` (number or string, default `16/9`)
 - `swatch` (string URL override for the preview image)
 
-You can place multiple embeds on the same page by repeating the component with different `media-id` values.
+You can place multiple embeds on the same page by repeating the component with different `media-id` or `channel-id` values.
 
 ## Project Structure
 
@@ -92,4 +101,3 @@ You can reference the information by using
   9.  Test your changes
   10. Commit and push your changes to the PR
   11. If everything is satisfactory the changes will be merged into the main branch
-

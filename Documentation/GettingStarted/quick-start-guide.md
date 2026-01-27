@@ -2,7 +2,7 @@
 
 This guide will help you get up and running with ImmyBot in under 30 minutes. Follow these steps to set up your account, connect your first computer, and create your first deployment.
 
-<WistiaEmbed media-id="j4jjmljlxw" />
+<WistiaEmbed channel-id="wq8r00965n" />
 
 ## Understanding the ImmyBot Approach
 
@@ -17,6 +17,9 @@ Before you begin, make sure you have:
 - Administrator access to a test computer (physical or virtual)
 - A USB drive (for physical computers)
 
+<WistiaEmbed media-id="exwm9mtop7" />
+Getting Started With ImmyBot
+
 ## Step 1: Log in to ImmyBot
 
 1. Navigate to your ImmyBot instance URL (typically `https://yourdomain.immy.bot`)
@@ -28,6 +31,12 @@ You'll be greeted with the ImmyBot dashboard, which provides an overview of your
 ## Step 2: Create an ImmyBot USB Drive for Physical Machines or ISO for Virtual Machines
 
 When you first log in to ImmyBot, the Getting Started Wizard will prompt you to create an ImmyBot flash drive.
+
+<WistiaEmbed media-id="pzcxwj7coz" />
+
+:::details ISO for Virtual Machine
+<WistiaEmbed media-id="o0ax7wfnph" />
+:::
 
 ::: info
  **Important:** You only need to create this USB drive ONCE. The same drive can be used for all clients and computers. You'll select the specific client after the computer connects to ImmyBot.
@@ -56,6 +65,8 @@ We recommend leaving this default, then in one of your first deployments, deleti
 
 ## Step 3: Connect the Computer
 
+<WistiaEmbed media-id="gf9iwrtj3o" />
+
 ### For Physical Computers (Recommended)
 
 We recommend using a physical computer (Dell, HP, or Lenovo) for your first setup to experience the full capabilities of ImmyBot, including BIOS and driver updates.
@@ -82,6 +93,8 @@ Once the provisioning package is applied, the computer will connect to ImmyBot a
 
 ## Step 5: Assign Customer and User
 
+<WistiaEmbed media-id="phre3e9stm" />
+
 For ImmyBot to properly configure the computer, you need to specify:
 
 1. **Customer (Required)**: The organization that owns the computer
@@ -95,6 +108,8 @@ For ImmyBot to properly configure the computer, you need to specify:
 <!--    -->
 
 ## Step 6: Create Your First Deployment
+
+<WistiaEmbed media-id="zrgvbigvzo" />
 
 Now let's create a simple deployment to install a software package:
 
@@ -137,6 +152,8 @@ You can also create deployments that only apply under certain conditions. For ex
 These conditions are defined using filter scripts, or metascripts that can check external systems.
 
 ## Step 7: Run a Maintenance Session
+
+<WistiaEmbed media-id="q3f1fib97g" />
 
 To apply your new deployment immediately:
 

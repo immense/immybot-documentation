@@ -23,7 +23,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     vue: {
         template: {
             compilerOptions: {
-                isCustomElement: (tag) => tag === 'wistia-player',
+                isCustomElement: (tag) =>
+                    tag === 'wistia-player' || tag === 'wistia-playlist',
             },
         },
     },
