@@ -1,3 +1,11 @@
+## 0.76.3
+
+Released 01/27/2026
+
+### Bug Fixes
+
+- Fixed an issue where users would not be redirected to the billing page when a trial expired or when the selected billing plan required any changes
+
 ## 0.76.2
 
 Released 01/26/2026
