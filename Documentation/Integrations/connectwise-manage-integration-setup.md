@@ -38,7 +38,12 @@ Create a new PSA Link and fill in the **Provider Info**
 
 ![](/.vitepress/images/2021-03-23-14-44-05.png)
 
-# CW Manage Pod v1
+## CW Manage Pods
+::: warning NOTE:
+Only one CW Manage pod for ImmyBot will load at a time.
+:::
+
+### CW Manage Pod v1
 
 Setting up this integration allows you to Look up the contact's email address in Immy and shows you their computers (Immy does User Computer Affinity behind the scenes so you don't have to do it manually). Technicians can jump into their computers or push software via the ticket.
 
@@ -54,19 +59,19 @@ Go to ConnectWise -> Setup Tables -> Manage Hosted API -> +
 ![image](https://github.com/immense/immybot-documentation/assets/1424395/88fade4c-0ee7-4b88-971e-34138929e4e3)
 
 
-## Technician Tools
+### Technician Tools
 
 [What is Technician Tools?](/Documentation/Reference/terminology.md#technician-tools)
 
 **This feature only works for the `Service Ticket` screen.*
 
-### Required Permissions
+#### Required Permissions
 
 Modify your immy.bot security role to include `Service Desk -> Service Tickets -> Inquire Level -> All`
 
 ![alt text](image-5.png)
 
-### Setup
+#### Setup
 
 In ConnectWise Manage, you can use "Manage Hosted API Setup" to embed content on certain pages in the UI. You can set one up by navigating to `System -> Setup Tables -> Manage Hosted API Setup`
 
