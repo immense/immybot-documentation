@@ -34,7 +34,7 @@ When you first log in to ImmyBot, the Getting Started Wizard will prompt you to 
 
 <WistiaEmbed media-id="pzcxwj7coz" />
 
-:::details ISO for Virtual Machine
+:::details Click here for virtual machines
 <WistiaEmbed media-id="o0ax7wfnph" />
 :::
 
